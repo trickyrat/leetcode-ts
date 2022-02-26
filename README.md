@@ -11,7 +11,8 @@ All solutions are sorted in ascending order according to the problem number.
 ## Build and Test
 
 > Typescript 3.9 or later
-> tsc Solution.ts 
+> npm install  
+> npm install test for testing code and test-c with coverage
 
 
 ## Author

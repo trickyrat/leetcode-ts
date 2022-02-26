@@ -1,13 +1,12 @@
-class ListNode {
-    val: number;
-    next: ListNode | null
-    constructor(val?: number, next?: ListNode | null) {
-        this.val = (val === undefined ? 0 : val);
-        this.next = (next === undefined ? null : next);
-    }
-}
+import { ListNode } from "./ListNode";
 
-class Solution {
+export class Solution {
+    /**
+     * 1.两数之和
+     * @param nums 输入数组
+     * @param target 两数之和
+     * @returns 包含索引的数组
+     */
     twoSum(nums: number[], target: number): number[] {
         let res = [0, 0];
         let dic: Map<number, number> = new Map<number, number>();
@@ -23,6 +22,12 @@ class Solution {
         return [];
     }
 
+    /**
+     * 2.两数相加
+     * @param l1 链表头节点
+     * @param l2 链表头节点
+     * @returns 相加后链表
+     */
     addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
         let dummyHead: ListNode | null = new ListNode();
         let carry: number = 0;
@@ -48,6 +53,11 @@ class Solution {
         return dummyHead.next;
     }
 
+    /**
+     * 3. 无重复字符的最长子串
+     * @param s 输入字符串
+     * @returns 最长字串的长度
+     */
     longestSubstringWithoutRepeating(s: string): number {
         let len: number = s.length, ans: number = 0;
         let index: Array<number> = new Array<number>(128).fill(0);
@@ -58,4 +68,48 @@ class Solution {
         }
         return ans;
     }
+
+    /**
+     * 553. 最优除法
+     * @param nums 输入数组
+     * @returns 结果字符串
+     */
+    optimalDivision(nums: number[]): string {
+        let n = nums.length;
+        if (n == 1) {
+            return "" + nums[0];
+        }
+        if (n == 2) {
+            return "" + nums[0] + "/" + nums[1];
+        }
+        let res = new Array<string>();
+        res.push(nums[0].toString());
+        res.push("/(");
+        res.push(nums[1].toString());
+        for (let i = 2; i < n; i++) {
+            res.push("/");
+            res.push(nums[i].toString());
+        }
+        res.push(")");
+        return res.join('');
+    }
+
+    /**
+     * 2016. 增量元素之间的最大值
+     * @param nums 输入元素
+     * @returns 最大值
+     */
+    maximumDifference(nums: number[]): number {
+        let n = nums.length;
+        let ans = -1, premin = nums[0];
+        for (let i = 0; i < n; i++) {
+            if (nums[i] > premin) {
+                ans = Math.max(ans, nums[i] - premin);
+            } else {
+                premin = nums[i];
+            }
+        }
+        return ans;
+    }
+
 }
