@@ -26,7 +26,15 @@ test("LengthOfLongestSubstringTest", () => {
 
 test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000, 100, 10, 2])).toEqual("1000/(100/10/2)");
+  expect(solution.optimalDivision([1000])).toEqual("1000");
+  expect(solution.optimalDivision([1000, 100])).toEqual("1000/100");
 });
+
+test("CountKDifferenceTest", () => {
+  expect(solution.countKDifference([1, 2, 2, 1], 1)).toEqual(4);
+  expect(solution.countKDifference([1, 3], 3)).toEqual(0);
+  expect(solution.countKDifference([3, 2, 1, 5, 4], 2)).toEqual(3);
+})
 
 
 test("MaximumDifferenceTest", () => {

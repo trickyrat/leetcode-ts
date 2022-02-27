@@ -95,6 +95,22 @@ export class Solution {
     }
 
     /**
+     * 2006. 差值的绝对值为k数对数目
+     * @param nums 输入数组
+     * @param k 差值
+     * @returns 数对数目
+     */
+    countKDifference(nums: number[], k: number): number {
+        let ans = 0, n = nums.length;
+        let cnt = new Map();
+        for (let i = 0; i < n; i++) {
+            ans += (cnt.get(nums[i] - k) || 0) + (cnt.get(nums[i] + k) || 0);
+            cnt.set(nums[i], (cnt.get(nums[i]) || 0) + 1);
+        }
+        return ans;
+    }
+
+    /**
      * 2016. 增量元素之间的最大值
      * @param nums 输入元素
      * @returns 最大值
