@@ -70,6 +70,30 @@ export class Solution {
     }
 
     /**
+     * 6. Z字形转换
+     * @param s 输入字符串
+     * @param numRows 输入行数
+     * @returns 转换后的字符
+     */
+    zconvert(s: string, numRows: number): string {
+        let n = s.length, r = numRows;
+        if (r == 1 || r > n) {
+            return s;
+        }
+        let t = r * 2 - 2;
+        let ans = [];
+        for (let i = 0; i < r; i++) {
+            for (let j = 0; j < n - i; j += t) {
+                ans.push(s[i + j]);
+                if (i > 0 && i < r - 1 && j + t - i < n) {
+                    ans.push(s[j + t - i]);
+                }
+            }
+        }
+        return ans.join('');
+    }
+
+    /**
      * 553. 最优除法
      * @param nums 输入数组
      * @returns 结果字符串

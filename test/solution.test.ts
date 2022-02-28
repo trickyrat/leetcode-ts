@@ -24,6 +24,13 @@ test("LengthOfLongestSubstringTest", () => {
   expect(solution.longestSubstringWithoutRepeating("pwwkew")).toEqual(3);
 });
 
+test("ZConvertTest", () => {
+  expect(solution.zconvert("PAYPALISHIRING", 3)).toEqual("PAHNAPLSIIGYIR");
+  expect(solution.zconvert("PAYPALISHIRING", 4)).toEqual("PINALSIGYAHRPI");
+  expect(solution.zconvert("A", 1)).toEqual("A");
+});
+
+
 test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000, 100, 10, 2])).toEqual("1000/(100/10/2)");
   expect(solution.optimalDivision([1000])).toEqual("1000");
