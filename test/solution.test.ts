@@ -30,6 +30,17 @@ test("ZConvertTest", () => {
   expect(solution.zconvert("A", 1)).toEqual("A");
 });
 
+test("ReverseIntNumberTest", () => {
+  expect(solution.reverseIntNumber(123)).toEqual(321);
+  expect(solution.reverseIntNumber(-123)).toEqual(-321);
+  expect(solution.reverseIntNumber(120)).toEqual(21);
+  expect(solution.reverseIntNumber(100)).toEqual(1);
+  expect(solution.reverseIntNumber(0)).toEqual(0);
+  expect(solution.reverseIntNumber(-2147483649)).toEqual(0);
+  expect(solution.reverseIntNumber(-2147483648)).toEqual(0);
+});
+
+
 
 test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000, 100, 10, 2])).toEqual("1000/(100/10/2)");

@@ -94,6 +94,24 @@ export class Solution {
     }
 
     /**
+     * 7. 整数反转
+     * @param x 输入整数
+     */
+    reverseIntNumber(x: number): number {
+        let res = 0;
+        while (x != 0) {
+            let digit = x % 10;
+            x = ~~(x / 10);
+            res = res * 10 + digit;
+            if (res < Math.pow(-2, 31) || res > Math.pow(2, 31) - 1) {
+                return 0;
+            }
+        }
+        return res;
+    }
+
+
+    /**
      * 553. 最优除法
      * @param nums 输入数组
      * @returns 结果字符串
