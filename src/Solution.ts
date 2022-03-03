@@ -1,4 +1,5 @@
 import { ListNode } from "./ListNode";
+import { TreeNode } from "./TreeNode";
 
 export class Solution {
     /**
@@ -110,6 +111,30 @@ export class Solution {
         return res;
     }
 
+    /**
+     * 113.路径总和II
+     * @param root 输入根节点
+     * @param targetSum 目标值
+     * @returns 
+     */
+    pathSum(root: TreeNode | null, targetSum: number): number[][] {
+        let res: number[][] = [];
+        const dfs = (root: TreeNode | null, targetSum: number, path: number[]) => {
+            if (!root) {
+                return;
+            }
+            path.push(root.val);
+            targetSum -= root.val;
+            if (!root.left && !root && targetSum === 0) {
+                res.push(path.slice());
+            }
+            dfs(root.left, targetSum, path);
+            dfs(root.right, targetSum, path);
+            path.pop();
+        }
+        dfs(root, targetSum, []);
+        return res;
+    }
 
     /**
      * 553. 最优除法

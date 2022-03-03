@@ -1,4 +1,5 @@
 import { Solution } from "../src/Solution";
+import { TreeNode } from "../src/TreeNode";
 import { Util } from "../src/Util";
 
 let solution = new Solution();
@@ -41,6 +42,12 @@ test("ReverseIntNumberTest", () => {
 });
 
 
+test("PathSumTest", () => {
+  let root: TreeNode = new TreeNode(1);
+  root.left = new TreeNode(2);
+  root.right = new TreeNode(3);
+  expect(solution.pathSum(root, 2)).toEqual([]);
+});
 
 test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000, 100, 10, 2])).toEqual("1000/(100/10/2)");
