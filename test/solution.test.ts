@@ -1,9 +1,7 @@
 import { Solution } from "../src/Solution";
-import { TreeNode } from "../src/TreeNode";
-import { Util } from "../src/Util";
+import { createTreeNodeByDFS, createTreeNodeByBFS, createListNode, convertListNodeToArray } from "../src/Util";
 
 let solution = new Solution();
-let util = new Util();
 
 test("TwoSumTest", () => {
   expect(solution.twoSum([2, 7, 11, 15], 9)).toEqual([0, 1]);
@@ -14,9 +12,9 @@ test("TwoSumTest", () => {
 
 
 test("AddTwoNumbersTest", () => {
-  expect(util.convertListNodeToArray(solution.addTwoNumbers(util.createListNode([2, 4, 3]), util.createListNode([5, 6, 4])))).toEqual([7, 0, 8]);
-  expect(util.convertListNodeToArray(solution.addTwoNumbers(util.createListNode([0]), util.createListNode([0])))).toEqual([0]);
-  expect(util.convertListNodeToArray(solution.addTwoNumbers(util.createListNode([9, 9, 9, 9, 9, 9, 9]), util.createListNode([9, 9, 9, 9])))).toEqual([8, 9, 9, 9, 0, 0, 0, 1]);
+  expect(convertListNodeToArray(solution.addTwoNumbers(createListNode([2, 4, 3]), createListNode([5, 6, 4])))).toEqual([7, 0, 8]);
+  expect(convertListNodeToArray(solution.addTwoNumbers(createListNode([0]), createListNode([0])))).toEqual([0]);
+  expect(convertListNodeToArray(solution.addTwoNumbers(createListNode([9, 9, 9, 9, 9, 9, 9]), createListNode([9, 9, 9, 9])))).toEqual([8, 9, 9, 9, 0, 0, 0, 1]);
 });
 
 test("LengthOfLongestSubstringTest", () => {
@@ -43,18 +41,17 @@ test("ReverseIntNumberTest", () => {
 
 
 test("PathSumTest", () => {
-  let root: TreeNode = new TreeNode(1);
-  root.left = new TreeNode(2);
-  root.right = new TreeNode(3);
+  let root = createTreeNodeByBFS(["1", "2", "3"]);
+  let root1 = createTreeNodeByBFS(["5", "4", "8", "11", "null", "13", "4", "7", "2", "null", "null", "5", "1"]);
   expect(solution.pathSum(root, 2)).toEqual([]);
+  let actual = solution.pathSum(root1, 22)
+  expect(solution.pathSum(root1, 22)).toEqual([[5, 4, 11, 2], [5, 8, 4, 5]]);
 });
 
 test("AddDigitTest", () => {
   expect(solution.addDigits(38)).toEqual(2);
   expect(solution.addDigits(0)).toEqual(0);
 });
-
-
 
 test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000, 100, 10, 2])).toEqual("1000/(100/10/2)");
