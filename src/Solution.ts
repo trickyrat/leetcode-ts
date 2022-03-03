@@ -137,6 +137,15 @@ export class Solution {
     }
 
     /**
+     * 258.各位相加
+     * @param num 
+     * @returns 
+     */
+    addDigits(num: number): number {
+        return (num - 1) % 9 + 1;
+    }
+
+    /**
      * 553. 最优除法
      * @param nums 输入数组
      * @returns 结果字符串

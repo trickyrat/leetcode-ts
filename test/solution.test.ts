@@ -49,6 +49,13 @@ test("PathSumTest", () => {
   expect(solution.pathSum(root, 2)).toEqual([]);
 });
 
+test("AddDigitTest", () => {
+  expect(solution.addDigits(38)).toEqual(2);
+  expect(solution.addDigits(0)).toEqual(0);
+});
+
+
+
 test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000, 100, 10, 2])).toEqual("1000/(100/10/2)");
   expect(solution.optimalDivision([1000])).toEqual("1000");
