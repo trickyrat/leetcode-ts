@@ -1,7 +1,11 @@
 import { ListNode } from "./ListNode";
 import { TreeNode } from "./TreeNode";
 
-
+/**
+ * 使用数组创建单链表
+ * @param nums 
+ * @returns 
+ */
 export function createListNode(nums: number[]): ListNode | null {
   let head = new ListNode(0);
   let dummyHead = head;
@@ -11,6 +15,12 @@ export function createListNode(nums: number[]): ListNode | null {
   }
   return head.next;
 }
+
+/**
+ * 把单链表转换成数组
+ * @param head 
+ * @returns 
+ */
 export function convertListNodeToArray(head: ListNode | null): number[] {
   let res = new Array<number>();
   while (head) {
@@ -25,47 +35,20 @@ export function convertListNodeToArray(head: ListNode | null): number[] {
  * @param nums 输入数组，其中'null'代表该节点为null
  * @returns 
  */
-export function createTreeNodeByDFS(nums: string[]): TreeNode | null {
-  // let root = null;
-  // let n = nums.length;
-  // if (n >= 1) {
-  //   root = new TreeNode(parseInt(nums[0]));
-  // }
-  // const dfs = (node: TreeNode | null, index: number, arr: string[]) => {
-  //   if (node) {
-  //     if (2 * index + 1 < n) {
-  //       if (nums[2 * index + 1] === "null") {
-  //         node.left = null;
-  //       } else {
-  //         node.left = new TreeNode(parseInt(nums[2 * index + 1]));
-  //       }
-  //       dfs(node.left, 2 * index + 1, arr);
-  //     }
-  //     if (2 * index + 2 < n) {
-  //       if (nums[2 * index + 2] === "null") {
-  //         node.right = null;
-  //       } else {
-  //         node.right = new TreeNode(parseInt(nums[2 * index + 2]));
-  //       }
-  //       dfs(node.right, 2 * index + 2, arr);
-  //     }
-  //   }
-  // }
-
-  //return root;
-  return dfs(nums);
-}
-
-function dfs(list: string[]): TreeNode | null {
-  if (list[0] === "null") {
-    list.shift();
-    return null;
+export function createTreeNodeByDFS(data: string): TreeNode | null {
+  const dfs = (dataList: string[]) => {
+    if (dataList[0] === "null") {
+      dataList.shift();
+      return null;
+    }
+    let root = new TreeNode(parseInt(dataList[0]));
+    dataList.shift();
+    root.left = dfs(dataList);
+    root.right = dfs(dataList);
+    return root;
   }
-  let root = new TreeNode(parseInt(list[0]));
-  list.shift();
-  root.left = dfs(list);
-  root.right = dfs(list);
-  return root;
+  let list = data.split(",");
+  return dfs(list);
 }
 
 /**
@@ -73,7 +56,8 @@ function dfs(list: string[]): TreeNode | null {
 * @param nums 输入数组，其中'null'代表该节点为null
 * @returns
 */
-export function createTreeNodeByBFS(nums: string[]): TreeNode | null {
+export function createTreeNodeByBFS(data: string): TreeNode | null {
+  let nums = data.split(',');
   if (nums[0] === 'null') {
     return null;
   }

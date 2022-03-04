@@ -7,6 +7,17 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "Debug Current File",
+      "program": "${workspaceFolder}\\dist\\main.js",
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "outFiles": [
+        "${workspaceFolder}/dist/**/*.js",
+        "!**/node_modules/**"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "Jest All",
       "skipFiles": [
         "<node_internals>/**"

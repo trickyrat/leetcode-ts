@@ -119,17 +119,17 @@ export class Solution {
      */
     pathSum(root: TreeNode | null, targetSum: number): number[][] {
         let res: number[][] = [];
-        const dfs = (root: TreeNode | null, targetSum: number, path: number[]) => {
-            if (!root) {
+        const dfs = (node: TreeNode | null, targetSum: number, path: number[]) => {
+            if (!node) {
                 return;
             }
-            path.push(root.val);
-            targetSum -= root.val;
-            if (!root.left && !root && targetSum === 0) {
+            path.push(node.val);
+            targetSum -= node.val;
+            if (!node.left && !node.right && targetSum === 0) {
                 res.push(path.slice());
             }
-            dfs(root.left, targetSum, path);
-            dfs(root.right, targetSum, path);
+            dfs(node.left, targetSum, path);
+            dfs(node.right, targetSum, path);
             path.pop();
         }
         dfs(root, targetSum, []);
