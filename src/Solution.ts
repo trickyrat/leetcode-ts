@@ -146,6 +146,16 @@ export class Solution {
     }
 
     /**
+     * 521.最长特殊序列
+     * @param a 
+     * @param b 
+     * @returns 
+     */
+    findLUSLength(a: string, b: string): number {
+        return a === b ? -1 : Math.max(a.length, b.length);
+    }
+
+    /**
      * 553. 最优除法
      * @param nums 输入数组
      * @returns 结果字符串

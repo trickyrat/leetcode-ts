@@ -4,7 +4,7 @@ import { TreeNode } from "./TreeNode";
 /**
  * 使用数组创建单链表
  * @param nums 
- * @returns 
+ * @returns 链表头节点
  */
 export function createListNode(nums: number[]): ListNode | null {
   let head = new ListNode(0);
@@ -19,7 +19,7 @@ export function createListNode(nums: number[]): ListNode | null {
 /**
  * 把单链表转换成数组
  * @param head 
- * @returns 
+ * @returns 链表数组
  */
 export function convertListNodeToArray(head: ListNode | null): number[] {
   let res = new Array<number>();
@@ -33,7 +33,7 @@ export function convertListNodeToArray(head: ListNode | null): number[] {
 /**
  * 使用数组创建二叉树结点(前序遍历顺序)
  * @param nums 输入数组，其中'null'代表该节点为null
- * @returns 
+ * @returns 二叉树根节点
  */
 export function createTreeNodeByDFS(data: string): TreeNode | null {
   const dfs = (dataList: string[]) => {
@@ -54,7 +54,7 @@ export function createTreeNodeByDFS(data: string): TreeNode | null {
 /**
 * 使用数组创建二叉树结点(前序遍历顺序)
 * @param nums 输入数组，其中'null'代表该节点为null
-* @returns
+* @returns 二叉树根节点
 */
 export function createTreeNodeByBFS(data: string): TreeNode | null {
   let nums = data.split(',');

@@ -52,6 +52,12 @@ test("AddDigitTest", () => {
   expect(solution.addDigits(0)).toEqual(0);
 });
 
+test("FindLUSLength", () => {
+  expect(solution.findLUSLength("aba", "cdc")).toEqual(3);
+  expect(solution.findLUSLength("aaa", "bbb")).toEqual(3);
+  expect(solution.findLUSLength("aaa", "aaa")).toEqual(-1);
+});
+
 test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000, 100, 10, 2])).toEqual("1000/(100/10/2)");
   expect(solution.optimalDivision([1000])).toEqual("1000");
