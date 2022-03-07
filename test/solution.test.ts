@@ -52,6 +52,11 @@ test("AddDigitTest", () => {
   expect(solution.addDigits(0)).toEqual(0);
 });
 
+test("ConvertToBase7", () => {
+  expect(solution.convertToBase7(100)).toEqual("202");
+  expect(solution.convertToBase7(-7)).toEqual("-10");
+});
+
 test("FindLUSLength", () => {
   expect(solution.findLUSLength("aba", "cdc")).toEqual(3);
   expect(solution.findLUSLength("aaa", "bbb")).toEqual(3);

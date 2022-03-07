@@ -146,6 +146,27 @@ export class Solution {
     }
 
     /**
+     * 504.七进制数
+     * @param num 
+     */
+    convertToBase7(num: number): string {
+        if (num === 0) {
+            return "0";
+        }
+        let negative = num < 0;
+        num = Math.abs(num);
+        let digits = []
+        while (num > 0) {
+            digits.push(num % 7);
+            num = Math.floor(num / 7);
+        }
+        if (negative) {
+            digits.push("-");
+        }
+        return digits.reverse().join("");
+    }
+
+    /**
      * 521.最长特殊序列
      * @param a 
      * @param b 
