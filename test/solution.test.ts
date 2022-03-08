@@ -81,3 +81,9 @@ test("MaximumDifferenceTest", () => {
   expect(solution.maximumDifference([9, 4, 3, 2])).toEqual(-1);
   expect(solution.maximumDifference([1, 5, 2, 10])).toEqual(9);
 })
+
+
+test("PlatesBetweenCandlesTest", () => {
+  expect(solution.platesBetweenCandles("**|**|***|", [[2, 5], [5, 9]])).toEqual([2, 3]);
+  expect(solution.platesBetweenCandles("***|**|*****|**||**|*", [[1, 17], [4, 5], [14, 17], [5, 11], [15, 16]])).toEqual([9, 0, 0, 0, 0]);
+})

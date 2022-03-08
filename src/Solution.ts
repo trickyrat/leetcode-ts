@@ -235,4 +235,42 @@ export class Solution {
         return ans;
     }
 
+    /**
+     * 2055.蜡烛之间的盘子
+     * @param s 
+     * @param queries 
+     * @returns 
+     */
+    platesBetweenCandles(s: string, queries: number[][]): number[] {
+        let n = s.length;
+        let preSum = new Array(n).fill(0);
+        for (let i = 0, sum = 0; i < n; i++) {
+            if (s[i] === "*") {
+                sum++;
+            }
+            preSum[i] = sum;
+        }
+        let left = new Array(n).fill(0);
+        for (let i = 0, l = -1; i < n; i++) {
+            if (s[i] === "|") {
+                l = i;
+            }
+            left[i] = l;
+        }
+        let right = new Array(n).fill(0);
+        for (let i = n - 1, r = -1; i >= 0; i--) {
+            if (s[i] === "|") {
+                r = i;
+            }
+            right[i] = r;
+        }
+        let ans = new Array(queries.length).fill(0);
+        for (let i = 0; i < queries.length; i++) {
+            let query = queries[i];
+            let x = right[query[0]], y = left[query[1]];
+            ans[i] = x === -1 || y === -1 || x >= y ? 0 : preSum[y] - preSum[x];
+
+        }
+        return ans;
+    }
 }
