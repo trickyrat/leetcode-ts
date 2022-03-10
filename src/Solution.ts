@@ -1,5 +1,6 @@
 import { ListNode } from "./ListNode";
 import { TreeNode } from "./TreeNode";
+import { Node } from "./Node";
 
 export class Solution {
     /**
@@ -199,6 +200,25 @@ export class Solution {
         }
         res.push(")");
         return res.join('');
+    }
+
+    /**
+     * 589.N叉树的前序遍历
+     * @param root 
+     */
+    preorder(root: Node): number[] {
+        let ans: number[] = [];
+        const dfs = (node: Node) => {
+            if (node === null) {
+                return;
+            }
+            ans.push(node.val);
+            for (const ch of node.children) {
+                dfs(ch);
+            }
+        };
+        dfs(root);
+        return ans;
     }
 
     /**
