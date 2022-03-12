@@ -222,6 +222,26 @@ export class Solution {
     }
 
     /**
+     * 590.N叉树的后序遍历
+     * @param root 
+     * @returns 
+     */
+    postorder(root: Node): number[] {
+        let ans: number[] = [];
+        const dfs = (node: Node) => {
+            if (node === null) {
+                return;
+            }
+            for (const ch of node.children) {
+                dfs(ch);
+            }
+            ans.push(node.val);
+        };
+        dfs(root);
+        return ans;
+    }
+
+    /**
      * 2006. 差值的绝对值为k数对数目
      * @param nums 输入数组
      * @param k 差值
