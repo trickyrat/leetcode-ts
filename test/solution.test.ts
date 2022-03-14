@@ -82,6 +82,12 @@ test("MaximumDifferenceTest", () => {
   expect(solution.maximumDifference([1, 5, 2, 10])).toEqual(9);
 })
 
+test("CountMaxOrSubsetsTest", () => {
+  expect(solution.countMaxOrSubsets([3, 1])).toEqual(2);
+  expect(solution.countMaxOrSubsets([2, 2, 2])).toEqual(7);
+  expect(solution.countMaxOrSubsets([3, 2, 1, 5])).toEqual(6);
+})
+
 
 test("PlatesBetweenCandlesTest", () => {
   expect(solution.platesBetweenCandles("**|**|***|", [[2, 5], [5, 9]])).toEqual([2, 3]);

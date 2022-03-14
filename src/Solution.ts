@@ -276,6 +276,29 @@ export class Solution {
     }
 
     /**
+     * 2044. 统计按位或能得到最大值的子集数目
+     * @param nums 
+     */
+    countMaxOrSubsets(nums: number[]): number {
+        let maxOr = 0, cnt = 0
+        const dfs = (pos: number, orVal: number) => {
+            if (pos === nums.length) {
+                if (orVal > maxOr) {
+                    maxOr = orVal;
+                    cnt = 1;
+                } else if (orVal === maxOr) {
+                    cnt++;
+                }
+                return;
+            }
+            dfs(pos + 1, orVal | nums[pos]);
+            dfs(pos + 1, orVal);
+        };
+        dfs(0, 0);
+        return cnt;
+    }
+
+    /**
      * 2055.蜡烛之间的盘子
      * @param s 
      * @param queries 
