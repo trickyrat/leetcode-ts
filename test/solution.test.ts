@@ -69,6 +69,13 @@ test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000, 100])).toEqual("1000/100");
 });
 
+
+test("PivotIndexTest", () => {
+  expect(solution.pivotIndex([2, 3, -1, 8, 4])).toEqual(3);
+  expect(solution.pivotIndex([1, -1, 4])).toEqual(2);
+  expect(solution.pivotIndex([2, 5])).toEqual(-1);
+})
+
 test("CountKDifferenceTest", () => {
   expect(solution.countKDifference([1, 2, 2, 1], 1)).toEqual(4);
   expect(solution.countKDifference([1, 3], 3)).toEqual(0);

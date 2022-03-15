@@ -56,7 +56,7 @@ export class Solution {
     }
 
     /**
-     * 3. 无重复字符的最长子串
+     * 3.无重复字符的最长子串
      * @param s 输入字符串
      * @returns 最长字串的长度
      */
@@ -72,7 +72,7 @@ export class Solution {
     }
 
     /**
-     * 6. Z字形转换
+     * 6.Z字形转换
      * @param s 输入字符串
      * @param numRows 输入行数
      * @returns 转换后的字符
@@ -96,7 +96,7 @@ export class Solution {
     }
 
     /**
-     * 7. 整数反转
+     * 7.整数反转
      * @param x 输入整数
      */
     reverseIntNumber(x: number): number {
@@ -178,7 +178,7 @@ export class Solution {
     }
 
     /**
-     * 553. 最优除法
+     * 553.最优除法
      * @param nums 输入数组
      * @returns 结果字符串
      */
@@ -242,7 +242,23 @@ export class Solution {
     }
 
     /**
-     * 2006. 差值的绝对值为k数对数目
+     * 1991.找到数组的中间位置
+     * @param nums 
+     */
+    pivotIndex(nums: number[]): number {
+        let total = nums.reduce((a, b) => a + b, 0);
+        let sum = 0;
+        for (let i = 0; i < nums.length; i++) {
+            if (2 * sum + nums[i] == total) {
+                return i;
+            }
+            sum += nums[i];
+        }
+        return -1;
+    }
+
+    /**
+     * 2006.差值的绝对值为k数对数目
      * @param nums 输入数组
      * @param k 差值
      * @returns 数对数目
@@ -258,7 +274,7 @@ export class Solution {
     }
 
     /**
-     * 2016. 增量元素之间的最大值
+     * 2016.增量元素之间的最大值
      * @param nums 输入元素
      * @returns 最大值
      */
@@ -276,7 +292,7 @@ export class Solution {
     }
 
     /**
-     * 2044. 统计按位或能得到最大值的子集数目
+     * 2044.统计按位或能得到最大值的子集数目
      * @param nums 
      */
     countMaxOrSubsets(nums: number[]): number {
