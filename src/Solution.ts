@@ -1,6 +1,7 @@
 import { ListNode } from "./ListNode";
 import { TreeNode } from "./TreeNode";
 import { Node } from "./Node";
+import { Trie } from "./Trie";
 
 export class Solution {
     /**
@@ -113,6 +114,34 @@ export class Solution {
     }
 
     /**
+     * 73.矩阵置零
+     * @param matrix 
+     */
+    setZeroes(matrix: number[][]): void {
+        let col0 = 1, rows = matrix.length, cols = matrix[0].length;
+        for (let i = 0; i < rows; i++) {
+            if (matrix[i][0] === 0) {
+                col0 = 0;
+            }
+            for (let j = 1; j < cols; j++) {
+                if (matrix[i][j] === 0) {
+                    matrix[i][0] = matrix[0][j] = 0;
+                }
+            }
+        }
+        for (let i = rows - 1; i >= 0; i--) {
+            for (let j = cols - 1; j >= 1; j--) {
+                if (matrix[i][0] === 0 || matrix[0][j] === 0) {
+                    matrix[i][j] = 0;
+                }
+            }
+            if (col0 === 0) {
+                matrix[i][0] = 0;
+            }
+        }
+    }
+
+    /**
      * 113.路径总和II
      * @param root 输入根节点
      * @param targetSum 目标值
@@ -206,9 +235,9 @@ export class Solution {
      * 589.N叉树的前序遍历
      * @param root 
      */
-    preorder(root: Node): number[] {
+    preorder(root: Node | null): number[] {
         let ans: number[] = [];
-        const dfs = (node: Node) => {
+        const dfs = (node: Node | null) => {
             if (node === null) {
                 return;
             }
@@ -226,9 +255,9 @@ export class Solution {
      * @param root 
      * @returns 
      */
-    postorder(root: Node): number[] {
+    postorder(root: Node | null): number[] {
         let ans: number[] = [];
-        const dfs = (node: Node) => {
+        const dfs = (node: Node | null) => {
             if (node === null) {
                 return;
             }
@@ -239,6 +268,27 @@ export class Solution {
         };
         dfs(root);
         return ans;
+    }
+    /**
+     * 
+     * @param words 
+     * @returns 
+     */
+    longestWord(words: string[]): string {
+        let trie: Trie = new Trie();
+        words.forEach(word => {
+            trie.insert(word);
+        });
+        let longest: string = "";
+        words.forEach(word => {
+            if (trie.search(word)) {
+                if (word.length > longest.length || (word.length == longest.length && word.localeCompare(longest) < 0)) {
+                    longest = word;
+                }
+            }
+
+        });
+        return longest;
     }
 
     /**

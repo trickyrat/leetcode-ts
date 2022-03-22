@@ -1,4 +1,5 @@
 import { Solution } from "../src/Solution";
+import { Node } from "../src/Node";
 import { createTreeNodeByDFS, createTreeNodeByBFS, createListNode, convertListNodeToArray } from "../src/Util";
 
 let solution = new Solution();
@@ -39,6 +40,15 @@ test("ReverseIntNumberTest", () => {
   expect(solution.reverseIntNumber(-2147483648)).toEqual(0);
 });
 
+test("SetZeroesTest", () => {
+  let input1 = [[1, 1, 1], [1, 0, 1], [1, 1, 1]];
+  solution.setZeroes(input1)
+  expect(input1).toEqual([[1, 0, 1], [0, 0, 0], [1, 0, 1]]);
+  let input2 = [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]];
+  solution.setZeroes(input2)
+  expect(input2).toEqual([[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]);
+});
+
 
 test("PathSumTest", () => {
   let root = createTreeNodeByBFS("1,2,3");
@@ -55,6 +65,7 @@ test("AddDigitTest", () => {
 test("ConvertToBase7", () => {
   expect(solution.convertToBase7(100)).toEqual("202");
   expect(solution.convertToBase7(-7)).toEqual("-10");
+  expect(solution.convertToBase7(0)).toEqual("0");
 });
 
 test("FindLUSLength", () => {
@@ -68,6 +79,32 @@ test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000])).toEqual("1000");
   expect(solution.optimalDivision([1000, 100])).toEqual("1000/100");
 });
+
+test("PreorderTest", () => {
+  let root = new Node(1);
+  let first_child = new Node(3);
+  first_child.children.push(new Node(5));
+  first_child.children.push(new Node(6));
+  root.children.push(first_child);
+  root.children.push(new Node(2));
+  root.children.push(new Node(4));
+  expect(solution.preorder(root)).toEqual([1, 3, 5, 6, 2, 4]);
+  let root2 = null;
+  expect(solution.preorder(root2)).toEqual([]);
+})
+
+test("PostorderTest", () => {
+  let root = new Node(1);
+  let first_child = new Node(3);
+  first_child.children.push(new Node(5));
+  first_child.children.push(new Node(6));
+  root.children.push(first_child);
+  root.children.push(new Node(2));
+  root.children.push(new Node(4));
+  expect(solution.postorder(root)).toEqual([5, 6, 3, 2, 4, 1]);
+  let root2 = null;
+  expect(solution.postorder(root2)).toEqual([]);
+})
 
 
 test("PivotIndexTest", () => {
