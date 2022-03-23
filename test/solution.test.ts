@@ -62,6 +62,11 @@ test("AddDigitTest", () => {
   expect(solution.addDigits(0)).toEqual(0);
 });
 
+test("FindDiagonalOrder", () => {
+  expect(solution.findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]])).toEqual([1, 2, 4, 7, 5, 3, 6, 8, 9]);
+  expect(solution.findDiagonalOrder([[1, 2], [3, 4]])).toEqual([1, 2, 3, 4]);
+});
+
 test("ConvertToBase7", () => {
   expect(solution.convertToBase7(100)).toEqual("202");
   expect(solution.convertToBase7(-7)).toEqual("-10");

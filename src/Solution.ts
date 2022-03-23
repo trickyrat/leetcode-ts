@@ -176,6 +176,40 @@ export class Solution {
     }
 
     /**
+     * 498.对角线遍历
+     * @param matrix 
+     */
+    findDiagonalOrder(matrix: number[][]): number[] {
+        if (matrix === null || matrix.length === 0) {
+            return [];
+        }
+        let N = matrix.length, M = matrix[0].length;
+        let row = 0, col = 0;
+        let direction = 1;
+        let res = new Array<number>(N * M);
+        let r = 0;
+        while (row < N && col < M) {
+            res[r++] = matrix[row][col];
+            let newRow = row + (direction == 1 ? -1 : 1);
+            let newCol = col + (direction == 1 ? 1 : -1);
+            if (newRow < 0 || newRow == N || newCol < 0 || newCol == M) {
+                if (direction == 1) {
+                    row += (col == M - 1 ? 1 : 0);
+                    col += (col < M - 1 ? 1 : 0);
+                } else {
+                    col += (row == N - 1 ? 1 : 0);
+                    row += (row < N - 1 ? 1 : 0);
+                }
+                direction = 1 - direction;
+            } else {
+                row = newRow;
+                col = newCol;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 504.七进制数
      * @param num 
      */
