@@ -167,6 +167,19 @@ export class Solution {
     }
 
     /**
+     * 172.阶乘后的零
+     * @param n 
+     */
+    trailingZeroes(n: number): number {
+        let ans = 0;
+        while (n != 0) {
+            n = Math.floor(n / 5);
+            ans += n;
+        }
+        return ans
+    }
+
+    /**
      * 258.各位相加
      * @param num 
      * @returns 

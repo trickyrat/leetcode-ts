@@ -57,6 +57,13 @@ test("PathSumTest", () => {
   expect(solution.pathSum(root1, 22)).toEqual([[5, 4, 11, 2], [5, 8, 4, 5]]);
 });
 
+test("TrailingZeroesTest", () => {
+  expect(solution.trailingZeroes(3)).toEqual(0);
+  expect(solution.trailingZeroes(5)).toEqual(1);
+  expect(solution.trailingZeroes(0)).toEqual(0);
+});
+
+
 test("AddDigitTest", () => {
   expect(solution.addDigits(38)).toEqual(2);
   expect(solution.addDigits(0)).toEqual(0);
