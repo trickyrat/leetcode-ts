@@ -118,6 +118,12 @@ test("PostorderTest", () => {
   expect(solution.postorder(root2)).toEqual([]);
 })
 
+test("CalPointsTest", () => {
+  expect(solution.calPoints(["5", "2", "C", "D", "+"])).toEqual(30);
+  expect(solution.calPoints(["5", "-2", "4", "C", "D", "9", "+", "+"])).toEqual(27);
+  expect(solution.calPoints(["1"])).toEqual(1);
+});
+
 
 test("PivotIndexTest", () => {
   expect(solution.pivotIndex([2, 3, -1, 8, 4])).toEqual(3);

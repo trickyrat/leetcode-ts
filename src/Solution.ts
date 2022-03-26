@@ -316,8 +316,40 @@ export class Solution {
         dfs(root);
         return ans;
     }
+
     /**
-     * 
+     * 682.棒球比赛
+     * @param ops 
+     */
+    calPoints(ops: string[]): number {
+        let ret = 0;
+        let points: number[] = [];
+        for (const op of ops) {
+            let n = points.length;
+            switch (op[0]) {
+                case '+':
+                    ret += points[n - 1] + points[n - 2];
+                    points.push(points[n - 1] + points[n - 2]);
+                    break;
+                case 'D':
+                    ret += 2 * points[n - 1];
+                    points.push(2 * points[n - 1]);
+                    break;
+                case 'C':
+                    ret -= points[n - 1];
+                    points.pop();
+                    break;
+                default:
+                    let val: number = parseInt(op);
+                    ret += val;
+                    points.push(val);
+            }
+        }
+        return ret;
+    }
+
+    /**
+     * 720. 词典中最长的单词
      * @param words 
      * @returns 
      */
