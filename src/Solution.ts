@@ -371,6 +371,32 @@ export class Solution {
     }
 
     /**
+     * 728.自除数
+     * @param left 
+     * @param right 
+     */
+    selfDividingNumbers(left: number, right: number): number[] {
+        let isSelfDividing = (num: number) => {
+            let tmp = num;
+            while (tmp > 0) {
+                let digit = tmp % 10;
+                if (digit == 0 || num % digit != 0) {
+                    return false;
+                }
+                tmp = Math.floor(tmp / 10);
+            }
+            return true;
+        }
+        let ans = [];
+        for (let i = left; i <= right; i++) {
+            if (isSelfDividing(i)) {
+                ans.push(i);
+            }
+        }
+        return ans;
+    }
+
+    /**
      * 1991.找到数组的中间位置
      * @param nums 
      */
