@@ -124,6 +124,12 @@ test("CalPointsTest", () => {
   expect(solution.calPoints(["1"])).toEqual(1);
 });
 
+test("NextGreatestLetterTest", () => {
+  expect(solution.nextGreatestLetter(["c", "f", "j"], "a")).toEqual("c");
+  expect(solution.nextGreatestLetter(["c", "f", "j"], "c")).toEqual("f");
+  expect(solution.nextGreatestLetter(["c", "f", "j"], "d")).toEqual("f");
+})
+
 test("SelfDividingNumbersTest", () => {
   expect(solution.selfDividingNumbers(1, 22)).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]);
   expect(solution.selfDividingNumbers(47, 85)).toEqual([48, 55, 66, 77]);

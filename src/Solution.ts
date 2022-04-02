@@ -396,6 +396,29 @@ export class Solution {
         return ans;
     }
 
+
+    /**
+     * 744.寻找比目标字母大的最小字母
+     * @param letters 
+     * @param target 
+     */
+    nextGreatestLetter(letters: string[], target: string): string {
+        let len = letters.length;
+        if (target >= letters[len - 1]) {
+            return letters[0];
+        }
+        let low = 0, high = len - 1;
+        while (low < high) {
+            let mid = Math.floor((high - low) / 2) + low;
+            if (letters[mid] > target) {
+                high = mid;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return letters[low];
+    }
+
     /**
      * 1991.找到数组的中间位置
      * @param nums 
