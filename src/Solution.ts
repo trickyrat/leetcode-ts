@@ -420,6 +420,24 @@ export class Solution {
     }
 
     /**
+     * 762.二进制表示中质数个计算置位
+     * @param left 
+     * @param right 
+     */
+    countPrimeSetBits(left: number, right: number): number {
+        let bitCount = (x: number) => {
+            return x.toString(2).split('0').join('').length;
+        };
+        let ans = 0;
+        for (let x = left; x <= right; ++x) {
+            if (((1 << bitCount(x)) & 665772) != 0) {
+                ++ans;
+            }
+        }
+        return ans;
+    }
+
+    /**
      * 1991.找到数组的中间位置
      * @param nums 
      */

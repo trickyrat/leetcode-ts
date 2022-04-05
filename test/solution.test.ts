@@ -135,6 +135,11 @@ test("SelfDividingNumbersTest", () => {
   expect(solution.selfDividingNumbers(47, 85)).toEqual([48, 55, 66, 77]);
 })
 
+test("CountPrimeSetBitsTest", () => {
+  expect(solution.countPrimeSetBits(6, 10)).toEqual(4);
+  expect(solution.countPrimeSetBits(10, 15)).toEqual(5);
+})
+
 test("PivotIndexTest", () => {
   expect(solution.pivotIndex([2, 3, -1, 8, 4])).toEqual(3);
   expect(solution.pivotIndex([1, -1, 4])).toEqual(2);
