@@ -438,6 +438,23 @@ export class Solution {
     }
 
     /**
+     * 804.唯一摩尔斯密码词
+     * @param words 
+     */
+    uniqueMorseRepresentations(words: string[]): number {
+        let morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
+        let seen = new Set<string>();
+        for (const word of words) {
+            let code = "";
+            for (const ch of word) {
+                code += (morse[ch.charCodeAt(0) - 'a'.charCodeAt(0)]);
+            }
+            seen.add(code);
+        }
+        return seen.size;
+    }
+
+    /**
      * 1991.找到数组的中间位置
      * @param nums 
      */

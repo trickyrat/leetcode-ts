@@ -140,6 +140,11 @@ test("CountPrimeSetBitsTest", () => {
   expect(solution.countPrimeSetBits(10, 15)).toEqual(5);
 })
 
+test("UniqueMorseRepresentationsTest", () => {
+  expect(solution.uniqueMorseRepresentations(["gin", "zen", "gig", "msg"])).toEqual(2);
+  expect(solution.uniqueMorseRepresentations(["a"])).toEqual(1);
+})
+
 test("PivotIndexTest", () => {
   expect(solution.pivotIndex([2, 3, -1, 8, 4])).toEqual(3);
   expect(solution.pivotIndex([1, -1, 4])).toEqual(2);
