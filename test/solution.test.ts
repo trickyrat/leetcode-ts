@@ -63,10 +63,14 @@ test("TrailingZeroesTest", () => {
   expect(solution.trailingZeroes(0)).toEqual(0);
 });
 
-
 test("AddDigitTest", () => {
   expect(solution.addDigits(38)).toEqual(2);
   expect(solution.addDigits(0)).toEqual(0);
+});
+
+test("CountNumbersWithUniqueDigitsTest", () => {
+  expect(solution.countNumbersWithUniqueDigits(2)).toEqual(91);
+  expect(solution.countNumbersWithUniqueDigits(0)).toEqual(1);
 });
 
 test("FindDiagonalOrder", () => {
