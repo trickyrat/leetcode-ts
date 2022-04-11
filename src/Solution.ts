@@ -474,6 +474,26 @@ export class Solution {
     }
 
     /**
+     * 806. 写字符串需要的行数
+     * @param widths 
+     * @param s 
+     */
+    numberOfLines(widths: number[], s: string): number[] {
+        const MAX_WIDTH = 100;
+        let lines = 1;
+        let width = 0;
+        for (let i = 0; i < s.length; i++) {
+            let need = widths[s[i].charCodeAt(0) - 'a'.charCodeAt(0)];
+            width += need;
+            if (width > MAX_WIDTH) {
+                lines++;
+                width = need;
+            }
+        }
+        return [lines, width];
+    }
+
+    /**
      * 1991.找到数组的中间位置
      * @param nums 
      */
