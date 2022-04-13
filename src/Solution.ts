@@ -494,6 +494,18 @@ export class Solution {
     }
 
     /**
+     * 1672. 最富有客户的资产总量
+     * @param accounts 
+     */
+    maximumWealth(accounts: number[][]): number {
+        let maxWealth = 0;
+        for (const account of accounts) {
+            maxWealth = Math.max(maxWealth, account.reduce((a, b) => a + b));
+        }
+        return maxWealth
+    }
+
+    /**
      * 1991.找到数组的中间位置
      * @param nums 
      */
