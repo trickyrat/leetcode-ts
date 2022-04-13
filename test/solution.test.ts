@@ -149,6 +149,11 @@ test("UniqueMorseRepresentationsTest", () => {
   expect(solution.uniqueMorseRepresentations(["a"])).toEqual(1);
 })
 
+test("NumberOfLinesTest", () => {
+  expect(solution.numberOfLines([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "abcdefghijklmnopqrstuvwxyz")).toEqual([3, 60]);
+  expect(solution.numberOfLines([4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "bbbcccdddaaa")).toEqual([2, 4]);
+})
+
 test("PivotIndexTest", () => {
   expect(solution.pivotIndex([2, 3, -1, 8, 4])).toEqual(3);
   expect(solution.pivotIndex([1, -1, 4])).toEqual(2);
