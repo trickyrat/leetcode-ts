@@ -162,15 +162,14 @@ test("NumberOfLinesTest", () => {
   expect(solution.numberOfLines([4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "bbbcccdddaaa")).toEqual([2, 4]);
 })
 
-<<<<<<< HEAD
 test("MostCommonWord", () => {
   expect(solution.mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", ["hit"])).toEqual("ball");
-=======
+})
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);
   expect(solution.maximumWealth([[2, 8, 7], [7, 1, 3], [1, 9, 5]])).toEqual(17);
->>>>>>> cc3d68a7f8a90d51c274d5e1eea4bf80863633cc
 })
 
 test("PivotIndexTest", () => {
@@ -185,7 +184,6 @@ test("CountKDifferenceTest", () => {
   expect(solution.countKDifference([3, 2, 1, 5, 4], 2)).toEqual(3);
 })
 
-
 test("MaximumDifferenceTest", () => {
   expect(solution.maximumDifference([7, 1, 5, 4])).toEqual(4);
   expect(solution.maximumDifference([9, 4, 3, 2])).toEqual(-1);
@@ -197,7 +195,6 @@ test("CountMaxOrSubsetsTest", () => {
   expect(solution.countMaxOrSubsets([2, 2, 2])).toEqual(7);
   expect(solution.countMaxOrSubsets([3, 2, 1, 5])).toEqual(6);
 })
-
 
 test("PlatesBetweenCandlesTest", () => {
   expect(solution.platesBetweenCandles("**|**|***|", [[2, 5], [5, 9]])).toEqual([2, 3]);

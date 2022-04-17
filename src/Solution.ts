@@ -531,7 +531,9 @@ export class Solution {
             }
         }
         return mostCommon;
-=======
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
@@ -541,7 +543,6 @@ export class Solution {
             maxWealth = Math.max(maxWealth, account.reduce((a, b) => a + b));
         }
         return maxWealth
->>>>>>> cc3d68a7f8a90d51c274d5e1eea4bf80863633cc
     }
 
     /**
