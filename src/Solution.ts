@@ -494,6 +494,7 @@ export class Solution {
     }
 
     /**
+<<<<<<< HEAD
      * 819. 最常见的单词
      * @param paragraph 
      * @param banned 
@@ -530,6 +531,17 @@ export class Solution {
             }
         }
         return mostCommon;
+=======
+     * 1672. 最富有客户的资产总量
+     * @param accounts 
+     */
+    maximumWealth(accounts: number[][]): number {
+        let maxWealth = 0;
+        for (const account of accounts) {
+            maxWealth = Math.max(maxWealth, account.reduce((a, b) => a + b));
+        }
+        return maxWealth
+>>>>>>> cc3d68a7f8a90d51c274d5e1eea4bf80863633cc
     }
 
     /**
