@@ -71,11 +71,13 @@ test("AddDigitTest", () => {
 test("CountNumbersWithUniqueDigitsTest", () => {
   expect(solution.countNumbersWithUniqueDigits(2)).toEqual(91);
   expect(solution.countNumbersWithUniqueDigits(0)).toEqual(1);
+  expect(solution.countNumbersWithUniqueDigits(1)).toEqual(10);
 });
 
 test("FindDiagonalOrder", () => {
   expect(solution.findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]])).toEqual([1, 2, 4, 7, 5, 3, 6, 8, 9]);
   expect(solution.findDiagonalOrder([[1, 2], [3, 4]])).toEqual([1, 2, 3, 4]);
+  expect(solution.findDiagonalOrder([])).toEqual([]);
 });
 
 test("ConvertToBase7", () => {
@@ -128,10 +130,16 @@ test("CalPointsTest", () => {
   expect(solution.calPoints(["1"])).toEqual(1);
 });
 
+test("LongestWord", () => {
+  expect(solution.longestWord(["w", "wo", "wor", "worl", "world"])).toEqual("world");
+  expect(solution.longestWord(["a", "banana", "app", "appl", "ap", "apply", "apple"])).toEqual("apple");
+})
+
 test("NextGreatestLetterTest", () => {
   expect(solution.nextGreatestLetter(["c", "f", "j"], "a")).toEqual("c");
   expect(solution.nextGreatestLetter(["c", "f", "j"], "c")).toEqual("f");
   expect(solution.nextGreatestLetter(["c", "f", "j"], "d")).toEqual("f");
+  expect(solution.nextGreatestLetter(["d"], "z")).toEqual("d");
 })
 
 test("SelfDividingNumbersTest", () => {
@@ -152,6 +160,10 @@ test("UniqueMorseRepresentationsTest", () => {
 test("NumberOfLinesTest", () => {
   expect(solution.numberOfLines([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "abcdefghijklmnopqrstuvwxyz")).toEqual([3, 60]);
   expect(solution.numberOfLines([4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "bbbcccdddaaa")).toEqual([2, 4]);
+})
+
+test("MostCommonWord", () => {
+  expect(solution.mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", ["hit"])).toEqual("ball");
 })
 
 test("PivotIndexTest", () => {

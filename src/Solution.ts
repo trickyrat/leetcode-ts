@@ -494,6 +494,45 @@ export class Solution {
     }
 
     /**
+     * 819. 最常见的单词
+     * @param paragraph 
+     * @param banned 
+     */
+    mostCommonWord(paragraph: string, banned: string[]): string {
+        let isLetter = (ch: string) => {
+            return (ch >= "a" && ch <= "z") || (ch >= "A" && ch <= "Z");
+        };
+        let bannedSet = new Set<string>();
+        for (const word of banned) {
+            bannedSet.add(word);
+        }
+        let maxFrequency = 0;
+        let frequencies = new Map<string, number>();
+        let sb = "";
+        let len = paragraph.length;
+        for (let i = 0; i <= len; i++) {
+            if (i < len && isLetter(paragraph[i])) {
+                sb = sb + paragraph[i].toLowerCase();
+            } else if (sb.length > 0) {
+                if (!bannedSet.has(sb)) {
+                    let frequency = (frequencies.get(sb) || 0) + 1;
+                    frequencies.set(sb, frequency);
+                    maxFrequency = Math.max(maxFrequency, frequency);
+                }
+                sb = "";
+            }
+        }
+        let mostCommon = "";
+        for (const [word, frequency] of frequencies.entries()) {
+            if (frequency === maxFrequency) {
+                mostCommon = word;
+                break;
+            }
+        }
+        return mostCommon;
+    }
+
+    /**
      * 1991.找到数组的中间位置
      * @param nums 
      */
