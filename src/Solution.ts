@@ -224,6 +224,27 @@ export class Solution {
     }
 
     /**
+     * 386. 字典序排数
+     * @param n 
+     */
+    lexicalOrder(n: number): number[] {
+        let ret = [];
+        let num = 1;
+        for (let i = 0; i < n; ++i) {
+            ret.push(num);
+            if (num * 10 <= n) {
+                num *= 10;
+            } else {
+                while (num % 10 === 9 || num + 1 > n) {
+                    num = Math.floor(num / 10);
+                }
+                num++;
+            }
+        }
+        return ret;
+    }
+
+    /**
      * 498.对角线遍历
      * @param matrix 
      */

@@ -79,6 +79,11 @@ test("CountNumbersWithUniqueDigitsTest", () => {
   expect(solution.countNumbersWithUniqueDigits(1)).toEqual(10);
 });
 
+test("LexicalTest", () => {
+  expect(solution.lexicalOrder(13)).toEqual([1, 10, 11, 12, 13, 2, 3, 4, 5, 6, 7, 8, 9]);
+  expect(solution.lexicalOrder(2)).toEqual([1, 2]);
+})
+
 test("FindDiagonalOrder", () => {
   expect(solution.findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]])).toEqual([1, 2, 4, 7, 5, 3, 6, 8, 9]);
   expect(solution.findDiagonalOrder([[1, 2], [3, 4]])).toEqual([1, 2, 3, 4]);
