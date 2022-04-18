@@ -114,6 +114,22 @@ export class Solution {
     }
 
     /**
+     * 27.移除元素
+     * @param nums 
+     * @param val 
+     */
+    removeElement(nums: number[], val: number): number {
+        let left = 0, n = nums.length;
+        for (let right = 0; right < n; right++) {
+            if (nums[right] != val) {
+                nums[left] = nums[right];
+                left++;
+            }
+        }
+        return left;
+    }
+
+    /**
      * 73.矩阵置零
      * @param matrix 
      */
@@ -494,7 +510,6 @@ export class Solution {
     }
 
     /**
-<<<<<<< HEAD
      * 819. 最常见的单词
      * @param paragraph 
      * @param banned 

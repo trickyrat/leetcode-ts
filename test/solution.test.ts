@@ -40,6 +40,11 @@ test("ReverseIntNumberTest", () => {
   expect(solution.reverseIntNumber(-2147483648)).toEqual(0);
 });
 
+test("RemoveElementTest", () => {
+  expect(solution.removeElement([3, 2, 2, 3], 3)).toEqual(2);
+  expect(solution.removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2)).toEqual(5);
+})
+
 test("SetZeroesTest", () => {
   let input1 = [[1, 1, 1], [1, 0, 1], [1, 1, 1]];
   solution.setZeroes(input1)
