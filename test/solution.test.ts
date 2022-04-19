@@ -176,6 +176,11 @@ test("MostCommonWord", () => {
   expect(solution.mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", ["hit"])).toEqual("ball");
 })
 
+test("ShortestToCharTest", () => {
+  expect(solution.shortestToChar("loveleetcode", "e")).toEqual([3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0]);
+  expect(solution.shortestToChar("aaab", "b")).toEqual([3, 2, 1, 0]);
+})
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);

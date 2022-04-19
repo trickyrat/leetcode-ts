@@ -570,6 +570,30 @@ export class Solution {
     }
 
     /**
+     * 821. 字符的最短距离
+     * @param s 
+     * @param c 
+     */
+    shortestToChar(s: string, c: string): number[] {
+        let n = s.length;
+        let ans = new Array<number>(n).fill(0);
+        for (let i = 0, index = -n; i < n; ++i) {
+            if (s[i] === c) {
+                index = i;
+            }
+            ans[i] = i - index;
+        }
+
+        for (let i = n - 1, index = 2 * n; i >= 0; --i) {
+            if (s[i] === c) {
+                index = i;
+            }
+            ans[i] = Math.min(ans[i], index - i);
+        }
+        return ans;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
