@@ -614,6 +614,28 @@ export class Solution {
     }
 
     /**
+     * 905. 按奇偶排序数组
+     * @param nums 
+     */
+    sortArrayByParity(nums: number[]): number[] {
+        let left = 0, right = nums.length - 1;
+        while (left < right) {
+            while (left < right && nums[left] % 2 == 0) {
+                left++;
+            }
+            while (left < right && nums[right] % 2 == 1) {
+                right--;
+            }
+            if (left < right) {
+                [nums[left], nums[right]] = [nums[right], nums[left]];
+                left++;
+                right--;
+            }
+        }
+        return nums;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */

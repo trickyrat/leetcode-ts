@@ -181,6 +181,11 @@ test("ShortestToCharTest", () => {
   expect(solution.shortestToChar("aaab", "b")).toEqual([3, 2, 1, 0]);
 })
 
+test("SortArrayByParityTest", () => {
+  expect(solution.sortArrayByParity([3, 1, 2, 4])).toEqual([4, 2, 1, 3]);
+  expect(solution.sortArrayByParity([0])).toEqual([0]);
+})
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);
