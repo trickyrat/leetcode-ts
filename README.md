@@ -14,6 +14,9 @@ All solutions are sorted in ascending order according to the problem number.
 > npm install  
 > npm install test for testing code and test-c with coverage
 
+## Debug
+
+> press F5 to debug program in visual studio code editor
 
 ## Author
 

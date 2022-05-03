@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Debug Current File",
-      "program": "${workspaceFolder}\\dist\\main.js",
+      "program": "${workspaceFolder}\\dist\\src\\main.js",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": [
         "${workspaceFolder}/dist/**/*.js",
@@ -23,7 +23,9 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}\\node_modules\\.bin\\jest",
-      "args": ["--runInBand"],
+      "args": [
+        "--runInBand"
+      ],
       "disableOptimisticBPs": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
