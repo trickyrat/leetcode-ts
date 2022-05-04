@@ -648,6 +648,19 @@ export class Solution {
     }
 
     /**
+     * 1823. Find the Winner of the Circular Game
+     * @param n 
+     * @param k 
+     */
+    findTheWinner(n: number, k: number): number {
+        let winner = 1;
+        for (let i = 2; i <= n; ++i) {
+            winner = (k + winner - 1) % i + 1;
+        }
+        return winner;
+    }
+
+    /**
      * 1991.找到数组的中间位置
      * @param nums 
      */

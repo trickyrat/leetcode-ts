@@ -198,6 +198,11 @@ test("ProjectionAreaTest", () => {
   expect(solution.projectionArea([[1, 0], [0, 2]])).toEqual(8);
 })
 
+test("FindTheWinnerTest", () => {
+  expect(solution.findTheWinner(5, 2)).toEqual(3);
+  expect(solution.findTheWinner(6, 5)).toEqual(1);
+})
+
 test("PivotIndexTest", () => {
   expect(solution.pivotIndex([2, 3, -1, 8, 4])).toEqual(3);
   expect(solution.pivotIndex([1, -1, 4])).toEqual(2);

@@ -16,3 +16,9 @@ console.log(resNode);
 
 let longest = solution.longestSubstringWithoutRepeating("helloworld");
 console.log(longest);
+
+let reverseNum = solution.reverseIntNumber(123);
+console.log(reverseNum);
+
+let zcon = solution.zconvert("helloworld, greeting from typescript", 3);
+console.log(zcon);
