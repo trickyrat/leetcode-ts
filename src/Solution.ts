@@ -427,6 +427,22 @@ export class Solution {
     }
 
     /**
+     * 724. Find Pivot Index
+     * @param nums 
+     */
+    pivotIndex(nums: number[]): number {
+        let total = nums.reduce((a, b) => a + b, 0);
+        let sum = 0;
+        for (let i = 0; i < nums.length; i++) {
+            if (2 * sum + nums[i] == total) {
+                return i;
+            }
+            sum += nums[i];
+        }
+        return -1;
+    }
+
+    /**
      * 728.自除数
      * @param left 
      * @param right 
@@ -661,14 +677,14 @@ export class Solution {
     }
 
     /**
-     * 1991.找到数组的中间位置
+     * 1991. Find the Middle Index in Array
      * @param nums 
      */
-    pivotIndex(nums: number[]): number {
+    findMiddleIndex(nums: number[]): number {
         let total = nums.reduce((a, b) => a + b, 0);
         let sum = 0;
         for (let i = 0; i < nums.length; i++) {
-            if (2 * sum + nums[i] == total) {
+            if (2 * sum + nums[i] === total) {
                 return i;
             }
             sum += nums[i];

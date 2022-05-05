@@ -22,3 +22,6 @@ console.log(reverseNum);
 
 let zcon = solution.zconvert("helloworld, greeting from typescript", 3);
 console.log(zcon);
+
+let pivot = solution.pivotIndex([1, 7, 3, 6, 5, 6]);
+console.log(pivot);
