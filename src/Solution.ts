@@ -652,6 +652,20 @@ export class Solution {
     }
 
     /**
+     * 942. DI String Match
+     * @param s 
+     */
+    diStringMatch(s: string): number[] {
+        let n = s.length, lo = 0, hi = n;
+        let perm = [];
+        for (let i = 0; i < n; ++i) {
+            perm[i] = s[i] === 'I' ? lo++ : hi--;
+        }
+        perm.push(lo);
+        return perm;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
