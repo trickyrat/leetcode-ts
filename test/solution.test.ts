@@ -192,10 +192,16 @@ test("SortArrayByParityTest", () => {
   expect(solution.sortArrayByParity([0])).toEqual([0]);
 })
 
-test("DIStringMatch", () => {
+test("DIStringMatchTest", () => {
   expect(solution.diStringMatch("IDID")).toEqual([0, 4, 1, 3, 2]);
   expect(solution.diStringMatch("III")).toEqual([0, 1, 2, 3]);
   expect(solution.diStringMatch("DDI")).toEqual([3, 2, 0, 1]);
+})
+
+test("MinDeletionSizeTest", () => {
+  expect(solution.minDeletionSize(["cba", "daf", "ghi"])).toEqual(1);
+  expect(solution.minDeletionSize(["a", "b"])).toEqual(0);
+  expect(solution.minDeletionSize(["zyx", "wvu", "tsr"])).toEqual(3);
 })
 
 test("MaximumWealthTest", () => {

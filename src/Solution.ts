@@ -666,6 +666,25 @@ export class Solution {
     }
 
     /**
+     * 944. Delete Columns to Make Sorted
+     * @param strs 
+     */
+    minDeletionSize(strs: string[]): number {
+        let row = strs.length;
+        let col = strs[0].length;
+        let ans = 0;
+        for (let j = 0; j < col; ++j) {
+            for (let i = 1; i < row; ++i) {
+                if (strs[i - 1][j] > strs[i][j]) {
+                    ans++;
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
