@@ -45,6 +45,11 @@ test("RemoveElementTest", () => {
   expect(solution.removeElement([0, 1, 2, 2, 3, 0, 4, 2], 2)).toEqual(5);
 })
 
+test("PermuteUniqueTest", () => {
+  expect(solution.permuteUnique([1, 1, 2])).toEqual([[1, 1, 2], [1, 2, 1], [2, 1, 1]]);
+  expect(solution.permuteUnique([1, 2, 3])).toEqual([[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]);
+})
+
 test("SetZeroesTest", () => {
   let input1 = [[1, 1, 1], [1, 0, 1], [1, 1, 1]];
   solution.setZeroes(input1)

@@ -130,6 +130,34 @@ export class Solution {
     }
 
     /**
+     * 47. Permutations II
+     * @param nums 
+     */
+    permuteUnique(nums: number[]): number[][] {
+        let ans: number[][] = [];
+        let visited: boolean[] = new Array<boolean>(nums.length).fill(false);
+        const backtrack = (index: number, perm: number[]) => {
+            if (index === nums.length) {
+                ans.push(perm.slice());
+                return;
+            }
+            for (let i = 0; i < nums.length; ++i) {
+                if (visited[i] || (i > 0 && nums[i] === nums[i - 1] && !visited[i - 1])) {
+                    continue;
+                }
+                perm.push(nums[i]);
+                visited[i] = true;
+                backtrack(index + 1, perm);
+                visited[i] = false;
+                perm.pop();
+            }
+        };
+        nums.sort((x, y) => x - y);
+        backtrack(0, []);
+        return ans;
+    }
+
+    /**
      * 73.矩阵置零
      * @param matrix 
      */
