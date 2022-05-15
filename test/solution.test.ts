@@ -50,6 +50,15 @@ test("PermuteUniqueTest", () => {
   expect(solution.permuteUnique([1, 2, 3])).toEqual([[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]);
 })
 
+test("RotateImageUnitTest", () => {
+  let nums1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+  solution.rotate(nums1)
+  expect(nums1).toEqual([[7, 4, 1], [8, 5, 2], [9, 6, 3]]);
+  let nums2 = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]];
+  solution.rotate(nums2);
+  expect(nums2).toEqual([[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]]);
+});
+
 test("SetZeroesTest", () => {
   let input1 = [[1, 1, 1], [1, 0, 1], [1, 1, 1]];
   solution.setZeroes(input1)
