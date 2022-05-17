@@ -732,6 +732,37 @@ export class Solution {
     }
 
     /**
+     * 953. Verifying an Alien Dictionary
+     * @param words 
+     * @param order 
+     */
+    isAlienSorted(words: string[], order: string): boolean {
+        let index = new Array<number>(26).fill(0);
+        for (let i = 0; i < order.length; ++i) {
+            index[order[i].charCodeAt(0) - 'a'.charCodeAt(0)] = i;
+        }
+        for (let i = 1; i < words.length; ++i) {
+            let valid = false;
+            for (let j = 0; j < words[i - 1].length && j < words[i].length; ++j) {
+                let prev = index[words[i - 1][j].charCodeAt(0) - 'a'.charCodeAt(0)];
+                let curr = index[words[i][j].charCodeAt(0) - 'a'.charCodeAt(0)];
+                if (prev < curr) {
+                    valid = true;
+                    break;
+                } else if (prev > curr) {
+                    return false;
+                }
+            }
+            if (!valid) {
+                if (words[i - 1].length > words[i].length) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
