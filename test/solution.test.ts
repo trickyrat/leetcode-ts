@@ -203,6 +203,7 @@ test("ShortestToCharTest", () => {
 
 test("SortArrayByParityTest", () => {
   expect(solution.sortArrayByParity([3, 1, 2, 4])).toEqual([4, 2, 1, 3]);
+  expect(solution.sortArrayByParity([2, 4, 1, 3])).toEqual([2, 4, 1, 3]);
   expect(solution.sortArrayByParity([0])).toEqual([0]);
 })
 
@@ -222,6 +223,13 @@ test("IsAlienSortedTest", () => {
   expect(solution.isAlienSorted(["hello", "leetcode"], "hlabcdefgijkmnopqrstuvwxyz")).toEqual(true);
   expect(solution.isAlienSorted(["word", "world", "row"], "worldabcefghijkmnpqstuvxyz")).toEqual(false);
   expect(solution.isAlienSorted(["apple", "app"], "abcdefghijklmnopqrstuvwxyz")).toEqual(false);
+})
+
+test("RepeatedNTimesTest", () => {
+  expect(solution.repeatedNTimes([1, 2, 3, 3])).toEqual(3);
+  expect(solution.repeatedNTimes([2, 1, 2, 5, 3, 2])).toEqual(2);
+  expect(solution.repeatedNTimes([5, 1, 5, 2, 5, 3, 5, 4])).toEqual(5);
+  expect(solution.repeatedNTimes([1, 2, 3, 4])).toEqual(-1);
 })
 
 test("MaximumWealthTest", () => {

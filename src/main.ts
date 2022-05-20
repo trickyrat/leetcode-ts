@@ -30,3 +30,6 @@ console.log(pivot);
 let counter = new RecentCounter();
 let val = counter.ping(1);
 let val2 = counter.ping(100);
+
+let arr = solution.sortArrayByParity([2, 4, 1, 3]);
+console.log(arr)

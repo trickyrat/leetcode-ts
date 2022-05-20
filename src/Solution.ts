@@ -763,6 +763,21 @@ export class Solution {
     }
 
     /**
+     * 961. N-Repeated Element in Size 2N Array
+     * @param nums 
+     */
+    repeatedNTimes(nums: number[]): number {
+        let found = new Set<number>();
+        for (const num of nums) {
+            if (found.has(num)) {
+                return num;
+            }
+            found.add(num);
+        }
+        return -1;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
