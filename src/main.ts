@@ -1,5 +1,5 @@
 import { TreeNode } from "./TreeNode";
-import { createTreeNodeByBFS, createListNode } from "./Util";
+import { createTreeNodeByBFS, createListNode } from "./Utilities";
 import { Solution } from "./Solution";
 import { ListNode } from "./ListNode";
 import { RecentCounter } from "./RecentCounter";

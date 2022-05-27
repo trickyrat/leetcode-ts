@@ -778,6 +778,28 @@ export class Solution {
     }
 
     /**
+     * 1021. Remove Outermost Parentheses
+     * @param s 
+     */
+    removeOuterParentheses(s: string): string {
+        let level = 0;
+        let res = "";
+        for (let i = 0; i < s.length; ++i) {
+            let ch = s[i];
+            if (ch === ")") {
+                level--;
+            }
+            if (level > 0) {
+                res += ch;
+            }
+            if (ch === "(") {
+                level++;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
