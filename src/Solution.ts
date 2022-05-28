@@ -292,6 +292,24 @@ export class Solution {
     }
 
     /**
+     * 467. Unique Substrings in Wraparound String
+     * @param p 
+     */
+    findSubstringInWraparoundString(p: string): number {
+        let dp = new Array<number>(26).fill(0);
+        let k = 0;
+        for (let i = 0; i < p.length; ++i) {
+            if (i > 0 && (p[i].charCodeAt(0) - p[i - 1].charCodeAt(0) + 26) % 26 === 1) {
+                ++k;
+            } else {
+                k = 1;
+            }
+            dp[p[i].charCodeAt(0) - 'a'.charCodeAt(0)] = Math.max(dp[p[i].charCodeAt(0) - 'a'.charCodeAt(0)], k);
+        }
+        return dp.reduce((prev, curr) => prev + curr, 0);
+    }
+
+    /**
      * 498.对角线遍历
      * @param matrix 
      */
