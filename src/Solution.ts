@@ -860,6 +860,22 @@ export class Solution {
     }
 
     /**
+     * 1281. Subtract the Product and Sum of Digits of an Integer
+     * @param n 
+     */
+    subtractProductAndSum(n: number): number {
+        let sum: number = 0;
+        let product: number = 1;
+        while (n > 0) {
+            let digit: number = n % 10;
+            n = Math.floor(n / 10);
+            sum += digit;
+            product *= digit;
+        }
+        return product - sum;
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
