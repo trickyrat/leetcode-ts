@@ -860,6 +860,23 @@ export class Solution {
     }
 
     /**
+     * 1491. Average Salary Excluding the Minimum and Maximum Salary
+     * @param salary 
+     * @returns 
+     */
+    average(salary: number[]): number {
+        let min: number = Number.MAX_VALUE;
+        let max: number = Number.MIN_VALUE;
+        let sum: number = 0;
+        for (let item of salary) {
+            sum += item;
+            max = Math.max(max, item);
+            min = Math.min(min, item);
+        }
+        return (sum - min - max) / (salary.length - 2);
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */

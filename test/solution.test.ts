@@ -254,6 +254,11 @@ test("RemoveOuterParentheses", () => {
   expect(solution.removeOuterParentheses("()()")).toEqual("");
 })
 
+test("AverageTest", () => {
+  expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);
+  expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);
+})
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);
