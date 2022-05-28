@@ -130,6 +130,34 @@ export class Solution {
     }
 
     /**
+    * 46. Permutations
+    * @param nums 
+    */
+    permute(nums: number[]): number[][] {
+        let res: number[][] = [];
+        let used: boolean[] = new Array<boolean>(nums.length).fill(false);
+        const backtrack = (candidates: number[], track: number[]) => {
+            if (track.length === candidates.length) {
+                res.push(track.slice());
+                return;
+            }
+            for (let i = 0; i < candidates.length; ++i) {
+                if (used[i]) {
+                    continue;
+                }
+                track.push(candidates[i]);
+                used[i] = true;
+                backtrack(candidates, track);
+                track.pop();
+                used[i] = false;
+            }
+        };
+        let track: number[] = [];
+        backtrack(nums, track);
+        return res;
+    }
+
+    /**
      * 47. Permutations II
      * @param nums 
      */
