@@ -258,6 +258,20 @@ export class Solution {
     }
 
     /**
+     * 168. Excel Sheet Column Title
+     * @param columnNumber 
+     */
+    convertToTitle(columnNumber: number): string {
+        let sb = [];
+        while (columnNumber !== 0) {
+            columnNumber--;
+            sb.push(String.fromCharCode(columnNumber % 26 + "A".charCodeAt(0)));
+            columnNumber = Math.floor(columnNumber / 26);
+        }
+        return sb.reverse().join("");
+    }
+
+    /**
      * 172.阶乘后的零
      * @param n 
      */

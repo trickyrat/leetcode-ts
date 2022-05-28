@@ -73,13 +73,18 @@ test("SetZeroesTest", () => {
   expect(input2).toEqual([[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]);
 });
 
-
 test("PathSumTest", () => {
   let root = createTreeNodeByBFS("1,2,3");
   let root1 = createTreeNodeByBFS("5,4,8,11,null,13,4,7,2,null,null,5,1");
   expect(solution.pathSum(root, 2)).toEqual([]);
   expect(solution.pathSum(root1, 22)).toEqual([[5, 4, 11, 2], [5, 8, 4, 5]]);
 });
+
+test("ConvertToTitle", () => {
+  expect(solution.convertToTitle(1)).toEqual("A");
+  expect(solution.convertToTitle(28)).toEqual("AB");
+  expect(solution.convertToTitle(701)).toEqual("ZY");
+})
 
 test("TrailingZeroesTest", () => {
   expect(solution.trailingZeroes(3)).toEqual(0);
