@@ -1,6 +1,6 @@
 import { Solution } from "../src/Solution";
 import { Node } from "../src/Node";
-import { createTreeNodeByDFS, createTreeNodeByBFS, createListNode, convertListNodeToArray } from "../src/Util";
+import { createTreeNodeByDFS, createTreeNodeByBFS, createListNode, convertListNodeToArray } from "../src/Utilities";
 
 let solution = new Solution();
 
@@ -236,6 +236,12 @@ test("RepeatedNTimesTest", () => {
   expect(solution.repeatedNTimes([2, 1, 2, 5, 3, 2])).toEqual(2);
   expect(solution.repeatedNTimes([5, 1, 5, 2, 5, 3, 5, 4])).toEqual(5);
   expect(solution.repeatedNTimes([1, 2, 3, 4])).toEqual(-1);
+})
+
+test("RemoveOuterParentheses", () => {
+  expect(solution.removeOuterParentheses("(()())(())")).toEqual("()()()");
+  expect(solution.removeOuterParentheses("(()())(())(()(()))")).toEqual("()()()()(())");
+  expect(solution.removeOuterParentheses("()()")).toEqual("");
 })
 
 test("MaximumWealthTest", () => {
