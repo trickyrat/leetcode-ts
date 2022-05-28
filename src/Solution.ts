@@ -285,6 +285,19 @@ export class Solution {
     }
 
     /**
+     * 191. Number of 1 Bits
+     * @param n 
+     */
+    hammingWeight(n: number): number {
+        let ret: number = 0;
+        while (n) {
+            n &= n - 1;
+            ret++;
+        }
+        return ret;
+    }
+
+    /**
      * 258.各位相加
      * @param num 
      * @returns 

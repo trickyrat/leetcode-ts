@@ -93,6 +93,12 @@ test("TrailingZeroesTest", () => {
   expect(solution.trailingZeroes(0)).toEqual(0);
 });
 
+test("HammingWeightTest", () => {
+  expect(solution.hammingWeight(11)).toEqual(3);
+  expect(solution.hammingWeight(128)).toEqual(1);
+  expect(solution.hammingWeight(4294967293)).toEqual(31);
+})
+
 test("AddDigitTest", () => {
   expect(solution.addDigits(38)).toEqual(2);
   expect(solution.addDigits(0)).toEqual(0);
