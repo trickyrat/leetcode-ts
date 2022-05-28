@@ -259,6 +259,11 @@ test("AverageTest", () => {
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);
 })
 
+test("CountOddsTest", () => {
+  expect(solution.countOdds(3, 7)).toEqual(3);
+  expect(solution.countOdds(8, 10)).toEqual(1);
+})
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);

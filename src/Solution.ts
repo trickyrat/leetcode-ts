@@ -877,6 +877,20 @@ export class Solution {
     }
 
     /**
+     * 1523. Count Odd Numbers in an Interval Range
+     * @param low 
+     * @param high 
+     * @returns 
+     */
+    countOdds(low: number, high: number): number {
+        const pre = (num: number) => {
+            return (num + 1) >> 1;
+        };
+
+        return pre(high) - pre(low - 1);
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
