@@ -298,6 +298,21 @@ export class Solution {
     }
 
     /**
+     * 217. Contains Duplicate
+     * @param nums 
+     */
+    containsDuplicate(nums: number[]): boolean {
+        let set: Set<number> = new Set<number>();
+        for (const num of nums) {
+            if (set.has(num)) {
+                return true;
+            }
+            set.add(num);
+        }
+        return false;
+    }
+
+    /**
      * 258.各位相加
      * @param num 
      * @returns 
