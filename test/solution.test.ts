@@ -65,6 +65,12 @@ test("RotateImageUnitTest", () => {
   expect(nums2).toEqual([[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]]);
 });
 
+test("MaxSubArrayTest", () => {
+  expect(solution.maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4])).toEqual(6);
+  expect(solution.maxSubArray([1])).toEqual(1);
+  expect(solution.maxSubArray([5, 4, -1, 7, 8])).toEqual(23);
+})
+
 test("SetZeroesTest", () => {
   let input1 = [[1, 1, 1], [1, 0, 1], [1, 1, 1]];
   solution.setZeroes(input1)

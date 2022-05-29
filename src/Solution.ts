@@ -205,6 +205,19 @@ export class Solution {
     }
 
     /**
+     * 53. Maximum Subarray
+     * @param nums 
+     */
+    maxSubArray(nums: number[]): number {
+        let pre = 0, maxAns = nums[0];
+        for (const num of nums) {
+            pre = Math.max(pre + num, num);
+            maxAns = Math.max(maxAns, pre);
+        }
+        return maxAns;
+    }
+
+    /**
      * 73.矩阵置零
      * @param matrix 
      */
