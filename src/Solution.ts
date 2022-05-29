@@ -1098,4 +1098,48 @@ export class Solution {
         }
         return ans;
     }
+
+    /**
+     * 6078. Rearrange Characters to Make Target String
+     * @param s 
+     * @param target 
+     */
+    rearrangeCharacters(s: string, target: string): number {
+        let sMap = new Map<string, number>();
+        let targetMap = new Map<string, number>();
+
+        for (const item of s) {
+            if (sMap.has(item)) {
+                let value = sMap.get(item);
+                if (value) {
+                    sMap.set(item, value + 1);
+                }
+            } else {
+                sMap.set(item, 1);
+            }
+        }
+
+        for (const item of target) {
+            if (targetMap.has(item)) {
+                let value = targetMap.get(item);
+                if (value) {
+                    targetMap.set(item, value + 1);
+                }
+            } else {
+                targetMap.set(item, 1);
+            }
+        }
+        let ans = Number.MAX_VALUE;
+        for (const item of target) {
+            let sValue = sMap.get(item);
+            if (!sValue) {
+                sValue = 0;
+            }
+            let targetValue = targetMap.get(item);
+            if (targetValue) {
+                ans = Math.min(ans, Math.floor(sValue / targetValue));
+            }
+        }
+        return ans;
+    }
 }
