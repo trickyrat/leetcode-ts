@@ -93,6 +93,12 @@ test("ConvertToTitle", () => {
   expect(solution.convertToTitle(701)).toEqual("ZY");
 })
 
+test("TitleToNumberTest", () => {
+  expect(solution.titleToNumber("A")).toEqual(1);
+  expect(solution.titleToNumber("AB")).toEqual(28);
+  expect(solution.titleToNumber("ZY")).toEqual(701);
+})
+
 test("TrailingZeroesTest", () => {
   expect(solution.trailingZeroes(3)).toEqual(0);
   expect(solution.trailingZeroes(5)).toEqual(1);

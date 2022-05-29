@@ -285,6 +285,21 @@ export class Solution {
     }
 
     /**
+     * 171. Excel Sheet Column Number
+     * @param columnTitle 
+     */
+    titleToNumber(columnTitle: string): number {
+        let n = 0;
+        let multiple = 1;
+        for (let i = columnTitle.length - 1; i >= 0; --i) {
+            let k = columnTitle.charCodeAt(i) - "A".charCodeAt(0) + 1;
+            n += k * multiple;
+            multiple *= 26;
+        }
+        return n;
+    }
+
+    /**
      * 172.阶乘后的零
      * @param n 
      */
