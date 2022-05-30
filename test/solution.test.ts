@@ -273,6 +273,11 @@ test("RepeatedNTimesTest", () => {
   expect(solution.repeatedNTimes([1, 2, 3, 4])).toEqual(-1);
 })
 
+test("LargestPerimeterTest", () => {
+  expect(solution.largestPerimeter([2, 1, 2])).toEqual(5);
+  expect(solution.largestPerimeter([1, 2, 1])).toEqual(0);
+})
+
 test("RemoveOuterParentheses", () => {
   expect(solution.removeOuterParentheses("(()())(())")).toEqual("()()()");
   expect(solution.removeOuterParentheses("(()())(())(()(()))")).toEqual("()()()()(())");
@@ -309,6 +314,12 @@ test("ProjectionAreaTest", () => {
   expect(solution.projectionArea([[1, 2], [3, 4]])).toEqual(17);
   expect(solution.projectionArea([[2]])).toEqual(5);
   expect(solution.projectionArea([[1, 0], [0, 2]])).toEqual(8);
+})
+
+test("NearestValidPoint", () => {
+  expect(solution.nearestValidPoint(3, 4, [[1, 2], [3, 1], [2, 4], [2, 3], [4, 4]])).toEqual(2);
+  expect(solution.nearestValidPoint(3, 4, [[3, 4]])).toEqual(0);
+  expect(solution.nearestValidPoint(3, 4, [[2, 3]])).toEqual(-1);
 })
 
 test("FindTheWinnerTest", () => {

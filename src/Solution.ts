@@ -894,6 +894,20 @@ export class Solution {
     }
 
     /**
+     * 976. Largest Perimeter Triangle
+     * @param nums 
+     */
+    largestPerimeter(nums: number[]): number {
+        nums = nums.sort((a, b) => a - b);
+        for (let i = nums.length - 1; i >= 2; --i) {
+            if (nums[i - 2] + nums[i - 1] > nums[i]) {
+                return nums[i - 2] + nums[i - 1] + nums[i];
+            }
+        }
+        return 0;
+    }
+
+    /**
      * 1021. Remove Outermost Parentheses
      * @param s 
      */
@@ -990,6 +1004,28 @@ export class Solution {
             maxWealth = Math.max(maxWealth, account.reduce((a, b) => a + b));
         }
         return maxWealth
+    }
+
+    /**
+     * 1779. Find Nearest Point That Has the Same X or Y Coordinate
+     * @param x 
+     * @param y 
+     * @param points 
+     * @returns 
+     */
+    nearestValidPoint(x: number, y: number, points: number[][]): number {
+        let min = Number.MAX_VALUE;
+        let ans = -1;
+        for (let i = 0; i < points.length; ++i) {
+            if (points[i][0] == x || points[i][1] == y) {
+                let distance = Math.abs(points[i][0] - x) + Math.abs(points[i][1] - y);
+                if (distance < min) {
+                    min = distance;
+                    ans = i;
+                }
+            }
+        }
+        return ans;
     }
 
     /**
