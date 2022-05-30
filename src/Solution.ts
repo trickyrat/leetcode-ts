@@ -916,6 +916,24 @@ export class Solution {
     }
 
     /**
+     * 1022. Sum of Root To Leaf Binary Numbers
+     * @param root 
+     */
+    sumRootToLeaf(root: TreeNode | null): number {
+        let dfs = (node: TreeNode | null, val: number): number => {
+            if (!node) {
+                return 0;
+            }
+            val = (val << 1) | node?.val;
+            if (!node.left && !node.right) {
+                return val;
+            }
+            return dfs(node.left, val) + dfs(node.right, val);
+        };
+        return dfs(root, 0);
+    }
+
+    /**
      * 1281. Subtract the Product and Sum of Digits of an Integer
      * @param n 
      */
