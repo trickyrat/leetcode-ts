@@ -80,6 +80,18 @@ test("SetZeroesTest", () => {
   expect(input2).toEqual([[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]);
 });
 
+test("MergeTest", () => {
+  let nums1 = [1, 2, 3, 0, 0, 0];
+  solution.merge(nums1, 3, [2, 5, 6], 3);
+  expect(nums1).toEqual([1, 2, 2, 3, 5, 6])
+  let nums2 = [1];
+  solution.merge(nums2, 1, [], 0);
+  expect(nums2).toEqual([1])
+  let nums3 = [0];
+  solution.merge(nums3, 0, [1], 1);
+  expect(nums3).toEqual([1])
+})
+
 test("PathSumTest", () => {
   let root = createTreeNodeByBFS([1, 2, 3]);
   let root1 = createTreeNodeByBFS([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]);
