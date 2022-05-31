@@ -339,6 +339,12 @@ test("NearestValidPoint", () => {
   expect(solution.nearestValidPoint(3, 4, [[2, 3]])).toEqual(-1);
 })
 
+test("ArraySignTest", () => {
+  expect(solution.arraySign([-1, -2, -3, -4, 3, 2, 1])).toEqual(1);
+  expect(solution.arraySign([1, 5, 0, 2, -3])).toEqual(0);
+  expect(solution.arraySign([-1, 1, -1, 1, -1])).toEqual(-1);
+})
+
 test("FindTheWinnerTest", () => {
   expect(solution.findTheWinner(5, 2)).toEqual(3);
   expect(solution.findTheWinner(6, 5)).toEqual(1);

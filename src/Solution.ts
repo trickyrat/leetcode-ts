@@ -1077,6 +1077,22 @@ export class Solution {
     }
 
     /**
+     * 1822. Sign of the Product of an Array
+     * @param nums 
+     */
+    arraySign(nums: number[]): number {
+        let sign = 1;
+        for (const num of nums) {
+            if (num === 0) {
+                return 0;
+            } else if (num < 0) {
+                sign *= -1;
+            }
+        }
+        return sign > 0 ? 1 : -1;
+    }
+
+    /**
      * 1823. Find the Winner of the Circular Game
      * @param n 
      * @param k 
