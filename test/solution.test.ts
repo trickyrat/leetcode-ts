@@ -139,6 +139,11 @@ test("AddDigitTest", () => {
   expect(solution.addDigits(0)).toEqual(0);
 });
 
+test("IntersectTest", () => {
+  expect(solution.intersect([1, 2, 2, 1], [2, 2])).toEqual([2, 2]);
+  expect(solution.intersect([4, 9, 5], [9, 4, 9, 8, 4])).toEqual([9, 4]);
+})
+
 test("CountNumbersWithUniqueDigitsTest", () => {
   expect(solution.countNumbersWithUniqueDigits(2)).toEqual(91);
   expect(solution.countNumbersWithUniqueDigits(0)).toEqual(1);

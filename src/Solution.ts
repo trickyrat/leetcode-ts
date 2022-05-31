@@ -398,6 +398,44 @@ export class Solution {
     }
 
     /**
+     * 350. Intersection of Two Arrays II
+     * @param nums1 
+     * @param nums2 
+     */
+    intersect(nums1: number[], nums2: number[]): number[] {
+        if (nums1.length > nums2.length) {
+            this.intersect(nums2, nums1);
+        }
+        let map: Map<number, number> = new Map();
+        for (const num of nums1) {
+            if (map.has(num)) {
+                let val = map.get(num) as number;
+                val++;
+                map.set(num, val);
+            } else {
+                map.set(num, 1);
+            }
+        }
+        let intersection: number[] = [];
+        let index = 0;
+        for (const num of nums2) {
+            if (map.has(num)) {
+                let val = map.get(num) as number;
+                if (val > 0) {
+                    intersection[index++] = num;
+                    val--;
+                    if (val > 0) {
+                        map.set(num, val);
+                    } else {
+                        map.delete(num);
+                    }
+                }
+            }
+        }
+        return intersection;
+    }
+
+    /**
      * 357. 统计各位数字都不同的数字个数
      * @param n 
      */
