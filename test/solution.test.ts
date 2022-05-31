@@ -316,6 +316,11 @@ test("AverageTest", () => {
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);
 })
 
+test("canMakeArithmeticProgressionTest", () => {
+  expect(solution.canMakeArithmeticProgression([3, 5, 1])).toEqual(true);
+  expect(solution.canMakeArithmeticProgression([1, 2, 4])).toEqual(false);
+})
+
 test("CountOddsTest", () => {
   expect(solution.countOdds(3, 7)).toEqual(3);
   expect(solution.countOdds(8, 10)).toEqual(1);
