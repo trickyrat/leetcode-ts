@@ -344,6 +344,12 @@ test("NearestValidPoint", () => {
   expect(solution.nearestValidPoint(3, 4, [[2, 3]])).toEqual(-1);
 })
 
+test("AreAlmostEqualTest", () => {
+  expect(solution.areAlmostEqual("bank", "kanb")).toEqual(true);
+  expect(solution.areAlmostEqual("attack", "defend")).toEqual(false);
+  expect(solution.areAlmostEqual("kelb", "kelb")).toEqual(true);
+})
+
 test("ArraySignTest", () => {
   expect(solution.arraySign([-1, -2, -3, -4, 3, 2, 1])).toEqual(1);
   expect(solution.arraySign([1, 5, 0, 2, -3])).toEqual(0);

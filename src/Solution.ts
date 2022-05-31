@@ -1092,6 +1092,30 @@ export class Solution {
     }
 
     /**
+     * 1790. Check if One String Swap Can Make Strings Equal
+     * @param s1 
+     * @param s2 
+     * @returns 
+     */
+    areAlmostEqual(s1: string, s2: string): boolean {
+        if (s1 === s2) {
+            return true;
+        }
+        let s1Diff = "";
+        let s2Diff = "";
+        for (let i = 0; i < s1.length; ++i) {
+            if (s1[i] !== s2[i]) {
+                s1Diff += s1[i];
+                s2Diff = s2[i] + s2Diff;
+                if (s1Diff.length > 2) {
+                    return false;
+                }
+            }
+        }
+        return s1Diff.length === 2 && s1Diff === s2Diff;
+    }
+
+    /**
      * 1822. Sign of the Product of an Array
      * @param nums 
      */
