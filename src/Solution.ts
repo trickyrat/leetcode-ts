@@ -351,6 +351,29 @@ export class Solution {
     }
 
     /**
+     * 202. Happy Number
+     * @param n 
+     */
+    isHappy(n: number): boolean {
+        let getNext = (num: number): number => {
+            let totalSum = 0;
+            while (num > 0) {
+                let digit = num % 10;
+                num = Math.floor(num / 10);
+                totalSum += digit * digit;
+            }
+            return totalSum;
+        };
+        let slow = n;
+        let fast = getNext(n);
+        while (fast != 1 && slow != fast) {
+            slow = getNext(slow);
+            fast = getNext(getNext(fast));
+        }
+        return fast === 1;
+    }
+
+    /**
      * 217. Contains Duplicate
      * @param nums 
      */

@@ -123,6 +123,11 @@ test("HammingWeightTest", () => {
   expect(solution.hammingWeight(4294967293)).toEqual(31);
 })
 
+test("IsHappyTest", () => {
+  expect(solution.isHappy(19)).toEqual(true);
+  expect(solution.isHappy(2)).toEqual(false);
+})
+
 test("ContainsDuplicateTest", () => {
   expect(solution.containsDuplicate([1, 2, 3, 1])).toEqual(true);
   expect(solution.containsDuplicate([1, 2, 3, 4])).toEqual(false);
