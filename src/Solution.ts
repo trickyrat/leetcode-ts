@@ -296,6 +296,19 @@ export class Solution {
     }
 
     /**
+     * 121. Best Time to Buy and Sell Stock
+     * @param prices 
+     */
+    maxProfit(prices: number[]): number {
+        let minPrice = Number.MAX_VALUE, max = 0;
+        for (const price of prices) {
+            max = Math.max(max, price - minPrice);
+            minPrice = Math.min(price, minPrice);
+        }
+        return max;
+    }
+
+    /**
      * 168. Excel Sheet Column Title
      * @param columnNumber 
      */

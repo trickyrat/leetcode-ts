@@ -99,6 +99,11 @@ test("PathSumTest", () => {
   expect(solution.pathSum(root1, 22)).toEqual([[5, 4, 11, 2], [5, 8, 4, 5]]);
 });
 
+test("MaxProfitTest", () => {
+  expect(solution.maxProfit([7, 1, 5, 3, 6, 4])).toEqual(5);
+  expect(solution.maxProfit([7, 6, 4, 3, 1])).toEqual(0);
+})
+
 test("ConvertToTitle", () => {
   expect(solution.convertToTitle(1)).toEqual("A");
   expect(solution.convertToTitle(28)).toEqual("AB");
