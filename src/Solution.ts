@@ -663,6 +663,24 @@ export class Solution {
     }
 
     /**
+     * 566. Reshape the Matrix
+     * @param mat 
+     * @param r 
+     * @param c 
+     */
+    matrixReshape(mat: number[][], r: number, c: number): number[][] {
+        let m = mat.length, n = mat[0].length;
+        if (m * n !== r * c) {
+            return mat;
+        }
+        let ans = new Array<number>(r).fill(0).map(() => new Array<number>(c).fill(0));
+        for (let x = 0; x < m * n; ++x) {
+            ans[Math.floor(x / c)][x % c] = mat[Math.floor(x / n)][x % n];
+        }
+        return ans;
+    }
+
+    /**
      * 589. N-ary Tree Preorder Traversal
      * @param root 
      */

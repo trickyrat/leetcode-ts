@@ -206,6 +206,11 @@ test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000, 100])).toEqual("1000/100");
 });
 
+test("MatrixReshapeTest", () => {
+  expect(solution.matrixReshape([[1, 2], [3, 4]], 1, 4)).toEqual([[1, 2, 3, 4]]);
+  expect(solution.matrixReshape([[1, 2], [3, 4]], 2, 4)).toEqual([[1, 2], [3, 4]],);
+})
+
 test("PreorderTest", () => {
   let root = new Node(1);
   let first_child = new Node(3);
