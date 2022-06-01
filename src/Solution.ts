@@ -296,6 +296,22 @@ export class Solution {
     }
 
     /**
+     * 118. Pascal's Triangle
+     * @param numRows 
+     */
+    generate(numRows: number): number[][] {
+        let res: number[][] = [];
+        for (let i = 0; i < numRows; ++i) {
+            let row = new Array<number>(i + 1).fill(1);
+            for (let j = 1; j < row.length - 1; ++j) {
+                row[j] = res[i - 1][j - 1] + res[i - 1][j];
+            }
+            res.push(row);
+        }
+        return res;
+    }
+
+    /**
      * 121. Best Time to Buy and Sell Stock
      * @param prices 
      */
