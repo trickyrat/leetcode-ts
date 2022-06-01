@@ -537,6 +537,26 @@ export class Solution {
     }
 
     /**
+     * 496. Next Greater Element I
+     * @param nums1 
+     * @param nums2 
+     */
+    nextGreaterElement(nums1: number[], nums2: number[]): number[] {
+        let map: Map<number, number> = new Map();
+        let stack: number[] = [];
+        for (let i = nums2.length - 1; i >= 0; --i) {
+            let num = nums2[i];
+            while (stack.length && num >= stack[stack.length - 1]) {
+                stack.pop();
+            }
+            map.set(num, stack.length ? stack[stack.length - 1] : -1);
+            stack.push(num);
+        }
+        let ans = new Array<number>(nums1.length).fill(0).map((_, i) => map.get(nums1[i])) as number[];
+        return ans;
+    }
+
+    /**
      * 498.对角线遍历
      * @param matrix 
      */

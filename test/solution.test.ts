@@ -172,6 +172,11 @@ test("MakeSquareTest", () => {
   expect(solution.makeSquare([3, 3, 2, 2])).toEqual(false);
 })
 
+test("NextGreaterElementTest", () => {
+  expect(solution.nextGreaterElement([4, 1, 2], [1, 3, 4, 2])).toEqual([-1, 3, -1]);
+  expect(solution.nextGreaterElement([2, 4], [1, 2, 3, 4])).toEqual([3, -1]);
+})
+
 test("FindDiagonalOrder", () => {
   expect(solution.findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]])).toEqual([1, 2, 4, 7, 5, 3, 6, 8, 9]);
   expect(solution.findDiagonalOrder([[1, 2], [3, 4]])).toEqual([1, 2, 3, 4]);
