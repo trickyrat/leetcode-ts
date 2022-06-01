@@ -507,6 +507,36 @@ export class Solution {
     }
 
     /**
+     * 473. Matchsticks to Square
+     * @param matchsticks 
+     */
+    makeSquare(matchsticks: number[]): boolean {
+        let dfs = (index: number, data: number[], edges: number[], len: number): boolean => {
+            if (index === data.length) {
+                return true;
+            }
+            for (let i = 0; i < edges.length; ++i) {
+                edges[i] += data[index];
+                if (edges[i] <= len && dfs(index + 1, data, edges, len)) {
+                    return true;
+                }
+                edges[i] -= data[index];
+            }
+            return false;
+        };
+        let total = matchsticks.reduce((prev, curr) => prev + curr, 0);
+        if (total % 4 !== 0) {
+            return false;
+        }
+        matchsticks.sort((a, b) => a - b);
+        for (let i = 0, j = matchsticks.length - 1; i < j; ++i, --j) {
+            [matchsticks[i], matchsticks[j]] = [matchsticks[j], matchsticks[i]];
+        }
+        let edges = new Array<number>(4).fill(0);
+        return dfs(0, matchsticks, edges, Math.floor(total / 4));
+    }
+
+    /**
      * 498.对角线遍历
      * @param matrix 
      */
@@ -597,7 +627,7 @@ export class Solution {
     }
 
     /**
-     * 589.N叉树的前序遍历
+     * 589. N-ary Tree Preorder Traversal
      * @param root 
      */
     preorder(root: Node | null): number[] {
