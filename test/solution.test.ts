@@ -328,6 +328,11 @@ test("SumRootToLeaf", () => {
   expect(solution.sumRootToLeaf(null)).toEqual(0);
 })
 
+test("CheckStraightLineTest", () => {
+  expect(solution.checkStraightLine([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]])).toEqual(true);
+  expect(solution.checkStraightLine([[1, 1], [2, 2], [3, 4], [4, 5], [5, 6], [7, 7]])).toEqual(false);
+})
+
 test("SubtractProductAndSum", () => {
   expect(solution.subtractProductAndSum(234)).toEqual(15);
   expect(solution.subtractProductAndSum(4421)).toEqual(21);
@@ -338,7 +343,7 @@ test("AverageTest", () => {
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);
 })
 
-test("canMakeArithmeticProgressionTest", () => {
+test("CanMakeArithmeticProgressionTest", () => {
   expect(solution.canMakeArithmeticProgression([3, 5, 1])).toEqual(true);
   expect(solution.canMakeArithmeticProgression([1, 2, 4])).toEqual(false);
 })

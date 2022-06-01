@@ -1097,6 +1097,27 @@ export class Solution {
     }
 
     /**
+     * 1232. Check If It Is a Straight Line
+     * @param coordinates 
+     */
+    checkStraightLine(coordinates: number[][]): boolean {
+        let dx = coordinates[0][0], dy = coordinates[0][1];
+        let n = coordinates.length;
+        for (let i = 0; i < n; ++i) {
+            coordinates[i][0] -= dx;
+            coordinates[i][1] -= dy;
+        }
+        let A = coordinates[1][1], B = -coordinates[1][0];
+        for (let i = 2; i < n; ++i) {
+            let x = coordinates[i][0], y = coordinates[i][1];
+            if (A * x + B * y !== 0) {
+                return false;
+            }
+        }
+        return true;
+    };
+
+    /**
      * 1281. Subtract the Product and Sum of Digits of an Integer
      * @param n 
      */
