@@ -1,6 +1,7 @@
 import { Solution } from "../src/Solution";
 import { Node } from "../src/Node";
 import { createTreeNodeByDFS, createTreeNodeByBFS, createListNode, convertListNodeToArray } from "../src/Utilities";
+import { ListNode } from "../src/ListNode";
 
 let solution = new Solution();
 
@@ -107,6 +108,16 @@ test("GenerateTest", () => {
 test("MaxProfitTest", () => {
   expect(solution.maxProfit([7, 1, 5, 3, 6, 4])).toEqual(5);
   expect(solution.maxProfit([7, 6, 4, 3, 1])).toEqual(0);
+})
+
+test("HasCycleTest", () => {
+  expect(solution.hasCycle(createListNode([1]))).toEqual(false);
+  let head2 = createListNode([1, 2]);
+  head2!.next!.next = head2;
+  expect(solution.hasCycle(head2)).toEqual(true);
+  let head3 = createListNode([3, 2, 0, 4]);
+  head3!.next!.next!.next!.next = head3;
+  expect(solution.hasCycle(head3)).toEqual(true);
 })
 
 test("ConvertToTitle", () => {

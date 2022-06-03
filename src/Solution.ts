@@ -325,6 +325,26 @@ export class Solution {
     }
 
     /**
+     * 141. Linked List Cycle
+     * @param head 
+     */
+    hasCycle(head: ListNode | null): boolean {
+        if (!head || !head.next) {
+            return false;
+        }
+        let slow = head;
+        let fast = head?.next;
+        while (slow != fast) {
+            if (!slow || !fast) {
+                return false;
+            }
+            slow = slow?.next!;
+            fast = fast?.next?.next!;
+        }
+        return true;
+    }
+
+    /**
      * 168. Excel Sheet Column Title
      * @param columnNumber 
      */
