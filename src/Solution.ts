@@ -525,6 +525,33 @@ export class Solution {
     }
 
     /**
+     * 387. First Unique Character in a String
+     * @param s 
+     */
+    firstUniqChar(s: string): number {
+        let position: Map<string, number> = new Map<string, number>();
+        let n = s.length;
+        for (let [i, ch] of Array.from(s).entries()) {
+            if (position.has(ch)) {
+                position.set(ch, -1);
+            } else {
+                position.set(ch, i);
+            }
+        }
+
+        let first = n;
+        for (let pos of position.values()) {
+            if (pos !== -1 && pos < first) {
+                first = pos;
+            }
+        }
+        if (first === n) {
+            first = -1;
+        }
+        return first;
+    }
+
+    /**
      * 467. Unique Substrings in Wraparound String
      * @param p 
      */

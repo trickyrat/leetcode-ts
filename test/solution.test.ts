@@ -176,6 +176,12 @@ test("LexicalTest", () => {
   expect(solution.lexicalOrder(2)).toEqual([1, 2]);
 })
 
+test("FirstUniqCharTest", () => {
+  expect(solution.firstUniqChar("leetcode")).toEqual(0);
+  expect(solution.firstUniqChar("loveleetcode")).toEqual(2);
+  expect(solution.firstUniqChar("aabb")).toEqual(-1);
+})
+
 test("FindSubstringInWraparoundString", () => {
   expect(solution.findSubstringInWraparoundString("a")).toEqual(1);
   expect(solution.findSubstringInWraparoundString("cac")).toEqual(2);
