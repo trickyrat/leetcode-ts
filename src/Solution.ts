@@ -504,6 +504,28 @@ export class Solution {
     }
 
     /**
+     * 383. Ransom Note
+     * @param ransomNote 
+     * @param magazine 
+     */
+    canConstruct(ransomNote: string, magazine: string): boolean {
+        if (ransomNote.length > magazine.length) {
+            return false;
+        }
+        let count = new Array<number>(26).fill(0);
+        for (const c of magazine) {
+            count[c.charCodeAt(0) - 'a'.charCodeAt(0)]++;
+        }
+        for (const c of ransomNote) {
+            count[c.charCodeAt(0) - 'a'.charCodeAt(0)]--;
+            if (count[c.charCodeAt(0) - 'a'.charCodeAt(0)] < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * 386. 字典序排数
      * @param n 
      */
