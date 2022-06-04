@@ -155,6 +155,11 @@ test("ContainsDuplicateTest", () => {
   expect(solution.containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])).toEqual(true);
 })
 
+test("IsAnagram", () => {
+  expect(solution.isAnagram("anagram", "nagaram")).toEqual(true);
+  expect(solution.isAnagram("rat", "car")).toEqual(false);
+})
+
 test("AddDigitTest", () => {
   expect(solution.addDigits(38)).toEqual(2);
   expect(solution.addDigits(0)).toEqual(0);

@@ -438,6 +438,43 @@ export class Solution {
     }
 
     /**
+     * 242. Valid Anagram
+     * @param s 
+     * @param t 
+     */
+    isAnagram(s: string, t: string): boolean {
+        let m = s.length;
+        let n = t.length;
+        if (m != n) {
+            return false;
+        }
+        let map: Map<string, number> = new Map<string, number>();
+        for (let i = 0; i < m; ++i) {
+            if (map.has(s[i])) {
+                let val = map.get(s[i]) as number;
+                val++;
+                map.set(s[i], val);
+            } else {
+                map.set(s[i], 1);
+            }
+        }
+
+        for (let i = 0; i < n; ++i) {
+            if (map.has(t[i])) {
+                let val = map.get(t[i]) as number;
+                val--;
+                map.set(t[i], val);
+            } else {
+                map.set(t[i], -1);
+            }
+            if (map.get(t[i]) as number < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * 258.各位相加
      * @param num 
      * @returns 
