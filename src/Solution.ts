@@ -446,6 +446,25 @@ export class Solution {
     }
 
     /**
+     * 203. Remove Linked List Elements
+     * @param head 
+     * @param val 
+     */
+    removeElements(head: ListNode | null, val: number): ListNode | null {
+        let dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        let tmp = dummyHead;
+        while (tmp.next !== null) {
+            if (tmp.next.val == val) {
+                tmp.next = tmp.next.next;
+            } else {
+                tmp = tmp.next;
+            }
+        }
+        return dummyHead.next;
+    }
+
+    /**
      * 217. Contains Duplicate
      * @param nums 
      */

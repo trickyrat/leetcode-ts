@@ -155,6 +155,12 @@ test("IsHappyTest", () => {
   expect(solution.isHappy(2)).toEqual(false);
 })
 
+test("RemoveElementsTest", () => {
+  expect(solution.removeElements(createListNode([1, 2, 6, 3, 4, 5, 6]), 6)).toEqual(createListNode([1, 2, 3, 4, 5]));
+  expect(solution.removeElements(createListNode([]), 1)).toEqual(createListNode([]));
+  expect(solution.removeElements(createListNode([7, 7, 7, 7]), 7)).toEqual(createListNode([]));
+})
+
 test("ContainsDuplicateTest", () => {
   expect(solution.containsDuplicate([1, 2, 3, 1])).toEqual(true);
   expect(solution.containsDuplicate([1, 2, 3, 4])).toEqual(false);
