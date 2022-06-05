@@ -2,7 +2,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "test-c": "jest --coverage"
+    "test:coverage": "jest --coverage"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",
