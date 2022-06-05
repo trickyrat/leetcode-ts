@@ -161,6 +161,12 @@ test("RemoveElementsTest", () => {
   expect(solution.removeElements(createListNode([7, 7, 7, 7]), 7)).toEqual(createListNode([]));
 })
 
+test("ReverseListTest", () => {
+  expect(solution.reverseList(createListNode([1, 2, 3, 4, 5]))).toEqual(createListNode([5, 4, 3, 2, 1]));
+  expect(solution.reverseList(createListNode([1, 2]))).toEqual(createListNode([2, 1]));
+  expect(solution.reverseList(createListNode([]))).toEqual(createListNode([]));
+})
+
 test("ContainsDuplicateTest", () => {
   expect(solution.containsDuplicate([1, 2, 3, 1])).toEqual(true);
   expect(solution.containsDuplicate([1, 2, 3, 4])).toEqual(false);
