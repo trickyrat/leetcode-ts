@@ -87,6 +87,11 @@ test("SetZeroesTest", () => {
   expect(input2).toEqual([[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]);
 });
 
+test("DeleteDuplicatesTest", () => {
+  expect(solution.deleteDuplicates(createListNode([1, 1, 2]))).toEqual(createListNode([1, 2]));
+  expect(solution.deleteDuplicates(createListNode([1, 1, 2, 3, 3]))).toEqual(createListNode([1, 2, 3]));
+})
+
 test("MergeTest", () => {
   let nums1 = [1, 2, 3, 0, 0, 0];
   solution.merge(nums1, 3, [2, 5, 6], 3);
