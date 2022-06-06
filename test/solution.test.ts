@@ -412,6 +412,11 @@ test("SubtractProductAndSum", () => {
   expect(solution.subtractProductAndSum(4421)).toEqual(21);
 })
 
+test("FreqAlphabetsTest", () => {
+  expect(solution.freqAlphabets("10#11#12")).toEqual("jkab");
+  expect(solution.freqAlphabets("1326#")).toEqual("acz");
+})
+
 test("AverageTest", () => {
   expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);

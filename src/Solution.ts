@@ -1395,6 +1395,25 @@ export class Solution {
     }
 
     /**
+     * 1309. Decrypt String from Alphabet to Integer Mapping
+     * @param s 
+     */
+    freqAlphabets(s: string): string {
+        let ans = "";
+        let n = s.length;
+        for (let i = 0; i < n; ++i) {
+            if (i + 2 < n && s[i + 2] === "#") {
+                ans += String.fromCharCode((s[i].charCodeAt(0) - '0'.charCodeAt(0)) * 10
+                    + s[i + 1].charCodeAt(0) - '1'.charCodeAt(0) + 'a'.charCodeAt(0));
+                i += 2;
+            } else {
+                ans += String.fromCharCode(s[i].charCodeAt(0) - '1'.charCodeAt(0) + 'a'.charCodeAt(0));
+            }
+        }
+        return ans;
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
