@@ -42,7 +42,8 @@ test("ReverseIntNumberTest", () => {
 });
 
 test("IsValidParenthesesTest", () => {
-  expect(solution.isValidParentheses("()")).toEqual(true); ``
+  expect(solution.isValidParentheses("()")).toEqual(true);
+  expect(solution.isValidParentheses("())")).toEqual(false);
   expect(solution.isValidParentheses("()[]{}")).toEqual(true);
   expect(solution.isValidParentheses("(]")).toEqual(false);
 })
