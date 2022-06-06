@@ -716,6 +716,27 @@ export class Solution {
     }
 
     /**
+     * 389. Find the Difference
+     * @param s 
+     * @param t 
+     */
+    findTheDifference(s: string, t: string): string {
+        let n = s.length;
+        if (n === 0) {
+            return t;
+        }
+        let sSum = 0;
+        for (const ch of s) {
+            sSum += ch.charCodeAt(0);
+        }
+        let tSum = 0
+        for (const ch of t) {
+            tSum += ch.charCodeAt(0);
+        }
+        return String.fromCharCode(tSum - sSum);
+    }
+
+    /**
      * 467. Unique Substrings in Wraparound String
      * @param p 
      */

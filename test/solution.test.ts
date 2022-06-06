@@ -223,6 +223,11 @@ test("FirstUniqCharTest", () => {
   expect(solution.firstUniqChar("aabb")).toEqual(-1);
 })
 
+test("FindTheDifferenceTest", () => {
+  expect(solution.findTheDifference("abcd", "abcde")).toEqual("e");
+  expect(solution.findTheDifference("", "y")).toEqual("y");
+})
+
 test("FindSubstringInWraparoundString", () => {
   expect(solution.findSubstringInWraparoundString("a")).toEqual(1);
   expect(solution.findSubstringInWraparoundString("cac")).toEqual(2);
