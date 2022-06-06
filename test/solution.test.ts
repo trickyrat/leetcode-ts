@@ -421,6 +421,12 @@ test("CountOddsTest", () => {
   expect(solution.countOdds(8, 10)).toEqual(1);
 })
 
+test("", () => {
+  expect(solution.sumOddLengthSubarrays([1, 4, 2, 5, 3])).toEqual(58);
+  expect(solution.sumOddLengthSubarrays([1, 2])).toEqual(3);
+  expect(solution.sumOddLengthSubarrays([10, 11, 12])).toEqual(66);
+})
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);

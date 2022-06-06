@@ -1425,6 +1425,25 @@ export class Solution {
     }
 
     /**
+     * 1588. Sum of All Odd Length Subarrays
+     * @param arr 
+     * @returns 
+     */
+    sumOddLengthSubarrays(arr: number[]): number {
+        let sum = 0;
+        let n = arr.length;
+        for (let i = 0; i < n; ++i) {
+            let leftCount = i, rightCount = n - i - 1;
+            let leftOdd = Math.floor((leftCount + 1) / 2);
+            let rightOdd = Math.floor((rightCount + 1) / 2);
+            let leftEven = Math.floor(leftCount / 2) + 1;
+            let rightEven = Math.floor(rightCount / 2) + 1;
+            sum += arr[i] * (leftOdd * rightOdd + leftEven * rightEven);
+        }
+        return sum;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
