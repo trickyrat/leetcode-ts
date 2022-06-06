@@ -228,6 +228,11 @@ test("FindTheDifferenceTest", () => {
   expect(solution.findTheDifference("", "y")).toEqual("y");
 })
 
+test("SumOfLeftLeavesTest", () => {
+  expect(solution.sumOfLeftLeaves(createTreeNodeByBFS([3, 9, 20, null, null, 15, 7]))).toEqual(24);
+  expect(solution.sumOfLeftLeaves(createTreeNodeByBFS([1]))).toEqual(0);
+})
+
 test("FindSubstringInWraparoundString", () => {
   expect(solution.findSubstringInWraparoundString("a")).toEqual(1);
   expect(solution.findSubstringInWraparoundString("cac")).toEqual(2);

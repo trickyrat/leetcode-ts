@@ -737,6 +737,27 @@ export class Solution {
     }
 
     /**
+     * 404. Sum of Left Leaves
+     * @param root 
+     */
+    sumOfLeftLeaves(root: TreeNode | null): number {
+        let isLeafNode = (node: TreeNode): boolean => {
+            return !node.left && !node.right;
+        };
+        let dfs = (node: TreeNode | null): number => {
+            let sum = 0;
+            if (node?.left) {
+                sum += isLeafNode(node.left) ? node.left.val : dfs(node.left);
+            }
+            if (node?.right && !isLeafNode(node.right)) {
+                sum += dfs(node.right);
+            }
+            return sum;
+        };
+        return root ? dfs(root) : 0;
+    }
+
+    /**
      * 467. Unique Substrings in Wraparound String
      * @param p 
      */
