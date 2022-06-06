@@ -1437,6 +1437,20 @@ export class Solution {
     }
 
     /**
+     * 1290. Convert Binary Number in a Linked List to Integer
+     * @param head 
+     */
+    getDecimalValue(head: ListNode | null): number {
+        let curr = head;
+        let ans = 0;
+        while (curr) {
+            ans = ans * 2 + curr.val;
+            curr = curr.next;
+        }
+        return ans;
+    }
+
+    /**
      * 1309. Decrypt String from Alphabet to Integer Mapping
      * @param s 
      */

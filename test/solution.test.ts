@@ -422,6 +422,11 @@ test("SubtractProductAndSum", () => {
   expect(solution.subtractProductAndSum(4421)).toEqual(21);
 })
 
+test("GetDecimalValueTest", () => {
+  expect(solution.getDecimalValue(createListNode([1, 0, 1]))).toEqual(5);
+  expect(solution.getDecimalValue(createListNode([0]))).toEqual(0);
+})
+
 test("FreqAlphabetsTest", () => {
   expect(solution.freqAlphabets("10#11#12")).toEqual("jkab");
   expect(solution.freqAlphabets("1326#")).toEqual("acz");
