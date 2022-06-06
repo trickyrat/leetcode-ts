@@ -301,6 +301,12 @@ test("CalPointsTest", () => {
   expect(solution.calPoints(["1"])).toEqual(1);
 });
 
+test("ToLowerCaseTest", () => {
+  expect(solution.toLowerCase("Hello")).toEqual("hello");
+  expect(solution.toLowerCase("here")).toEqual("here");
+  expect(solution.toLowerCase("LOVELY")).toEqual("lovely");
+})
+
 test("LongestWord", () => {
   expect(solution.longestWord(["w", "wo", "wor", "worl", "world"])).toEqual("world");
   expect(solution.longestWord(["a", "banana", "app", "appl", "ap", "apply", "apple"])).toEqual("apple");

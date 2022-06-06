@@ -962,6 +962,22 @@ export class Solution {
     }
 
     /**
+     * 709. To Lower Case
+     * @param s 
+     */
+    toLowerCase(s: string): string {
+        let sb: string[] = [];
+        for (let ch of s) {
+            let val = ch.charCodeAt(0);
+            if (val >= 65 && val <= 90) {
+                ch = String.fromCharCode(val | 32);
+            }
+            sb.push(ch);
+        }
+        return sb.join("");
+    }
+
+    /**
      * 720. 词典中最长的单词
      * @param words 
      * @returns 
