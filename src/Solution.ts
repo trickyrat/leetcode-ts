@@ -1425,6 +1425,19 @@ export class Solution {
     }
 
     /**
+     * 1572. Matrix Diagonal Sum
+     * @param mat 
+     */
+    diagonalSum(mat: number[][]): number {
+        let n = mat.length, mid = Math.floor(n / 2);
+        let sum = 0;
+        for (let i = 0; i < n; ++i) {
+            sum += mat[i][i] + mat[i][n - i - 1];
+        }
+        return sum - mat[mid][mid] * (n & 1);
+    }
+
+    /**
      * 1588. Sum of All Odd Length Subarrays
      * @param arr 
      * @returns 

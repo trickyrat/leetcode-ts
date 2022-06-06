@@ -421,7 +421,13 @@ test("CountOddsTest", () => {
   expect(solution.countOdds(8, 10)).toEqual(1);
 })
 
-test("", () => {
+test("DiagonalSumTest", () => {
+  expect(solution.diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]])).toEqual(25);
+  expect(solution.diagonalSum([[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]])).toEqual(8);
+  expect(solution.diagonalSum([[5]])).toEqual(5);
+})
+
+test("SumOddLengthSubarraysTest", () => {
   expect(solution.sumOddLengthSubarrays([1, 4, 2, 5, 3])).toEqual(58);
   expect(solution.sumOddLengthSubarrays([1, 2])).toEqual(3);
   expect(solution.sumOddLengthSubarrays([10, 11, 12])).toEqual(66);
