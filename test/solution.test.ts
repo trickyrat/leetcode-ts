@@ -41,6 +41,12 @@ test("ReverseIntNumberTest", () => {
   expect(solution.reverseIntNumber(-2147483648)).toEqual(0);
 });
 
+test("IsValidParenthesesTest", () => {
+  expect(solution.isValidParentheses("()")).toEqual(true); ``
+  expect(solution.isValidParentheses("()[]{}")).toEqual(true);
+  expect(solution.isValidParentheses("(]")).toEqual(false);
+})
+
 test("MergeTwoListsTest", () => {
   expect(solution.mergeTwoLists(createListNode([1, 2, 4]), createListNode([1, 3, 4]))).toEqual(createListNode([1, 1, 2, 3, 4, 4]));
   expect(solution.mergeTwoLists(createListNode([]), createListNode([]))).toEqual(createListNode([]));

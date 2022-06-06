@@ -114,6 +114,34 @@ export class Solution {
     }
 
     /**
+     * 20. Valid Parentheses
+     * @param s 
+     */
+    isValidParentheses(s: string): boolean {
+        let n = s.length;
+        if (n % 2 === 1) {
+            return false;
+        }
+        let pairs: Map<string, string> = new Map([
+            [")", "("],
+            ["]", "["],
+            ["}", "{"],
+        ]);
+        let stack: string[] = [];
+        for (const c of s) {
+            if (pairs.has(c)) {
+                if (!stack.length || stack[stack.length - 1] != pairs.get(c)) {
+                    return false;
+                }
+                stack.pop();
+            } else {
+                stack.push(c);
+            }
+        }
+        return !stack.length;
+    }
+
+    /**
      * 21. Merge Two Sorted Lists
      * @param list1 
      * @param list2 
