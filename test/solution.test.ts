@@ -471,8 +471,8 @@ test("MaximumWealthTest", () => {
 })
 
 test("MiddleNodeTest", () => {
-  expect(solution.middleNode(createListNode([1, 2, 3, 4, 5]))).toEqual([3, 4, 5]);
-  expect(solution.middleNode(createListNode([1, 2, 3, 4, 5, 6]))).toEqual([4, 5, 6]);
+  expect(solution.middleNode(createListNode([1, 2, 3, 4, 5]))).toEqual(createListNode([3, 4, 5]));
+  expect(solution.middleNode(createListNode([1, 2, 3, 4, 5, 6]))).toEqual(createListNode([4, 5, 6]));
 })
 
 test("ProjectionAreaTest", () => {
