@@ -1574,6 +1574,25 @@ export class Solution {
     }
 
     /**
+     * 1768. Merge Strings Alternately
+     * @param word1 
+     * @param words 
+     */
+    mergeAlternately(word1: string, word2: string): string {
+        let m = word1.length, n = word2.length, index = 0;
+        let res: string[] = new Array<string>(m + n).fill(" ");
+        for (let i = 0; i < m || i < n; ++i) {
+            if (i < m) {
+                res[index++] = word1[i];
+            }
+            if (i < n) {
+                res[index++] = word2[i];
+            }
+        }
+        return res.join("");
+    }
+
+    /**
      * 1779. Find Nearest Point That Has the Same X or Y Coordinate
      * @param x 
      * @param y 

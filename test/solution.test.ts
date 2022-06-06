@@ -476,6 +476,12 @@ test("ProjectionAreaTest", () => {
   expect(solution.projectionArea([[1, 0], [0, 2]])).toEqual(8);
 })
 
+test("MergeAlternatelyTest", () => {
+  expect(solution.mergeAlternately("abc", "pqr")).toEqual("apbqcr");
+  expect(solution.mergeAlternately("ab", "pqrs")).toEqual("apbqrs");
+  expect(solution.mergeAlternately("abcd", "pq")).toEqual("apbqcd");
+})
+
 test("NearestValidPoint", () => {
   expect(solution.nearestValidPoint(3, 4, [[1, 2], [3, 1], [2, 4], [2, 3], [4, 4]])).toEqual(2);
   expect(solution.nearestValidPoint(3, 4, [[3, 4]])).toEqual(0);
