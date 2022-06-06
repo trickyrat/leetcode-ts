@@ -316,6 +316,17 @@ export class Solution {
     }
 
     /**
+     * 104. Maximum Depth of Binary Tree
+     * @param root 
+     */
+    maxDepth(root: TreeNode | null): number {
+        if (!root) {
+            return 0;
+        }
+        return Math.max(this.maxDepth(root.left), this.maxDepth(root.right)) + 1;
+    }
+
+    /**
      * 88. Merge Sorted Array
      * @param nums1 
      * @param m 

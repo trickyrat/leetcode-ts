@@ -99,6 +99,11 @@ test("DeleteDuplicatesTest", () => {
   expect(solution.deleteDuplicates(createListNode([1, 1, 2, 3, 3]))).toEqual(createListNode([1, 2, 3]));
 })
 
+test("MaxDepthTest", () => {
+  expect(solution.maxDepth(createTreeNodeByBFS([3, 9, 20, null, null, 15, 7]))).toEqual(3);
+  expect(solution.maxDepth(createTreeNodeByBFS([1, null, 2]))).toEqual(2);
+})
+
 test("MergeTest", () => {
   let nums1 = [1, 2, 3, 0, 0, 0];
   solution.merge(nums1, 3, [2, 5, 6], 3);
