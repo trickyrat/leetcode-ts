@@ -1225,6 +1225,20 @@ export class Solution {
     }
 
     /**
+     * 876. Middle of the Linked List
+     * @param head 
+     */
+    middleNode(head: ListNode | null): ListNode | null {
+        let slow = head;
+        let fast = head;
+        while (fast && fast.next) {
+            slow = slow?.next!;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+    /**
      * 883.三维形体投影面积
      * @param grid 
      */
