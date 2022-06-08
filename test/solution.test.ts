@@ -1,7 +1,6 @@
 import { Solution } from "../src/Solution";
 import { Node } from "../src/Node";
-import { createTreeNodeByDFS, createTreeNodeByBFS, createListNode, convertListNodeToArray } from "../src/Utilities";
-import { ListNode } from "../src/ListNode";
+import { createTreeNodeByBFS, createListNode, convertListNodeToArray } from "../src/Utilities";
 
 let solution = new Solution();
 
@@ -479,6 +478,12 @@ test("ProjectionAreaTest", () => {
   expect(solution.projectionArea([[1, 2], [3, 4]])).toEqual(17);
   expect(solution.projectionArea([[2]])).toEqual(5);
   expect(solution.projectionArea([[1, 0], [0, 2]])).toEqual(8);
+})
+
+test("InterpretTest", () => {
+  expect(solution.interpret("G()(al)")).toEqual("Goal");
+  expect(solution.interpret("G()()()()(al)")).toEqual("Gooooal");
+  expect(solution.interpret("(al)G(al)()()G")).toEqual("alGalooG");
 })
 
 test("MergeAlternatelyTest", () => {

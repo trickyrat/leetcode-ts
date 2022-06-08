@@ -1585,6 +1585,27 @@ export class Solution {
     }
 
     /**
+     * 1678. Goal Parser Interpretation
+     * @param command 
+     */
+    interpret(command: string): string {
+        let n = command.length;
+        let ans = "";
+        for (let i = 0; i < n; ++i) {
+            if (command[i] === "G") {
+                ans += "G";
+            } else if (command[i] === ")") {
+                if (command[i - 1] === "(") {
+                    ans += "o";
+                } else if (command[i - 1] === "l") {
+                    ans += "al"
+                }
+            }
+        }
+        return ans;
+    }
+
+    /**
      * 1768. Merge Strings Alternately
      * @param word1 
      * @param words 
