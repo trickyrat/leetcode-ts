@@ -436,6 +436,11 @@ test("FreqAlphabetsTest", () => {
   expect(solution.freqAlphabets("1326#")).toEqual("acz");
 })
 
+test("", () => {
+  expect(solution.sortByBits([0, 1, 2, 3, 4, 5, 6, 7, 8])).toEqual([0, 1, 2, 4, 8, 3, 5, 6, 7]);
+  expect(solution.sortByBits([1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1])).toEqual([1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]);
+})
+
 test("AverageTest", () => {
   expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);

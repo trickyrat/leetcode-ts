@@ -1495,6 +1495,24 @@ export class Solution {
     }
 
     /**
+     * 1356. Sort Integers by The Number of 1 Bits
+     * @param arr 
+     */
+    sortByBits(arr: number[]): number[] {
+        let bits: number[] = new Array<number>(10001).fill(0);
+        for (let i = 0; i <= 10000; ++i) {
+            bits[i] = bits[i >> 1] + (i & 1);
+        }
+        arr.sort((a, b) => {
+            if (bits[a] !== bits[b]) {
+                return bits[a] - bits[b];
+            }
+            return a - b;
+        });
+        return arr;
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
