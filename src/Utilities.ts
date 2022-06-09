@@ -56,7 +56,7 @@ export function createTreeNodeByDFS(nums: (number | null)[]): TreeNode | null {
 * @returns 二叉树根节点
 */
 export function createTreeNodeByBFS(nums: (number | null)[]): TreeNode | null {
-  if (nums[0] === null) {
+  if (nums[0] === null || nums[0] === undefined) {
     return null;
   }
   let root = new TreeNode(nums[0]);
@@ -66,14 +66,14 @@ export function createTreeNodeByBFS(nums: (number | null)[]): TreeNode | null {
     let node = queue.shift();
     let leftVal = nums[cursor];
     let rightVal = nums[cursor + 1];
-    if (leftVal !== null) {
+    if (leftVal !== null && leftVal !== undefined) {
       let leftNode = new TreeNode(leftVal);
       if (node) {
         node.left = leftNode;
       }
       queue.push(leftNode);
     }
-    if (rightVal !== null) {
+    if (rightVal !== null && rightVal !== undefined) {
       let rightNode = new TreeNode(rightVal);
       if (node) {
         node.right = rightNode;

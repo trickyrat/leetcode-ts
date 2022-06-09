@@ -426,6 +426,23 @@ export class Solution {
     }
 
     /**
+     * 144. Binary Tree Preorder Traversal
+     * @param root 
+     * @returns 
+     */
+    preorderTraversal(root: TreeNode | null) {
+        let preorder = (node: TreeNode | null, res: number[]) => {
+            if (!node) return;
+            res.push(node.val);
+            preorder(node.left, res);
+            preorder(node.right, res);
+        };
+        let res: number[] = [];
+        preorder(root, res);
+        return res;
+    }
+
+    /**
      * 168. Excel Sheet Column Title
      * @param columnNumber 
      */

@@ -142,6 +142,12 @@ test("HasCycleTest", () => {
   expect(solution.hasCycle(head3)).toEqual(true);
 })
 
+test("PreorderTraversalTest", () => {
+  expect(solution.preorderTraversal(createTreeNodeByBFS([1, null, 2, 3]))).toEqual([1, 2, 3]);
+  expect(solution.preorderTraversal(createTreeNodeByBFS([]))).toEqual([]);
+  expect(solution.preorderTraversal(createTreeNodeByBFS([1]))).toEqual([1]);
+})
+
 test("ConvertToTitle", () => {
   expect(solution.convertToTitle(1)).toEqual("A");
   expect(solution.convertToTitle(28)).toEqual("AB");
@@ -436,7 +442,7 @@ test("FreqAlphabetsTest", () => {
   expect(solution.freqAlphabets("1326#")).toEqual("acz");
 })
 
-test("", () => {
+test("SortByBitsTest", () => {
   expect(solution.sortByBits([0, 1, 2, 3, 4, 5, 6, 7, 8])).toEqual([0, 1, 2, 4, 8, 3, 5, 6, 7]);
   expect(solution.sortByBits([1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1])).toEqual([1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]);
 })
