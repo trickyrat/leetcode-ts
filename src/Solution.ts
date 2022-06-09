@@ -369,6 +369,28 @@ export class Solution {
     }
 
     /**
+     * 102. Binary Tree Level Order Traversal
+     * @param root 
+     */
+    levelOrder(root: TreeNode | null): number[][] {
+        let res: number[][] = [];
+        if (!root) return res;
+        let queue: TreeNode[] = [];
+        queue.push(root);
+        while (queue.length !== 0) {
+            let currentLevelSize = queue.length;
+            res.push([]);
+            for (let i = 1; i <= currentLevelSize; ++i) {
+                let currentNode = queue.shift() as TreeNode;
+                res[res.length - 1].push(currentNode.val);
+                if (currentNode.left) queue.push(currentNode.left);
+                if (currentNode.right) queue.push(currentNode.right);
+            }
+        }
+        return res;
+    }
+
+    /**
      * 113.路径总和II
      * @param root 输入根节点
      * @param targetSum 目标值

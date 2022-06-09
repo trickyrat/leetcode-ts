@@ -121,6 +121,12 @@ test("InorderTraversalTest", () => {
   expect(solution.inorderTraversal(createTreeNodeByBFS([1]))).toEqual([1]);
 })
 
+test("LevelOrderTest", () => {
+  expect(solution.levelOrder(createTreeNodeByBFS([3, 9, 20, null, null, 15, 7]))).toEqual([[3], [9, 20], [15, 7]]);
+  expect(solution.levelOrder(createTreeNodeByBFS([1]))).toEqual([[1]]);
+  expect(solution.levelOrder(createTreeNodeByBFS([]))).toEqual([]);
+})
+
 test("PathSumTest", () => {
   let root = createTreeNodeByBFS([1, 2, 3]);
   let root1 = createTreeNodeByBFS([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]);
