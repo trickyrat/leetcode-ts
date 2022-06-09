@@ -460,6 +460,23 @@ export class Solution {
     }
 
     /**
+     * 145. Binary Tree Postorder Traversal
+     * @param root 
+     * @returns 
+     */
+    postorderTraversal(root: TreeNode | null) {
+        let postorder = (node: TreeNode | null, res: number[]) => {
+            if (!node) return;
+            postorder(node.left, res);
+            postorder(node.right, res);
+            res.push(node.val);
+        };
+        let res: number[] = [];
+        postorder(root, res);
+        return res;
+    }
+
+    /**
      * 168. Excel Sheet Column Title
      * @param columnNumber 
      */

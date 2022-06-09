@@ -154,6 +154,12 @@ test("PreorderTraversalTest", () => {
   expect(solution.preorderTraversal(createTreeNodeByBFS([1]))).toEqual([1]);
 })
 
+test("PostorderTraversalTest", () => {
+  expect(solution.postorderTraversal(createTreeNodeByBFS([1, null, 2, 3]))).toEqual([3, 2, 1]);
+  expect(solution.postorderTraversal(createTreeNodeByBFS([]))).toEqual([]);
+  expect(solution.postorderTraversal(createTreeNodeByBFS([1]))).toEqual([1]);
+})
+
 test("ConvertToTitle", () => {
   expect(solution.convertToTitle(1)).toEqual("A");
   expect(solution.convertToTitle(28)).toEqual("AB");
