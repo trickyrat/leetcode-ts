@@ -316,17 +316,6 @@ export class Solution {
     }
 
     /**
-     * 104. Maximum Depth of Binary Tree
-     * @param root 
-     */
-    maxDepth(root: TreeNode | null): number {
-        if (!root) {
-            return 0;
-        }
-        return Math.max(this.maxDepth(root.left), this.maxDepth(root.right)) + 1;
-    }
-
-    /**
      * 88. Merge Sorted Array
      * @param nums1 
      * @param m 
@@ -369,6 +358,19 @@ export class Solution {
     }
 
     /**
+     * 101. Symmetric Tree
+     * @param root 
+     */
+    isSymmetric(root: TreeNode | null): boolean {
+        let helper = (node1: TreeNode | null, node2: TreeNode | null): boolean => {
+            if (!node1 && !node2) return true;
+            if (!node1 || !node2) return false;
+            return node1.val === node2.val && helper(node1.left, node2.right) && helper(node1.right, node2.left);
+        }
+        return helper(root, root);
+    }
+
+    /**
      * 102. Binary Tree Level Order Traversal
      * @param root 
      */
@@ -388,6 +390,15 @@ export class Solution {
             }
         }
         return res;
+    }
+
+    /**
+     * 104. Maximum Depth of Binary Tree
+     * @param root 
+     */
+    maxDepth(root: TreeNode | null): number {
+        if (!root) return 0;
+        return Math.max(this.maxDepth(root.left), this.maxDepth(root.right)) + 1;
     }
 
     /**

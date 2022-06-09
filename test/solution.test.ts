@@ -121,6 +121,11 @@ test("InorderTraversalTest", () => {
   expect(solution.inorderTraversal(createTreeNodeByBFS([1]))).toEqual([1]);
 })
 
+test("IsSymmetricTest", () => {
+  expect(solution.isSymmetric(createTreeNodeByBFS([1, 2, 2, 3, 4, 4, 3]))).toEqual(true);
+  expect(solution.isSymmetric(createTreeNodeByBFS([1, 2, 2, null, 3, null, 3]))).toEqual(false);
+})
+
 test("LevelOrderTest", () => {
   expect(solution.levelOrder(createTreeNodeByBFS([3, 9, 20, null, null, 15, 7]))).toEqual([[3], [9, 20], [15, 7]]);
   expect(solution.levelOrder(createTreeNodeByBFS([1]))).toEqual([[1]]);
