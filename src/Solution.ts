@@ -352,6 +352,23 @@ export class Solution {
     }
 
     /**
+     * 94. Binary Tree Inorder Traversal
+     * @param root 
+     * @returns 
+     */
+    inorderTraversal(root: TreeNode | null): number[] {
+        let inorder = (node: TreeNode | null, res: number[]) => {
+            if (!node) return;
+            inorder(node.left, res);
+            res.push(node.val);
+            inorder(node.right, res);
+        };
+        let res: number[] = [];
+        inorder(root, res);
+        return res;
+    }
+
+    /**
      * 113.路径总和II
      * @param root 输入根节点
      * @param targetSum 目标值
