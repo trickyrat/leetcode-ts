@@ -986,6 +986,25 @@ export class Solution {
     }
 
     /**
+     * 540. Single Element in a Sorted Array
+     * @param nums 
+     * @returns 
+     */
+    singleNonDuplicate(nums: number[]): number {
+        let low = 0, high = nums.length - 1;
+        while (low < high) {
+            let mid = Math.floor((high - low) / 2) + low;
+            if (nums[mid] == nums[mid ^ 1]) {
+                low = mid + 1;
+            }
+            else {
+                high = mid;
+            }
+        }
+        return nums[low];
+    }
+
+    /**
      * 553.最优除法
      * @param nums 输入数组
      * @returns 结果字符串
