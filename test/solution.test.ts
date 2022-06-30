@@ -266,6 +266,12 @@ test("SumOfLeftLeavesTest", () => {
   expect(solution.sumOfLeftLeaves(createTreeNodeByBFS([1]))).toEqual(0);
 })
 
+test("NumPrimeArrangementsTest", () => {
+  expect(solution.numPrimeArrangements(5)).toEqual(12);
+  expect(solution.numPrimeArrangements(100)).toEqual(682289015);
+  expect(solution.numPrimeArrangements(2)).toEqual(1);
+})
+
 test("FindSubstringInWraparoundStringTest", () => {
   expect(solution.findSubstringInWraparoundString("a")).toEqual(1);
   expect(solution.findSubstringInWraparoundString("cac")).toEqual(2);

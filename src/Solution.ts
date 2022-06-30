@@ -1528,6 +1528,45 @@ export class Solution {
     }
 
     /**
+     * 1175. Prime Arrangements
+     * @param n 
+     */
+    numPrimeArrangements(n: number): number {
+        const countPrime = (n: number) => {
+            let primes = [];
+            let isPrime = new Array<number>(n).fill(1);
+            for (let i = 2; i < n; ++i) {
+                if (isPrime[i]) {
+                    primes.push(i);
+                }
+                for (let j = 0; j < primes.length && i * primes[j] < n; ++j) {
+                    isPrime[i * primes[j]] = 0;
+                    if (i % primes[j] === 0) {
+                        break;
+                    }
+                }
+            }
+            return primes.length;
+        };
+        const MOD = 1000000007;
+
+        let numberOfPrimes = countPrime(n + 1);
+        let res = 1;
+        let m = n - numberOfPrimes;
+        while (numberOfPrimes > 0) {
+            res = res % MOD;
+            res *= numberOfPrimes;
+            numberOfPrimes--;
+        }
+        while (m > 0) {
+            res = res % MOD;
+            res *= m;
+            m--;
+        }
+        return res;
+    }
+
+    /**
      * 1232. Check If It Is a Straight Line
      * @param coordinates 
      */
