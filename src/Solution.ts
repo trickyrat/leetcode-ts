@@ -1655,6 +1655,25 @@ export class Solution {
     }
 
     /**
+     * 1403. Minimum Subsequence in Non-Increasing Order
+     * @param nums 
+     */
+    minSubsequence(nums: number[]): number[] {
+        let total = nums.reduce((prev, curr) => prev + curr, 0);
+        nums.sort((a, b) => a - b);
+        let ans = [];
+        let curr = 0;
+        for (let i = nums.length - 1; i >= 0; --i) {
+            curr += nums[i];
+            ans.push(nums[i]);
+            if (total - curr < curr) {
+                break;
+            }
+        }
+        return ans;
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
