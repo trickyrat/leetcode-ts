@@ -986,6 +986,25 @@ export class Solution {
     }
 
     /**
+     * 540. Single Element in a Sorted Array
+     * @param nums 
+     * @returns 
+     */
+    singleNonDuplicate(nums: number[]): number {
+        let low = 0, high = nums.length - 1;
+        while (low < high) {
+            let mid = Math.floor((high - low) / 2) + low;
+            if (nums[mid] == nums[mid ^ 1]) {
+                low = mid + 1;
+            }
+            else {
+                high = mid;
+            }
+        }
+        return nums[low];
+    }
+
+    /**
      * 553.最优除法
      * @param nums 输入数组
      * @returns 结果字符串
@@ -1506,6 +1525,45 @@ export class Solution {
             return dfs(node.left, val) + dfs(node.right, val);
         };
         return dfs(root, 0);
+    }
+
+    /**
+     * 1175. Prime Arrangements
+     * @param n 
+     */
+    numPrimeArrangements(n: number): number {
+        const countPrime = (n: number) => {
+            let primes = [];
+            let isPrime = new Array<number>(n).fill(1);
+            for (let i = 2; i < n; ++i) {
+                if (isPrime[i]) {
+                    primes.push(i);
+                }
+                for (let j = 0; j < primes.length && i * primes[j] < n; ++j) {
+                    isPrime[i * primes[j]] = 0;
+                    if (i % primes[j] === 0) {
+                        break;
+                    }
+                }
+            }
+            return primes.length;
+        };
+        const MOD = 1000000007;
+
+        let numberOfPrimes = countPrime(n + 1);
+        let res = 1;
+        let m = n - numberOfPrimes;
+        while (numberOfPrimes > 0) {
+            res = res % MOD;
+            res *= numberOfPrimes;
+            numberOfPrimes--;
+        }
+        while (m > 0) {
+            res = res % MOD;
+            res *= m;
+            m--;
+        }
+        return res;
     }
 
     /**

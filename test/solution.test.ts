@@ -171,7 +171,7 @@ test("PostorderTraversalTest", () => {
   expect(solution.postorderTraversal(createTreeNodeByBFS([1]))).toEqual([1]);
 })
 
-test("ConvertToTitle", () => {
+test("ConvertToTitleTest", () => {
   expect(solution.convertToTitle(1)).toEqual("A");
   expect(solution.convertToTitle(28)).toEqual("AB");
   expect(solution.convertToTitle(701)).toEqual("ZY");
@@ -218,7 +218,7 @@ test("ContainsDuplicateTest", () => {
   expect(solution.containsDuplicate([1, 1, 1, 3, 3, 4, 3, 2, 4, 2])).toEqual(true);
 })
 
-test("IsAnagram", () => {
+test("IsAnagramTest", () => {
   expect(solution.isAnagram("anagram", "nagaram")).toEqual(true);
   expect(solution.isAnagram("rat", "car")).toEqual(false);
 })
@@ -266,7 +266,13 @@ test("SumOfLeftLeavesTest", () => {
   expect(solution.sumOfLeftLeaves(createTreeNodeByBFS([1]))).toEqual(0);
 })
 
-test("FindSubstringInWraparoundString", () => {
+test("NumPrimeArrangementsTest", () => {
+  expect(solution.numPrimeArrangements(5)).toEqual(12);
+  expect(solution.numPrimeArrangements(100)).toEqual(682289015);
+  expect(solution.numPrimeArrangements(2)).toEqual(1);
+})
+
+test("FindSubstringInWraparoundStringTest", () => {
   expect(solution.findSubstringInWraparoundString("a")).toEqual(1);
   expect(solution.findSubstringInWraparoundString("cac")).toEqual(2);
   expect(solution.findSubstringInWraparoundString("zab")).toEqual(6);
@@ -283,23 +289,28 @@ test("NextGreaterElementTest", () => {
   expect(solution.nextGreaterElement([2, 4], [1, 2, 3, 4])).toEqual([3, -1]);
 })
 
-test("FindDiagonalOrder", () => {
+test("FindDiagonalOrderTest", () => {
   expect(solution.findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]])).toEqual([1, 2, 4, 7, 5, 3, 6, 8, 9]);
   expect(solution.findDiagonalOrder([[1, 2], [3, 4]])).toEqual([1, 2, 3, 4]);
   expect(solution.findDiagonalOrder([])).toEqual([]);
 });
 
-test("ConvertToBase7", () => {
+test("ConvertToBase7Test", () => {
   expect(solution.convertToBase7(100)).toEqual("202");
   expect(solution.convertToBase7(-7)).toEqual("-10");
   expect(solution.convertToBase7(0)).toEqual("0");
 });
 
-test("FindLUSLength", () => {
+test("FindLUSLengthTest", () => {
   expect(solution.findLUSLength("aba", "cdc")).toEqual(3);
   expect(solution.findLUSLength("aaa", "bbb")).toEqual(3);
   expect(solution.findLUSLength("aaa", "aaa")).toEqual(-1);
 });
+
+test("SingleNonDuplicateTest", () => {
+  expect(solution.singleNonDuplicate([1, 1, 2, 3, 3, 4, 4, 8, 8])).toEqual(2);
+  expect(solution.singleNonDuplicate([3, 3, 7, 7, 10, 11, 11])).toEqual(10);
+})
 
 test("OptimalDivisionTest", () => {
   expect(solution.optimalDivision([1000, 100, 10, 2])).toEqual("1000/(100/10/2)");
@@ -350,7 +361,7 @@ test("ToLowerCaseTest", () => {
   expect(solution.toLowerCase("LOVELY")).toEqual("lovely");
 })
 
-test("LongestWord", () => {
+test("LongestWordTest", () => {
   expect(solution.longestWord(["w", "wo", "wor", "worl", "world"])).toEqual("world");
   expect(solution.longestWord(["a", "banana", "app", "appl", "ap", "apply", "apple"])).toEqual("apple");
 })
@@ -388,7 +399,7 @@ test("NumberOfLinesTest", () => {
   expect(solution.numberOfLines([4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "bbbcccdddaaa")).toEqual([2, 4]);
 })
 
-test("MostCommonWord", () => {
+test("MostCommonWordTest", () => {
   expect(solution.mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", ["hit"])).toEqual("ball");
 })
 
@@ -433,13 +444,13 @@ test("LargestPerimeterTest", () => {
   expect(solution.largestPerimeter([1, 2, 1])).toEqual(0);
 })
 
-test("RemoveOuterParentheses", () => {
+test("RemoveOuterParenthesesTest", () => {
   expect(solution.removeOuterParentheses("(()())(())")).toEqual("()()()");
   expect(solution.removeOuterParentheses("(()())(())(()(()))")).toEqual("()()()()(())");
   expect(solution.removeOuterParentheses("()()")).toEqual("");
 })
 
-test("SumRootToLeaf", () => {
+test("SumRootToLeafTest", () => {
   expect(solution.sumRootToLeaf(createTreeNodeByBFS([1, 0, 1, 0, 1, 0, 1]))).toEqual(22);
   expect(solution.sumRootToLeaf(createTreeNodeByBFS([0]))).toEqual(0);
   expect(solution.sumRootToLeaf(null)).toEqual(0);
@@ -450,7 +461,7 @@ test("CheckStraightLineTest", () => {
   expect(solution.checkStraightLine([[1, 1], [2, 2], [3, 4], [4, 5], [5, 6], [7, 7]])).toEqual(false);
 })
 
-test("SubtractProductAndSum", () => {
+test("SubtractProductAndSumTest", () => {
   expect(solution.subtractProductAndSum(234)).toEqual(15);
   expect(solution.subtractProductAndSum(4421)).toEqual(21);
 })
@@ -526,7 +537,7 @@ test("MergeAlternatelyTest", () => {
   expect(solution.mergeAlternately("abcd", "pq")).toEqual("apbqcd");
 })
 
-test("NearestValidPoint", () => {
+test("NearestValidPointTest", () => {
   expect(solution.nearestValidPoint(3, 4, [[1, 2], [3, 1], [2, 4], [2, 3], [4, 4]])).toEqual(2);
   expect(solution.nearestValidPoint(3, 4, [[3, 4]])).toEqual(0);
   expect(solution.nearestValidPoint(3, 4, [[2, 3]])).toEqual(-1);
