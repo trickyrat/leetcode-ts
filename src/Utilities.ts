@@ -84,3 +84,23 @@ export function createTreeNodeByBFS(nums: (number | null)[]): TreeNode | null {
   }
   return root;
 }
+
+
+export function preorderTraversal(root: TreeNode | null): number[] | null {
+  let res: number[] = [];
+  if (!root) {
+    return null;
+  }
+  let stack: TreeNode[] = [];
+  let node: TreeNode | null = root;
+  while (stack.length > 0 || !node) {
+    while (node) {
+      res.push(node.val);
+      stack.push(node);
+      node = node.left;
+    }
+    node = stack.pop()!;
+    node = node?.right;
+  }
+  return res;
+}

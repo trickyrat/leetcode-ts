@@ -1,6 +1,6 @@
 import { Solution } from "../src/Solution";
 import { Node } from "../src/Node";
-import { createTreeNodeByBFS, createListNode, convertListNodeToArray } from "../src/Utilities";
+import { createTreeNodeByBFS, createListNode, convertListNodeToArray, preorderTraversal } from "../src/Utilities";
 
 let solution = new Solution();
 
@@ -348,6 +348,15 @@ test("PostorderTest", () => {
   let root2 = null;
   expect(solution.postorder(root2)).toEqual([]);
 })
+
+test("AddOneRowTest", () => {
+  let actual1 = solution.addOneRow(createTreeNodeByBFS([4, 2, 6, 3, 1, 5]), 1, 2);
+  let actual2 = solution.addOneRow(createTreeNodeByBFS([4, 2, null, 3, 1]), 1, 3);
+  let expect1 = createTreeNodeByBFS([4, 1, 1, 2, null, null, 6, 3, 1, 5]);
+  let expect2 = createTreeNodeByBFS([4, 2, null, 1, 1, 3, null, null, 1]);
+  expect(preorderTraversal(actual1)).toEqual(preorderTraversal(expect1));
+  expect(preorderTraversal(actual2)).toEqual(preorderTraversal(expect2));
+});
 
 test("CalPointsTest", () => {
   expect(solution.calPoints(["5", "2", "C", "D", "+"])).toEqual(30);
