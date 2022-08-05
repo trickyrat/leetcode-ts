@@ -496,6 +496,12 @@ test("MinSubsequenceTest", () => {
   expect(solution.minSubsequence([6])).toEqual([6]);
 })
 
+test("StringMatchingTest", () => {
+  expect(solution.stringMatching(["mass", "as", "hero", "superhero"])).toEqual(["as", "hero"]);
+  expect(solution.stringMatching(["leetcode", "et", "code"])).toEqual(["et", "code"]);
+  expect(solution.stringMatching(["blue", "green", "bu"])).toEqual([]);
+})
+
 test("AverageTest", () => {
   expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);

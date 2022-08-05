@@ -1698,6 +1698,23 @@ export class Solution {
     }
 
     /**
+     * 1408. String Matching in an Array
+     * @param words 
+     */
+    stringMatching(words: string[]): string[] {
+        let res: string[] = []
+        for (let i = 0; i < words.length; ++i) {
+            for (let j = 0; j < words.length; ++j) {
+                if (i != j && words[j].search(words[i]) !== -1) {
+                    res.push(words[i]);
+                    break;
+                }
+            }
+        }
+        return res;
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
