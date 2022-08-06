@@ -358,6 +358,14 @@ test("AddOneRowTest", () => {
   expect(preorderTraversal(actual2)).toEqual(preorderTraversal(expect2));
 });
 
+test("ExclusiveTimeTest", () => {
+  expect(solution.exclusiveTime(2, ["0:start:0", "1:start:2", "1:end:5", "0:end:6"])).toEqual([3, 4]);
+  expect(solution.exclusiveTime(1, ["0:start:0", "0:start:2", "0:end:5", "0:start:6", "0:end:6", "0:end:7"])).toEqual([8]);
+  expect(solution.exclusiveTime(2, ["0:start:0", "0:start:2", "0:end:5", "1:start:6", "1:end:6", "0:end:7"])).toEqual([7, 1]);
+  expect(solution.exclusiveTime(2, ["0:start:0", "0:start:2", "0:end:5", "1:start:7", "1:end:7", "0:end:8"])).toEqual([8, 1]);
+  expect(solution.exclusiveTime(1, ["0:start:0", "0:end:0"])).toEqual([1]);
+})
+
 test("CalPointsTest", () => {
   expect(solution.calPoints(["5", "2", "C", "D", "+"])).toEqual(30);
   expect(solution.calPoints(["5", "-2", "4", "C", "D", "9", "+", "+"])).toEqual(27);
