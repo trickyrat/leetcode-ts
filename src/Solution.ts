@@ -1116,19 +1116,20 @@ export class Solution {
      * @param logs 
      */
     exclusiveTime(n: number, logs: string[]): number[] {
-        let stack: number[][] = [];
+        let stack: number[][] = []; // [index, timestamp]
         let res: number[] = new Array(n).fill(0);
-        let start = "start";
+        const start = "start";
         for (const log of logs) {
             // 0:start:1 
             // 0:end:1
-            let index = parseInt(log.substring(0, log.indexOf(":")));
-            let type = log.substring(log.indexOf(":") + 1, log.lastIndexOf(":"));
-            let timestamp = parseInt(log.substring(log.lastIndexOf(":") + 1));
+            let firstColonIndex = log.indexOf(":");
+            let lastColonIndex = log.lastIndexOf(":");
+            let index = parseInt(log.substring(0, firstColonIndex));
+            let type = log.substring(log.indexOf(":") + 1, lastColonIndex);
+            let timestamp = parseInt(log.substring(lastColonIndex + 1));
             if (type === start) {
                 if (stack.length) {
                     res[stack[stack.length - 1][0]] += timestamp - stack[stack.length - 1][1];
-                    stack[stack.length - 1][1] = timestamp;
                 }
                 stack.push([index, timestamp]);
             } else {
