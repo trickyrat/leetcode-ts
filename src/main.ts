@@ -1,8 +1,10 @@
-import { TreeNode } from "./TreeNode";
-import { createTreeNodeByBFS } from "./Util";
 import { Solution } from "./Solution";
+import { createTreeNodeByBFS } from "./Utilities";
 
 let solution = new Solution();
-let root = createTreeNodeByBFS("5,4,8,11,null,13,4,7,2,null,null,5,1");
-let res = solution.pathSum(root, 22);
-console.log(res);
+console.log(createTreeNodeByBFS([1, null, 2, 3]));
+
+console.log(solution.preorderTraversal(createTreeNodeByBFS([1, null, 2, 3])))
+
+
+console.log(solution.numPrimeArrangements(2))
