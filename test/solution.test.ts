@@ -510,6 +510,12 @@ test("StringMatchingTest", () => {
   expect(solution.stringMatching(["blue", "green", "bu"])).toEqual([]);
 })
 
+test("ReformatTest", () => {
+  expect(solution.reformat("a0b1c2")).toEqual("a0b1c2");
+  expect(solution.reformat("leetcode")).toEqual("");
+  expect(solution.reformat("1229857369")).toEqual("");
+})
+
 test("AverageTest", () => {
   expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);

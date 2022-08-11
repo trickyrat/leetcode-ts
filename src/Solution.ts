@@ -1748,6 +1748,37 @@ export class Solution {
     }
 
     /**
+     * 1417. Reformat The String
+     * @param s 
+     */
+    reformat(s: string): string {
+        const isDigit = (ch: string) => {
+            return parseInt(ch).toString() === "NaN" ? false : true;
+        }
+        let sumDigit = 0;
+        for (let i = 0; i < s.length; ++i) {
+            if (isDigit(s[i])) {
+                sumDigit++;
+            }
+        }
+        let sumAlpha = s.length - sumDigit;
+        if (Math.abs(sumDigit - sumAlpha) > 1) {
+            return "";
+        }
+        let flag = sumDigit > sumAlpha;
+        const arr = [...s];
+        for (let i = 0, j = 1; i < s.length; i += 2) {
+            if (isDigit(arr[i]) !== flag) {
+                while (isDigit(arr[j]) !== flag) {
+                    j += 2;
+                }
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+        }
+        return arr.join('');
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
