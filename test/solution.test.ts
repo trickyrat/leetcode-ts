@@ -516,6 +516,11 @@ test("ReformatTest", () => {
   expect(solution.reformat("1229857369")).toEqual("");
 })
 
+test("BusyStudentTest", () => {
+  expect(solution.busyStudent([1, 2, 3], [3, 2, 7], 4)).toEqual(1);
+  expect(solution.busyStudent([4], [4], 4)).toEqual(1);
+})
+
 test("AverageTest", () => {
   expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);

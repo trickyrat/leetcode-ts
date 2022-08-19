@@ -1779,6 +1779,22 @@ export class Solution {
     }
 
     /**
+     * 1450. Number of Students Doing Homework at a Given Time
+     * @param startTime 
+     * @param endTime 
+     * @param queryTime 
+     */
+    busyStudent(startTime: number[], endTime: number[], queryTime: number): number {
+        let res = 0;
+        for (let i = 0; i < startTime.length; ++i) {
+            if (startTime[i] <= queryTime && queryTime <= endTime[i]) {
+                res++;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
