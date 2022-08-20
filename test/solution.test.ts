@@ -521,6 +521,12 @@ test("BusyStudentTest", () => {
   expect(solution.busyStudent([4], [4], 4)).toEqual(1);
 })
 
+test("IsPrefixOfWordTest", () => {
+  expect(solution.isPrefixOfWord("i love eating burger", "burg")).toEqual(4);
+  expect(solution.isPrefixOfWord("this problem is an easy problem", "pro")).toEqual(2);
+  expect(solution.isPrefixOfWord("i am tired", "you")).toEqual(-1);
+})
+
 test("AverageTest", () => {
   expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);

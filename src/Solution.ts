@@ -1795,6 +1795,35 @@ export class Solution {
     }
 
     /**
+     * 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
+     * @param sentence 
+     * @param searchWord 
+     */
+    isPrefixOfWord(sentence: string, searchWord: string): number {
+        const isPrefix = (input: string, start: number, end: number, target: string): boolean => {
+            for (let i = 0; i < target.length; ++i) {
+                if (start + i >= end || input[start + i] != target[i]) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        let n = sentence.length, index = 1, start = 0, end = 0;
+        while (start < n) {
+            while (end < n && sentence[end] != ' ') {
+                end++;
+            }
+            if (isPrefix(sentence, start, end, searchWord)) {
+                return index;
+            }
+            index++;
+            end++;
+            start = end;
+        }
+        return -1;
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
