@@ -366,6 +366,11 @@ test("ExclusiveTimeTest", () => {
   expect(solution.exclusiveTime(1, ["0:start:0", "0:end:0"])).toEqual([1]);
 })
 
+test("FindClosestElementsTest", () => {
+  expect(solution.findClosestElements([1, 2, 3, 4, 5], 4, 3)).toEqual([1, 2, 3, 4])
+  expect(solution.findClosestElements([1, 2, 3, 4, 5], 4, -1)).toEqual([1, 2, 3, 4])
+})
+
 test("CalPointsTest", () => {
   expect(solution.calPoints(["5", "2", "C", "D", "+"])).toEqual(30);
   expect(solution.calPoints(["5", "-2", "4", "C", "D", "9", "+", "+"])).toEqual(27);

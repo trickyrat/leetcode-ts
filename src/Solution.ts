@@ -1144,6 +1144,45 @@ export class Solution {
     }
 
     /**
+     * 658. Find K Closest Elements
+     * @param arr 
+     * @param k 
+     * @param x 
+     */
+    findClosestElements(arr: number[], k: number, x: number): number[] {
+        const binary_search = (nums: number[], target: number): number => {
+            let low = 0, high = nums.length - 1;
+            while (low < high) {
+                const mid = low + Math.floor((high - low) / 2);
+                if (nums[mid] >= x) {
+                    high = mid;
+                } else {
+                    low = mid + 1;
+                }
+            }
+            return low;
+        }
+        let right = binary_search(arr, x);
+        let left = right - 1;
+        while (k-- > 0) {
+            if (left < 0) {
+                right++;
+            } else if (right >= arr.length) {
+                left--;
+            } else if (x - arr[left] <= arr[right] - x) {
+                left--;
+            } else {
+                right++;
+            }
+        }
+        const res = [];
+        for (let i = left + 1; i < right; i++) {
+            res.push(arr[i]);
+        }
+        return res;
+    }
+
+    /**
      * 682.棒球比赛
      * @param ops 
      */
