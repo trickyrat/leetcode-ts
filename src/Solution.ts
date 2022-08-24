@@ -1824,6 +1824,20 @@ export class Solution {
     }
 
     /**
+     * 1460. Make Two Arrays Equal by Reversing Sub-arrays
+     * @param target 
+     * @param arr 
+     */
+    canEqual(target: number[], arr: number[]): boolean {
+        if (target.length != arr.length) {
+            return false;
+        }
+        target.sort();
+        arr.sort();
+        return target.toString() === arr.toString();
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
