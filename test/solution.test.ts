@@ -532,6 +532,13 @@ test("IsPrefixOfWordTest", () => {
   expect(solution.isPrefixOfWord("i am tired", "you")).toEqual(-1);
 })
 
+test("CanEqualTest", () => {
+  expect(solution.canEqual([1, 2, 3, 4], [2, 4, 1, 3])).toEqual(true);
+  expect(solution.canEqual([7], [7])).toEqual(true);
+  expect(solution.canEqual([3, 7, 9], [3, 7, 11])).toEqual(false);
+  expect(solution.canEqual([3, 7, 11, 1], [3, 7, 11])).toEqual(false);
+})
+
 test("AverageTest", () => {
   expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);

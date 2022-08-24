@@ -22,7 +22,7 @@ export function createListNode(nums: number[]): ListNode | null {
  * @returns 链表数组
  */
 export function convertListNodeToArray(head: ListNode | null): number[] {
-  let res = new Array<number>();
+  let res: number[] = [];
   while (head) {
     res.push(head.val);
     head = head.next;
