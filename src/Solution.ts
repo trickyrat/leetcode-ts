@@ -1867,13 +1867,35 @@ export class Solution {
      * @param target 
      * @param arr 
      */
-    canEqual(target: number[], arr: number[]): boolean {
+    canBeEqual(target: number[], arr: number[]): boolean {
         if (target.length != arr.length) {
             return false;
         }
         target.sort();
         arr.sort();
         return target.toString() === arr.toString();
+    }
+
+    /**
+     * 1464. Maximum Product of Two Elements in an Array
+     * @param nums 
+     */
+    maxProduct(nums: number[]): number {
+        let a = nums[0], b = nums[1];
+        if (a < b) {
+            const temp = a;
+            a = b;
+            b = temp;
+        }
+        for (let i = 2; i < nums.length; ++i) {
+            if (nums[i] > a) {
+                b = a;
+                a = nums[i];
+            } else if (nums[i] > b) {
+                b = nums[i];
+            }
+        }
+        return (a - 1) * (b - 1);
     }
 
     /**
