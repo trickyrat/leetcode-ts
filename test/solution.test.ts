@@ -1,6 +1,6 @@
 import { Solution } from "../src/Solution";
-import { Node } from "../src/Node";
-import { createTreeNodeByBFS, createListNode, convertListNodeToArray, preorderTraversal } from "../src/Utilities";
+import { Node } from "../src/DataStructures/Node";
+import { createListNode, convertListNodeToArray, preorderTraversal, createTreeNodeIteratively } from "../src/Utilities";
 
 let solution = new Solution();
 
@@ -99,8 +99,8 @@ test("DeleteDuplicatesTest", () => {
 })
 
 test("MaxDepthTest", () => {
-  expect(solution.maxDepth(createTreeNodeByBFS([3, 9, 20, null, null, 15, 7]))).toEqual(3);
-  expect(solution.maxDepth(createTreeNodeByBFS([1, null, 2]))).toEqual(2);
+  expect(solution.maxDepth(createTreeNodeIteratively([3, 9, 20, null, null, 15, 7]))).toEqual(3);
+  expect(solution.maxDepth(createTreeNodeIteratively([1, null, 2]))).toEqual(2);
 })
 
 test("MergeTest", () => {
@@ -116,25 +116,25 @@ test("MergeTest", () => {
 })
 
 test("InorderTraversalTest", () => {
-  expect(solution.inorderTraversal(createTreeNodeByBFS([1, null, 2, 3]))).toEqual([1, 3, 2]);
-  expect(solution.inorderTraversal(createTreeNodeByBFS([]))).toEqual([]);
-  expect(solution.inorderTraversal(createTreeNodeByBFS([1]))).toEqual([1]);
+  expect(solution.inorderTraversal(createTreeNodeIteratively([1, null, 2, 3]))).toEqual([1, 3, 2]);
+  expect(solution.inorderTraversal(createTreeNodeIteratively([]))).toEqual([]);
+  expect(solution.inorderTraversal(createTreeNodeIteratively([1]))).toEqual([1]);
 })
 
 test("IsSymmetricTest", () => {
-  expect(solution.isSymmetric(createTreeNodeByBFS([1, 2, 2, 3, 4, 4, 3]))).toEqual(true);
-  expect(solution.isSymmetric(createTreeNodeByBFS([1, 2, 2, null, 3, null, 3]))).toEqual(false);
+  expect(solution.isSymmetric(createTreeNodeIteratively([1, 2, 2, 3, 4, 4, 3]))).toEqual(true);
+  expect(solution.isSymmetric(createTreeNodeIteratively([1, 2, 2, null, 3, null, 3]))).toEqual(false);
 })
 
 test("LevelOrderTest", () => {
-  expect(solution.levelOrder(createTreeNodeByBFS([3, 9, 20, null, null, 15, 7]))).toEqual([[3], [9, 20], [15, 7]]);
-  expect(solution.levelOrder(createTreeNodeByBFS([1]))).toEqual([[1]]);
-  expect(solution.levelOrder(createTreeNodeByBFS([]))).toEqual([]);
+  expect(solution.levelOrder(createTreeNodeIteratively([3, 9, 20, null, null, 15, 7]))).toEqual([[3], [9, 20], [15, 7]]);
+  expect(solution.levelOrder(createTreeNodeIteratively([1]))).toEqual([[1]]);
+  expect(solution.levelOrder(createTreeNodeIteratively([]))).toEqual([]);
 })
 
 test("PathSumTest", () => {
-  let root = createTreeNodeByBFS([1, 2, 3]);
-  let root1 = createTreeNodeByBFS([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]);
+  let root = createTreeNodeIteratively([1, 2, 3]);
+  let root1 = createTreeNodeIteratively([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]);
   expect(solution.pathSum(root, 2)).toEqual([]);
   expect(solution.pathSum(root1, 22)).toEqual([[5, 4, 11, 2], [5, 8, 4, 5]]);
 });
@@ -160,15 +160,15 @@ test("HasCycleTest", () => {
 })
 
 test("PreorderTraversalTest", () => {
-  expect(solution.preorderTraversal(createTreeNodeByBFS([1, null, 2, 3]))).toEqual([1, 2, 3]);
-  expect(solution.preorderTraversal(createTreeNodeByBFS([]))).toEqual([]);
-  expect(solution.preorderTraversal(createTreeNodeByBFS([1]))).toEqual([1]);
+  expect(solution.preorderTraversal(createTreeNodeIteratively([1, null, 2, 3]))).toEqual([1, 2, 3]);
+  expect(solution.preorderTraversal(createTreeNodeIteratively([]))).toEqual([]);
+  expect(solution.preorderTraversal(createTreeNodeIteratively([1]))).toEqual([1]);
 })
 
 test("PostorderTraversalTest", () => {
-  expect(solution.postorderTraversal(createTreeNodeByBFS([1, null, 2, 3]))).toEqual([3, 2, 1]);
-  expect(solution.postorderTraversal(createTreeNodeByBFS([]))).toEqual([]);
-  expect(solution.postorderTraversal(createTreeNodeByBFS([1]))).toEqual([1]);
+  expect(solution.postorderTraversal(createTreeNodeIteratively([1, null, 2, 3]))).toEqual([3, 2, 1]);
+  expect(solution.postorderTraversal(createTreeNodeIteratively([]))).toEqual([]);
+  expect(solution.postorderTraversal(createTreeNodeIteratively([1]))).toEqual([1]);
 })
 
 test("ConvertToTitleTest", () => {
@@ -262,8 +262,8 @@ test("FindTheDifferenceTest", () => {
 })
 
 test("SumOfLeftLeavesTest", () => {
-  expect(solution.sumOfLeftLeaves(createTreeNodeByBFS([3, 9, 20, null, null, 15, 7]))).toEqual(24);
-  expect(solution.sumOfLeftLeaves(createTreeNodeByBFS([1]))).toEqual(0);
+  expect(solution.sumOfLeftLeaves(createTreeNodeIteratively([3, 9, 20, null, null, 15, 7]))).toEqual(24);
+  expect(solution.sumOfLeftLeaves(createTreeNodeIteratively([1]))).toEqual(0);
 })
 
 test("NumPrimeArrangementsTest", () => {
@@ -350,10 +350,10 @@ test("PostorderTest", () => {
 })
 
 test("AddOneRowTest", () => {
-  let actual1 = solution.addOneRow(createTreeNodeByBFS([4, 2, 6, 3, 1, 5]), 1, 2);
-  let actual2 = solution.addOneRow(createTreeNodeByBFS([4, 2, null, 3, 1]), 1, 3);
-  let expect1 = createTreeNodeByBFS([4, 1, 1, 2, null, null, 6, 3, 1, 5]);
-  let expect2 = createTreeNodeByBFS([4, 2, null, 1, 1, 3, null, null, 1]);
+  let actual1 = solution.addOneRow(createTreeNodeIteratively([4, 2, 6, 3, 1, 5]), 1, 2);
+  let actual2 = solution.addOneRow(createTreeNodeIteratively([4, 2, null, 3, 1]), 1, 3);
+  let expect1 = createTreeNodeIteratively([4, 1, 1, 2, null, null, 6, 3, 1, 5]);
+  let expect2 = createTreeNodeIteratively([4, 2, null, 1, 1, 3, null, null, 1]);
   expect(preorderTraversal(actual1)).toEqual(preorderTraversal(expect1));
   expect(preorderTraversal(actual2)).toEqual(preorderTraversal(expect2));
 });
@@ -369,6 +369,12 @@ test("ExclusiveTimeTest", () => {
 test("FindClosestElementsTest", () => {
   expect(solution.findClosestElements([1, 2, 3, 4, 5], 4, 3)).toEqual([1, 2, 3, 4])
   expect(solution.findClosestElements([1, 2, 3, 4, 5], 4, -1)).toEqual([1, 2, 3, 4])
+})
+
+test("WidthOfBinaryTreeTest", () => {
+  expect(solution.widthOfBinaryTree(createTreeNodeIteratively([1, 3, 2, 5, 3, null, 9]))).toEqual(4);
+  expect(solution.widthOfBinaryTree(createTreeNodeIteratively([1, 3, 2, 5, null, null, 9, 6, null, 7]))).toEqual(7);
+  expect(solution.widthOfBinaryTree(createTreeNodeIteratively([1, 3, 2, 5]))).toEqual(2);
 })
 
 test("CalPointsTest", () => {
@@ -473,8 +479,8 @@ test("RemoveOuterParenthesesTest", () => {
 })
 
 test("SumRootToLeafTest", () => {
-  expect(solution.sumRootToLeaf(createTreeNodeByBFS([1, 0, 1, 0, 1, 0, 1]))).toEqual(22);
-  expect(solution.sumRootToLeaf(createTreeNodeByBFS([0]))).toEqual(0);
+  expect(solution.sumRootToLeaf(createTreeNodeIteratively([1, 0, 1, 0, 1, 0, 1]))).toEqual(22);
+  expect(solution.sumRootToLeaf(createTreeNodeIteratively([0]))).toEqual(0);
   expect(solution.sumRootToLeaf(null)).toEqual(0);
 })
 

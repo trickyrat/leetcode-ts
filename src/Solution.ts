@@ -1,7 +1,7 @@
-import { ListNode } from "./ListNode";
-import { TreeNode } from "./TreeNode";
-import { Node } from "./Node";
-import { Trie } from "./Trie";
+import { ListNode } from "./DataStructures/ListNode";
+import { TreeNode } from "./DataStructures/TreeNode";
+import { Node } from "./DataStructures/Node";
+import { Trie } from "./DataStructures/Trie";
 
 export class Solution {
     /**
@@ -1180,6 +1180,28 @@ export class Solution {
             res.push(arr[i]);
         }
         return res;
+    }
+
+    /**
+     * 662. Maximum Width of Binary Tree
+     * @param root 
+     */
+    widthOfBinaryTree(root: TreeNode | null): number {
+        let levelMin = new Map<number, number>();
+        const dfs = (node: TreeNode | null, depth: number, index: number): number => {
+            if (!node) {
+                return 0;
+            }
+            if (!levelMin.get(depth)) {
+                levelMin.set(depth, index);
+            }
+            return Math.max(index - levelMin.get(depth)! + 1,
+                Math.max(
+                    dfs(node.left, depth + 1, index * 2),
+                    dfs(node.right, depth + 1, index * 2 + 1)
+                ));
+        };
+        return dfs(root, 1, 1);
     }
 
     /**
