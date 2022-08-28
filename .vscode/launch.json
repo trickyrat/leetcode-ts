@@ -18,7 +18,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Jest All",
+      "name": "Test All",
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -26,7 +26,6 @@
       "args": [
         "--runInBand"
       ],
-      "disableOptimisticBPs": true,
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
       "windows": {
@@ -36,7 +35,25 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Jest Current File",
+      "name": "Test All With Coverage",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}\\node_modules\\.bin\\jest",
+      "args": [
+        "--runInBand",
+        "--coverage"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test Current File",
       "program": "${workspaceFolder}/node_modules/.bin/jest",
       "args": [
         "${fileBasenameNoExtension}",
@@ -45,7 +62,23 @@
       ],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen",
-      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest",
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test Current File With Coverage",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "${fileBasenameNoExtension}",
+        "--config",
+        "jest.config.js",
+        "--coverage"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
       "windows": {
         "program": "${workspaceFolder}/node_modules/jest/bin/jest",
       }

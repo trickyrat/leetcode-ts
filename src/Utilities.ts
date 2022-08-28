@@ -1,11 +1,7 @@
-import { ListNode } from "./ListNode";
-import { TreeNode } from "./TreeNode";
+import { ListNode } from "./DataStructures/ListNode";
+import { TreeNode } from "./DataStructures/TreeNode";
 
-/**
- * 使用数组创建单链表
- * @param nums 
- * @returns 链表头节点
- */
+
 export function createListNode(nums: number[]): ListNode | null {
   let head = new ListNode(0);
   let dummyHead = head;
@@ -16,13 +12,8 @@ export function createListNode(nums: number[]): ListNode | null {
   return head.next;
 }
 
-/**
- * 把单链表转换成数组
- * @param head 
- * @returns 链表数组
- */
 export function convertListNodeToArray(head: ListNode | null): number[] {
-  let res = new Array<number>();
+  let res: number[] = [];
   while (head) {
     res.push(head.val);
     head = head.next;
@@ -30,11 +21,6 @@ export function convertListNodeToArray(head: ListNode | null): number[] {
   return res;
 }
 
-/**
- * 使用数组创建二叉树结点(前序遍历顺序)
- * @param nums 输入数组，其中'null'代表该节点为null
- * @returns 二叉树根节点
- */
 export function createTreeNodeByDFS(nums: (number | null)[]): TreeNode | null {
   const dfs = (dataList: (number | null)[]) => {
     if (dataList[0] === null) {
@@ -50,12 +36,7 @@ export function createTreeNodeByDFS(nums: (number | null)[]): TreeNode | null {
   return dfs(nums);
 }
 
-/**
-* 使用数组创建二叉树结点(前序遍历顺序)
-* @param nums 输入数组，其中'null'代表该节点为null
-* @returns 二叉树根节点
-*/
-export function createTreeNodeByBFS(nums: (number | null)[]): TreeNode | null {
+export function createTreeNodeIteratively(nums: (number | null)[]): TreeNode | null {
   if (nums[0] === null || nums[0] === undefined) {
     return null;
   }
@@ -85,6 +66,18 @@ export function createTreeNodeByBFS(nums: (number | null)[]): TreeNode | null {
   return root;
 }
 
+export function createTreeNodeRecursively(nums: (number | null)[]): TreeNode | null {
+  const createNode = (data: (number | null)[], index: number): TreeNode | null => {
+    if (index >= data.length || data[index] === null) {
+      return null;
+    }
+    let root = new TreeNode(data[index]!);
+    root.left = createNode(data, 2 * index + 1);
+    root.right = createNode(data, 2 * index + 2);
+    return root;
+  };
+  return createNode(nums, 0);
+}
 
 export function preorderTraversal(root: TreeNode | null): number[] | null {
   let res: number[] = [];

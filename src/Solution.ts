@@ -1,7 +1,7 @@
-import { ListNode } from "./ListNode";
-import { TreeNode } from "./TreeNode";
-import { Node } from "./Node";
-import { Trie } from "./Trie";
+import { ListNode } from "./DataStructures/ListNode";
+import { TreeNode } from "./DataStructures/TreeNode";
+import { Node } from "./DataStructures/Node";
+import { Trie } from "./DataStructures/Trie";
 
 export class Solution {
     /**
@@ -1144,6 +1144,67 @@ export class Solution {
     }
 
     /**
+     * 658. Find K Closest Elements
+     * @param arr 
+     * @param k 
+     * @param x 
+     */
+    findClosestElements(arr: number[], k: number, x: number): number[] {
+        const binary_search = (nums: number[], target: number): number => {
+            let low = 0, high = nums.length - 1;
+            while (low < high) {
+                const mid = low + Math.floor((high - low) / 2);
+                if (nums[mid] >= x) {
+                    high = mid;
+                } else {
+                    low = mid + 1;
+                }
+            }
+            return low;
+        }
+        let right = binary_search(arr, x);
+        let left = right - 1;
+        while (k-- > 0) {
+            if (left < 0) {
+                right++;
+            } else if (right >= arr.length) {
+                left--;
+            } else if (x - arr[left] <= arr[right] - x) {
+                left--;
+            } else {
+                right++;
+            }
+        }
+        const res = [];
+        for (let i = left + 1; i < right; i++) {
+            res.push(arr[i]);
+        }
+        return res;
+    }
+
+    /**
+     * 662. Maximum Width of Binary Tree
+     * @param root 
+     */
+    widthOfBinaryTree(root: TreeNode | null): number {
+        let levelMin = new Map<number, number>();
+        const dfs = (node: TreeNode | null, depth: number, index: number): number => {
+            if (!node) {
+                return 0;
+            }
+            if (!levelMin.get(depth)) {
+                levelMin.set(depth, index);
+            }
+            return Math.max(index - levelMin.get(depth)! + 1,
+                Math.max(
+                    dfs(node.left, depth + 1, index * 2),
+                    dfs(node.right, depth + 1, index * 2 + 1)
+                ));
+        };
+        return dfs(root, 1, 1);
+    }
+
+    /**
      * 682.棒球比赛
      * @param ops 
      */
@@ -1293,6 +1354,36 @@ export class Solution {
             }
         }
         return ans;
+    }
+
+    /**
+     * 793. Preimage Size of Factorial Zeroes Function
+     * @param k 
+     */
+    preimageSizeFZF(k: number): number {
+        const zeta = (x: number): number => {
+            let res = 0;
+            while (x != 0) {
+                res += Math.floor(x / 5);
+                x = Math.floor(x / 5);
+            }
+            return res;
+        };
+
+        const nx = (x: number): number => {
+            let left = 0, right = 5 * x;
+            while (left <= right) {
+                const mid = Math.floor((left + right) / 2);
+                if (zeta(mid) < x) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            return right + 1;
+        };
+
+        return nx(k + 1) - nx(k);
     }
 
     /**
@@ -1745,6 +1836,118 @@ export class Solution {
             }
         }
         return res;
+    }
+
+    /**
+     * 1417. Reformat The String
+     * @param s 
+     */
+    reformat(s: string): string {
+        const isDigit = (ch: string) => {
+            return parseInt(ch).toString() === "NaN" ? false : true;
+        }
+        let sumDigit = 0;
+        for (let i = 0; i < s.length; ++i) {
+            if (isDigit(s[i])) {
+                sumDigit++;
+            }
+        }
+        let sumAlpha = s.length - sumDigit;
+        if (Math.abs(sumDigit - sumAlpha) > 1) {
+            return "";
+        }
+        let flag = sumDigit > sumAlpha;
+        const arr = [...s];
+        for (let i = 0, j = 1; i < s.length; i += 2) {
+            if (isDigit(arr[i]) !== flag) {
+                while (isDigit(arr[j]) !== flag) {
+                    j += 2;
+                }
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+        }
+        return arr.join('');
+    }
+
+    /**
+     * 1450. Number of Students Doing Homework at a Given Time
+     * @param startTime 
+     * @param endTime 
+     * @param queryTime 
+     */
+    busyStudent(startTime: number[], endTime: number[], queryTime: number): number {
+        let res = 0;
+        for (let i = 0; i < startTime.length; ++i) {
+            if (startTime[i] <= queryTime && queryTime <= endTime[i]) {
+                res++;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
+     * @param sentence 
+     * @param searchWord 
+     */
+    isPrefixOfWord(sentence: string, searchWord: string): number {
+        const isPrefix = (input: string, start: number, end: number, target: string): boolean => {
+            for (let i = 0; i < target.length; ++i) {
+                if (start + i >= end || input[start + i] != target[i]) {
+                    return false;
+                }
+            }
+            return true;
+        };
+        let n = sentence.length, index = 1, start = 0, end = 0;
+        while (start < n) {
+            while (end < n && sentence[end] != ' ') {
+                end++;
+            }
+            if (isPrefix(sentence, start, end, searchWord)) {
+                return index;
+            }
+            index++;
+            end++;
+            start = end;
+        }
+        return -1;
+    }
+
+    /**
+     * 1460. Make Two Arrays Equal by Reversing Sub-arrays
+     * @param target 
+     * @param arr 
+     */
+    canBeEqual(target: number[], arr: number[]): boolean {
+        if (target.length != arr.length) {
+            return false;
+        }
+        target.sort();
+        arr.sort();
+        return target.toString() === arr.toString();
+    }
+
+    /**
+     * 1464. Maximum Product of Two Elements in an Array
+     * @param nums 
+     */
+    maxProduct(nums: number[]): number {
+        let a = nums[0], b = nums[1];
+        if (a < b) {
+            const temp = a;
+            a = b;
+            b = temp;
+        }
+        for (let i = 2; i < nums.length; ++i) {
+            if (nums[i] > a) {
+                b = a;
+                a = nums[i];
+            } else if (nums[i] > b) {
+                b = nums[i];
+            }
+        }
+        return (a - 1) * (b - 1);
     }
 
     /**
