@@ -417,6 +417,12 @@ test("CountPrimeSetBitsTest", () => {
   expect(solution.countPrimeSetBits(10, 15)).toEqual(5);
 })
 
+test("PreimageSizeFZFTest", () => {
+  expect(solution.preimageSizeFZF(0)).toEqual(5);
+  expect(solution.preimageSizeFZF(5)).toEqual(0);
+  expect(solution.preimageSizeFZF(3)).toEqual(5);
+})
+
 test("UniqueMorseRepresentationsTest", () => {
   expect(solution.uniqueMorseRepresentations(["gin", "zen", "gig", "msg"])).toEqual(2);
   expect(solution.uniqueMorseRepresentations(["a"])).toEqual(1);

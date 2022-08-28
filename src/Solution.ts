@@ -1357,6 +1357,36 @@ export class Solution {
     }
 
     /**
+     * 793. Preimage Size of Factorial Zeroes Function
+     * @param k 
+     */
+    preimageSizeFZF(k: number): number {
+        const zeta = (x: number): number => {
+            let res = 0;
+            while (x != 0) {
+                res += Math.floor(x / 5);
+                x = Math.floor(x / 5);
+            }
+            return res;
+        };
+
+        const nx = (x: number): number => {
+            let left = 0, right = 5 * x;
+            while (left <= right) {
+                const mid = Math.floor((left + right) / 2);
+                if (zeta(mid) < x) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+            return right + 1;
+        };
+
+        return nx(k + 1) - nx(k);
+    }
+
+    /**
      * 804.唯一摩尔斯密码词
      * @param words 
      */
