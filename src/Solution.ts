@@ -1951,6 +1951,20 @@ export class Solution {
     }
 
     /**
+     * 1470. Shuffle the Array
+     * @param nums 
+     * @param n 
+     */
+    shuffle(nums: number[], n: number): number[] {
+        let res = [];
+        for (let i = 0; i < n; ++i) {
+            res[2 * i] = nums[i];
+            res[2 * i + 1] = nums[i + n];
+        }
+        return res;
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 

@@ -557,6 +557,13 @@ test("MaxProductTest", () => {
   expect(solution.maxProduct([3, 7])).toEqual(12);
 })
 
+test("ShuffleTest", () => {
+  expect(solution.shuffle([2, 5, 1, 3, 4, 7], 3)).toEqual([2, 3, 5, 4, 1, 7]);
+  expect(solution.shuffle([1, 2, 3, 4, 4, 3, 2, 1], 4)).toEqual([1, 4, 2, 3, 3, 2, 4, 1]);
+  expect(solution.shuffle([1, 1, 2, 2], 2)).toEqual([1, 2, 1, 2]);
+})
+
+
 test("AverageTest", () => {
   expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);
