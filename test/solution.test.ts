@@ -478,6 +478,12 @@ test("LargestPerimeterTest", () => {
   expect(solution.largestPerimeter([1, 2, 1])).toEqual(0);
 })
 
+test("InsertIntoMaxTreeTest", () => {
+  expect(solution.insertIntoMaxTree(createTreeNodeIteratively([4, 1, 3, null, null, 2]), 5)).toEqual(createTreeNodeIteratively([5, 4, null, 1, 3, null, null, 2]));
+  expect(solution.insertIntoMaxTree(createTreeNodeIteratively([5, 2, 4, null, 1]), 3)).toEqual(createTreeNodeIteratively([5, 2, 4, null, 1, null, 3]));
+  expect(solution.insertIntoMaxTree(createTreeNodeIteratively([5, 2, 3, null, 1]), 4)).toEqual(createTreeNodeIteratively([5, 2, 4, null, 1, 3]));
+})
+
 test("RemoveOuterParenthesesTest", () => {
   expect(solution.removeOuterParentheses("(()())(())")).toEqual("()()()");
   expect(solution.removeOuterParentheses("(()())(())(()(()))")).toEqual("()()()()(())");

@@ -1636,6 +1636,30 @@ export class Solution {
     }
 
     /**
+     * 998. Maximum Binary Tree II
+     * @param root 
+     * @param val 
+     */
+    insertIntoMaxTree(root: TreeNode | null, val: number): TreeNode | null {
+        let parent = null;
+        let curr = root;
+        while (curr) {
+            if (val > curr.val) {
+                if (!parent) {
+                    return new TreeNode(val, root, null);
+                }
+                parent.right = new TreeNode(val, curr, null);
+                return root;
+            } else {
+                parent = curr;
+                curr = curr.right!;
+            }
+        }
+        parent!.right = new TreeNode(val);
+        return root;
+    }
+
+    /**
      * 1021. Remove Outermost Parentheses
      * @param s 
      */
