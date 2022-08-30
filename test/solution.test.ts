@@ -460,6 +460,11 @@ test("MinDeletionSizeTest", () => {
   expect(solution.minDeletionSize(["zyx", "wvu", "tsr"])).toEqual(3);
 })
 
+test("ValidateStackSequencesTest", () => {
+  expect(solution.validateStackSequences([1, 2, 3, 4, 5], [4, 5, 3, 2, 1])).toEqual(true);
+  expect(solution.validateStackSequences([1, 2, 3, 4, 5], [4, 3, 5, 1, 2])).toEqual(false);
+})
+
 test("IsAlienSortedTest", () => {
   expect(solution.isAlienSorted(["hello", "leetcode"], "hlabcdefgijkmnopqrstuvwxyz")).toEqual(true);
   expect(solution.isAlienSorted(["word", "world", "row"], "worldabcefghijkmnpqstuvxyz")).toEqual(false);

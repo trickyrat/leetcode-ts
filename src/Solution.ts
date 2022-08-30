@@ -1576,6 +1576,24 @@ export class Solution {
     }
 
     /**
+     * 946. Validate Stack Sequences
+     * @param pushed 
+     * @param popped 
+     */
+    validateStackSequences(pushed: number[], popped: number[]): boolean {
+        const stack = [];
+        const n = pushed.length;
+        for (let i = 0, j = 0; i < n; ++i) {
+            stack.push(pushed[i]);
+            while (stack.length && stack[stack.length - 1] === popped[j]) {
+                stack.pop();
+                j++;
+            }
+        }
+        return stack.length === 0;
+    }
+
+    /**
      * 953. Verifying an Alien Dictionary
      * @param words 
      * @param order 
