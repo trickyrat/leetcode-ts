@@ -460,6 +460,11 @@ test("MinDeletionSizeTest", () => {
   expect(solution.minDeletionSize(["zyx", "wvu", "tsr"])).toEqual(3);
 })
 
+test("ValidateStackSequencesTest", () => {
+  expect(solution.validateStackSequences([1, 2, 3, 4, 5], [4, 5, 3, 2, 1])).toEqual(true);
+  expect(solution.validateStackSequences([1, 2, 3, 4, 5], [4, 3, 5, 1, 2])).toEqual(false);
+})
+
 test("IsAlienSortedTest", () => {
   expect(solution.isAlienSorted(["hello", "leetcode"], "hlabcdefgijkmnopqrstuvwxyz")).toEqual(true);
   expect(solution.isAlienSorted(["word", "world", "row"], "worldabcefghijkmnpqstuvxyz")).toEqual(false);
@@ -476,6 +481,12 @@ test("RepeatedNTimesTest", () => {
 test("LargestPerimeterTest", () => {
   expect(solution.largestPerimeter([2, 1, 2])).toEqual(5);
   expect(solution.largestPerimeter([1, 2, 1])).toEqual(0);
+})
+
+test("InsertIntoMaxTreeTest", () => {
+  expect(solution.insertIntoMaxTree(createTreeNodeIteratively([4, 1, 3, null, null, 2]), 5)).toEqual(createTreeNodeIteratively([5, 4, null, 1, 3, null, null, 2]));
+  expect(solution.insertIntoMaxTree(createTreeNodeIteratively([5, 2, 4, null, 1]), 3)).toEqual(createTreeNodeIteratively([5, 2, 4, null, 1, null, 3]));
+  expect(solution.insertIntoMaxTree(createTreeNodeIteratively([5, 2, 3, null, 1]), 4)).toEqual(createTreeNodeIteratively([5, 2, 4, null, 1, 3]));
 })
 
 test("RemoveOuterParenthesesTest", () => {
@@ -556,6 +567,13 @@ test("MaxProductTest", () => {
   expect(solution.maxProduct([1, 5, 4, 5])).toEqual(16);
   expect(solution.maxProduct([3, 7])).toEqual(12);
 })
+
+test("ShuffleTest", () => {
+  expect(solution.shuffle([2, 5, 1, 3, 4, 7], 3)).toEqual([2, 3, 5, 4, 1, 7]);
+  expect(solution.shuffle([1, 2, 3, 4, 4, 3, 2, 1], 4)).toEqual([1, 4, 2, 3, 3, 2, 4, 1]);
+  expect(solution.shuffle([1, 1, 2, 2], 2)).toEqual([1, 2, 1, 2]);
+})
+
 
 test("AverageTest", () => {
   expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);

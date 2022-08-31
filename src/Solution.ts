@@ -1576,6 +1576,24 @@ export class Solution {
     }
 
     /**
+     * 946. Validate Stack Sequences
+     * @param pushed 
+     * @param popped 
+     */
+    validateStackSequences(pushed: number[], popped: number[]): boolean {
+        const stack = [];
+        const n = pushed.length;
+        for (let i = 0, j = 0; i < n; ++i) {
+            stack.push(pushed[i]);
+            while (stack.length && stack[stack.length - 1] === popped[j]) {
+                stack.pop();
+                j++;
+            }
+        }
+        return stack.length === 0;
+    }
+
+    /**
      * 953. Verifying an Alien Dictionary
      * @param words 
      * @param order 
@@ -1633,6 +1651,30 @@ export class Solution {
             }
         }
         return 0;
+    }
+
+    /**
+     * 998. Maximum Binary Tree II
+     * @param root 
+     * @param val 
+     */
+    insertIntoMaxTree(root: TreeNode | null, val: number): TreeNode | null {
+        let parent = null;
+        let curr = root;
+        while (curr) {
+            if (val > curr.val) {
+                if (!parent) {
+                    return new TreeNode(val, root, null);
+                }
+                parent.right = new TreeNode(val, curr, null);
+                return root;
+            } else {
+                parent = curr;
+                curr = curr.right!;
+            }
+        }
+        parent!.right = new TreeNode(val);
+        return root;
     }
 
     /**
@@ -1948,6 +1990,20 @@ export class Solution {
             }
         }
         return (a - 1) * (b - 1);
+    }
+
+    /**
+     * 1470. Shuffle the Array
+     * @param nums 
+     * @param n 
+     */
+    shuffle(nums: number[], n: number): number[] {
+        let res = [];
+        for (let i = 0; i < n; ++i) {
+            res[2 * i] = nums[i];
+            res[2 * i + 1] = nums[i + n];
+        }
+        return res;
     }
 
     /**
