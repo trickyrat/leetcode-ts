@@ -2007,6 +2007,24 @@ export class Solution {
     }
 
     /**
+     * 1475. Final Prices With a Special Discount in a Shop
+     * @param prices 
+     */
+    finalPrices(prices: number[]): number[] {
+        const n = prices.length;
+        let res = new Array<number>(n).fill(0);
+        let stack: number[] = [];
+        for (let i = n - 1; i >= 0; --i) {
+            while (stack.length && stack[stack.length - 1] > prices[i]) {
+                stack.pop();
+            }
+            res[i] = stack.length === 0 ? prices[i] : prices[i] - stack[stack.length - 1];
+            stack.push(prices[i]);
+        }
+        return res;
+    }
+
+    /**
      * 1491. Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
