@@ -575,6 +575,12 @@ test("ShuffleTest", () => {
 })
 
 
+test("FinalPricesTest", () => {
+  expect(solution.finalPrices([8, 4, 6, 2, 3])).toEqual([4, 2, 4, 2, 3]);
+  expect(solution.finalPrices([1, 2, 3, 4, 5])).toEqual([1, 2, 3, 4, 5]);
+  expect(solution.finalPrices([10, 1, 1, 6])).toEqual([9, 0, 1, 6]);
+})
+
 test("AverageTest", () => {
   expect(solution.average([4000, 3000, 1000, 2000])).toEqual(2500.00000);
   expect(solution.average([1000, 2000, 3000])).toEqual(2000.00000);
