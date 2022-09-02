@@ -1236,6 +1236,32 @@ export class Solution {
     }
 
     /**
+     * 687. Longest Univalue Path
+     * @param root 
+     */
+    longestUnivaluePath(root: TreeNode | null): number {
+        let res = 0;
+        const dfs = (node: TreeNode | null): number => {
+            if (!node) {
+                return 0;
+            }
+            let left = dfs(node.left);
+            let right = dfs(node.right);
+            let left1 = 0, right1 = 0;
+            if (node.left && node.left.val === node.val) {
+                left1 = left + 1;
+            }
+            if (node.right && node.right.val === node.val) {
+                right1 = right + 1;
+            }
+            res = Math.max(res, left1 + right1);
+            return Math.max(left1, right1);
+        }
+        dfs(root);
+        return res;
+    }
+
+    /**
      * 709. To Lower Case
      * @param s 
      */
