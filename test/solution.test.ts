@@ -383,6 +383,11 @@ test("CalPointsTest", () => {
   expect(solution.calPoints(["1"])).toEqual(1);
 });
 
+test("LongestUnivaluePathTest", () => {
+  expect(solution.longestUnivaluePath(createTreeNodeIteratively([5, 4, 5, 1, 1, null, 5]))).toEqual(2);
+  expect(solution.longestUnivaluePath(createTreeNodeIteratively([1, 4, 5, 4, 4, null, 5]))).toEqual(2);
+})
+
 test("ToLowerCaseTest", () => {
   expect(solution.toLowerCase("Hello")).toEqual("hello");
   expect(solution.toLowerCase("here")).toEqual("here");
