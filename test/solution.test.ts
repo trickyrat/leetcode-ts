@@ -612,6 +612,11 @@ test("DiagonalSumTest", () => {
   expect(solution.diagonalSum([[5]])).toEqual(5);
 })
 
+test("NumSpecialTest", () => {
+  expect(solution.numSpecial([[1, 0, 0], [0, 0, 1], [1, 0, 0]])).toEqual(1);
+  expect(solution.numSpecial([[1, 0, 0], [0, 1, 0], [0, 0, 1]])).toEqual(3);
+})
+
 test("SumOddLengthSubarraysTest", () => {
   expect(solution.sumOddLengthSubarrays([1, 4, 2, 5, 3])).toEqual(58);
   expect(solution.sumOddLengthSubarrays([1, 2])).toEqual(3);

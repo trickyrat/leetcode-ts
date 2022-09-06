@@ -2126,6 +2126,40 @@ export class Solution {
     }
 
     /**
+     * 1582. Special Positions in a Binary Matrix
+     * @param mat 
+     */
+    numSpecial(mat: number[][]): number {
+        let m = mat.length, n = mat[1].length;
+        for (let i = 0; i < m; ++i) {
+            let count = 0;
+            for (let j = 0; j < n; ++j) {
+                if (mat[i][j] === 1) {
+                    count++;
+                }
+            }
+
+            if (i === 0) {
+                count--;
+            }
+            if (count > 0) {
+                for (let j = 0; j < n; ++j) {
+                    if (mat[i][j] === 1) {
+                        mat[0][j] += count;
+                    }
+                }
+            }
+        }
+        let sum = 0;
+        for (const num of mat[0]) {
+            if (num === 1) {
+                sum++;
+            }
+        }
+        return sum;
+    }
+
+    /**
      * 1588. Sum of All Odd Length Subarrays
      * @param arr 
      * @returns 
