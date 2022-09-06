@@ -1160,6 +1160,33 @@ export class Solution {
     }
 
     /**
+     * 652. Find Duplicate Subtrees
+     * @param root 
+     */
+    findDuplicateSubtrees(root: TreeNode | null): (TreeNode | null)[] {
+        let seen = new Map<string, [TreeNode, number]>();
+        let repeat = new Set<TreeNode>();
+        let index = 0;
+        const dfs = (node: TreeNode | null): number => {
+            if (node === null) {
+                return 0;
+            }
+            let triple: [number, number, number] = [node.val, dfs(node.left), dfs(node.right)];
+            let key = triple.toString();
+            if (seen.has(key)) {
+                let pair: [TreeNode, number] | undefined = seen.get(key);
+                repeat.add(pair![0]);
+                return pair![1];
+            } else {
+                seen.set(key, [node, ++index]);
+                return index;
+            }
+        };
+        dfs(root);
+        return [...repeat];
+    }
+
+    /**
      * 658. Find K Closest Elements
      * @param arr 
      * @param k 

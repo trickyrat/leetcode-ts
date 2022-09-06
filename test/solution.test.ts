@@ -371,6 +371,18 @@ test("FindLongestChainTest", () => {
   expect(solution.findLongestChain([[1, 2], [7, 8], [4, 5]])).toEqual(3);
 })
 
+test("FindDuplicateSubtreesTest", () => {
+  expect(solution.findDuplicateSubtrees(createTreeNodeIteratively([1, 2, 3, 4, null, 2, 4, null, null, 4]))).toEqual([
+    createTreeNodeIteratively([4]),
+    createTreeNodeIteratively([2, 4]),
+  ]);
+  expect(solution.findDuplicateSubtrees(createTreeNodeIteratively([2, 1, 1]))).toEqual([createTreeNodeIteratively([1])]);
+  expect(solution.findDuplicateSubtrees(createTreeNodeIteratively([2, 2, 2, 3, null, 3, null]))).toEqual([
+    createTreeNodeIteratively([3]),
+    createTreeNodeIteratively([2, 3]),
+  ]);
+})
+
 test("FindClosestElementsTest", () => {
   expect(solution.findClosestElements([1, 2, 3, 4, 5], 4, 3)).toEqual([1, 2, 3, 4])
   expect(solution.findClosestElements([1, 2, 3, 4, 5], 4, -1)).toEqual([1, 2, 3, 4])
