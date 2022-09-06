@@ -464,6 +464,12 @@ test("ShortestToCharTest", () => {
   expect(solution.shortestToChar("aaab", "b")).toEqual([3, 2, 1, 0]);
 })
 
+test("UniqueLetterStringTest", () => {
+  expect(solution.uniqueLetterString("ABC")).toEqual(10);
+  expect(solution.uniqueLetterString("ABA")).toEqual(8);
+  expect(solution.uniqueLetterString("LEETCODE")).toEqual(92);
+})
+
 test("SortArrayByParityTest", () => {
   expect(solution.sortArrayByParity([3, 1, 2, 4])).toEqual([4, 2, 1, 3]);
   expect(solution.sortArrayByParity([2, 4, 1, 3])).toEqual([2, 4, 1, 3]);
