@@ -1144,6 +1144,22 @@ export class Solution {
     }
 
     /**
+     * 646. Maximum Length of Pair Chain
+     * @param pairs 
+     */
+    findLongestChain(pairs: number[][]): number {
+        pairs.sort((a, b) => a[1] - b[1]);
+        let curr = -Infinity, res = 0;
+        for (const pair of pairs) {
+            if (curr < pair[0]) {
+                curr = pair[1];
+                res++;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 658. Find K Closest Elements
      * @param arr 
      * @param k 

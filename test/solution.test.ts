@@ -366,6 +366,11 @@ test("ExclusiveTimeTest", () => {
   expect(solution.exclusiveTime(1, ["0:start:0", "0:end:0"])).toEqual([1]);
 })
 
+test("FindLongestChainTest", () => {
+  expect(solution.findLongestChain([[1, 2], [2, 3], [3, 4]])).toEqual(2);
+  expect(solution.findLongestChain([[1, 2], [7, 8], [4, 5]])).toEqual(3);
+})
+
 test("FindClosestElementsTest", () => {
   expect(solution.findClosestElements([1, 2, 3, 4, 5], 4, 3)).toEqual([1, 2, 3, 4])
   expect(solution.findClosestElements([1, 2, 3, 4, 5], 4, -1)).toEqual([1, 2, 3, 4])
