@@ -641,6 +641,11 @@ test("SumOddLengthSubarraysTest", () => {
   expect(solution.sumOddLengthSubarrays([10, 11, 12])).toEqual(66);
 })
 
+test("ReorderSpacesTest", () => {
+  expect(solution.reorderSpaces("  this   is  a sentence ")).toEqual("this   is   a   sentence");
+  expect(solution.reorderSpaces(" practice   makes   perfect")).toEqual("practice   makes   perfect ");
+})
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);

@@ -2231,6 +2231,51 @@ export class Solution {
     }
 
     /**
+     * 1592. Rearrange Spaces Between Words
+     * @param text 
+     */
+    reorderSpaces(text: string): string {
+        let n = text.length;
+        let words: string[] = [];
+        text.split(' ').forEach(e => {
+            if (e.length > 0) {
+                words.push(e);
+            }
+        });
+
+        let spaceCount = n;
+        for (const word of words) {
+            if (word.length) {
+                spaceCount -= word.length;
+            }
+        }
+
+        let sb = "";
+        if (words.length === 1) {
+            sb += words[0];
+            for (let i = 0; i < spaceCount; i++) {
+                sb += " ";
+            }
+            return sb;
+        }
+
+        let perSpace = Math.floor(spaceCount / (words.length - 1));
+        let restSpace = spaceCount % (words.length - 1);
+        for (let i = 0; i < words.length; i++) {
+            if (i > 0) {
+                for (let j = 0; j < perSpace; j++) {
+                    sb += " ";
+                }
+            }
+            sb += words[i];
+        }
+        for (let i = 0; i < restSpace; i++) {
+            sb += " ";
+        }
+        return sb;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
