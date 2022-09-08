@@ -1248,6 +1248,26 @@ export class Solution {
     }
 
     /**
+     * 667. Beautiful Arrangement II
+     * @param n 
+     * @param k 
+     */
+    constructArray(n: number, k: number): number[] {
+        let res = Array<number>(n).fill(0);
+        let index = 0;
+        for (let i = 1; i < n - k; ++i) {
+            res[index++] = i;
+        }
+        for (let i = n - k, j = n; i <= j; ++i, --j) {
+            res[index++] = i;
+            if (i != j) {
+                res[index++] = j;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 682.棒球比赛
      * @param ops 
      */

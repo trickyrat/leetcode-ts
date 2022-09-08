@@ -394,6 +394,11 @@ test("WidthOfBinaryTreeTest", () => {
   expect(solution.widthOfBinaryTree(createTreeNodeIteratively([1, 3, 2, 5]))).toEqual(2);
 })
 
+test("ConstructArrayTest", () => {
+  expect(solution.constructArray(3, 1)).toEqual([1, 2, 3]);
+  expect(solution.constructArray(3, 2)).toEqual([1, 3, 2]);
+})
+
 test("CalPointsTest", () => {
   expect(solution.calPoints(["5", "2", "C", "D", "+"])).toEqual(30);
   expect(solution.calPoints(["5", "-2", "4", "C", "D", "9", "+", "+"])).toEqual(27);
