@@ -2296,6 +2296,26 @@ export class Solution {
     }
 
     /**
+     * 1598. Crawler Log Folder
+     * @param logs 
+     */
+    minOperations(logs: string[]): number {
+        let depth = 0;
+        logs.forEach(log => {
+            if (log === "../") {
+                if (depth > 0) {
+                    depth--;
+                }
+            } else if (log === "./") {
+                return;
+            } else {
+                depth++;
+            }
+        });
+        return depth;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
