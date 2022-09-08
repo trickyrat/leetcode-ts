@@ -651,6 +651,12 @@ test("ReorderSpacesTest", () => {
   expect(solution.reorderSpaces(" practice   makes   perfect")).toEqual("practice   makes   perfect ");
 })
 
+test("MinOperationsTest", () => {
+  expect(solution.minOperations(["d1/", "d2/", "../", "d21/", "./"])).toEqual(2);
+  expect(solution.minOperations(["d1/", "d2/", "./", "d3/", "../", "d31/"])).toEqual(3);
+  expect(solution.minOperations(["d1/", "../", "../", "../"])).toEqual(0);
+})
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);
