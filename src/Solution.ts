@@ -1268,6 +1268,40 @@ export class Solution {
     }
 
     /**
+     * 669. Trim a Binary Search Tree
+     * @param root 
+     * @param low 
+     * @param high 
+     */
+    trimBST(root: TreeNode | null, low: number, high: number): TreeNode | null {
+        while (root && (root.val < low || root.val > high)) {
+            if (root.val < low) {
+                root = root.right;
+            } else {
+                root = root.left;
+            }
+        }
+        if (!root) {
+            return null;
+        }
+        for (let node = root; node.left;) {
+            if (node.left.val < low) {
+                node.left = node.left.right;
+            } else {
+                node = node.left;
+            }
+        }
+        for (let node = root; node.right;) {
+            if (node.right.val > high) {
+                node.right = node.right.left;
+            } else {
+                node = node.right;
+            }
+        }
+        return root;
+    }
+
+    /**
      * 682.棒球比赛
      * @param ops 
      */

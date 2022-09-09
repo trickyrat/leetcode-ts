@@ -21,22 +21,7 @@ export function convertListNodeToArray(head: ListNode | null): number[] {
   return res;
 }
 
-export function createTreeNodeByDFS(nums: (number | null)[]): TreeNode | null {
-  const dfs = (dataList: (number | null)[]) => {
-    if (dataList[0] === null) {
-      dataList.shift();
-      return null;
-    }
-    let root = new TreeNode(dataList[0]);
-    dataList.shift();
-    root.left = dfs(dataList);
-    root.right = dfs(dataList);
-    return root;
-  }
-  return dfs(nums);
-}
-
-export function createTreeNodeIteratively(nums: (number | null)[]): TreeNode | null {
+export function createTreeNode(nums: (number | null)[]): TreeNode | null {
   if (nums[0] === null || nums[0] === undefined) {
     return null;
   }
@@ -64,19 +49,6 @@ export function createTreeNodeIteratively(nums: (number | null)[]): TreeNode | n
     cursor += 2;
   }
   return root;
-}
-
-export function createTreeNodeRecursively(nums: (number | null)[]): TreeNode | null {
-  const createNode = (data: (number | null)[], index: number): TreeNode | null => {
-    if (index >= data.length || data[index] === null) {
-      return null;
-    }
-    let root = new TreeNode(data[index]!);
-    root.left = createNode(data, 2 * index + 1);
-    root.right = createNode(data, 2 * index + 2);
-    return root;
-  };
-  return createNode(nums, 0);
 }
 
 export function preorderTraversal(root: TreeNode | null): number[] | null {
