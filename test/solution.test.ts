@@ -669,6 +669,11 @@ test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[2, 8, 7], [7, 1, 3], [1, 9, 5]])).toEqual(17);
 })
 
+test("MinCostToHireWorkersTest", () => {
+  expect(solution.minCostToHireWorkers([10, 20, 5], [70, 50, 30], 2).toFixed(5)).toEqual("105.00000");
+  expect(solution.minCostToHireWorkers([3, 1, 10, 10, 1], [4, 8, 2, 2, 7], 3).toFixed(5)).toEqual("30.66667");
+})
+
 test("MiddleNodeTest", () => {
   expect(solution.middleNode(createListNode([1, 2, 3, 4, 5]))).toEqual(createListNode([3, 4, 5]));
   expect(solution.middleNode(createListNode([1, 2, 3, 4, 5, 6]))).toEqual(createListNode([4, 5, 6]));
