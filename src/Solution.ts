@@ -2,6 +2,7 @@ import { ListNode } from "./DataStructures/ListNode";
 import { TreeNode } from "./DataStructures/TreeNode";
 import { Node } from "./DataStructures/Node";
 import { Trie } from "./DataStructures/Trie";
+import { MaxPriorityQueue } from "@datastructures-js/priority-queue";
 
 export class Solution {
     /**
@@ -1630,6 +1631,36 @@ export class Solution {
             for (let i = 1; i < arr.length - 1; i++) {
                 res += (arr[i] - arr[i - 1]) * (arr[i + 1] - arr[i]);
             }
+        }
+        return res;
+    }
+
+    /**
+     * 857. Minimum Cost to Hire K Workers
+     * @param quality 
+     * @param wage 
+     * @param k 
+     */
+    minCostToHireWorkers(quality: number[], wage: number[], k: number): number {
+        let n = quality.length;
+        let hire = new Array<number>(n).fill(0).map((_, i) => i);
+        hire.sort((a, b) => {
+            return quality[b] * wage[a] - quality[a] * wage[b];
+        });
+        let res = 1e9;
+        let totalQuality = 0.0;
+        let queue = new MaxPriorityQueue<number>();
+        for (let i = 0; i < k - 1; i++) {
+            totalQuality += quality[hire[i]];
+            queue.enqueue(quality[hire[i]]);
+        }
+        for (let i = k - 1; i < n; i++) {
+            let index = hire[i];
+            totalQuality += quality[index];
+            queue.enqueue(quality[index]);
+            let totalCost = (wage[index] / quality[index]) * totalQuality;
+            res = Math.min(res, totalCost);
+            totalQuality -= queue.dequeue();
         }
         return res;
     }
