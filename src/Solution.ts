@@ -2381,6 +2381,21 @@ export class Solution {
     }
 
     /**
+     * 1608. Special Array With X Elements Greater Than or Equal X
+     * @param nums 
+     */
+    specialArray(nums: number[]): number {
+        let n = nums.length;
+        nums.sort((a, b) => b - a);
+        for (let i = 1; i <= n; ++i) {
+            if (nums[i - 1] >= i && (i == n || nums[i] < i)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */

@@ -663,6 +663,12 @@ test("MinOperationsTest", () => {
   expect(solution.minOperations(["d1/", "../", "../", "../"])).toEqual(0);
 })
 
+test("SpecialArrayTest", () => {
+  expect(solution.specialArray([3, 5])).toEqual(2)
+  expect(solution.specialArray([0, 0])).toEqual(-1)
+  expect(solution.specialArray([0, 4, 3, 0, 4])).toEqual(3)
+})
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);
