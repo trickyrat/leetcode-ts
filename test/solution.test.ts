@@ -404,6 +404,10 @@ test("TrimBSTTest", () => {
   expect(solution.trimBST(createTreeNode([3, 0, 4, null, 2, null, null, 1]), 1, 3)).toEqual(createTreeNode([3, 2, null, 1]));
 })
 
+test("MaximumSwapTest", () => {
+  expect(solution.maximumSwap(2736)).toEqual(7236);
+  expect(solution.maximumSwap(9973)).toEqual(9973);
+})
 
 test("CalPointsTest", () => {
   expect(solution.calPoints(["5", "2", "C", "D", "+"])).toEqual(30);
