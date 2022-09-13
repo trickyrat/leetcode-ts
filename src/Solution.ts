@@ -2420,6 +2420,20 @@ export class Solution {
     }
 
     /**
+     * 1619. Mean of Array After Removing Some Elements
+     * @param arr 
+     */
+    trimMean(arr: number[]): number {
+        let n = arr.length;
+        arr.sort((a, b) => a - b);
+        let sum = 0;
+        for (let i = n / 20; i < 19 * n / 20; i++) {
+            sum += arr[i];
+        }
+        return sum / (n * 0.9);
+    }
+
+    /**
      * 1672. 最富有客户的资产总量
      * @param accounts 
      */
