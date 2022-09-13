@@ -1303,6 +1303,30 @@ export class Solution {
     }
 
     /**
+     * 670. Maximum Swap
+     * @param num 
+     */
+    maximumSwap(num: number): number {
+        let chars: string[] = [...'' + num];
+        let n = chars.length;
+        let maxIndex = n - 1;
+        let index1 = -1, index2 = -1;
+        for (let i = n - 1; i >= 0; i--) {
+            if (chars[i] > chars[maxIndex]) {
+                maxIndex = i;
+            } else if (chars[i] < chars[maxIndex]) {
+                index1 = i;
+                index2 = maxIndex;
+            }
+        }
+        if (index1 >= 0) {
+            [chars[index1], chars[index2]] = [chars[index2], chars[index1]];
+            return parseInt(chars.join(''));
+        }
+        return num;
+    }
+
+    /**
      * 682.棒球比赛
      * @param ops 
      */
