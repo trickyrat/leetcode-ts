@@ -1327,6 +1327,36 @@ export class Solution {
     }
 
     /**
+     * 672. Bulb Switcher II
+     * @param n 
+     * @param presses 
+     */
+    flipLights(n: number, presses: number): number {
+        let seen = new Set<number>();
+        for (let i = 0; i < 16; i++) {
+            let pressArray = new Array<number>(4).fill(0);
+            for (let j = 0; j < 4; j++) {
+                pressArray[j] = (i >> j) & 1;
+            }
+            let sum = pressArray.reduce((accumulator, currentValue) => accumulator + currentValue);
+            if (sum % 2 === presses % 2 && sum <= presses) {
+                let status = pressArray[0] ^ pressArray[1] ^ pressArray[3];
+                if (n >= 2) {
+                    status |= (pressArray[0] ^ pressArray[1]) << 1;
+                }
+                if (n >= 3) {
+                    status |= (pressArray[0] ^ pressArray[2]) << 2;
+                }
+                if (n >= 4) {
+                    status |= (pressArray[0] ^ pressArray[1] ^ pressArray[3]) << 3;
+                }
+                seen.add(status);
+            }
+        }
+        return seen.size;
+    }
+
+    /**
      * 682.棒球比赛
      * @param ops 
      */

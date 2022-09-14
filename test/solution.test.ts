@@ -409,6 +409,12 @@ test("MaximumSwapTest", () => {
   expect(solution.maximumSwap(9973)).toEqual(9973);
 })
 
+test("FlipLightsTest", () => {
+  expect(solution.flipLights(1, 1)).toEqual(2);
+  expect(solution.flipLights(2, 1)).toEqual(3);
+  expect(solution.flipLights(3, 1)).toEqual(4);
+})
+
 test("CalPointsTest", () => {
   expect(solution.calPoints(["5", "2", "C", "D", "+"])).toEqual(30);
   expect(solution.calPoints(["5", "-2", "4", "C", "D", "9", "+", "+"])).toEqual(27);
