@@ -2450,6 +2450,23 @@ export class Solution {
     }
 
     /**
+     * 1624. Largest Substring Between Two Equal Characters
+     * @param s 
+     */
+    maxLengthBetweenEqualCharacters(s: string): number {
+        let map = new Map<string, number>();
+        let res = -1;
+        for (let i = 0; i < s.length; i++) {
+            if (!map.has(s[i])) {
+                map.set(s[i], i);
+            } else {
+                res = Math.max(res, i - map.get(s[i])! - 1)
+            }
+        }
+        return res;
+    }
+
+    /**
      * 1619. Mean of Array After Removing Some Elements
      * @param arr 
      */
