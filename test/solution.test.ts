@@ -679,6 +679,12 @@ test("SpecialArrayTest", () => {
   expect(solution.specialArray([0, 4, 3, 0, 4])).toEqual(3)
 })
 
+test("MaxLengthBetweenEqualCharactersTest", () => {
+  expect(solution.maxLengthBetweenEqualCharacters("aa")).toEqual(0);
+  expect(solution.maxLengthBetweenEqualCharacters("abca")).toEqual(2);
+  expect(solution.maxLengthBetweenEqualCharacters("cbzxy")).toEqual(-1);
+})
+
 test("TrimMeanTest", () => {
   expect(solution.trimMean([1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3])).toBeCloseTo(2.0000);
   expect(solution.trimMean([6, 2, 7, 5, 1, 2, 0, 3, 10, 2, 5, 0, 5, 5, 0, 8, 7, 6, 8, 0])).toBeCloseTo(4.0000);
