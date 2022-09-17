@@ -9,7 +9,7 @@ export class MyCircularQueue {
     this._elements = new Array<number>(this._capacity);
     this._rear = this._front = 0;
   }
-  enQueue(value: number): boolean {
+  enqueue(value: number): boolean {
     if (this.isFull()) {
       return false;
     }
@@ -18,7 +18,7 @@ export class MyCircularQueue {
     return true;
   }
 
-  deQueue(): boolean {
+  dequeue(): boolean {
     if (this.isEmpty()) {
       return false;
     }
@@ -26,14 +26,14 @@ export class MyCircularQueue {
     return true;
   }
 
-  Front(): number {
+  front(): number {
     if (this.isEmpty()) {
       return -1;
     }
     return this._elements[this._front];
   }
 
-  Rear(): number {
+  rear(): number {
     if (this.isEmpty()) {
       return -1;
     }
