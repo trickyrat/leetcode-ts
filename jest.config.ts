@@ -1,4 +1,7 @@
-module.exports = {
+
+import type { Config } from 'jest';
+
+const config: Config = {
   roots: [
     "<rootDir>/test"
   ],
@@ -7,4 +10,6 @@ module.exports = {
     "^.+\\.tsx?$": "ts-jest"
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-};
+}
+
+export default config;
