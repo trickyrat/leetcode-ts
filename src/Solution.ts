@@ -2467,6 +2467,22 @@ export class Solution {
     }
 
     /**
+     * 1636. Sort Array by Increasing Frequency
+     * @param nums 
+     */
+    frequencySort(nums: number[]): number[] {
+        let count = new Map<number, number>();
+        for (const num of nums) {
+            count.set(num, (count.get(num) || 0) + 1);
+        }
+        nums.sort((a, b) => {
+            let count1 = count.get(a), count2 = count.get(b);
+            return count1 !== count2 ? count1! - count2! : b - a;
+        });
+        return nums;
+    }
+
+    /**
      * 1619. Mean of Array After Removing Some Elements
      * @param arr 
      */
