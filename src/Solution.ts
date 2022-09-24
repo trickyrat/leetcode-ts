@@ -2450,6 +2450,20 @@ export class Solution {
     }
 
     /**
+     * 1619. Mean of Array After Removing Some Elements
+     * @param arr 
+     */
+    trimMean(arr: number[]): number {
+        let n = arr.length;
+        arr.sort((a, b) => a - b);
+        let sum = 0;
+        for (let i = n / 20; i < 19 * n / 20; i++) {
+            sum += arr[i];
+        }
+        return sum / (n * 0.9);
+    }
+
+    /**
      * 1624. Largest Substring Between Two Equal Characters
      * @param s 
      */
@@ -2483,17 +2497,34 @@ export class Solution {
     }
 
     /**
-     * 1619. Mean of Array After Removing Some Elements
-     * @param arr 
+     * 1652. Defuse the Bomb
+     * @param code 
+     * @param k
      */
-    trimMean(arr: number[]): number {
-        let n = arr.length;
-        arr.sort((a, b) => a - b);
-        let sum = 0;
-        for (let i = n / 20; i < 19 * n / 20; i++) {
-            sum += arr[i];
+    decrypt(code: number[], k: number): number[] {
+        let n = code.length;
+        let res = new Array<number>(n).fill(0);
+        if (k === 0) {
+            return res;
         }
-        return sum / (n * 0.9);
+        let newCode = new Array<number>(n * 2).fill(0).map((_, index) => {
+            return code[index % n];
+        });
+        code = newCode;
+        let l = k > 0 ? 1 : n + k;
+        let r = k > 0 ? k : n - 1;
+        let w = 0;
+        for (let i = l; i <= r; i++) {
+            w += code[i];
+        }
+        for (let i = 0; i < n; i++) {
+            res[i] = w;
+            w -= code[l];
+            w += code[r + 1];
+            l++;
+            r++;
+        }
+        return res;
     }
 
     /**

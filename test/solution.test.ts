@@ -679,6 +679,12 @@ test("SpecialArrayTest", () => {
   expect(solution.specialArray([0, 4, 3, 0, 4])).toEqual(3)
 })
 
+test("TrimMeanTest", () => {
+  expect(solution.trimMean([1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3])).toBeCloseTo(2.0000);
+  expect(solution.trimMean([6, 2, 7, 5, 1, 2, 0, 3, 10, 2, 5, 0, 5, 5, 0, 8, 7, 6, 8, 0])).toBeCloseTo(4.0000);
+  expect(solution.trimMean([6, 0, 7, 0, 7, 5, 7, 8, 3, 4, 0, 7, 8, 1, 6, 8, 1, 1, 2, 4, 8, 1, 9, 5, 4, 3, 8, 5, 10, 8, 6, 6, 1, 0, 6, 10, 8, 2, 3, 4])).toBeCloseTo(4.77778);
+})
+
 test("MaxLengthBetweenEqualCharactersTest", () => {
   expect(solution.maxLengthBetweenEqualCharacters("aa")).toEqual(0);
   expect(solution.maxLengthBetweenEqualCharacters("abca")).toEqual(2);
@@ -691,10 +697,10 @@ test("FrequencySortTest", () => {
   expect(solution.frequencySort([-1, 1, -6, 4, 5, -6, 1, 4, 1])).toEqual([5, -1, 4, 4, -6, -6, 1, 1, 1]);
 })
 
-test("TrimMeanTest", () => {
-  expect(solution.trimMean([1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3])).toBeCloseTo(2.0000);
-  expect(solution.trimMean([6, 2, 7, 5, 1, 2, 0, 3, 10, 2, 5, 0, 5, 5, 0, 8, 7, 6, 8, 0])).toBeCloseTo(4.0000);
-  expect(solution.trimMean([6, 0, 7, 0, 7, 5, 7, 8, 3, 4, 0, 7, 8, 1, 6, 8, 1, 1, 2, 4, 8, 1, 9, 5, 4, 3, 8, 5, 10, 8, 6, 6, 1, 0, 6, 10, 8, 2, 3, 4])).toBeCloseTo(4.77778);
+test("DecryptTest", () => {
+  expect(solution.decrypt([5, 7, 1, 4], 3)).toEqual([12, 10, 16, 13]);
+  expect(solution.decrypt([1, 2, 3, 4], 0)).toEqual([0, 0, 0, 0]);
+  expect(solution.decrypt([2, 4, 9, 3], -2)).toEqual([12, 5, 6, 13]);
 })
 
 test("MaximumWealthTest", () => {
