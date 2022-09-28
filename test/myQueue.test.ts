@@ -16,7 +16,7 @@ test("EmptyShouldBeFalseTest", () => {
   expect(myQueue.empty()).toEqual(false);
 })
 
-test("EmptyShouldBeFalseTest", () => {
+test("EmptyShouldBeTrueTest", () => {
   myQueue.pop();
   expect(myQueue.empty()).toEqual(true);
 })
