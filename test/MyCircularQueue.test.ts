@@ -3,7 +3,7 @@ import { MyCircularQueue } from "../src/MyCircularQueue";
 
 let myCircularQueue = new MyCircularQueue(3);
 
-test("MyCircularFunctionalityTest622. Design Circular Queue", () => {
+test("MyCircularFunctionalityTest", () => {
   expect(myCircularQueue.enqueue(1)).toEqual(true);
   expect(myCircularQueue.enqueue(2)).toEqual(true);
   expect(myCircularQueue.enqueue(3)).toEqual(true);

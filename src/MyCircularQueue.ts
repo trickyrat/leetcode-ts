@@ -1,20 +1,20 @@
 export class MyCircularQueue {
-  _front: number;
-  _rear: number;
-  _capacity: number;
-  _elements: number[];
+  frontIndex: number;
+  rearIndex: number;
+  capacity: number;
+  elements: number[];
 
   constructor(k: number) {
-    this._capacity = k + 1;
-    this._elements = new Array<number>(this._capacity);
-    this._rear = this._front = 0;
+    this.capacity = k + 1;
+    this.elements = new Array<number>(this.capacity);
+    this.rearIndex = this.frontIndex = 0;
   }
   enqueue(value: number): boolean {
     if (this.isFull()) {
       return false;
     }
-    this._elements[this._rear] = value;
-    this._rear = (this._rear + 1) % this._capacity;
+    this.elements[this.rearIndex] = value;
+    this.rearIndex = (this.rearIndex + 1) % this.capacity;
     return true;
   }
 
@@ -22,7 +22,7 @@ export class MyCircularQueue {
     if (this.isEmpty()) {
       return false;
     }
-    this._front = (this._front + 1) % this._capacity;
+    this.frontIndex = (this.frontIndex + 1) % this.capacity;
     return true;
   }
 
@@ -30,22 +30,22 @@ export class MyCircularQueue {
     if (this.isEmpty()) {
       return -1;
     }
-    return this._elements[this._front];
+    return this.elements[this.frontIndex];
   }
 
   rear(): number {
     if (this.isEmpty()) {
       return -1;
     }
-    return this._elements[((this._rear - 1) + this._capacity) % this._capacity];
+    return this.elements[((this.rearIndex - 1) + this.capacity) % this.capacity];
   }
 
   isEmpty(): boolean {
-    return this._rear === this._front;
+    return this.rearIndex === this.frontIndex;
   }
 
   isFull(): boolean {
-    return ((this._rear + 1) % this._capacity) === this._front;
+    return ((this.rearIndex + 1) % this.capacity) === this.frontIndex;
   }
 
 }
