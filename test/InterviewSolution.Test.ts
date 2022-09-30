@@ -31,3 +31,7 @@ test("IsFlippedStringTest", () => {
     expect(solution.isFlippedString("waterbottle", "erbottlewat")).toEqual(true);
     expect(solution.isFlippedString("aa", "aba")).toEqual(false);
 })
+
+test("GetKthMagicNumberTest", () => {
+    expect(solution.getKthMagicNumber(5)).toEqual(9);
+})

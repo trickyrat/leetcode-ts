@@ -44,7 +44,7 @@ export class InterviewSolution {
         let dp = new Array<number>(k + 1).fill(0);
         dp[1] = 1;
         let p3 = 1, p5 = 1, p7 = 1;
-        for (let i = 0; i <= k; i++) {
+        for (let i = 2; i <= k; i++) {
             let num3 = dp[p3] * 3, num5 = dp[p5] * 5, num7 = dp[p7] * 7;
             dp[i] = Math.min(Math.min(num3, num5), num7);
             if (dp[i] === num3) {
