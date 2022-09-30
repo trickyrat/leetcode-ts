@@ -35,4 +35,28 @@ export class InterviewSolution {
     isFlippedString(s1: string, s2: string): boolean {
         return s1.length === s2.length && (s1 + s1).indexOf(s2) !== -1;
     }
+
+    /**
+     * 面试题 17.09. Get Kth Magic Number LCCI
+     * @param k 
+     */
+    getKthMagicNumber(k: number): number {
+        let dp = new Array<number>(k + 1).fill(0);
+        dp[1] = 1;
+        let p3 = 1, p5 = 1, p7 = 1;
+        for (let i = 0; i <= k; i++) {
+            let num3 = dp[p3] * 3, num5 = dp[p5] * 5, num7 = dp[p7] * 7;
+            dp[i] = Math.min(Math.min(num3, num5), num7);
+            if (dp[i] === num3) {
+                p3++;
+            }
+            if (dp[i] === num5) {
+                p5++;
+            }
+            if (dp[i] === num7) {
+                p7++;
+            }
+        }
+        return dp[k];
+    }
 }
