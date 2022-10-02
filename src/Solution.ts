@@ -2637,6 +2637,14 @@ export class Solution {
     }
 
     /**
+     * 1784. Check if Binary String Has at Most One Segment of Ones
+     * @param s 
+     */
+    checkOnesSegment(s: string): boolean {
+        return s.indexOf("01") !== -1;
+    }
+
+    /**
      * 1790. Check if One String Swap Can Make Strings Equal
      * @param s1 
      * @param s2 
