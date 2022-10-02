@@ -2641,7 +2641,7 @@ export class Solution {
      * @param s 
      */
     checkOnesSegment(s: string): boolean {
-        return s.indexOf("01") !== -1;
+        return s.indexOf("01") === -1;
     }
 
     /**
