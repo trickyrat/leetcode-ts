@@ -731,6 +731,12 @@ test("InterpretTest", () => {
   expect(solution.interpret("(al)G(al)()()G")).toEqual("alGalooG");
 })
 
+test("ReformatNumberTest", () => {
+  expect(solution.reformatNumber("1-23-45 6")).toEqual("123-456");
+  expect(solution.reformatNumber("123 4-567")).toEqual("123-45-67");
+  expect(solution.reformatNumber("123 4-5678")).toEqual("123-456-78");
+})
+
 test("MergeAlternatelyTest", () => {
   expect(solution.mergeAlternately("abc", "pqr")).toEqual("apbqcr");
   expect(solution.mergeAlternately("ab", "pqrs")).toEqual("apbqrs");
