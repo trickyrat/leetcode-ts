@@ -2528,7 +2528,7 @@ export class Solution {
     }
 
     /**
-     * 1672. 最富有客户的资产总量
+     * 1672. Richest Customer Wealth
      * @param accounts 
      */
     maximumWealth(accounts: number[][]): number {
@@ -2558,6 +2558,40 @@ export class Solution {
             }
         }
         return ans;
+    }
+
+    /**
+     * 1694. Reformat Phone Number
+     * @param number 
+     */
+    reformatNumber(number: string): string {
+        let digits = "";
+        const isDigit = (ch: string) => {
+            return parseInt(ch).toString() === "NaN" ? false : true;
+        }
+        for (let i = 0; i < number.length; i++) {
+            if (isDigit(number[i])) {
+                digits += number[i];
+            }
+        }
+        let n = digits.length;
+        let pt = 0;
+        let res = "";
+        while (n > 0) {
+            if (n > 4) {
+                res += digits.slice(pt, pt + 3) + "-";
+                pt += 3;
+                n -= 3;
+            } else {
+                if (n === 4) {
+                    res += digits.slice(pt, pt + 2) + "-" + digits.slice(pt + 2, pt + 4);
+                } else {
+                    res += digits.slice(pt, pt + n);
+                }
+                break;
+            }
+        }
+        return res;
     }
 
     /**
