@@ -1,8 +1,9 @@
 import { Solution } from "../src/Solution";
 import { Node } from "../src/DataStructures/Node";
-import { createListNode, convertListNodeToArray, preorderTraversal, createTreeNode } from "../src/Utilities";
+import { Utilities } from "../src/Utilities";
 
 let solution = new Solution();
+let utils = new Utilities();
 
 test("TwoSumTest", () => {
   expect(solution.twoSum([2, 7, 11, 15], 9)).toEqual([0, 1]);
@@ -13,9 +14,9 @@ test("TwoSumTest", () => {
 
 
 test("AddTwoNumbersTest", () => {
-  expect(convertListNodeToArray(solution.addTwoNumbers(createListNode([2, 4, 3]), createListNode([5, 6, 4])))).toEqual([7, 0, 8]);
-  expect(convertListNodeToArray(solution.addTwoNumbers(createListNode([0]), createListNode([0])))).toEqual([0]);
-  expect(convertListNodeToArray(solution.addTwoNumbers(createListNode([9, 9, 9, 9, 9, 9, 9]), createListNode([9, 9, 9, 9])))).toEqual([8, 9, 9, 9, 0, 0, 0, 1]);
+  expect(utils.convertListNodeToArray(solution.addTwoNumbers(utils.createListNode([2, 4, 3]), utils.createListNode([5, 6, 4])))).toEqual([7, 0, 8]);
+  expect(utils.convertListNodeToArray(solution.addTwoNumbers(utils.createListNode([0]), utils.createListNode([0])))).toEqual([0]);
+  expect(utils.convertListNodeToArray(solution.addTwoNumbers(utils.createListNode([9, 9, 9, 9, 9, 9, 9]), utils.createListNode([9, 9, 9, 9])))).toEqual([8, 9, 9, 9, 0, 0, 0, 1]);
 });
 
 test("LengthOfLongestSubstringTest", () => {
@@ -48,9 +49,9 @@ test("IsValidParenthesesTest", () => {
 })
 
 test("MergeTwoListsTest", () => {
-  expect(solution.mergeTwoLists(createListNode([1, 2, 4]), createListNode([1, 3, 4]))).toEqual(createListNode([1, 1, 2, 3, 4, 4]));
-  expect(solution.mergeTwoLists(createListNode([]), createListNode([]))).toEqual(createListNode([]));
-  expect(solution.mergeTwoLists(createListNode([]), createListNode([0]))).toEqual(createListNode([0]));
+  expect(solution.mergeTwoLists(utils.createListNode([1, 2, 4]), utils.createListNode([1, 3, 4]))).toEqual(utils.createListNode([1, 1, 2, 3, 4, 4]));
+  expect(solution.mergeTwoLists(utils.createListNode([]), utils.createListNode([]))).toEqual(utils.createListNode([]));
+  expect(solution.mergeTwoLists(utils.createListNode([]), utils.createListNode([0]))).toEqual(utils.createListNode([0]));
 })
 
 test("RemoveElementTest", () => {
@@ -94,13 +95,13 @@ test("SetZeroesTest", () => {
 });
 
 test("DeleteDuplicatesTest", () => {
-  expect(solution.deleteDuplicates(createListNode([1, 1, 2]))).toEqual(createListNode([1, 2]));
-  expect(solution.deleteDuplicates(createListNode([1, 1, 2, 3, 3]))).toEqual(createListNode([1, 2, 3]));
+  expect(solution.deleteDuplicates(utils.createListNode([1, 1, 2]))).toEqual(utils.createListNode([1, 2]));
+  expect(solution.deleteDuplicates(utils.createListNode([1, 1, 2, 3, 3]))).toEqual(utils.createListNode([1, 2, 3]));
 })
 
 test("MaxDepthTest", () => {
-  expect(solution.maxDepth(createTreeNode([3, 9, 20, null, null, 15, 7]))).toEqual(3);
-  expect(solution.maxDepth(createTreeNode([1, null, 2]))).toEqual(2);
+  expect(solution.maxDepth(utils.createTreeNode([3, 9, 20, null, null, 15, 7]))).toEqual(3);
+  expect(solution.maxDepth(utils.createTreeNode([1, null, 2]))).toEqual(2);
 })
 
 test("MergeTest", () => {
@@ -116,25 +117,25 @@ test("MergeTest", () => {
 })
 
 test("InorderTraversalTest", () => {
-  expect(solution.inorderTraversal(createTreeNode([1, null, 2, 3]))).toEqual([1, 3, 2]);
-  expect(solution.inorderTraversal(createTreeNode([]))).toEqual([]);
-  expect(solution.inorderTraversal(createTreeNode([1]))).toEqual([1]);
+  expect(solution.inorderTraversal(utils.createTreeNode([1, null, 2, 3]))).toEqual([1, 3, 2]);
+  expect(solution.inorderTraversal(utils.createTreeNode([]))).toEqual([]);
+  expect(solution.inorderTraversal(utils.createTreeNode([1]))).toEqual([1]);
 })
 
 test("IsSymmetricTest", () => {
-  expect(solution.isSymmetric(createTreeNode([1, 2, 2, 3, 4, 4, 3]))).toEqual(true);
-  expect(solution.isSymmetric(createTreeNode([1, 2, 2, null, 3, null, 3]))).toEqual(false);
+  expect(solution.isSymmetric(utils.createTreeNode([1, 2, 2, 3, 4, 4, 3]))).toEqual(true);
+  expect(solution.isSymmetric(utils.createTreeNode([1, 2, 2, null, 3, null, 3]))).toEqual(false);
 })
 
 test("LevelOrderTest", () => {
-  expect(solution.levelOrder(createTreeNode([3, 9, 20, null, null, 15, 7]))).toEqual([[3], [9, 20], [15, 7]]);
-  expect(solution.levelOrder(createTreeNode([1]))).toEqual([[1]]);
-  expect(solution.levelOrder(createTreeNode([]))).toEqual([]);
+  expect(solution.levelOrder(utils.createTreeNode([3, 9, 20, null, null, 15, 7]))).toEqual([[3], [9, 20], [15, 7]]);
+  expect(solution.levelOrder(utils.createTreeNode([1]))).toEqual([[1]]);
+  expect(solution.levelOrder(utils.createTreeNode([]))).toEqual([]);
 })
 
 test("PathSumTest", () => {
-  let root = createTreeNode([1, 2, 3]);
-  let root1 = createTreeNode([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]);
+  let root = utils.createTreeNode([1, 2, 3]);
+  let root1 = utils.createTreeNode([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]);
   expect(solution.pathSum(root, 2)).toEqual([]);
   expect(solution.pathSum(root1, 22)).toEqual([[5, 4, 11, 2], [5, 8, 4, 5]]);
 });
@@ -150,25 +151,25 @@ test("MaxProfitTest", () => {
 })
 
 test("HasCycleTest", () => {
-  expect(solution.hasCycle(createListNode([1]))).toEqual(false);
-  let head2 = createListNode([1, 2]);
+  expect(solution.hasCycle(utils.createListNode([1]))).toEqual(false);
+  let head2 = utils.createListNode([1, 2]);
   head2!.next!.next = head2;
   expect(solution.hasCycle(head2)).toEqual(true);
-  let head3 = createListNode([3, 2, 0, 4]);
+  let head3 = utils.createListNode([3, 2, 0, 4]);
   head3!.next!.next!.next!.next = head3;
   expect(solution.hasCycle(head3)).toEqual(true);
 })
 
-test("PreorderTraversalTest", () => {
-  expect(solution.preorderTraversal(createTreeNode([1, null, 2, 3]))).toEqual([1, 2, 3]);
-  expect(solution.preorderTraversal(createTreeNode([]))).toEqual([]);
-  expect(solution.preorderTraversal(createTreeNode([1]))).toEqual([1]);
+test("utils.preorderTraversalTest", () => {
+  expect(solution.preorderTraversal(utils.createTreeNode([1, null, 2, 3]))).toEqual([1, 2, 3]);
+  expect(solution.preorderTraversal(utils.createTreeNode([]))).toEqual([]);
+  expect(solution.preorderTraversal(utils.createTreeNode([1]))).toEqual([1]);
 })
 
 test("PostorderTraversalTest", () => {
-  expect(solution.postorderTraversal(createTreeNode([1, null, 2, 3]))).toEqual([3, 2, 1]);
-  expect(solution.postorderTraversal(createTreeNode([]))).toEqual([]);
-  expect(solution.postorderTraversal(createTreeNode([1]))).toEqual([1]);
+  expect(solution.postorderTraversal(utils.createTreeNode([1, null, 2, 3]))).toEqual([3, 2, 1]);
+  expect(solution.postorderTraversal(utils.createTreeNode([]))).toEqual([]);
+  expect(solution.postorderTraversal(utils.createTreeNode([1]))).toEqual([1]);
 })
 
 test("ConvertToTitleTest", () => {
@@ -201,15 +202,15 @@ test("IsHappyTest", () => {
 })
 
 test("RemoveElementsTest", () => {
-  expect(solution.removeElements(createListNode([1, 2, 6, 3, 4, 5, 6]), 6)).toEqual(createListNode([1, 2, 3, 4, 5]));
-  expect(solution.removeElements(createListNode([]), 1)).toEqual(createListNode([]));
-  expect(solution.removeElements(createListNode([7, 7, 7, 7]), 7)).toEqual(createListNode([]));
+  expect(solution.removeElements(utils.createListNode([1, 2, 6, 3, 4, 5, 6]), 6)).toEqual(utils.createListNode([1, 2, 3, 4, 5]));
+  expect(solution.removeElements(utils.createListNode([]), 1)).toEqual(utils.createListNode([]));
+  expect(solution.removeElements(utils.createListNode([7, 7, 7, 7]), 7)).toEqual(utils.createListNode([]));
 })
 
 test("ReverseListTest", () => {
-  expect(solution.reverseList(createListNode([1, 2, 3, 4, 5]))).toEqual(createListNode([5, 4, 3, 2, 1]));
-  expect(solution.reverseList(createListNode([1, 2]))).toEqual(createListNode([2, 1]));
-  expect(solution.reverseList(createListNode([]))).toEqual(createListNode([]));
+  expect(solution.reverseList(utils.createListNode([1, 2, 3, 4, 5]))).toEqual(utils.createListNode([5, 4, 3, 2, 1]));
+  expect(solution.reverseList(utils.createListNode([1, 2]))).toEqual(utils.createListNode([2, 1]));
+  expect(solution.reverseList(utils.createListNode([]))).toEqual(utils.createListNode([]));
 })
 
 test("ContainsDuplicateTest", () => {
@@ -262,8 +263,8 @@ test("FindTheDifferenceTest", () => {
 })
 
 test("SumOfLeftLeavesTest", () => {
-  expect(solution.sumOfLeftLeaves(createTreeNode([3, 9, 20, null, null, 15, 7]))).toEqual(24);
-  expect(solution.sumOfLeftLeaves(createTreeNode([1]))).toEqual(0);
+  expect(solution.sumOfLeftLeaves(utils.createTreeNode([3, 9, 20, null, null, 15, 7]))).toEqual(24);
+  expect(solution.sumOfLeftLeaves(utils.createTreeNode([1]))).toEqual(0);
 })
 
 test("NumPrimeArrangementsTest", () => {
@@ -350,12 +351,12 @@ test("PostorderTest", () => {
 })
 
 test("AddOneRowTest", () => {
-  let actual1 = solution.addOneRow(createTreeNode([4, 2, 6, 3, 1, 5]), 1, 2);
-  let actual2 = solution.addOneRow(createTreeNode([4, 2, null, 3, 1]), 1, 3);
-  let expect1 = createTreeNode([4, 1, 1, 2, null, null, 6, 3, 1, 5]);
-  let expect2 = createTreeNode([4, 2, null, 1, 1, 3, null, null, 1]);
-  expect(preorderTraversal(actual1)).toEqual(preorderTraversal(expect1));
-  expect(preorderTraversal(actual2)).toEqual(preorderTraversal(expect2));
+  let actual1 = solution.addOneRow(utils.createTreeNode([4, 2, 6, 3, 1, 5]), 1, 2);
+  let actual2 = solution.addOneRow(utils.createTreeNode([4, 2, null, 3, 1]), 1, 3);
+  let expect1 = utils.createTreeNode([4, 1, 1, 2, null, null, 6, 3, 1, 5]);
+  let expect2 = utils.createTreeNode([4, 2, null, 1, 1, 3, null, null, 1]);
+  expect(utils.preorderTraversal(actual1)).toEqual(utils.preorderTraversal(expect1));
+  expect(utils.preorderTraversal(actual2)).toEqual(utils.preorderTraversal(expect2));
 });
 
 test("ExclusiveTimeTest", () => {
@@ -372,14 +373,14 @@ test("FindLongestChainTest", () => {
 })
 
 test("FindDuplicateSubtreesTest", () => {
-  expect(solution.findDuplicateSubtrees(createTreeNode([1, 2, 3, 4, null, 2, 4, null, null, 4]))).toEqual([
-    createTreeNode([4]),
-    createTreeNode([2, 4]),
+  expect(solution.findDuplicateSubtrees(utils.createTreeNode([1, 2, 3, 4, null, 2, 4, null, null, 4]))).toEqual([
+    utils.createTreeNode([4]),
+    utils.createTreeNode([2, 4]),
   ]);
-  expect(solution.findDuplicateSubtrees(createTreeNode([2, 1, 1]))).toEqual([createTreeNode([1])]);
-  expect(solution.findDuplicateSubtrees(createTreeNode([2, 2, 2, 3, null, 3, null]))).toEqual([
-    createTreeNode([3]),
-    createTreeNode([2, 3]),
+  expect(solution.findDuplicateSubtrees(utils.createTreeNode([2, 1, 1]))).toEqual([utils.createTreeNode([1])]);
+  expect(solution.findDuplicateSubtrees(utils.createTreeNode([2, 2, 2, 3, null, 3, null]))).toEqual([
+    utils.createTreeNode([3]),
+    utils.createTreeNode([2, 3]),
   ]);
 })
 
@@ -389,9 +390,9 @@ test("FindClosestElementsTest", () => {
 })
 
 test("WidthOfBinaryTreeTest", () => {
-  expect(solution.widthOfBinaryTree(createTreeNode([1, 3, 2, 5, 3, null, 9]))).toEqual(4);
-  expect(solution.widthOfBinaryTree(createTreeNode([1, 3, 2, 5, null, null, 9, 6, null, 7]))).toEqual(7);
-  expect(solution.widthOfBinaryTree(createTreeNode([1, 3, 2, 5]))).toEqual(2);
+  expect(solution.widthOfBinaryTree(utils.createTreeNode([1, 3, 2, 5, 3, null, 9]))).toEqual(4);
+  expect(solution.widthOfBinaryTree(utils.createTreeNode([1, 3, 2, 5, null, null, 9, 6, null, 7]))).toEqual(7);
+  expect(solution.widthOfBinaryTree(utils.createTreeNode([1, 3, 2, 5]))).toEqual(2);
 })
 
 test("ConstructArrayTest", () => {
@@ -400,8 +401,8 @@ test("ConstructArrayTest", () => {
 })
 
 test("TrimBSTTest", () => {
-  expect(solution.trimBST(createTreeNode([1, 0, 2]), 1, 2)).toEqual(createTreeNode([1, null, 2]));
-  expect(solution.trimBST(createTreeNode([3, 0, 4, null, 2, null, null, 1]), 1, 3)).toEqual(createTreeNode([3, 2, null, 1]));
+  expect(solution.trimBST(utils.createTreeNode([1, 0, 2]), 1, 2)).toEqual(utils.createTreeNode([1, null, 2]));
+  expect(solution.trimBST(utils.createTreeNode([3, 0, 4, null, 2, null, null, 1]), 1, 3)).toEqual(utils.createTreeNode([3, 2, null, 1]));
 })
 
 test("MaximumSwapTest", () => {
@@ -422,8 +423,8 @@ test("CalPointsTest", () => {
 });
 
 test("LongestUnivaluePathTest", () => {
-  expect(solution.longestUnivaluePath(createTreeNode([5, 4, 5, 1, 1, null, 5]))).toEqual(2);
-  expect(solution.longestUnivaluePath(createTreeNode([1, 4, 5, 4, 4, null, 5]))).toEqual(2);
+  expect(solution.longestUnivaluePath(utils.createTreeNode([5, 4, 5, 1, 1, null, 5]))).toEqual(2);
+  expect(solution.longestUnivaluePath(utils.createTreeNode([1, 4, 5, 4, 4, null, 5]))).toEqual(2);
 })
 
 test("ToLowerCaseTest", () => {
@@ -533,9 +534,9 @@ test("LargestPerimeterTest", () => {
 })
 
 test("InsertIntoMaxTreeTest", () => {
-  expect(solution.insertIntoMaxTree(createTreeNode([4, 1, 3, null, null, 2]), 5)).toEqual(createTreeNode([5, 4, null, 1, 3, null, null, 2]));
-  expect(solution.insertIntoMaxTree(createTreeNode([5, 2, 4, null, 1]), 3)).toEqual(createTreeNode([5, 2, 4, null, 1, null, 3]));
-  expect(solution.insertIntoMaxTree(createTreeNode([5, 2, 3, null, 1]), 4)).toEqual(createTreeNode([5, 2, 4, null, 1, 3]));
+  expect(solution.insertIntoMaxTree(utils.createTreeNode([4, 1, 3, null, null, 2]), 5)).toEqual(utils.createTreeNode([5, 4, null, 1, 3, null, null, 2]));
+  expect(solution.insertIntoMaxTree(utils.createTreeNode([5, 2, 4, null, 1]), 3)).toEqual(utils.createTreeNode([5, 2, 4, null, 1, null, 3]));
+  expect(solution.insertIntoMaxTree(utils.createTreeNode([5, 2, 3, null, 1]), 4)).toEqual(utils.createTreeNode([5, 2, 4, null, 1, 3]));
 })
 
 test("RemoveOuterParenthesesTest", () => {
@@ -545,8 +546,8 @@ test("RemoveOuterParenthesesTest", () => {
 })
 
 test("SumRootToLeafTest", () => {
-  expect(solution.sumRootToLeaf(createTreeNode([1, 0, 1, 0, 1, 0, 1]))).toEqual(22);
-  expect(solution.sumRootToLeaf(createTreeNode([0]))).toEqual(0);
+  expect(solution.sumRootToLeaf(utils.createTreeNode([1, 0, 1, 0, 1, 0, 1]))).toEqual(22);
+  expect(solution.sumRootToLeaf(utils.createTreeNode([0]))).toEqual(0);
   expect(solution.sumRootToLeaf(null)).toEqual(0);
 })
 
@@ -561,8 +562,8 @@ test("SubtractProductAndSumTest", () => {
 })
 
 test("GetDecimalValueTest", () => {
-  expect(solution.getDecimalValue(createListNode([1, 0, 1]))).toEqual(5);
-  expect(solution.getDecimalValue(createListNode([0]))).toEqual(0);
+  expect(solution.getDecimalValue(utils.createListNode([1, 0, 1]))).toEqual(5);
+  expect(solution.getDecimalValue(utils.createListNode([0]))).toEqual(0);
 })
 
 test("FreqAlphabetsTest", () => {
@@ -715,8 +716,8 @@ test("MinCostToHireWorkersTest", () => {
 })
 
 test("MiddleNodeTest", () => {
-  expect(solution.middleNode(createListNode([1, 2, 3, 4, 5]))).toEqual(createListNode([3, 4, 5]));
-  expect(solution.middleNode(createListNode([1, 2, 3, 4, 5, 6]))).toEqual(createListNode([4, 5, 6]));
+  expect(solution.middleNode(utils.createListNode([1, 2, 3, 4, 5]))).toEqual(utils.createListNode([3, 4, 5]));
+  expect(solution.middleNode(utils.createListNode([1, 2, 3, 4, 5, 6]))).toEqual(utils.createListNode([4, 5, 6]));
 })
 
 test("ProjectionAreaTest", () => {
