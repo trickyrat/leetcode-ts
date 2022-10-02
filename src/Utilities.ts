@@ -1,71 +1,75 @@
 import { ListNode } from "./DataStructures/ListNode";
 import { TreeNode } from "./DataStructures/TreeNode";
 
-
-export function createListNode(nums: number[]): ListNode | null {
-  let head = new ListNode(0);
-  let dummyHead = head;
-  for (const num of nums) {
-    dummyHead.next = new ListNode(num);
-    dummyHead = dummyHead.next;
+export class Utilities {
+  createListNode(nums: number[]): ListNode | null {
+    let head = new ListNode(0);
+    let dummyHead = head;
+    for (const num of nums) {
+      dummyHead.next = new ListNode(num);
+      dummyHead = dummyHead.next;
+    }
+    return head.next;
   }
-  return head.next;
-}
-
-export function convertListNodeToArray(head: ListNode | null): number[] {
-  let res: number[] = [];
-  while (head) {
-    res.push(head.val);
-    head = head.next;
+  convertListNodeToArray(head: ListNode | null): number[] {
+    let res: number[] = [];
+    while (head) {
+      res.push(head.val);
+      head = head.next;
+    }
+    return res;
   }
-  return res;
-}
 
-export function createTreeNode(nums: (number | null)[]): TreeNode | null {
-  if (nums[0] === null || nums[0] === undefined) {
-    return null;
-  }
-  let root = new TreeNode(nums[0]);
-  let queue = [root];
-  let cursor = 1;
-  while (cursor < nums.length) {
-    let node = queue.shift();
-    let leftVal = nums[cursor];
-    let rightVal = nums[cursor + 1];
-    if (leftVal !== null && leftVal !== undefined) {
-      let leftNode = new TreeNode(leftVal);
-      if (node) {
-        node.left = leftNode;
+  createTreeNode(nums: (number | null)[]): TreeNode | null {
+    if (nums[0] === null || nums[0] === undefined) {
+      return null;
+    }
+    let root = new TreeNode(nums[0]);
+    let queue = [root];
+    let cursor = 1;
+    while (cursor < nums.length) {
+      let node = queue.shift();
+      let leftVal = nums[cursor];
+      let rightVal = nums[cursor + 1];
+      if (leftVal !== null && leftVal !== undefined) {
+        let leftNode = new TreeNode(leftVal);
+        if (node) {
+          node.left = leftNode;
+        }
+        queue.push(leftNode);
       }
-      queue.push(leftNode);
-    }
-    if (rightVal !== null && rightVal !== undefined) {
-      let rightNode = new TreeNode(rightVal);
-      if (node) {
-        node.right = rightNode;
+      if (rightVal !== null && rightVal !== undefined) {
+        let rightNode = new TreeNode(rightVal);
+        if (node) {
+          node.right = rightNode;
+        }
+        queue.push(rightNode);
       }
-      queue.push(rightNode);
+      cursor += 2;
     }
-    cursor += 2;
+    return root;
   }
-  return root;
-}
 
-export function preorderTraversal(root: TreeNode | null): number[] | null {
-  let res: number[] = [];
-  if (!root) {
-    return null;
-  }
-  let stack: TreeNode[] = [];
-  let node: TreeNode | null = root;
-  while (stack.length > 0 || !node) {
-    while (node) {
-      res.push(node.val);
-      stack.push(node);
-      node = node.left;
+  preorderTraversal(root: TreeNode | null): number[] | null {
+    let res: number[] = [];
+    if (!root) {
+      return null;
     }
-    node = stack.pop()!;
-    node = node?.right;
+    let stack: TreeNode[] = [];
+    let node: TreeNode | null = root;
+    while (stack.length > 0 || !node) {
+      while (node) {
+        res.push(node.val);
+        stack.push(node);
+        node = node.left;
+      }
+      node = stack.pop()!;
+      node = node?.right;
+    }
+    return res;
   }
-  return res;
+
+  isDigit = (ch: string) => {
+    return parseInt(ch).toString() === "NaN" ? false : true;
+  }
 }

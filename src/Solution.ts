@@ -3,8 +3,15 @@ import { TreeNode } from "./DataStructures/TreeNode";
 import { Node } from "./DataStructures/Node";
 import { Trie } from "./DataStructures/Trie";
 import { MaxPriorityQueue } from "@datastructures-js/priority-queue";
+import { Utilities } from "./Utilities";
 
 export class Solution {
+    utils: Utilities;
+
+    constructor() {
+        this.utils = new Utilities();
+    }
+
     /**
      * 1.两数之和
      * @param nums 输入数组
@@ -2118,12 +2125,9 @@ export class Solution {
      * @param s 
      */
     reformat(s: string): string {
-        const isDigit = (ch: string) => {
-            return parseInt(ch).toString() === "NaN" ? false : true;
-        }
         let sumDigit = 0;
         for (let i = 0; i < s.length; ++i) {
-            if (isDigit(s[i])) {
+            if (this.utils.isDigit(s[i])) {
                 sumDigit++;
             }
         }
@@ -2134,8 +2138,8 @@ export class Solution {
         let flag = sumDigit > sumAlpha;
         const arr = [...s];
         for (let i = 0, j = 1; i < s.length; i += 2) {
-            if (isDigit(arr[i]) !== flag) {
-                while (isDigit(arr[j]) !== flag) {
+            if (this.utils.isDigit(arr[i]) !== flag) {
+                while (this.utils.isDigit(arr[j]) !== flag) {
                     j += 2;
                 }
                 [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -2566,11 +2570,8 @@ export class Solution {
      */
     reformatNumber(number: string): string {
         let digits = "";
-        const isDigit = (ch: string) => {
-            return parseInt(ch).toString() === "NaN" ? false : true;
-        }
         for (let i = 0; i < number.length; i++) {
-            if (isDigit(number[i])) {
+            if (this.utils.isDigit(number[i])) {
                 digits += number[i];
             }
         }
