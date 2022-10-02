@@ -750,6 +750,11 @@ test("NearestValidPointTest", () => {
   expect(solution.nearestValidPoint(3, 4, [[2, 3]])).toEqual(-1);
 })
 
+test("CheckOnesSegmentTest", () => {
+  expect(solution.checkOnesSegment("1001")).toEqual(false);
+  expect(solution.checkOnesSegment("110")).toEqual(true);
+})
+
 test("AreAlmostEqualTest", () => {
   expect(solution.areAlmostEqual("bank", "kanb")).toEqual(true);
   expect(solution.areAlmostEqual("attack", "defend")).toEqual(false);
