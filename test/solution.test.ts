@@ -778,6 +778,12 @@ test("AreAlmostEqualTest", () => {
   expect(solution.areAlmostEqual("kelb", "kelb")).toEqual(true);
 })
 
+test("MaxAscendingSumTest", () => {
+  expect(solution.maxAscendingSum([10, 20, 30, 5, 10, 50])).toEqual(65);
+  expect(solution.maxAscendingSum([10, 20, 30, 40, 50])).toEqual(150);
+  expect(solution.maxAscendingSum([12, 17, 15, 13, 10, 11, 12])).toEqual(33);
+})
+
 test("ArraySignTest", () => {
   expect(solution.arraySign([-1, -2, -3, -4, 3, 2, 1])).toEqual(1);
   expect(solution.arraySign([1, 5, 0, 2, -3])).toEqual(0);
