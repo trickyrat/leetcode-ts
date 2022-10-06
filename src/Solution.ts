@@ -2758,6 +2758,23 @@ export class Solution {
     }
 
     /**
+     * 1800. Maximum Ascending Subarray Sum
+     * @param nums 
+     */
+    maxAscendingSum(nums: number[]): number {
+        let res = 0;
+        let i = 0;
+        while (i < nums.length) {
+            let sum = nums[i++];
+            while (i < nums.length && nums[i] > nums[i - 1]) {
+                sum += nums[i++];
+            }
+            res = Math.max(res, sum);
+        }
+        return res;
+    }
+
+    /**
      * 1822. Sign of the Product of an Array
      * @param nums 
      */
