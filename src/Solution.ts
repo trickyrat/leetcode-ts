@@ -1783,6 +1783,30 @@ export class Solution {
     }
 
     /**
+     * 921. Minimum Add to Make Parentheses Valid
+     * @param s 
+     */
+    minAddToMakeValid(s: string): number {
+        let res = 0;
+        let leftCount = 0;
+        let len = s.length;
+        for (let i = 0; i < len; i++) {
+            let ch = s[i];
+            if (ch === '(') {
+                leftCount++;
+            } else {
+                if (leftCount > 0) {
+                    leftCount--;
+                } else {
+                    res++;
+                }
+            }
+        }
+        res += leftCount;
+        return res;
+    }
+
+    /**
      * 942. DI String Match
      * @param s 
      */
