@@ -1609,6 +1609,31 @@ export class Solution {
     }
 
     /**
+     * 811. Subdomain Visit Count
+     * @param cpdomains 
+     */
+    subdomainVisits(cpdomains: string[]): string[] {
+        let res: string[] = [];
+        let counts = new Map<string, number>();
+        for (const cpdomain of cpdomains) {
+            let space = cpdomain.indexOf(' ');
+            let count = parseInt(cpdomain.slice(0, space));
+            let domain = cpdomain.slice(space + 1);
+            counts.set(domain, (counts.get(domain) || 0) + count);
+            for (let i = 0; i < domain.length; i++) {
+                if (domain[i] === '.') {
+                    let subdomain = domain.slice(i + 1);
+                    counts.set(subdomain, (counts.get(subdomain) || 0) + count);
+                }
+            }
+        }
+        for (const [subdomain, count] of counts.entries()) {
+            res.push(count + " " + subdomain);
+        }
+        return res;
+    }
+
+    /**
      * 819. 最常见的单词
      * @param paragraph 
      * @param banned 
