@@ -1832,6 +1832,46 @@ export class Solution {
     }
 
     /**
+     * 927. Three Equal Parts
+     * @param arr 
+     */
+    threeEqualParts(arr: number[]): number[] {
+        let sum = arr.reduce((accumulator, curr) => accumulator + curr, 0);
+        if (sum % 3 !== 0) {
+            return [-1, -1];
+        }
+        if (sum === 0) {
+            return [0, 2];
+        }
+        let partial = Math.floor(sum / 3);
+        let first = 0, second = 0, third = 0, curr = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === 1) {
+                if (curr === 0) {
+                    first = i;
+                } else if (curr === partial) {
+                    second = i;
+                } else if (curr === 2 * partial) {
+                    third = i;
+                }
+                curr++;
+            }
+        }
+        let len = arr.length - third;
+        if (first + len <= second && second + len <= third) {
+            let i = 0;
+            while (third + i < arr.length) {
+                if (arr[first + i] !== arr[second + i] || arr[first + i] !== arr[third + i]) {
+                    return [-1, -1];
+                }
+                i++;
+            }
+            return [first + len - 1, second + len];
+        }
+        return [-1, -1];
+    }
+
+    /**
      * 942. DI String Match
      * @param s 
      */
