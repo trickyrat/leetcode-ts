@@ -509,6 +509,12 @@ test("MinAddToMakeValidTest", () => {
   expect(solution.minAddToMakeValid("(((")).toEqual(3);
 })
 
+test("ThreeEqualPartsTest", () => {
+  expect(solution.threeEqualParts([1, 0, 1, 0, 1])).toEqual([0, 3]);
+  expect(solution.threeEqualParts([1, 1, 0, 1, 1])).toEqual([-1, -1]);
+  expect(solution.threeEqualParts([1, 1, 0, 0, 1])).toEqual([0, 2]);
+})
+
 test("DIStringMatchTest", () => {
   expect(solution.diStringMatch("IDID")).toEqual([0, 4, 1, 3, 2]);
   expect(solution.diStringMatch("III")).toEqual([0, 1, 2, 3]);
