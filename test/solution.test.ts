@@ -461,6 +461,11 @@ test("CountPrimeSetBitsTest", () => {
   expect(solution.countPrimeSetBits(10, 15)).toEqual(5);
 })
 
+test("CanTransformTest", () => {
+  expect(solution.canTransform("RXXLRXRXL", "XRLXXRRLX")).toEqual(true);
+  expect(solution.canTransform("X", "L")).toEqual(false);
+})
+
 test("PreimageSizeFZFTest", () => {
   expect(solution.preimageSizeFZF(0)).toEqual(5);
   expect(solution.preimageSizeFZF(5)).toEqual(0);
