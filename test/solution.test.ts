@@ -737,6 +737,11 @@ test("MinCostToHireWorkersTest", () => {
   expect(solution.minCostToHireWorkers([3, 1, 10, 10, 1], [4, 8, 2, 2, 7], 3).toFixed(5)).toEqual("30.66667");
 })
 
+test("AdvantageCountTest", () => {
+  expect(solution.advantageCount([2, 7, 11, 15], [1, 10, 4, 11])).toEqual([2, 11, 7, 15]);
+  expect(solution.advantageCount([12, 24, 8, 32], [13, 25, 32, 11])).toEqual([24, 32, 8, 12]);
+})
+
 test("MiddleNodeTest", () => {
   expect(solution.middleNode(utils.createListNode([1, 2, 3, 4, 5]))).toEqual(utils.createListNode([3, 4, 5]));
   expect(solution.middleNode(utils.createListNode([1, 2, 3, 4, 5, 6]))).toEqual(utils.createListNode([4, 5, 6]));
