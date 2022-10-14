@@ -541,6 +541,12 @@ test("ThreeEqualPartsTest", () => {
   expect(solution.threeEqualParts([1, 1, 0, 0, 1])).toEqual([0, 2]);
 })
 
+test("DistinctSubseqIITest", () => {
+  expect(solution.distinctSubseqII("abc")).toEqual(7);
+  expect(solution.distinctSubseqII("aba")).toEqual(6);
+  expect(solution.distinctSubseqII("aaa")).toEqual(3);
+})
+
 test("DIStringMatchTest", () => {
   expect(solution.diStringMatch("IDID")).toEqual([0, 4, 1, 3, 2]);
   expect(solution.diStringMatch("III")).toEqual([0, 1, 2, 3]);
