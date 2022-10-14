@@ -1699,6 +1699,32 @@ export class Solution {
     }
 
     /**
+     * 817. Linked List Components
+     * @param head 
+     * @param nums 
+     */
+    numComponents(head: ListNode | null, nums: number[]): number {
+        let numSet = new Set<number>();
+        for (const num of nums) {
+            numSet.add(num);
+        }
+        let inSet = false;
+        let res = 0;
+        while (head) {
+            if (numSet.has(head.val)) {
+                if (!inSet) {
+                    inSet = true;
+                    res++;
+                }
+            } else {
+                inSet = false;
+            }
+            head = head.next;
+        }
+        return res;
+    }
+
+    /**
      * 819.Most Common Word
      * @param paragraph 
      * @param banned 
