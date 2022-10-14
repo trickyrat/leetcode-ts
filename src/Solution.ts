@@ -1614,6 +1614,29 @@ export class Solution {
     }
 
     /**
+     * 801. Minimum Swaps To Make Sequences Increasing
+     * @param nums1 
+     * @param nums2 
+     */
+    minSwap(nums1: number[], nums2: number[]): number {
+        let n = nums1.length;
+        let a = 0, b = 1;
+        for (let i = 1; i < n; i++) {
+            let at = a, bt = b;
+            a = b = n;
+            if (nums1[i] > nums1[i - 1] && nums2[i] > nums2[i - 1]) {
+                a = Math.min(a, at);
+                b = Math.min(b, bt + 1);
+            }
+            if (nums1[i] > nums2[i - 1] && nums2[i] > nums1[i - 1]) {
+                a = Math.min(a, bt);
+                b = Math.min(b, at + 1);
+            }
+        }
+        return Math.min(a, b);
+    }
+
+    /**
      * 804.Unique Morse Code Words
      * @param words 
      */

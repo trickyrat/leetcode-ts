@@ -472,6 +472,11 @@ test("PreimageSizeFZFTest", () => {
   expect(solution.preimageSizeFZF(3)).toEqual(5);
 })
 
+test("MinSwapTest", () => {
+  expect(solution.minSwap([1, 3, 5, 4], [1, 2, 3, 7])).toEqual(1);
+  expect(solution.minSwap([0, 3, 5, 8, 9], [2, 1, 4, 6, 9])).toEqual(1);
+})
+
 test("UniqueMorseRepresentationsTest", () => {
   expect(solution.uniqueMorseRepresentations(["gin", "zen", "gig", "msg"])).toEqual(2);
   expect(solution.uniqueMorseRepresentations(["a"])).toEqual(1);
