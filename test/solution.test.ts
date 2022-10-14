@@ -503,6 +503,12 @@ test("UniqueLetterStringTest", () => {
   expect(solution.uniqueLetterString("LEETCODE")).toEqual(92);
 })
 
+test("ScoreOfParenthesesTest", () => {
+  expect(solution.scoreOfParentheses("()")).toEqual(1);
+  expect(solution.scoreOfParentheses("(())")).toEqual(2);
+  expect(solution.scoreOfParentheses("()()")).toEqual(2);
+})
+
 test("SortArrayByParityTest", () => {
   expect(solution.sortArrayByParity([3, 1, 2, 4])).toEqual([4, 2, 1, 3]);
   expect(solution.sortArrayByParity([2, 4, 1, 3])).toEqual([2, 4, 1, 3]);
