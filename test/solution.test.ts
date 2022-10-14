@@ -493,6 +493,11 @@ test("SubdomainVisitsTest", () => {
     ["900 google.mail.com", "901 mail.com", "951 com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org", "5 org"]);
 })
 
+test("NumComponentsTest", () => {
+  expect(solution.numComponents(utils.createListNode([0, 1, 2, 3]), [0, 1, 3])).toEqual(2);
+  expect(solution.numComponents(utils.createListNode([0, 1, 2, 3, 4]), [0, 3, 1, 4])).toEqual(2);
+})
+
 test("MostCommonWordTest", () => {
   expect(solution.mostCommonWord("Bob hit a ball, the hit BALL flew far after it was hit.", ["hit"])).toEqual("ball");
 })
