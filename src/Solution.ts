@@ -13,10 +13,10 @@ export class Solution {
     }
 
     /**
-     * 1.两数之和
-     * @param nums 输入数组
-     * @param target 两数之和
-     * @returns 包含索引的数组
+     * 1.Two Sum
+     * @param nums
+     * @param target
+     * @returns
      */
     twoSum(nums: number[], target: number): number[] {
         let res = [0, 0];
@@ -34,10 +34,10 @@ export class Solution {
     }
 
     /**
-     * 2.两数相加
-     * @param l1 链表头节点
-     * @param l2 链表头节点
-     * @returns 相加后链表
+     * 2.Add Two Numbers
+     * @param l1
+     * @param l2
+     * @returns
      */
     addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | null {
         let dummyHead: ListNode | null = new ListNode();
@@ -65,9 +65,9 @@ export class Solution {
     }
 
     /**
-     * 3.无重复字符的最长子串
-     * @param s 输入字符串
-     * @returns 最长字串的长度
+     * 3.Longest Substring Without Repeating Characters
+     * @param s
+     * @returns
      */
     longestSubstringWithoutRepeating(s: string): number {
         let len: number = s.length, ans: number = 0;
@@ -81,10 +81,10 @@ export class Solution {
     }
 
     /**
-     * 6.Z字形转换
-     * @param s 输入字符串
-     * @param numRows 输入行数
-     * @returns 转换后的字符
+     * 6.Zigzag Conversion
+     * @param s
+     * @param numRows
+     * @returns
      */
     zconvert(s: string, numRows: number): string {
         let n = s.length, r = numRows;
@@ -105,8 +105,8 @@ export class Solution {
     }
 
     /**
-     * 7.整数反转
-     * @param x 输入整数
+     * 7.Reverse Integer
+     * @param x
      */
     reverseIntNumber(x: number): number {
         let res = 0;
@@ -122,7 +122,7 @@ export class Solution {
     }
 
     /**
-     * 20. Valid Parentheses
+     * 20.Valid Parentheses
      * @param s 
      */
     isValidParentheses(s: string): boolean {
@@ -150,7 +150,7 @@ export class Solution {
     }
 
     /**
-     * 21. Merge Two Sorted Lists
+     * 21.Merge Two Sorted Lists
      * @param list1 
      * @param list2 
      * @returns 
@@ -173,7 +173,7 @@ export class Solution {
     }
 
     /**
-     * 27.移除元素
+     * 27.Remove Element
      * @param nums 
      * @param val 
      */
@@ -189,7 +189,7 @@ export class Solution {
     }
 
     /**
-    * 46. Permutations
+    * 46.Permutations
     * @param nums 
     */
     permute(nums: number[]): number[][] {
@@ -217,7 +217,7 @@ export class Solution {
     }
 
     /**
-     * 47. Permutations II
+     * 47.Permutations II
      * @param nums 
      */
     permuteUnique(nums: number[]): number[][] {
@@ -245,7 +245,7 @@ export class Solution {
     }
 
     /**
-     * 48. Rotate Image
+     * 48.Rotate Image
      * @param matrix 
      */
     rotate(matrix: number[][]): void {
@@ -264,7 +264,7 @@ export class Solution {
     }
 
     /**
-     * 53. Maximum Subarray
+     * 53.Maximum Subarray
      * @param nums 
      */
     maxSubArray(nums: number[]): number {
@@ -277,7 +277,7 @@ export class Solution {
     }
 
     /**
-     * 73.矩阵置零
+     * 73.Set Matrix Zeroes
      * @param matrix 
      */
     setZeroes(matrix: number[][]): void {
@@ -305,7 +305,7 @@ export class Solution {
     }
 
     /**
-     * 83. Remove Duplicates from Sorted List
+     * 83.Remove Duplicates from Sorted List
      * @param head 
      */
     deleteDuplicates(head: ListNode | null): ListNode | null {
@@ -324,7 +324,7 @@ export class Solution {
     }
 
     /**
-     * 88. Merge Sorted Array
+     * 88.Merge Sorted Array
      * @param nums1 
      * @param m 
      * @param nums2 
@@ -349,7 +349,7 @@ export class Solution {
     }
 
     /**
-     * 94. Binary Tree Inorder Traversal
+     * 94.Binary Tree Inorder Traversal
      * @param root 
      * @returns 
      */
@@ -366,7 +366,7 @@ export class Solution {
     }
 
     /**
-     * 101. Symmetric Tree
+     * 101.Symmetric Tree
      * @param root 
      */
     isSymmetric(root: TreeNode | null): boolean {
@@ -379,7 +379,7 @@ export class Solution {
     }
 
     /**
-     * 102. Binary Tree Level Order Traversal
+     * 102.Binary Tree Level Order Traversal
      * @param root 
      */
     levelOrder(root: TreeNode | null): number[][] {
@@ -401,7 +401,7 @@ export class Solution {
     }
 
     /**
-     * 104. Maximum Depth of Binary Tree
+     * 104.Maximum Depth of Binary Tree
      * @param root 
      */
     maxDepth(root: TreeNode | null): number {
@@ -410,9 +410,9 @@ export class Solution {
     }
 
     /**
-     * 113.路径总和II
-     * @param root 输入根节点
-     * @param targetSum 目标值
+     * 113.Path Sum II
+     * @param root
+     * @param targetSum
      * @returns 
      */
     pathSum(root: TreeNode | null, targetSum: number): number[][] {
@@ -435,7 +435,7 @@ export class Solution {
     }
 
     /**
-     * 118. Pascal's Triangle
+     * 118.Pascal's Triangle
      * @param numRows 
      */
     generate(numRows: number): number[][] {
@@ -451,7 +451,7 @@ export class Solution {
     }
 
     /**
-     * 121. Best Time to Buy and Sell Stock
+     * 121.Best Time to Buy and Sell Stock
      * @param prices 
      */
     maxProfit(prices: number[]): number {
@@ -464,7 +464,7 @@ export class Solution {
     }
 
     /**
-     * 141. Linked List Cycle
+     * 141.Linked List Cycle
      * @param head 
      */
     hasCycle(head: ListNode | null): boolean {
@@ -484,7 +484,7 @@ export class Solution {
     }
 
     /**
-     * 144. Binary Tree Preorder Traversal
+     * 144.Binary Tree Preorder Traversal
      * @param root 
      * @returns 
      */
@@ -501,7 +501,7 @@ export class Solution {
     }
 
     /**
-     * 145. Binary Tree Postorder Traversal
+     * 145.Binary Tree Postorder Traversal
      * @param root 
      * @returns 
      */
@@ -518,7 +518,7 @@ export class Solution {
     }
 
     /**
-     * 168. Excel Sheet Column Title
+     * 168.Excel Sheet Column Title
      * @param columnNumber 
      */
     convertToTitle(columnNumber: number): string {
@@ -532,7 +532,7 @@ export class Solution {
     }
 
     /**
-     * 171. Excel Sheet Column Number
+     * 171.Excel Sheet Column Number
      * @param columnTitle 
      */
     titleToNumber(columnTitle: string): number {
@@ -547,7 +547,7 @@ export class Solution {
     }
 
     /**
-     * 172.阶乘后的零
+     * 172.Factorial Trailing Zeroes
      * @param n 
      */
     trailingZeroes(n: number): number {
@@ -560,7 +560,7 @@ export class Solution {
     }
 
     /**
-     * 191. Number of 1 Bits
+     * 191.Number of 1 Bits
      * @param n 
      */
     hammingWeight(n: number): number {
@@ -573,7 +573,7 @@ export class Solution {
     }
 
     /**
-     * 202. Happy Number
+     * 202.Happy Number
      * @param n 
      */
     isHappy(n: number): boolean {
@@ -596,7 +596,7 @@ export class Solution {
     }
 
     /**
-     * 203. Remove Linked List Elements
+     * 203.Remove Linked List Elements
      * @param head 
      * @param val 
      */
@@ -615,7 +615,7 @@ export class Solution {
     }
 
     /**
-     * 206. Reverse Linked List
+     * 206.Reverse Linked List
      * @param head 
      */
     reverseList(head: ListNode | null): ListNode | null {
@@ -631,7 +631,7 @@ export class Solution {
     }
 
     /**
-     * 217. Contains Duplicate
+     * 217.Contains Duplicate
      * @param nums 
      */
     containsDuplicate(nums: number[]): boolean {
@@ -646,7 +646,7 @@ export class Solution {
     }
 
     /**
-     * 242. Valid Anagram
+     * 242.Valid Anagram
      * @param s 
      * @param t 
      */
@@ -683,7 +683,7 @@ export class Solution {
     }
 
     /**
-     * 258.各位相加
+     * 258.Add Digits
      * @param num 
      * @returns 
      */
@@ -692,7 +692,7 @@ export class Solution {
     }
 
     /**
-     * 350. Intersection of Two Arrays II
+     * 350.Intersection of Two Arrays II
      * @param nums1 
      * @param nums2 
      */
@@ -730,7 +730,7 @@ export class Solution {
     }
 
     /**
-     * 357. 统计各位数字都不同的数字个数
+     * 357.Count Numbers with Unique Digits
      * @param n 
      */
     countNumbersWithUniqueDigits(n: number): number {
@@ -749,7 +749,7 @@ export class Solution {
     }
 
     /**
-     * 383. Ransom Note
+     * 383.Ransom Note
      * @param ransomNote 
      * @param magazine 
      */
@@ -771,7 +771,7 @@ export class Solution {
     }
 
     /**
-     * 386. 字典序排数
+     * 386.Lexicographical Numbers
      * @param n 
      */
     lexicalOrder(n: number): number[] {
@@ -792,7 +792,7 @@ export class Solution {
     }
 
     /**
-     * 387. First Unique Character in a String
+     * 387.First Unique Character in a String
      * @param s 
      */
     firstUniqChar(s: string): number {
@@ -819,7 +819,7 @@ export class Solution {
     }
 
     /**
-     * 389. Find the Difference
+     * 389.Find the Difference
      * @param s 
      * @param t 
      */
@@ -840,7 +840,7 @@ export class Solution {
     }
 
     /**
-     * 404. Sum of Left Leaves
+     * 404.Sum of Left Leaves
      * @param root 
      */
     sumOfLeftLeaves(root: TreeNode | null): number {
@@ -861,7 +861,7 @@ export class Solution {
     }
 
     /**
-     * 467. Unique Substrings in Wraparound String
+     * 467.Unique Substrings in Wraparound String
      * @param p 
      */
     findSubstringInWraparoundString(p: string): number {
@@ -879,7 +879,7 @@ export class Solution {
     }
 
     /**
-     * 473. Matchsticks to Square
+     * 473.Matchsticks to Square
      * @param matchsticks 
      */
     makeSquare(matchsticks: number[]): boolean {
@@ -909,7 +909,7 @@ export class Solution {
     }
 
     /**
-     * 496. Next Greater Element I
+     * 496.Next Greater Element I
      * @param nums1 
      * @param nums2 
      */
@@ -929,7 +929,7 @@ export class Solution {
     }
 
     /**
-     * 498.对角线遍历
+     * 498.Diagonal Traverse
      * @param matrix 
      */
     findDiagonalOrder(matrix: number[][]): number[] {
@@ -963,7 +963,7 @@ export class Solution {
     }
 
     /**
-     * 504.七进制数
+     * 504.Base 7
      * @param num 
      */
     convertToBase7(num: number): string {
@@ -984,7 +984,7 @@ export class Solution {
     }
 
     /**
-     * 521.最长特殊序列
+     * 521.Longest Uncommon Subsequence I
      * @param a 
      * @param b 
      * @returns 
@@ -994,7 +994,7 @@ export class Solution {
     }
 
     /**
-     * 540. Single Element in a Sorted Array
+     * 540.Single Element in a Sorted Array
      * @param nums 
      * @returns 
      */
@@ -1013,9 +1013,9 @@ export class Solution {
     }
 
     /**
-     * 553.最优除法
-     * @param nums 输入数组
-     * @returns 结果字符串
+     * 553.Optimal Division
+     * @param nums
+     * @returns
      */
     optimalDivision(nums: number[]): string {
         let n = nums.length;
@@ -1038,7 +1038,7 @@ export class Solution {
     }
 
     /**
-     * 566. Reshape the Matrix
+     * 566.Reshape the Matrix
      * @param mat 
      * @param r 
      * @param c 
@@ -1056,7 +1056,7 @@ export class Solution {
     }
 
     /**
-     * 589. N-ary Tree Preorder Traversal
+     * 589.N-ary Tree Preorder Traversal
      * @param root 
      */
     preorder(root: Node | null): number[] {
@@ -1075,7 +1075,7 @@ export class Solution {
     }
 
     /**
-     * 590.N叉树的后序遍历
+     * 590.N-ary Tree Postorder Traversal
      * @param root 
      * @returns 
      */
@@ -1095,7 +1095,7 @@ export class Solution {
     }
 
     /**
-     * 623. Add One Row to Tree
+     * 623.Add One Row to Tree
      * @param root 
      * @param val 
      * @param depth 
@@ -1119,7 +1119,7 @@ export class Solution {
     }
 
     /**
-     * 636. Exclusive Time of Functions
+     * 636.Exclusive Time of Functions
      * @param n 
      * @param logs 
      */
@@ -1152,7 +1152,7 @@ export class Solution {
     }
 
     /**
-     * 646. Maximum Length of Pair Chain
+     * 646.Maximum Length of Pair Chain
      * @param pairs 
      */
     findLongestChain(pairs: number[][]): number {
@@ -1168,7 +1168,7 @@ export class Solution {
     }
 
     /**
-     * 652. Find Duplicate Subtrees
+     * 652.Find Duplicate Subtrees
      * @param root 
      */
     findDuplicateSubtrees(root: TreeNode | null): (TreeNode | null)[] {
@@ -1195,7 +1195,7 @@ export class Solution {
     }
 
     /**
-     * 658. Find K Closest Elements
+     * 658.Find K Closest Elements
      * @param arr 
      * @param k 
      * @param x 
@@ -1234,7 +1234,7 @@ export class Solution {
     }
 
     /**
-     * 662. Maximum Width of Binary Tree
+     * 662.Maximum Width of Binary Tree
      * @param root 
      */
     widthOfBinaryTree(root: TreeNode | null): number {
@@ -1256,7 +1256,7 @@ export class Solution {
     }
 
     /**
-     * 667. Beautiful Arrangement II
+     * 667.Beautiful Arrangement II
      * @param n 
      * @param k 
      */
@@ -1276,7 +1276,7 @@ export class Solution {
     }
 
     /**
-     * 669. Trim a Binary Search Tree
+     * 669.Trim a Binary Search Tree
      * @param root 
      * @param low 
      * @param high 
@@ -1310,7 +1310,7 @@ export class Solution {
     }
 
     /**
-     * 670. Maximum Swap
+     * 670.Maximum Swap
      * @param num 
      */
     maximumSwap(num: number): number {
@@ -1334,7 +1334,7 @@ export class Solution {
     }
 
     /**
-     * 672. Bulb Switcher II
+     * 672.Bulb Switcher II
      * @param n 
      * @param presses 
      */
@@ -1364,7 +1364,7 @@ export class Solution {
     }
 
     /**
-     * 682.棒球比赛
+     * 682.Baseball Game
      * @param ops 
      */
     calPoints(ops: string[]): number {
@@ -1395,7 +1395,7 @@ export class Solution {
     }
 
     /**
-     * 687. Longest Univalue Path
+     * 687.Longest Univalue Path
      * @param root 
      */
     longestUnivaluePath(root: TreeNode | null): number {
@@ -1421,7 +1421,7 @@ export class Solution {
     }
 
     /**
-     * 709. To Lower Case
+     * 709.To Lower Case
      * @param s 
      */
     toLowerCase(s: string): string {
@@ -1437,7 +1437,7 @@ export class Solution {
     }
 
     /**
-     * 720. 词典中最长的单词
+     * 720.Longest Word in Dictionary
      * @param words 
      * @returns 
      */
@@ -1459,7 +1459,7 @@ export class Solution {
     }
 
     /**
-     * 724. Find Pivot Index
+     * 724.Find Pivot Index
      * @param nums 
      */
     pivotIndex(nums: number[]): number {
@@ -1475,7 +1475,7 @@ export class Solution {
     }
 
     /**
-     * 728.自除数
+     * 728.Self Dividing Numbers
      * @param left 
      * @param right 
      */
@@ -1502,7 +1502,7 @@ export class Solution {
 
 
     /**
-     * 744.寻找比目标字母大的最小字母
+     * 744.Find Smallest Letter Greater Than Target
      * @param letters 
      * @param target 
      */
@@ -1524,7 +1524,7 @@ export class Solution {
     }
 
     /**
-     * 762.二进制表示中质数个计算置位
+     * 762.Prime Number of Set Bits in Binary Representation
      * @param left 
      * @param right 
      */
@@ -1542,7 +1542,7 @@ export class Solution {
     }
 
     /**
-     * 777. Swap Adjacent in LR String
+     * 777.Swap Adjacent in LR String
      * @param start 
      * @param end 
      */
@@ -1584,7 +1584,7 @@ export class Solution {
     }
 
     /**
-     * 793. Preimage Size of Factorial Zeroes Function
+     * 793.Preimage Size of Factorial Zeroes Function
      * @param k 
      */
     preimageSizeFZF(k: number): number {
@@ -1614,7 +1614,7 @@ export class Solution {
     }
 
     /**
-     * 804.唯一摩尔斯密码词
+     * 804.Unique Morse Code Words
      * @param words 
      */
     uniqueMorseRepresentations(words: string[]): number {
@@ -1631,7 +1631,7 @@ export class Solution {
     }
 
     /**
-     * 806. 写字符串需要的行数
+     * 806.Number of Lines To Write String
      * @param widths 
      * @param s 
      */
@@ -1651,7 +1651,7 @@ export class Solution {
     }
 
     /**
-     * 811. Subdomain Visit Count
+     * 811.Subdomain Visit Count
      * @param cpdomains 
      */
     subdomainVisits(cpdomains: string[]): string[] {
@@ -1676,7 +1676,7 @@ export class Solution {
     }
 
     /**
-     * 819. 最常见的单词
+     * 819.Most Common Word
      * @param paragraph 
      * @param banned 
      */
@@ -1715,7 +1715,7 @@ export class Solution {
     }
 
     /**
-     * 821. 字符的最短距离
+     * 821.Shortest Distance to a Character
      * @param s 
      * @param c 
      */
@@ -1739,7 +1739,7 @@ export class Solution {
     }
 
     /**
-     * 828. Count Unique Characters of All Substrings of a Given String
+     * 828.Count Unique Characters of All Substrings of a Given String
      * @param s 
      */
     uniqueLetterString(s: string): number {
@@ -1764,7 +1764,7 @@ export class Solution {
     }
 
     /**
-     * 857. Minimum Cost to Hire K Workers
+     * 857.Minimum Cost to Hire K Workers
      * @param quality 
      * @param wage 
      * @param k 
@@ -1794,7 +1794,7 @@ export class Solution {
     }
 
     /**
-     * 876. Middle of the Linked List
+     * 876.Middle of the Linked List
      * @param head 
      */
     middleNode(head: ListNode | null): ListNode | null {
@@ -1808,7 +1808,7 @@ export class Solution {
     }
 
     /**
-     * 883.三维形体投影面积
+     * 883.Projection Area of 3D Shapes
      * @param grid 
      */
     projectionArea(grid: number[][]): number {
@@ -1828,7 +1828,7 @@ export class Solution {
     }
 
     /**
-     * 905. 按奇偶排序数组
+     * 905.Sort Array By Parity
      * @param nums 
      */
     sortArrayByParity(nums: number[]): number[] {
@@ -1850,7 +1850,7 @@ export class Solution {
     }
 
     /**
-     * 921. Minimum Add to Make Parentheses Valid
+     * 921.Minimum Add to Make Parentheses Valid
      * @param s 
      */
     minAddToMakeValid(s: string): number {
@@ -1874,7 +1874,7 @@ export class Solution {
     }
 
     /**
-     * 927. Three Equal Parts
+     * 927.Three Equal Parts
      * @param arr 
      */
     threeEqualParts(arr: number[]): number[] {
@@ -1914,7 +1914,7 @@ export class Solution {
     }
 
     /**
-     * 942. DI String Match
+     * 942.DI String Match
      * @param s 
      */
     diStringMatch(s: string): number[] {
@@ -1928,7 +1928,7 @@ export class Solution {
     }
 
     /**
-     * 944. Delete Columns to Make Sorted
+     * 944.Delete Columns to Make Sorted
      * @param strs 
      */
     minDeletionSize(strs: string[]): number {
@@ -1947,7 +1947,7 @@ export class Solution {
     }
 
     /**
-     * 946. Validate Stack Sequences
+     * 946.Validate Stack Sequences
      * @param pushed 
      * @param popped 
      */
@@ -1965,7 +1965,7 @@ export class Solution {
     }
 
     /**
-     * 953. Verifying an Alien Dictionary
+     * 953.Verifying an Alien Dictionary
      * @param words 
      * @param order 
      */
@@ -1996,7 +1996,7 @@ export class Solution {
     }
 
     /**
-     * 961. N-Repeated Element in Size 2N Array
+     * 961.N-Repeated Element in Size 2N Array
      * @param nums 
      */
     repeatedNTimes(nums: number[]): number {
@@ -2011,7 +2011,7 @@ export class Solution {
     }
 
     /**
-     * 976. Largest Perimeter Triangle
+     * 976.Largest Perimeter Triangle
      * @param nums 
      */
     largestPerimeter(nums: number[]): number {
@@ -2025,7 +2025,7 @@ export class Solution {
     }
 
     /**
-     * 998. Maximum Binary Tree II
+     * 998.Maximum Binary Tree II
      * @param root 
      * @param val 
      */
@@ -2049,7 +2049,7 @@ export class Solution {
     }
 
     /**
-     * 1021. Remove Outermost Parentheses
+     * 1021.Remove Outermost Parentheses
      * @param s 
      */
     removeOuterParentheses(s: string): string {
@@ -2071,7 +2071,7 @@ export class Solution {
     }
 
     /**
-     * 1022. Sum of Root To Leaf Binary Numbers
+     * 1022.Sum of Root To Leaf Binary Numbers
      * @param root 
      */
     sumRootToLeaf(root: TreeNode | null): number {
@@ -2089,7 +2089,7 @@ export class Solution {
     }
 
     /**
-     * 1175. Prime Arrangements
+     * 1175.Prime Arrangements
      * @param n 
      */
     numPrimeArrangements(n: number): number {
@@ -2128,7 +2128,7 @@ export class Solution {
     }
 
     /**
-     * 1232. Check If It Is a Straight Line
+     * 1232.Check If It Is a Straight Line
      * @param coordinates 
      */
     checkStraightLine(coordinates: number[][]): boolean {
@@ -2149,7 +2149,7 @@ export class Solution {
     };
 
     /**
-     * 1281. Subtract the Product and Sum of Digits of an Integer
+     * 1281.Subtract the Product and Sum of Digits of an Integer
      * @param n 
      */
     subtractProductAndSum(n: number): number {
@@ -2165,7 +2165,7 @@ export class Solution {
     }
 
     /**
-     * 1290. Convert Binary Number in a Linked List to Integer
+     * 1290.Convert Binary Number in a Linked List to Integer
      * @param head 
      */
     getDecimalValue(head: ListNode | null): number {
@@ -2179,7 +2179,7 @@ export class Solution {
     }
 
     /**
-     * 1309. Decrypt String from Alphabet to Integer Mapping
+     * 1309.Decrypt String from Alphabet to Integer Mapping
      * @param s 
      */
     freqAlphabets(s: string): string {
@@ -2198,7 +2198,7 @@ export class Solution {
     }
 
     /**
-     * 1356. Sort Integers by The Number of 1 Bits
+     * 1356.Sort Integers by The Number of 1 Bits
      * @param arr 
      */
     sortByBits(arr: number[]): number[] {
@@ -2216,7 +2216,7 @@ export class Solution {
     }
 
     /**
-     * 1403. Minimum Subsequence in Non-Increasing Order
+     * 1403.Minimum Subsequence in Non-Increasing Order
      * @param nums 
      */
     minSubsequence(nums: number[]): number[] {
@@ -2235,7 +2235,7 @@ export class Solution {
     }
 
     /**
-     * 1408. String Matching in an Array
+     * 1408.String Matching in an Array
      * @param words 
      */
     stringMatching(words: string[]): string[] {
@@ -2252,7 +2252,7 @@ export class Solution {
     }
 
     /**
-     * 1417. Reformat The String
+     * 1417.Reformat The String
      * @param s 
      */
     reformat(s: string): string {
@@ -2280,7 +2280,7 @@ export class Solution {
     }
 
     /**
-     * 1450. Number of Students Doing Homework at a Given Time
+     * 1450.Number of Students Doing Homework at a Given Time
      * @param startTime 
      * @param endTime 
      * @param queryTime 
@@ -2296,7 +2296,7 @@ export class Solution {
     }
 
     /**
-     * 1455. Check If a Word Occurs As a Prefix of Any Word in a Sentence
+     * 1455.Check If a Word Occurs As a Prefix of Any Word in a Sentence
      * @param sentence 
      * @param searchWord 
      */
@@ -2325,7 +2325,7 @@ export class Solution {
     }
 
     /**
-     * 1460. Make Two Arrays Equal by Reversing Sub-arrays
+     * 1460.Make Two Arrays Equal by Reversing Sub-arrays
      * @param target 
      * @param arr 
      */
@@ -2339,7 +2339,7 @@ export class Solution {
     }
 
     /**
-     * 1464. Maximum Product of Two Elements in an Array
+     * 1464.Maximum Product of Two Elements in an Array
      * @param nums 
      */
     maxProduct(nums: number[]): number {
@@ -2361,7 +2361,7 @@ export class Solution {
     }
 
     /**
-     * 1470. Shuffle the Array
+     * 1470.Shuffle the Array
      * @param nums 
      * @param n 
      */
@@ -2375,7 +2375,7 @@ export class Solution {
     }
 
     /**
-     * 1475. Final Prices With a Special Discount in a Shop
+     * 1475.Final Prices With a Special Discount in a Shop
      * @param prices 
      */
     finalPrices(prices: number[]): number[] {
@@ -2393,7 +2393,7 @@ export class Solution {
     }
 
     /**
-     * 1491. Average Salary Excluding the Minimum and Maximum Salary
+     * 1491.Average Salary Excluding the Minimum and Maximum Salary
      * @param salary 
      * @returns 
      */
@@ -2410,7 +2410,7 @@ export class Solution {
     }
 
     /**
-     * 1502. Can Make Arithmetic Progression From Sequence
+     * 1502.Can Make Arithmetic Progression From Sequence
      * @param arr 
      * @returns 
      */
@@ -2425,7 +2425,7 @@ export class Solution {
     }
 
     /**
-     * 1523. Count Odd Numbers in an Interval Range
+     * 1523.Count Odd Numbers in an Interval Range
      * @param low 
      * @param high 
      * @returns 
@@ -2439,7 +2439,7 @@ export class Solution {
     }
 
     /**
-     * 1572. Matrix Diagonal Sum
+     * 1572.Matrix Diagonal Sum
      * @param mat 
      */
     diagonalSum(mat: number[][]): number {
@@ -2452,7 +2452,7 @@ export class Solution {
     }
 
     /**
-     * 1582. Special Positions in a Binary Matrix
+     * 1582.Special Positions in a Binary Matrix
      * @param mat 
      */
     numSpecial(mat: number[][]): number {
@@ -2486,7 +2486,7 @@ export class Solution {
     }
 
     /**
-     * 1588. Sum of All Odd Length Subarrays
+     * 1588.Sum of All Odd Length Subarrays
      * @param arr 
      * @returns 
      */
@@ -2505,7 +2505,7 @@ export class Solution {
     }
 
     /**
-     * 1592. Rearrange Spaces Between Words
+     * 1592.Rearrange Spaces Between Words
      * @param text 
      */
     reorderSpaces(text: string): string {
@@ -2550,7 +2550,7 @@ export class Solution {
     }
 
     /**
-     * 1598. Crawler Log Folder
+     * 1598.Crawler Log Folder
      * @param logs 
      */
     minOperations(logs: string[]): number {
@@ -2570,7 +2570,7 @@ export class Solution {
     }
 
     /**
-     * 1608. Special Array With X Elements Greater Than or Equal X
+     * 1608.Special Array With X Elements Greater Than or Equal X
      * @param nums 
      */
     specialArray(nums: number[]): number {
@@ -2585,7 +2585,7 @@ export class Solution {
     }
 
     /**
-     * 1619. Mean of Array After Removing Some Elements
+     * 1619.Mean of Array After Removing Some Elements
      * @param arr 
      */
     trimMean(arr: number[]): number {
@@ -2599,7 +2599,7 @@ export class Solution {
     }
 
     /**
-     * 1624. Largest Substring Between Two Equal Characters
+     * 1624.Largest Substring Between Two Equal Characters
      * @param s 
      */
     maxLengthBetweenEqualCharacters(s: string): number {
@@ -2616,7 +2616,7 @@ export class Solution {
     }
 
     /**
-     * 1636. Sort Array by Increasing Frequency
+     * 1636.Sort Array by Increasing Frequency
      * @param nums 
      */
     frequencySort(nums: number[]): number[] {
@@ -2632,7 +2632,7 @@ export class Solution {
     }
 
     /**
-     * 1652. Defuse the Bomb
+     * 1652.Defuse the Bomb
      * @param code 
      * @param k
      */
@@ -2663,7 +2663,7 @@ export class Solution {
     }
 
     /**
-     * 1672. Richest Customer Wealth
+     * 1672.Richest Customer Wealth
      * @param accounts 
      */
     maximumWealth(accounts: number[][]): number {
@@ -2675,7 +2675,7 @@ export class Solution {
     }
 
     /**
-     * 1678. Goal Parser Interpretation
+     * 1678.Goal Parser Interpretation
      * @param command 
      */
     interpret(command: string): string {
@@ -2696,7 +2696,7 @@ export class Solution {
     }
 
     /**
-     * 1694. Reformat Phone Number
+     * 1694.Reformat Phone Number
      * @param number 
      */
     reformatNumber(number: string): string {
@@ -2727,7 +2727,7 @@ export class Solution {
     }
 
     /**
-     * 1768. Merge Strings Alternately
+     * 1768.Merge Strings Alternately
      * @param word1 
      * @param words 
      */
@@ -2746,7 +2746,7 @@ export class Solution {
     }
 
     /**
-     * 1779. Find Nearest Point That Has the Same X or Y Coordinate
+     * 1779.Find Nearest Point That Has the Same X or Y Coordinate
      * @param x 
      * @param y 
      * @param points 
@@ -2768,7 +2768,7 @@ export class Solution {
     }
 
     /**
-     * 1784. Check if Binary String Has at Most One Segment of Ones
+     * 1784.Check if Binary String Has at Most One Segment of Ones
      * @param s 
      */
     checkOnesSegment(s: string): boolean {
@@ -2776,7 +2776,7 @@ export class Solution {
     }
 
     /**
-     * 1790. Check if One String Swap Can Make Strings Equal
+     * 1790.Check if One String Swap Can Make Strings Equal
      * @param s1 
      * @param s2 
      * @returns 
@@ -2800,7 +2800,7 @@ export class Solution {
     }
 
     /**
-     * 1800. Maximum Ascending Subarray Sum
+     * 1800.Maximum Ascending Subarray Sum
      * @param nums 
      */
     maxAscendingSum(nums: number[]): number {
@@ -2817,7 +2817,7 @@ export class Solution {
     }
 
     /**
-     * 1822. Sign of the Product of an Array
+     * 1822.Sign of the Product of an Array
      * @param nums 
      */
     arraySign(nums: number[]): number {
@@ -2833,7 +2833,7 @@ export class Solution {
     }
 
     /**
-     * 1823. Find the Winner of the Circular Game
+     * 1823.Find the Winner of the Circular Game
      * @param n 
      * @param k 
      */
@@ -2846,7 +2846,7 @@ export class Solution {
     }
 
     /**
-     * 1991. Find the Middle Index in Array
+     * 1991.Find the Middle Index in Array
      * @param nums 
      */
     findMiddleIndex(nums: number[]): number {
@@ -2862,10 +2862,10 @@ export class Solution {
     }
 
     /**
-     * 2006.差值的绝对值为k数对数目
-     * @param nums 输入数组
-     * @param k 差值
-     * @returns 数对数目
+     * 2006.Count Number of Pairs With Absolute Difference K
+     * @param nums
+     * @param k
+     * @returns
      */
     countKDifference(nums: number[], k: number): number {
         let ans = 0, n = nums.length;
@@ -2878,9 +2878,9 @@ export class Solution {
     }
 
     /**
-     * 2016.增量元素之间的最大值
-     * @param nums 输入元素
-     * @returns 最大值
+     * 2016.Maximum Difference Between Increasing Elements
+     * @param nums
+     * @returns
      */
     maximumDifference(nums: number[]): number {
         let n = nums.length;
@@ -2896,7 +2896,7 @@ export class Solution {
     }
 
     /**
-     * 2044.统计按位或能得到最大值的子集数目
+     * 2044.Count Number of Maximum Bitwise-OR Subsets
      * @param nums 
      */
     countMaxOrSubsets(nums: number[]): number {
@@ -2919,7 +2919,7 @@ export class Solution {
     }
 
     /**
-     * 2055.蜡烛之间的盘子
+     * 2055.Plates Between Candles
      * @param s 
      * @param queries 
      * @returns 
@@ -2958,7 +2958,7 @@ export class Solution {
     }
 
     /**
-     * 6078. Rearrange Characters to Make Target String
+     * 6078.Rearrange Characters to Make Target String
      * @param s 
      * @param target 
      */
