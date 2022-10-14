@@ -2023,6 +2023,23 @@ export class Solution {
     }
 
     /**
+     * 940. Distinct Subsequences II
+     * @param s 
+     */
+    distinctSubseqII(s: string): number {
+        let mod = 1000000007;
+        let alphas = new Array<number>(26).fill(0);
+        let n = s.length, res = 0;
+        for (let i = 0; i < n; i++) {
+            let index = s[i].charCodeAt(0) - 'a'.charCodeAt(0);
+            let prev = alphas[index];
+            alphas[index] = (res + 1) % mod;
+            res = ((res + alphas[index] - prev) % mod + mod) % mod;
+        }
+        return res;
+    }
+
+    /**
      * 942.DI String Match
      * @param s 
      */
