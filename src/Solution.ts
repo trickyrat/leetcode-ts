@@ -1764,6 +1764,21 @@ export class Solution {
     }
 
     /**
+     * 856. Score of Parentheses
+     * @param s 
+     */
+    scoreOfParentheses(s: string): number {
+        let bal = 0, n = s.length, res = 0;
+        for (let i = 0; i < n; i++) {
+            bal += (s[i] === '(' ? 1 : -1);
+            if (s[i] === ')' && s[i - 1] === '(') {
+                res += 1 << bal;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 857.Minimum Cost to Hire K Workers
      * @param quality 
      * @param wage 
