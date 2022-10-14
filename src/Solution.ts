@@ -1542,6 +1542,21 @@ export class Solution {
     }
 
     /**
+     * 769. Max Chunks To Make Sorted
+     * @param arr 
+     */
+    maxChunksToSorted(arr: number[]): number {
+        let m = 0, res = 0;
+        for (let i = 0; i < arr.length; i++) {
+            m = Math.max(m, arr[i]);
+            if (m === i) {
+                res++;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 777.Swap Adjacent in LR String
      * @param start 
      * @param end 
