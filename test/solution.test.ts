@@ -461,6 +461,11 @@ test("CountPrimeSetBitsTest", () => {
   expect(solution.countPrimeSetBits(10, 15)).toEqual(5);
 })
 
+test("MaxChunksToSortedTest", () => {
+  expect(solution.maxChunksToSorted([4, 3, 2, 1, 0])).toEqual(1);
+  expect(solution.maxChunksToSorted([1, 0, 2, 3, 4])).toEqual(4);
+})
+
 test("CanTransformTest", () => {
   expect(solution.canTransform("RXXLRXRXL", "XRLXXRRLX")).toEqual(true);
   expect(solution.canTransform("X", "L")).toEqual(false);
