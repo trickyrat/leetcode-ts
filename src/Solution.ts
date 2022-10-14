@@ -1794,6 +1794,36 @@ export class Solution {
     }
 
     /**
+     * 870. Advantage Shuffle
+     * @param nums1 
+     * @param nums2 
+     */
+    advantageCount(nums1: number[], nums2: number[]): number[] {
+        let n = nums1.length;
+        let index1 = new Array<number>(n).fill(0);
+        let index2 = new Array<number>(n).fill(0);
+        for (let i = 0; i < n; i++) {
+            index1[i] = i;
+            index2[i] = i;
+        }
+        index1.sort((i, j) => nums1[i] - nums1[j]);
+        index2.sort((i, j) => nums2[i] - nums2[j]);
+
+        let res = new Array<number>(n).fill(0);
+        let left = 0, right = n - 1;
+        for (let i = 0; i < n; i++) {
+            if (nums1[index1[i]] > nums2[index2[left]]) {
+                res[index2[left]] = nums1[index1[i]];
+                left++;
+            } else {
+                res[index2[right]] = nums1[index1[i]];
+                right--;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 876.Middle of the Linked List
      * @param head 
      */
