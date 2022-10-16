@@ -12,7 +12,6 @@ test("TwoSumTest", () => {
   expect(solution.twoSum([1, 3], 6)).toEqual([]);
 });
 
-
 test("AddTwoNumbersTest", () => {
   expect(utils.convertListNodeToArray(solution.addTwoNumbers(utils.createListNode([2, 4, 3]), utils.createListNode([5, 6, 4])))).toEqual([7, 0, 8]);
   expect(utils.convertListNodeToArray(solution.addTwoNumbers(utils.createListNode([0]), utils.createListNode([0])))).toEqual([0]);
@@ -641,6 +640,12 @@ test("ReformatTest", () => {
   expect(solution.reformat("a0b1c2")).toEqual("a0b1c2");
   expect(solution.reformat("leetcode")).toEqual("");
   expect(solution.reformat("1229857369")).toEqual("");
+})
+
+test("BuildArrayTest", () => {
+  expect(solution.buildArray([1, 3], 3)).toEqual(["Push", "Push", "Pop", "Push"]);
+  expect(solution.buildArray([1, 2, 3], 3)).toEqual(["Push", "Push", "Push"]);
+  expect(solution.buildArray([1, 2], 4)).toEqual(["Push", "Push"]);
 })
 
 test("BusyStudentTest", () => {

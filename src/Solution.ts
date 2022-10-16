@@ -2406,6 +2406,25 @@ export class Solution {
     }
 
     /**
+     * 1441. Build an Array With Stack Operations
+     * @param target 
+     * @param n 
+     */
+    buildArray(target: number[], n: number): string[] {
+        let res: string[] = [];
+        let prev = 0;
+        target.forEach(x => {
+            for (let i = 0; i < x - prev - 1; i++) {
+                res.push("Push");
+                res.push("Pop");
+            }
+            res.push("Push");
+            prev = x;
+        });
+        return res;
+    }
+
+    /**
      * 1450.Number of Students Doing Homework at a Given Time
      * @param startTime 
      * @param endTime 
