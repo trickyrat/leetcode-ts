@@ -1937,6 +1937,39 @@ export class Solution {
     }
 
     /**
+     * 886. Possible Bipartition
+     * @param n 
+     * @param dislikes 
+     */
+    possibleBipartition(n: number, dislikes: number[][]): boolean {
+        const dfs = (curr: number, nowColor: number, color: number[], group: number[][]) => {
+            color[curr] = nowColor;
+            for (const next of group[curr]) {
+                if (color[next] !== 0 && color[next] === color[curr]) {
+                    return false;
+                }
+                if (color[next] === 0 && !dfs(next, 3 ^ nowColor, color, group)) {
+                    return false;
+                }
+            }
+            return true;
+        };
+
+        let color = new Array<number>(n + 1).fill(0);
+        let group = new Array<Array<number>>(n + 1).fill([]).map(() => new Array<number>());
+        dislikes.forEach(x => {
+            group[x[0]].push(x[1]);
+            group[x[1]].push(x[0]);
+        })
+        for (let i = 1; i <= n; i++) {
+            if (color[i] === 0 && !dfs(i, 1, color, group)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * 905.Sort Array By Parity
      * @param nums 
      */
