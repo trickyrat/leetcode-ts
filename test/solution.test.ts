@@ -785,6 +785,12 @@ test("ProjectionAreaTest", () => {
   expect(solution.projectionArea([[1, 0], [0, 2]])).toEqual(8);
 })
 
+test("PossibleBipartitionTest", () => {
+  expect(solution.possibleBipartition(4, [[1, 2], [1, 3], [2, 4]])).toEqual(true);
+  expect(solution.possibleBipartition(3, [[1, 2], [1, 3], [2, 3]])).toEqual(false);
+  expect(solution.possibleBipartition(5, [[1, 2], [2, 3], [3, 4], [4, 5], [1, 5]])).toEqual(false);
+})
+
 test("InterpretTest", () => {
   expect(solution.interpret("G()(al)")).toEqual("Goal");
   expect(solution.interpret("G()()()()(al)")).toEqual("Gooooal");
