@@ -791,6 +791,12 @@ test("PossibleBipartitionTest", () => {
   expect(solution.possibleBipartition(5, [[1, 2], [2, 3], [3, 4], [4, 5], [1, 5]])).toEqual(false);
 })
 
+test("TotalFruitTest", () => {
+  expect(solution.totalFruit([1, 2, 1])).toEqual(3);
+  expect(solution.totalFruit([0, 1, 2, 2])).toEqual(3);
+  expect(solution.totalFruit([1, 2, 3, 2, 2])).toEqual(4);
+})
+
 test("InterpretTest", () => {
   expect(solution.interpret("G()(al)")).toEqual("Goal");
   expect(solution.interpret("G()()()()(al)")).toEqual("Gooooal");
