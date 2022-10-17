@@ -1970,6 +1970,28 @@ export class Solution {
     }
 
     /**
+     * 904. Fruit Into Baskets
+     * @param fruits 
+     */
+    totalFruit(fruits: number[]): number {
+        const n = fruits.length;
+        let map = new Map<number, number>();
+        let left = 0, res = 0;
+        for (let right = 0; right < n; ++right) {
+            map.set(fruits[right], (map.get(fruits[right]) || 0) + 1);
+            while (map.size > 2) {
+                map.set(fruits[left], map.get(fruits[left])! - 1);
+                if (map.get(fruits[left]) == 0) {
+                    map.delete(fruits[left]);
+                }
+                ++left;
+            }
+            res = Math.max(res, right - left + 1);
+        }
+        return res;
+    }
+
+    /**
      * 905.Sort Array By Parity
      * @param nums 
      */
