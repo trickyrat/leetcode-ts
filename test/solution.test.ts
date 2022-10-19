@@ -809,6 +809,11 @@ test("ReformatNumberTest", () => {
   expect(solution.reformatNumber("123 4-5678")).toEqual("123-456-78");
 })
 
+test("CountStudentTest", () => {
+  expect(solution.countStudents([1, 1, 0, 0], [0, 1, 0, 1])).toEqual(0);
+  expect(solution.countStudents([1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 1, 1])).toEqual(3);
+})
+
 test("MergeAlternatelyTest", () => {
   expect(solution.mergeAlternately("abc", "pqr")).toEqual("apbqcr");
   expect(solution.mergeAlternately("ab", "pqrs")).toEqual("apbqrs");

@@ -2927,6 +2927,27 @@ export class Solution {
     }
 
     /**
+     * 1700. Number of Students Unable to Eat Lunch
+     * @param students 
+     * @param sandwiches 
+     * @returns 
+     */
+    countStudents(students: number[], sandwiches: number[]): number {
+        let square = students.reduce((prev, curr) => prev + curr, 0);
+        let circular = students.length - square;
+        for (let i = 0; i < sandwiches.length; i++) {
+            if (sandwiches[i] == 1 && square > 0) {
+                square--;
+            } else if (sandwiches[i] == 0 && circular > 0) {
+                circular--;
+            } else {
+                break;
+            }
+        }
+        return square + circular;
+    }
+
+    /**
      * 1768.Merge Strings Alternately
      * @param word1 
      * @param words 
