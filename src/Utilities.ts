@@ -3,6 +3,9 @@ import { TreeNode } from "./DataStructures/TreeNode";
 
 export class Utilities {
   createListNode(nums: number[]): ListNode | null {
+    if (!nums || nums.length === 0) {
+      return null;
+    }
     let head = new ListNode(0);
     let dummyHead = head;
     for (const num of nums) {
@@ -50,26 +53,47 @@ export class Utilities {
     return root;
   }
 
-  preorderTraversal(root: TreeNode | null): number[] | null {
+  preorderTraversal(root: TreeNode | null): number[] {
     let res: number[] = [];
     if (!root) {
-      return null;
+      return res;
     }
-    let stack: TreeNode[] = [];
-    let node: TreeNode | null = root;
-    while (stack.length > 0 || !node) {
-      while (node) {
-        res.push(node.val);
-        stack.push(node);
-        node = node.left;
+    let p1: TreeNode | null = root, p2 = null;
+    while (p1) {
+      p2 = p1.left;
+      if (p2) {
+        while (p2.right && p2.right !== p1) {
+          p2 = p2.right;
+        }
+        if (!p2.right) {
+          res.push(p1.val);
+          p2.right = p1;
+          p1 = p1.left;
+          continue;
+        } else {
+          p2.right = null;
+        }
+      } else {
+        res.push(p1.val);
       }
-      node = stack.pop()!;
-      node = node?.right;
+      p1 = p1.right;
     }
     return res;
   }
 
   isDigit = (ch: string) => {
     return parseInt(ch).toString() === "NaN" ? false : true;
+  }
+
+  isSameTree(lhs: TreeNode | null, rhs: TreeNode | null): boolean {
+    if (lhs === null && rhs === null) {
+      return true;
+    } else if (lhs === null || rhs === null) {
+      return false;
+    } else if (lhs.val !== rhs.val) {
+      return false;
+    } else {
+      return this.isSameTree(lhs.left, rhs.left) && this.isSameTree(lhs.right, rhs.right);
+    }
   }
 }

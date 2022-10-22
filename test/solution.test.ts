@@ -96,6 +96,7 @@ test("SetZeroesTest", () => {
 test("DeleteDuplicatesTest", () => {
   expect(solution.deleteDuplicates(utils.createListNode([1, 1, 2]))).toEqual(utils.createListNode([1, 2]));
   expect(solution.deleteDuplicates(utils.createListNode([1, 1, 2, 3, 3]))).toEqual(utils.createListNode([1, 2, 3]));
+  expect(solution.deleteDuplicates(null)).toEqual(null);
 })
 
 test("MaxDepthTest", () => {
@@ -151,6 +152,7 @@ test("MaxProfitTest", () => {
 
 test("HasCycleTest", () => {
   expect(solution.hasCycle(utils.createListNode([1]))).toEqual(false);
+  expect(solution.hasCycle(null)).toEqual(false);
   let head2 = utils.createListNode([1, 2]);
   head2!.next!.next = head2;
   expect(solution.hasCycle(head2)).toEqual(true);
