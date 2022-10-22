@@ -472,6 +472,12 @@ test("CanTransformTest", () => {
   expect(solution.canTransform("X", "L")).toEqual(false);
 })
 
+test("KthGrammarTest", () => {
+  expect(solution.kthGrammar(1, 1)).toEqual(0);
+  expect(solution.kthGrammar(2, 1)).toEqual(0);
+  expect(solution.kthGrammar(2, 2)).toEqual(1);
+})
+
 test("PreimageSizeFZFTest", () => {
   expect(solution.preimageSizeFZF(0)).toEqual(5);
   expect(solution.preimageSizeFZF(5)).toEqual(0);

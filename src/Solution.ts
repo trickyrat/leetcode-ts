@@ -1599,6 +1599,21 @@ export class Solution {
     }
 
     /**
+     * 779. K-th Symbol in Grammar
+     * @param n 
+     * @param k 
+     */
+    kthGrammar(n: number, k: number): number {
+        k -= 1;
+        let res = 0;
+        while (k) {
+            k &= k - 1;
+            res ^= 1;
+        }
+        return res;
+    }
+
+    /**
      * 793.Preimage Size of Factorial Zeroes Function
      * @param k 
      */
