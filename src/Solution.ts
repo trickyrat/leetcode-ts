@@ -2345,6 +2345,36 @@ export class Solution {
     };
 
     /**
+     * 1235. Maximum Profit in Job Scheduling
+     * @param startTime 
+     * @param endTime 
+     * @param profit 
+     */
+    jobScheduling(startTime: number[], endTime: number[], profit: number[]): number {
+        const binarySearch = (jobs: number[][], right: number, target: number): number => {
+            let left = 0;
+            while (left < right) {
+                const mid = left + Math.floor((right - left) / 2);
+                if (jobs[mid][1] > target) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            return left;
+        }
+        const n = startTime.length;
+        let jobs = new Array<number>(n).fill(0).map((_, index) => [startTime[index], endTime[index], profit[index]]);
+        jobs.sort((a, b) => a[1] - b[1]);
+        let dp = new Array<number>(n + 1).fill(0);
+        for (let i = 1; i <= n; i++) {
+            const k = binarySearch(jobs, i - 1, jobs[i - 1][0]);
+            dp[i] = Math.max(dp[i - 1], dp[k] + jobs[i - 1][2]);
+        }
+        return dp[n];
+    }
+
+    /**
      * 1281.Subtract the Product and Sum of Digits of an Integer
      * @param n 
      */
