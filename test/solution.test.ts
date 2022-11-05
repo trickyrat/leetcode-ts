@@ -612,6 +612,13 @@ test("CheckStraightLineTest", () => {
   expect(solution.checkStraightLine([[1, 1], [2, 2], [3, 4], [4, 5], [5, 6], [7, 7]])).toEqual(false);
 })
 
+test("JobSchedulingTest", () => {
+  expect(solution.jobScheduling([1, 2, 3, 3], [3, 4, 5, 6], [50, 10, 40, 70])).toEqual(120);
+  expect(solution.jobScheduling([1, 2, 3, 4, 6], [3, 5, 10, 6, 9], [20, 20, 100, 70, 60])).toEqual(150);
+  expect(solution.jobScheduling([1, 1, 1], [2, 3, 4], [5, 6, 4])).toEqual(6);
+})
+
+
 test("SubtractProductAndSumTest", () => {
   expect(solution.subtractProductAndSum(234)).toEqual(15);
   expect(solution.subtractProductAndSum(4421)).toEqual(21);
