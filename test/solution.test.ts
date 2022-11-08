@@ -553,6 +553,12 @@ test("ThreeEqualPartsTest", () => {
   expect(solution.threeEqualParts([1, 1, 0, 0, 1])).toEqual([0, 2]);
 })
 
+test("ShortestBridgeTest", () => {
+  expect(solution.shortestBridge([[0, 1], [1, 0]])).toEqual(1);
+  expect(solution.shortestBridge([[0, 1, 0], [0, 0, 0], [0, 0, 1]])).toEqual(2);
+  expect(solution.shortestBridge([[1, 1, 1, 1, 1], [1, 0, 0, 0, 1], [1, 0, 1, 0, 1], [1, 0, 0, 0, 1], [1, 1, 1, 1, 1]])).toEqual(1);
+})
+
 test("DistinctSubseqIITest", () => {
   expect(solution.distinctSubseqII("abc")).toEqual(7);
   expect(solution.distinctSubseqII("aba")).toEqual(6);
