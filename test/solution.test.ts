@@ -537,6 +537,11 @@ test("SortArrayByParityTest", () => {
   expect(solution.sortArrayByParity([0])).toEqual([0]);
 })
 
+test("PartitionDisjointTest", () => {
+  expect(solution.partitionDisjoint([5, 0, 3, 8, 6])).toEqual(3);
+  expect(solution.partitionDisjoint([1, 1, 1, 0, 6, 12])).toEqual(4);
+})
+
 test("MinAddToMakeValidTest", () => {
   expect(solution.minAddToMakeValid("())")).toEqual(1);
   expect(solution.minAddToMakeValid("(((")).toEqual(3);
