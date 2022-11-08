@@ -2029,6 +2029,23 @@ export class Solution {
     }
 
     /**
+     * 915. Partition Array into Disjoint Intervals
+     * @param nums 
+     */
+    partitionDisjoint(nums: number[]): number {
+        const n = nums.length;
+        let leftMax = nums[0], leftPos = 0, curr = nums[0];
+        for (let i = 1; i < n - 1; i++) {
+            curr = Math.max(curr, nums[i]);
+            if (nums[i] < leftMax) {
+                leftMax = curr;
+                leftPos = i;
+            }
+        }
+        return leftPos + 1;
+    }
+
+    /**
      * 921.Minimum Add to Make Parentheses Valid
      * @param s 
      */
