@@ -803,6 +803,15 @@ test("DecryptTest", () => {
   expect(solution.decrypt([2, 4, 9, 3], -2)).toEqual([12, 5, 6, 13]);
 })
 
+test.each([
+  [["ab", "c"], ["a", "bc"], true],
+  [["a", "cb"], ["ab", "c"], false],
+  [["abc", "d", "defg"], ["abcddefg"], true],
+])
+  ("ArrayStringAreEqual(%p, %p)", (word1: string[], word2: string[], expected: boolean) => {
+    expect(solution.arrayStringAreEqual(word1, word2)).toEqual(expected);
+  });
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);
