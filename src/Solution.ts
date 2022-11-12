@@ -1800,6 +1800,45 @@ export class Solution {
     }
 
     /**
+     * 816. Ambiguous Coordinates
+     * @param s 
+     */
+    ambiguousCoordinates(s: string): string[] {
+        const getPos = (s: string): string[] => {
+            let pos: string[] = [];
+            if (s[0] !== '0' || "0" === s) {
+                pos.push(s);
+            }
+            for (let p = 1; p < s.length; ++p) {
+                if ((p !== 1 && s[0] === '0') || s[s.length - 1] === '0') {
+                    continue;
+                }
+                pos.push(s.slice(0, p) + "." + s.slice(p));
+            }
+            return pos;
+        };
+        const n = s.length - 2;
+        let res: string[] = [];
+        s = s.slice(1, s.length - 1);
+        for (let l = 1; l < n; l++) {
+            const lt = getPos(s.slice(0, l));
+            if (lt.length === 0) {
+                continue;
+            }
+            const rt = getPos(s.slice(l));
+            if (rt.length === 0) {
+                continue;
+            }
+            lt.forEach(x => {
+                rt.forEach(y => {
+                    res.push("(" + x + ", " + y + ")");
+                })
+            })
+        }
+        return res;
+    }
+
+    /**
      * 817. Linked List Components
      * @param head 
      * @param nums 
