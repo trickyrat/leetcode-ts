@@ -2055,6 +2055,28 @@ export class Solution {
     }
 
     /**
+     * 907. Sum of Subarray Minimums
+     * @param arr 
+     */
+    sumSubarrayMins(arr: number[]): number {
+        const n = arr.length;
+        let res = 0;
+        const mod = 1000000007;
+        let monoStack: number[] = [];
+        let dp = new Array<number>(n).fill(0);
+        for (let i = 0; i < n; i++) {
+            while (monoStack.length != 0 && arr[monoStack[monoStack.length - 1]] > arr[i]) {
+                monoStack.pop();
+            }
+            const k = monoStack.length === 0 ? i + 1 : i - monoStack[monoStack.length - 1];
+            dp[i] = k * arr[i] + (monoStack.length === 0 ? 0 : dp[i - k]);
+            res = (res + dp[i]) % mod;
+            monoStack.push(i);
+        }
+        return res;
+    }
+
+    /**
      * 915. Partition Array into Disjoint Intervals
      * @param nums 
      */

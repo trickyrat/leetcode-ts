@@ -537,6 +537,11 @@ test("SortArrayByParityTest", () => {
   expect(solution.sortArrayByParity([0])).toEqual([0]);
 })
 
+test("SumSubarrayMinsTest", () => {
+  expect(solution.sumSubarrayMins([3, 1, 2, 4])).toEqual(17);
+  expect(solution.sumSubarrayMins([11, 81, 94, 43, 3])).toEqual(444);
+})
+
 test("PartitionDisjointTest", () => {
   expect(solution.partitionDisjoint([5, 0, 3, 8, 6])).toEqual(3);
   expect(solution.partitionDisjoint([1, 1, 1, 0, 6, 12])).toEqual(4);
