@@ -644,6 +644,14 @@ test("SumRootToLeafTest", () => {
   expect(solution.sumRootToLeaf(null)).toEqual(0);
 })
 
+test.each([
+  ["&(|(f))", false],
+  ["|(f,f,f,t)", true],
+  ["!(&(f,t))", true],
+])("ParseBoolExpr(%s)", (expression: string, expected: boolean) => {
+  expect(solution.parseBoolExpr(expression)).toEqual(expected);
+});
+
 test("CheckStraightLineTest", () => {
   expect(solution.checkStraightLine([[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]])).toEqual(true);
   expect(solution.checkStraightLine([[1, 1], [2, 2], [3, 4], [4, 5], [5, 6], [7, 7]])).toEqual(false);
