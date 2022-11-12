@@ -291,6 +291,10 @@ test("NextGreaterElementTest", () => {
   expect(solution.nextGreaterElement([2, 4], [1, 2, 3, 4])).toEqual([3, -1]);
 })
 
+test.each([[6, 3], [1, 1]])("MagicalString(%i)", (n: number, expected: number) => {
+  expect(solution.magicalString(n)).toEqual(expected);
+});
+
 test("FindDiagonalOrderTest", () => {
   expect(solution.findDiagonalOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]])).toEqual([1, 2, 4, 7, 5, 3, 6, 8, 9]);
   expect(solution.findDiagonalOrder([[1, 2], [3, 4]])).toEqual([1, 2, 3, 4]);

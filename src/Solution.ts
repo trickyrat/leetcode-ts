@@ -909,6 +909,36 @@ export class Solution {
     }
 
     /**
+     * 481. Magical String
+     * @param n 
+     */
+    magicalString(n: number): number {
+        if (n < 4) {
+            return 1;
+        }
+        let s = new Array<string>(n);
+        s[0] = '1';
+        s[1] = '2';
+        s[2] = '2';
+        let res = 1;
+        let i = 2, j = 3;
+        while (j < n) {
+            let size = s[i].charCodeAt(0) - '0'.charCodeAt(0);
+            const num = 3 - (s[j - 1].charCodeAt(0) - '0'.charCodeAt(0));
+            while (size > 0 && j < n) {
+                s[j] = String.fromCharCode('0'.charCodeAt(0) + num);
+                if (num === 1) {
+                    ++res;
+                }
+                ++j;
+                --size;
+            }
+            ++i;
+        }
+        return res;
+    }
+
+    /**
      * 496.Next Greater Element I
      * @param nums1 
      * @param nums2 
