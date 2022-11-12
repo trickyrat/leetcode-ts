@@ -820,6 +820,14 @@ test.each([
     expect(solution.arrayStringAreEqual(word1, word2)).toEqual(expected);
   });
 
+test.each([
+  ["ababc", "ab", 2],
+  ["ababc", "ba", 1],
+  ["ababc", "ac", 0],
+])("MaxRepeating(%s, %s)", (sequence: string, word: string, expected: number) => {
+  expect(solution.maxRepeating(sequence, word)).toEqual(expected);
+})
+
 test("MaximumWealthTest", () => {
   expect(solution.maximumWealth([[1, 2, 3], [3, 2, 1]])).toEqual(6);
   expect(solution.maximumWealth([[1, 5], [7, 3], [3, 5]])).toEqual(10);

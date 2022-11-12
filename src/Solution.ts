@@ -3143,6 +3143,43 @@ export class Solution {
     }
 
     /**
+     * 1668. Maximum Repeating Substring
+     * @param sequence 
+     * @param word 
+     */
+    maxRepeating(sequence: string, word: string): number {
+        const n = sequence.length, m = word.length;
+        if (n < m) {
+            return 0;
+        }
+        let fail = new Array<number>(n).fill(-1);
+        for (let i = 1; i < m; i++) {
+            let j = fail[i - 1];
+            while (j !== -1 && word[j + 1] !== word[i]) {
+                j = fail[j];
+            }
+            if (word[j + 1] === word[i]) {
+                fail[i] = j + 1;
+            }
+        }
+        let f = new Array<number>(n).fill(0);
+        let j = -1;
+        for (let i = 0; i < n; i++) {
+            while (j !== -1 && word[j + 1] !== sequence[i]) {
+                j = fail[j];
+            }
+            if (word[j + 1] === sequence[i]) {
+                ++j;
+                if (j === m - 1) {
+                    f[i] = (i >= m ? f[i - m] : 0) + 1;
+                    j = fail[j];
+                }
+            }
+        }
+        return Math.max(...f);
+    }
+
+    /**
      * 1672.Richest Customer Wealth
      * @param accounts 
      */
