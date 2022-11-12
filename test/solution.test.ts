@@ -450,6 +450,13 @@ test("NextGreatestLetterTest", () => {
   expect(solution.nextGreatestLetter(["d"], "z")).toEqual("d");
 })
 
+test.each([
+  [2, 3],
+  [3, 2],
+])("ReachNumber(%i)", (target: number, expected: number) => {
+  expect(solution.reachNumber(target)).toEqual(expected);
+});
+
 test("PivotIndexTest", () => {
   expect(solution.pivotIndex([2, 3, -1, 8, 4])).toEqual(3);
   expect(solution.pivotIndex([1, -1, 4])).toEqual(2);
