@@ -1888,6 +1888,32 @@ export class Solution {
     }
 
     /**
+     * 862. Shortest Subarray with Sum at Least K
+     * @param nums 
+     * @param k 
+     */
+    shortestSubarray(nums: number[], k: number): number {
+        const n = nums.length;
+        const preSum = new Array<number>(n + 1).fill(0);
+        for (let i = 0; i < n; i++) {
+            preSum[i + 1] = preSum[i] + nums[i];
+        }
+        let res = n + 1;
+        let queue: number[] = [];
+        for (let i = 0; i <= n; i++) {
+            let currSum = preSum[i];
+            while (queue.length != 0 && currSum - preSum[queue[0]] >= k) {
+                res = Math.min(res, i - queue.shift()!);
+            }
+            while (queue.length != 0 && preSum[queue[queue.length - 1]] >= currSum) {
+                queue.pop();
+            }
+            queue.push(i);
+        }
+        return res < n + 1 ? res : -1;
+    }
+
+    /**
      * 870. Advantage Shuffle
      * @param nums1 
      * @param nums2 

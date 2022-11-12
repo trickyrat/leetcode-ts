@@ -795,6 +795,12 @@ test("MinCostToHireWorkersTest", () => {
   expect(solution.minCostToHireWorkers([3, 1, 10, 10, 1], [4, 8, 2, 2, 7], 3).toFixed(5)).toEqual("30.66667");
 })
 
+test("ShortestSubarrayTest", () => {
+  expect(solution.shortestSubarray([1], 1)).toEqual(1);
+  expect(solution.shortestSubarray([1, 2], 4)).toEqual(-1);
+  expect(solution.shortestSubarray([2, -1, 2], 3)).toEqual(3);
+})
+
 test("AdvantageCountTest", () => {
   expect(solution.advantageCount([2, 7, 11, 15], [1, 10, 4, 11])).toEqual([2, 11, 7, 15]);
   expect(solution.advantageCount([12, 24, 8, 32], [13, 25, 32, 11])).toEqual([24, 32, 8, 12]);
