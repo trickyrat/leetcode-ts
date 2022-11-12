@@ -478,6 +478,16 @@ test("KthGrammarTest", () => {
   expect(solution.kthGrammar(2, 2)).toEqual(1);
 })
 
+test.each([
+  ["a1b2", ["a1b2", "a1B2", "A1b2", "A1B2"]],
+  ["3z4", ["3z4", "3Z4"]]
+])("LetterCasePermutationTest", (s: string, expected: string[]) => {
+  const actual = solution.letterCasePermutation(s);
+  actual.sort();
+  expected.sort();
+  expect(actual).toEqual(expected);
+});
+
 test("PreimageSizeFZFTest", () => {
   expect(solution.preimageSizeFZF(0)).toEqual(5);
   expect(solution.preimageSizeFZF(5)).toEqual(0);
