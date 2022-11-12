@@ -3016,6 +3016,44 @@ export class Solution {
     }
 
     /**
+     * 1620. Coordinate With Maximum Network Quality
+     * @param towers 
+     * @param radius 
+     */
+    bestCoordinate(towers: number[][], radius: number): number[] {
+        const getSquaredDistance = (coordinate: number[], tower: number[]): number => {
+            return (tower[0] - coordinate[0]) * (tower[0] - coordinate[0]) + (tower[1] - coordinate[1]) * (tower[1] - coordinate[1]);
+        };
+        let xMax = Number.MIN_VALUE, yMax = -Number.MAX_VALUE;
+        towers.forEach(t => {
+            let x = t[0], y = t[1];
+            xMax = Math.max(xMax, x);
+            yMax = Math.max(yMax, y);
+        });
+        let cx = 0, cy = 0;
+        let maxQuality = 0;
+        for (let x = 0; x <= xMax; x++) {
+            for (let y = 0; y <= yMax; y++) {
+                const coordinate = [x, y];
+                let quality = 0;
+                towers.forEach(t => {
+                    const squaredDistance = getSquaredDistance(coordinate, t);
+                    if (squaredDistance <= radius * radius) {
+                        const distance = Math.sqrt(squaredDistance);
+                        quality += Math.floor(t[2] / (1 + distance));
+                    }
+                });
+                if (quality > maxQuality) {
+                    cx = x;
+                    cy = y;
+                    maxQuality = quality;
+                }
+            }
+        }
+        return [cx, cy];
+    }
+
+    /**
      * 1624.Largest Substring Between Two Equal Characters
      * @param s 
      */
