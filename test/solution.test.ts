@@ -905,41 +905,61 @@ test("ArraySignTest", () => {
   expect(solution.arraySign([-1, 1, -1, 1, -1])).toEqual(-1);
 })
 
-test("FindTheWinnerTest", () => {
-  expect(solution.findTheWinner(5, 2)).toEqual(3);
-  expect(solution.findTheWinner(6, 5)).toEqual(1);
-})
+test.each([
+  [5, 2, 3],
+  [6, 5, 1],
+])
+  ("FindTheWinner(%i, %i)", (n: number, k: number, expected: number) => {
+    expect(solution.findTheWinner(n, k)).toEqual(expected);
+  });
 
-test("FindMiddleIndexTest", () => {
-  expect(solution.findMiddleIndex([1, 7, 3, 6, 5, 6])).toEqual(3);
-  expect(solution.findMiddleIndex([1, 2, 3])).toEqual(-1);
-})
+test.each([
+  [[1, 7, 3, 6, 5, 6], 3],
+  [[1, 2, 3], -1],
+])
+  ("FindMiddleIndex(%p)", (nums: number[], expected: number) => {
+    expect(solution.findMiddleIndex(nums)).toEqual(expected);
+  });
 
-test("CountKDifferenceTest", () => {
-  expect(solution.countKDifference([1, 2, 2, 1], 1)).toEqual(4);
-  expect(solution.countKDifference([1, 3], 3)).toEqual(0);
-  expect(solution.countKDifference([3, 2, 1, 5, 4], 2)).toEqual(3);
-})
+test.each([
+  [[1, 2, 2, 1], 1, 4],
+  [[1, 3], 3, 0],
+  [[3, 2, 1, 5, 4], 2, 3],
+])
+  ("CountKDifference(%p, %i)", (nums: number[], k: number, expected: number) => {
+    expect(solution.countKDifference(nums, k)).toEqual(expected);
+  });
 
-test("MaximumDifferenceTest", () => {
-  expect(solution.maximumDifference([7, 1, 5, 4])).toEqual(4);
-  expect(solution.maximumDifference([9, 4, 3, 2])).toEqual(-1);
-  expect(solution.maximumDifference([1, 5, 2, 10])).toEqual(9);
-})
+test.each([
+  [[7, 1, 5, 4], 4],
+  [[9, 4, 3, 2], -1],
+  [[1, 5, 2, 10], 9],
+])
+  ("MaximumDifference(%p)", (nums: number[], expected: number) => {
+    expect(solution.maximumDifference(nums)).toEqual(expected);
+  });
 
-test("CountMaxOrSubsetsTest", () => {
-  expect(solution.countMaxOrSubsets([3, 1])).toEqual(2);
-  expect(solution.countMaxOrSubsets([2, 2, 2])).toEqual(7);
-  expect(solution.countMaxOrSubsets([3, 2, 1, 5])).toEqual(6);
-})
+test.each([
+  [[3, 1], 2],
+  [[2, 2, 2], 7],
+  [[3, 2, 1, 5], 6],
+])
+  ("CountMaxOrSubsets(%p)", (nums: number[], expected: number) => {
+    expect(solution.countMaxOrSubsets(nums)).toEqual(expected);
+  });
 
-test("PlatesBetweenCandlesTest", () => {
-  expect(solution.platesBetweenCandles("**|**|***|", [[2, 5], [5, 9]])).toEqual([2, 3]);
-  expect(solution.platesBetweenCandles("***|**|*****|**||**|*", [[1, 17], [4, 5], [14, 17], [5, 11], [15, 16]])).toEqual([9, 0, 0, 0, 0]);
-})
+test.each([
+  ["**|**|***|", [[2, 5], [5, 9]], [2, 3]],
+  ["***|**|*****|**||**|*", [[1, 17], [4, 5], [14, 17], [5, 11], [15, 16]], [9, 0, 0, 0, 0]]])
+  ("PlatesBetweenCandles(%p, %p)", (s: string, queries: number[][], expected: number[]) => {
+    expect(solution.platesBetweenCandles(s, queries)).toEqual(expected);
+  });
 
-test("RearrangeCharactersTest", () => {
-  expect(solution.rearrangeCharacters("ilovecodingonleetcode", "code")).toEqual(2);
-  expect(solution.rearrangeCharacters("abcba", "abc")).toEqual(1);
-  expect(solution.rearrangeCharacters("abbaccaddaeea", "aaaaa")).toEqual(1);
-})
+test.each([
+  ["ilovecodingonleetcode", "code", 2],
+  ["abcba", "abc", 1],
+  ["abbaccaddaeea", "aaaaa", 1],
+])
+  ("RearrangeCharacters(%p, %p)", (s: string, target: string, expected: number) => {
+    expect(solution.rearrangeCharacters(s, target)).toEqual(expected);
+  });
