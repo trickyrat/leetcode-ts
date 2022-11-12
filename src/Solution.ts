@@ -3127,6 +3127,23 @@ export class Solution {
     }
 
     /**
+     * 1773. Count Items Matching a Rule
+     * @param items 
+     * @param ruleKey 
+     * @param ruleValue 
+     */
+    countMatches(items: string[][], ruleKey: string, ruleValue: string): number {
+        const index = { "type": 0, "color": 1, "name": 2 }[ruleKey]!;
+        let res = 0;
+        items.forEach(x => {
+            if (x[index] === ruleValue) {
+                res++;
+            }
+        });
+        return res;
+    }
+
+    /**
      * 1779.Find Nearest Point That Has the Same X or Y Coordinate
      * @param x 
      * @param y 
