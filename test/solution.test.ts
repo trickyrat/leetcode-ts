@@ -857,6 +857,11 @@ test("MergeAlternatelyTest", () => {
   expect(solution.mergeAlternately("abcd", "pq")).toEqual("apbqcd");
 })
 
+test("CountMatchesTest", () => {
+  expect(solution.countMatches([["phone", "blue", "pixel"], ["computer", "silver", "lenovo"], ["phone", "gold", "iphone"]], "color", "silver")).toEqual(1);
+  expect(solution.countMatches([["phone", "blue", "pixel"], ["computer", "silver", "phone"], ["phone", "gold", "iphone"]], "type", "phone")).toEqual(2);
+})
+
 test("NearestValidPointTest", () => {
   expect(solution.nearestValidPoint(3, 4, [[1, 2], [3, 1], [2, 4], [2, 3], [4, 4]])).toEqual(2);
   expect(solution.nearestValidPoint(3, 4, [[3, 4]])).toEqual(0);
