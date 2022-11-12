@@ -1614,6 +1614,33 @@ export class Solution {
     }
 
     /**
+     * 784. Letter Case Permutation
+     * @param s 
+     */
+    letterCasePermutation(s: string): string[] {
+        const n = s.length;
+        let m = 0;
+        for (let i = 0; i < n; i++) {
+            if (this.utils.isLetter(s[i])) {
+                m++;
+            }
+        }
+        let res: string[] = [];
+        for (let mask = 0; mask < (1 << m); mask++) {
+            let sb = "";
+            for (let j = 0, k = 0; j < n; j++) {
+                if (this.utils.isLetter(s[j]) && (mask & (1 << k++)) !== 0) {
+                    sb += s[j].toUpperCase();
+                } else {
+                    sb += s[j].toLocaleLowerCase();
+                }
+            }
+            res.push(sb);
+        }
+        return res;
+    }
+
+    /**
      * 793.Preimage Size of Factorial Zeroes Function
      * @param k 
      */

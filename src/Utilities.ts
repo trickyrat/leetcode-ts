@@ -81,8 +81,12 @@ export class Utilities {
     return res;
   }
 
-  isDigit = (ch: string) => {
+  isDigit(ch: string): boolean {
     return parseInt(ch).toString() === "NaN" ? false : true;
+  }
+
+  isLetter(ch: string): boolean {
+    return 'a' <= ch && ch <= 'z' || 'A' <= ch && ch <= 'Z';
   }
 
   isSameTree(lhs: TreeNode | null, rhs: TreeNode | null): boolean {
