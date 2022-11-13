@@ -511,7 +511,15 @@ test.each([
   [1, 1]
 ])("numTilings(%i)", (n: number, expected: number) => {
   expect(solution.numTilings(n)).toEqual(expected);
-})
+});
+
+
+test.each([
+  ["cba", "abcd", "cbad"],
+  ["cbafg", "abcd", "cbad"],
+])("customSortString(%s, %s)", (order: string, s: string, expected: string) => {
+  expect(solution.customSortString(order, s)).toEqual(expected);
+});
 
 test("PreimageSizeFZFTest", () => {
   expect(solution.preimageSizeFZF(0)).toEqual(5);
