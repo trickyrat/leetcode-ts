@@ -903,6 +903,14 @@ test("InterpretTest", () => {
   expect(solution.interpret("(al)G(al)()()G")).toEqual("alGalooG");
 })
 
+test.each([
+  ["ab", ["ad", "bd", "aaab", "baa", "badab"], 2],
+  ["abc", ["a", "b", "c", "ab", "ac", "bc", "abc"], 7],
+  ["cad", ["cc", "acd", "b", "ba", "bac", "bad", "ac", "d"], 4],
+])("countConsistentStrings(%s, %p)", (allowed: string, words: string[], expected: number) => {
+  expect(solution.countConsistentStrings(allowed, words)).toEqual(expected);
+});
+
 test("ReformatNumberTest", () => {
   expect(solution.reformatNumber("1-23-45 6")).toEqual("123-456");
   expect(solution.reformatNumber("123 4-567")).toEqual("123-45-67");

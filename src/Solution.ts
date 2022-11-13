@@ -3308,6 +3308,31 @@ export class Solution {
     }
 
     /**
+     * 1684. Count the Number of Consistent Strings
+     * @param allowed 
+     * @param words 
+     */
+    countConsistentStrings(allowed: string, words: string[]): number {
+        let mask = 0;
+        for (let i = 0; i < allowed.length; i++) {
+            const c = allowed[i];
+            mask |= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
+        }
+        let res = 0;
+        words.forEach(word => {
+            let mask1 = 0;
+            for (let i = 0; i < word.length; i++) {
+                const c = word[i];
+                mask1 |= 1 << (c.charCodeAt(0) - 'a'.charCodeAt(0));
+            }
+            if ((mask | mask1) === mask) {
+                res++;
+            }
+        });
+        return res;
+    }
+
+    /**
      * 1694.Reformat Phone Number
      * @param number 
      */
