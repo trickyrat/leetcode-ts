@@ -1756,6 +1756,34 @@ export class Solution {
     }
 
     /**
+     * 791. Custom Sort String
+     * @param order 
+     * @param s 
+     */
+    customSortString(order: string, s: string): string {
+        let alphas = new Array<number>(26).fill(0);
+        for (let i = 0; i < s.length; i++) {
+            const ch = s[i];
+            ++alphas[ch.charCodeAt(0) - 'a'.charCodeAt(0)];
+        }
+        let res = "";
+        for (let i = 0; i < order.length; i++) {
+            const ch = order[i];
+            while (alphas[ch.charCodeAt(0) - 'a'.charCodeAt(0)] > 0) {
+                res += ch;
+                alphas[ch.charCodeAt(0) - 'a'.charCodeAt(0)]--;
+            }
+        }
+        for (let i = 0; i < 26; i++) {
+            while (alphas[i] > 0) {
+                res += String.fromCharCode(i + 'a'.charCodeAt(0));
+                alphas[i]--;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 793.Preimage Size of Factorial Zeroes Function
      * @param k 
      */
