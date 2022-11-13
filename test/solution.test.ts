@@ -506,6 +506,13 @@ test.each([
   expect(actual).toEqual(expected);
 });
 
+test.each([
+  [3, 5],
+  [1, 1]
+])("numTilings(%i)", (n: number, expected: number) => {
+  expect(solution.numTilings(n)).toEqual(expected);
+})
+
 test("PreimageSizeFZFTest", () => {
   expect(solution.preimageSizeFZF(0)).toEqual(5);
   expect(solution.preimageSizeFZF(5)).toEqual(0);
