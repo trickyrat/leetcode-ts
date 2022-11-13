@@ -473,6 +473,13 @@ test("CountPrimeSetBitsTest", () => {
   expect(solution.countPrimeSetBits(10, 15)).toEqual(5);
 })
 
+test.each([
+  [5, [[4, 2]], 2],
+  [1, [[0, 0]], 0]
+])("orderOfLargestPlusSign(%i, %p)", (n: number, mines: number[][], expected: number) => {
+  expect(solution.orderOfLongestPlusSign(n, mines)).toEqual(expected);
+});
+
 test("MaxChunksToSortedTest", () => {
   expect(solution.maxChunksToSorted([4, 3, 2, 1, 0])).toEqual(1);
   expect(solution.maxChunksToSorted([1, 0, 2, 3, 4])).toEqual(4);
