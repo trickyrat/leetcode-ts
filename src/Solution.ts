@@ -1586,6 +1586,60 @@ export class Solution {
     }
 
     /**
+     * 764. Largest Plus Sign
+     * @param n 
+     * @param mines 
+     */
+    orderOfLongestPlusSign(n: number, mines: number[][]): number {
+        let dp = new Array<Array<number>>(n).fill([]).map(() => new Array<number>(n).fill(n));
+        let banned = new Set<number>();
+        mines.forEach(x => banned.add(x[0] * n + x[1]));
+        let res = 0;
+        for (let i = 0; i < n; i++) {
+            let count = 0;
+            for (let j = 0; j < n; j++) {
+                if (banned.has(i * n + j)) {
+                    count = 0;
+                } else {
+                    count++;
+                }
+                dp[i][j] = Math.min(dp[i][j], count);
+            }
+            count = 0;
+            for (let j = n - 1; j >= 0; j--) {
+                if (banned.has(i * n + j)) {
+                    count = 0;
+                } else {
+                    count++;
+                }
+                dp[i][j] = Math.min(dp[i][j], count);
+            }
+        }
+        for (let i = 0; i < n; i++) {
+            let count = 0;
+            for (let j = 0; j < n; j++) {
+                if (banned.has(j * n + i)) {
+                    count = 0;
+                } else {
+                    count++;
+                }
+                dp[j][i] = Math.min(dp[j][i], count);
+            }
+            count = 0;
+            for (let j = n - 1; j >= 0; j--) {
+                if (banned.has(j * n + i)) {
+                    count = 0;
+                } else {
+                    count++;
+                }
+                dp[j][i] = Math.min(dp[j][i], count);
+                res = Math.max(res, dp[j][i])
+            }
+        }
+        return res;
+    }
+
+    /**
      * 769. Max Chunks To Make Sorted
      * @param arr 
      */
