@@ -3439,6 +3439,28 @@ export class Solution {
     }
 
     /**
+     * 1704. Determine if String Halves Are Alike
+     * @param s 
+     */
+    halvesAreAlike(s: string): boolean {
+        const a = s.substring(0, s.length / 2);
+        const b = s.substring(s.length / 2);
+        const vowels = "aeiouAEIOU";
+        let sum1 = 0, sum2 = 0;
+        for (let i = 0; i < a.length; i++) {
+            if (vowels.indexOf(a[i]) >= 0) {
+                sum1++;
+            }
+        }
+        for (let i = 0; i < b.length; i++) {
+            if (vowels.indexOf(b[i]) >= 0) {
+                sum2++;
+            }
+        }
+        return sum1 === sum2;
+    }
+
+    /**
      * 1768.Merge Strings Alternately
      * @param word1 
      * @param words 
