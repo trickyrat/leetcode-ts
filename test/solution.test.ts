@@ -929,6 +929,13 @@ test("CountStudentTest", () => {
   expect(solution.countStudents([1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 1, 1])).toEqual(3);
 })
 
+test.each([
+  ["book", true],
+  ["textbook", false],
+])("halvesAreAlike(%s)", (s: string, expected: boolean) => {
+  expect(solution.halvesAreAlike(s)).toEqual(expected);
+});
+
 test("MergeAlternatelyTest", () => {
   expect(solution.mergeAlternately("abc", "pqr")).toEqual("apbqcr");
   expect(solution.mergeAlternately("ab", "pqrs")).toEqual("apbqrs");
