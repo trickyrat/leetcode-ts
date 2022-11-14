@@ -537,6 +537,13 @@ test("UniqueMorseRepresentationsTest", () => {
   expect(solution.uniqueMorseRepresentations(["a"])).toEqual(1);
 })
 
+test.each([
+  [[1, 2, 3, 4, 5, 6, 7, 8], true],
+  [[3, 1], false],
+])("splitArraySameAverage(%p)", (nums: number[], expected: boolean) => {
+  expect(solution.splitArraySameAverage(nums)).toEqual(expected);
+});
+
 test("NumberOfLinesTest", () => {
   expect(solution.numberOfLines([10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "abcdefghijklmnopqrstuvwxyz")).toEqual([3, 60]);
   expect(solution.numberOfLines([4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "bbbcccdddaaa")).toEqual([2, 4]);

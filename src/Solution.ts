@@ -1854,6 +1854,42 @@ export class Solution {
     }
 
     /**
+     * 805. Split Array With Same Average
+     * @param nums 
+     */
+    splitArraySameAverage(nums: number[]): boolean {
+        if (nums.length === 1) {
+            return false;
+        }
+        const n = nums.length, m = Math.floor(n / 2);
+        const sum = nums.reduce((prev, curr) => prev + curr, 0);
+        let isPossible = false;
+        for (let i = 1; i <= m; i++) {
+            if (sum * i % n === 0) {
+                isPossible = true;
+                break;
+            }
+        }
+        if (!isPossible) {
+            return false;
+        }
+        let dp = new Array<Set<number>>(m + 1).fill(new Set<number>()).map(() => new Set<number>());
+        dp[0].add(0);
+        for (const num of nums) {
+            for (let i = m; i >= 1; i--) {
+                for (const x of dp[i - 1]) {
+                    let curr = x + num;
+                    if (curr * n === sum * i) {
+                        return true;
+                    }
+                    dp[i].add(curr);
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * 806.Number of Lines To Write String
      * @param widths 
      * @param s 
