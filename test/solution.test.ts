@@ -958,6 +958,13 @@ test.each([
   expect(solution.halvesAreAlike(s)).toEqual(expected);
 });
 
+test.each([
+  [[[1, 3], [2, 2], [3, 1]], 4, 8],
+  [[[5, 10], [2, 5], [4, 7], [3, 9]], 10, 91],
+])("maximumUnits(%p, %i)", (boxTypes: number[][], truckSize: number, expected: number) => {
+  expect(solution.maximumUnits(boxTypes, truckSize)).toEqual(expected);
+});
+
 test("MergeAlternatelyTest", () => {
   expect(solution.mergeAlternately("abc", "pqr")).toEqual("apbqcr");
   expect(solution.mergeAlternately("ab", "pqrs")).toEqual("apbqrs");
