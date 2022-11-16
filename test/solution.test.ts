@@ -485,6 +485,13 @@ test("MaxChunksToSortedTest", () => {
   expect(solution.maxChunksToSorted([1, 0, 2, 3, 4])).toEqual(4);
 })
 
+test.each([
+  [[1, 0, 2], true],
+  [[1, 2, 0], false],
+])("isIdealPermutation(%p)", (nums: number[], expected: boolean) => {
+  expect(solution.isIdealPermutation(nums)).toEqual(expected);
+});
+
 test("CanTransformTest", () => {
   expect(solution.canTransform("RXXLRXRXL", "XRLXXRRLX")).toEqual(true);
   expect(solution.canTransform("X", "L")).toEqual(false);
