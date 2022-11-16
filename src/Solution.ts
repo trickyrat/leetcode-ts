@@ -1655,6 +1655,19 @@ export class Solution {
     }
 
     /**
+     * 
+     * @param nums 
+     */
+    isIdealPermutation(nums: number[]): boolean {
+        for (let i = 0; i < nums.length; i++) {
+            if (Math.abs(nums[i] - i) > 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /**
      * 777.Swap Adjacent in LR String
      * @param start 
      * @param end 
