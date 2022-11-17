@@ -1797,6 +1797,35 @@ export class Solution {
     }
 
     /**
+     * 792. Number of Matching Subsequences
+     * @param s 
+     * @param words 
+     */
+    numMatchingSubseq(s: string, words: string[]): number {
+        let p = new Array<Array<Array<number>>>(26).fill([]).map(() => new Array<Array<number>>());
+        const aascii = 'a'.charCodeAt(0);
+        words.forEach((x, i) => {
+            p[x[0].charCodeAt(0) - aascii].push([i, 0]);
+        });
+        let res = 0;
+        for (let i = 0; i < s.length; i++) {
+            const c = s[i];
+            let len = p[c.charCodeAt(0) - aascii].length;
+            while (len > 0) {
+                const t = p[c.charCodeAt(0) - aascii].shift()!;
+                if (t[1] === words[t[0]].length - 1) {
+                    ++res;
+                } else {
+                    ++t[1];
+                    p[words[t[0]][t[1]].charCodeAt(0) - aascii].push(t);
+                }
+                --len;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 793.Preimage Size of Factorial Zeroes Function
      * @param k 
      */
