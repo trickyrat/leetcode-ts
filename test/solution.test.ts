@@ -528,6 +528,13 @@ test.each([
   expect(solution.customSortString(order, s)).toEqual(expected);
 });
 
+test.each([
+  ["abcde", ["a", "bb", "acd", "ace"], 3],
+  ["dsahjpjauf", ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"], 2],
+])("numMatchingSubseq(%s, %p)", (s: string, words: string[], expected: number) => {
+  expect(solution.numMatchingSubseq(s, words)).toEqual(expected);
+})
+
 test("PreimageSizeFZFTest", () => {
   expect(solution.preimageSizeFZF(0)).toEqual(5);
   expect(solution.preimageSizeFZF(5)).toEqual(0);
