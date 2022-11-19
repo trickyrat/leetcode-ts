@@ -1856,6 +1856,28 @@ export class Solution {
     }
 
     /**
+     * 799. Champagne Tower
+     * @param poured 
+     * @param query_row 
+     * @param query_glass 
+     */
+    champagneTower(poured: number, query_row: number, query_glass: number): number {
+        let row = [poured];
+        for (let i = 1; i <= query_row; i++) {
+            let nextRow = new Array<number>(i + 1).fill(0);
+            for (let j = 0; j < i; j++) {
+                const volume = row[j];
+                if (volume > 1) {
+                    nextRow[j] += (volume - 1) / 2;
+                    nextRow[j + 1] += (volume - 1) / 2;
+                }
+            }
+            row = nextRow;
+        }
+        return Math.min(1, row[query_glass]);
+    }
+
+    /**
      * 801. Minimum Swaps To Make Sequences Increasing
      * @param nums1 
      * @param nums2 

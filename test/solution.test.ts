@@ -541,6 +541,14 @@ test("PreimageSizeFZFTest", () => {
   expect(solution.preimageSizeFZF(3)).toEqual(5);
 })
 
+test.each([
+  [1, 1, 1, 0.00000],
+  [2, 1, 1, 0.50000],
+  [100000009, 33, 17, 1.00000],
+])("champagneTower()", (poured: number, query_row: number, query_glass: number, expected: number) => {
+  expect(solution.champagneTower(poured, query_row, query_glass)).toBeCloseTo(expected);
+});
+
 test("MinSwapTest", () => {
   expect(solution.minSwap([1, 3, 5, 4], [1, 2, 3, 7])).toEqual(1);
   expect(solution.minSwap([0, 3, 5, 8, 9], [2, 1, 4, 6, 9])).toEqual(1);
