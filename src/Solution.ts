@@ -3606,6 +3606,19 @@ export class Solution {
     }
 
     /**
+     * 1732. Find the Highest Altitude
+     * @param gain 
+     */
+    largestAltitude(gain: number[]): number {
+        let res = 0, start = 0;
+        gain.forEach(x => {
+            start = x + start;
+            res = Math.max(res, start);
+        });
+        return res;
+    }
+
+    /**
      * 1768.Merge Strings Alternately
      * @param word1 
      * @param words 
