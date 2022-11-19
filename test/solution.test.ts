@@ -979,6 +979,13 @@ test.each([
   expect(solution.maximumUnits(boxTypes, truckSize)).toEqual(expected);
 });
 
+test.each([
+  [[-5, 1, 5, 0, -7], 1],
+  [[-4, -3, -2, -1, 4, 3, 2], 0],
+])("largestAltitude(%p)", (gain: number[], expected: number) => {
+  expect(solution.largestAltitude(gain)).toEqual(expected);
+});
+
 test("MergeAlternatelyTest", () => {
   expect(solution.mergeAlternately("abc", "pqr")).toEqual("apbqcr");
   expect(solution.mergeAlternately("ab", "pqrs")).toEqual("apbqrs");
