@@ -6,7 +6,7 @@ export class ListNode {
     this.next = (next === undefined ? null : next);
   }
 
-  print(): string {
+  toString(): string {
     let dummy = new ListNode(0);
     dummy.next = this;
     let res: string[] = [];
