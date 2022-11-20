@@ -1,12 +1,14 @@
 import { ParkingSystem } from "../src/ParkingSystem";
 
-let parkingSystem = new ParkingSystem(1, 1, 1);
+const parkingSystem = new ParkingSystem(1, 1, 1);
 
-test("ParkingSystemTest", () => {
-  expect(parkingSystem.addCar(1)).toEqual(true);
-  expect(parkingSystem.addCar(2)).toEqual(true);
-  expect(parkingSystem.addCar(3)).toEqual(true);
-  expect(parkingSystem.addCar(3)).toEqual(false);
-  expect(parkingSystem.addCar(1)).toEqual(false);
-  expect(parkingSystem.addCar(2)).toEqual(false);
+test.each([
+  [1, true],
+  [2, true],
+  [3, true],
+  [3, false],
+  [1, false],
+  [2, false],
+])("ParkingSystem.add(%i)", (carType: number, expected: boolean) => {
+  expect(parkingSystem.addCar(carType)).toEqual(expected);
 })
