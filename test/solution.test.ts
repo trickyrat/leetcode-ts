@@ -1205,6 +1205,14 @@ test.each([
 });
 
 test.each([
+  [1, 10, 2],
+  [5, 15, 2],
+  [19, 28, 2],
+])("countBalls(%i, %i)", (lowLimit: number, highLimit: number, expected: number) => {
+  expect(solution.countBalls(lowLimit, highLimit)).toEqual(expected);
+})
+
+test.each([
   ["abc", "pqr", "apbqcr"],
   ["ab", "pqrs", "apbqrs"],
   ["abcd", "pq", "apbqcd"]
