@@ -3641,6 +3641,26 @@ export class Solution {
     }
 
     /**
+     * add 1742. Maximum Number of Balls in a Box
+     * @param lowLimit 
+     * @param highLimit 
+     */
+    countBalls(lowLimit: number, highLimit: number): number {
+        let counter = new Map<number, number>();
+        let res = 0;
+        for (let i = lowLimit; i <= highLimit; i++) {
+            let box = 0, x = i;
+            while (x != 0) {
+                box += x % 10;
+                x = Math.floor(x / 10);
+            }
+            counter.set(box, (counter.get(box) || 0) + 1);
+            res = Math.max(res, counter.get(box)!);
+        }
+        return res;
+    }
+
+    /**
      * 1768.Merge Strings Alternately
      * @param word1 
      * @param words 
