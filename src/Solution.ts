@@ -1655,7 +1655,7 @@ export class Solution {
     }
 
     /**
-     * 
+     * 775. Global and Local Inversions
      * @param nums 
      */
     isIdealPermutation(nums: number[]): boolean {
@@ -1853,6 +1853,28 @@ export class Solution {
         };
 
         return nx(k + 1) - nx(k);
+    }
+
+    /**
+     * 795. Number of Subarrays with Bounded Maximum
+     * @param nums 
+     * @param left 
+     * @param right 
+     */
+    numSubarrayBoundedMax(nums: number[], left: number, right: number): number {
+        let res = 0, last2 = -1, last1 = -1;
+        for (let i = 0; i < nums.length; i++) {
+            if (left <= nums[i] && nums[i] <= right) {
+                last1 = i;
+            } else if (nums[i] > right) {
+                last2 = i;
+                last1 = -1;
+            }
+            if (last1 !== -1) {
+                res += last1 - last2;
+            }
+        }
+        return res;
     }
 
     /**

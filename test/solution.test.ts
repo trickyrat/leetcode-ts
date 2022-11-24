@@ -634,10 +634,17 @@ test.each([
   expect(solution.numMatchingSubseq(s, words)).toEqual(expected);
 });
 
-test("PreimageSizeFZF()", () => {
-  expect(solution.preimageSizeFZF(0)).toEqual(5);
-  expect(solution.preimageSizeFZF(5)).toEqual(0);
-  expect(solution.preimageSizeFZF(3)).toEqual(5);
+test.each([
+  [0, 5], [5, 0], [3, 5]
+])("preimageSizeFZF(%i)", (k: number, expected: number) => {
+  expect(solution.preimageSizeFZF(k)).toEqual(expected);
+});
+
+test.each([
+  [[2, 1, 4, 3], 2, 3, 3],
+  [[2, 9, 2, 5, 6], 2, 8, 7],
+])("numSubarrayBoundedMax(%p, %i, %i)", (nums: number[], left: number, right: number, expected: number) => {
+  expect(solution.numSubarrayBoundedMax(nums, left, right)).toEqual(expected);
 });
 
 test.each([
