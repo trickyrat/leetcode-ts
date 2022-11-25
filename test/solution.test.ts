@@ -684,6 +684,13 @@ test.each([
 });
 
 test.each([
+  ["heeellooo", ["hello", "hi", "helo"], 1],
+  ["zzzzzyyyyy", ["zzyy", "zy", "zyy"], 3]
+])("expressiveWords(%s, %p)", (s: string, words: string[], expected: number) => {
+  expect(solution.expressiveWords(s, words)).toEqual(expected);
+});
+
+test.each([
   [["9001 discuss.leetcode.com"], ["9001 discuss.leetcode.com", "9001 leetcode.com", "9001 com"]],
   [["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"], ["900 google.mail.com", "901 mail.com", "951 com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org", "5 org"]]
 ])("subdomainVisits(%p)", (cpdomains: string[], expected: string[]) => {

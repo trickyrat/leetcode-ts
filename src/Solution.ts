@@ -1996,6 +1996,47 @@ export class Solution {
     }
 
     /**
+     * 809. Expressive Words
+     * @param s 
+     * @param words 
+     */
+    expressiveWords(s: string, words: string[]): number {
+        const expand = (s: string, t: string): boolean => {
+            let i = 0, j = 0;
+            while (i < s.length && j < t.length) {
+                if (s[i] != t[j]) {
+                    return false;
+                }
+                const ch: string = s[i];
+                let cnti = 0;
+                while (i < s.length && s[i] === ch) {
+                    ++cnti;
+                    ++i;
+                }
+                let cntj = 0;
+                while (j < t.length && t[j] === ch) {
+                    ++cntj;
+                    ++j;
+                }
+                if (cnti < cntj) {
+                    return false;
+                }
+                if (cnti != cntj && cnti < 3) {
+                    return false;
+                }
+            }
+            return i === s.length && j === t.length;
+        }
+        let res = 0;
+        for (const word of words) {
+            if (expand(s, word)) {
+                ++res;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 811.Subdomain Visit Count
      * @param cpdomains 
      */
