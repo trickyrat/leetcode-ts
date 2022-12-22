@@ -3892,6 +3892,14 @@ export class Solution {
     }
 
     /**
+     * 2011. Final Value of Variable After Performing Operations
+     * @param operations 
+     */
+    finalValueAfterOperations(operations: string[]): number {
+        return operations.reduce((prev, curr) => prev + (curr[1] === "+" ? 1 : -1), 0);
+    }
+
+    /**
      * 2016.Maximum Difference Between Increasing Elements
      * @param nums
      * @returns
