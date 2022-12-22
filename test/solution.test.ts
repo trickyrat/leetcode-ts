@@ -1303,6 +1303,14 @@ test.each([
 });
 
 test.each([
+  [["--X", "X++", "X++"], 1],
+  [["++X", "++X", "X++"], 3],
+  [["X++", "++X", "--X", "X--"], 0],
+])("finalValueAfterOperations(%p)", (operations: string[], expected: number) => {
+  expect(solution.finalValueAfterOperations(operations)).toEqual(expected);
+});
+
+test.each([
   [[7, 1, 5, 4], 4],
   [[9, 4, 3, 2], -1],
   [[1, 5, 2, 10], 9],
