@@ -3918,6 +3918,22 @@ export class Solution {
     }
 
     /**
+     * 2027. Minimum Moves to Convert String
+     * @param s 
+     * @returns 
+     */
+    minimumMoves(s: string): number {
+        let count = -1, res = 0;
+        for (let i = 0; i < s.length; i++) {
+            if (s[i] == "X" && i > count) {
+                res++;
+                count = i + 2;
+            }
+        }
+        return res;
+    }
+
+    /**
      * 2044.Count Number of Maximum Bitwise-OR Subsets
      * @param nums 
      */
