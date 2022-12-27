@@ -1319,6 +1319,14 @@ test.each([
 });
 
 test.each([
+  ["XXX", 1],
+  ["XXOX", 2],
+  ["OOOO", 0]
+])("minimumMoves(%s)", (s: string, expected: number) => {
+  expect(solution.minimumMoves(s)).toEqual(expected);
+});
+
+test.each([
   [[3, 1], 2],
   [[2, 2, 2], 7],
   [[3, 2, 1, 5], 6],
