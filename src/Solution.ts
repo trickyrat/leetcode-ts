@@ -3724,6 +3724,25 @@ export class Solution {
     }
 
     /**
+     * 1750. Minimum Length of String After Deleting Similar Ends
+     * @param s 
+     */
+    minimumLength(s: string): number {
+        const n = s.length;
+        let left = 0, right = n - 1;
+        while (left < right && s[left] === s[right]) {
+            const c = s[left];
+            while (left <= right && s[left] === c) {
+                left++;
+            }
+            while (left <= right && s[right] === c) {
+                right--;
+            }
+        }
+        return right - left + 1;
+    }
+
+    /**
      * 1768.Merge Strings Alternately
      * @param word1 
      * @param words 

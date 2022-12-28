@@ -1227,6 +1227,14 @@ test.each([
 })
 
 test.each([
+  ["ca", 2],
+  ["cabaabac", 0],
+  ["aabccabba", 3]
+])("minimumLength(%s)", (s: string, expected: number) => {
+  expect(solution.minimumLength(s)).toEqual(expected);
+});
+
+test.each([
   ["abc", "pqr", "apbqcr"],
   ["ab", "pqrs", "apbqrs"],
   ["abcd", "pq", "apbqcd"]
