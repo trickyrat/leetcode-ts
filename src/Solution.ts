@@ -3953,6 +3953,32 @@ export class Solution {
     }
 
     /**
+     * 2032. Two Out of Three
+     * @param nums1 
+     * @param nums2 
+     * @param nums3 
+     */
+    twoOutOfThree(nums1: number[], nums2: number[], nums3: number[]): number[] {
+        let map: Map<number, number> = new Map<number, number>();
+        for (const num of nums1) {
+            map.set(num, 1);
+        }
+        for (const num of nums2) {
+            map.set(num, (map.get(num) || 0) | 2);
+        }
+        for (const num of nums3) {
+            map.set(num, (map.get(num) || 0) | 4);
+        }
+        let res = [];
+        for (const [k, v] of map.entries()) {
+            if ((v & (v - 1)) !== 0) {
+                res.push(k);
+            }
+        }
+        return res;
+    }
+
+    /**
      * 2044.Count Number of Maximum Bitwise-OR Subsets
      * @param nums 
      */

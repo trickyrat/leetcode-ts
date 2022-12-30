@@ -1335,6 +1335,17 @@ test.each([
 });
 
 test.each([
+  [[1, 1, 3, 2], [2, 3], [3], [3, 2]],
+  [[3, 1], [2, 3], [1, 2], [2, 3, 1]],
+  [[1, 2, 2], [4, 3, 3], [5], []],
+])("twoOutOfThree(%p, %p, %p)", (nums1: number[], nums2: number[], nums3: number[], expected: number[]) => {
+  expected = expected.sort((a, b) => a - b);
+  let actual = solution.twoOutOfThree(nums1, nums2, nums3);
+  actual = actual.sort((a, b) => a - b);
+  expect(actual).toEqual(expected);
+});
+
+test.each([
   [[3, 1], 2],
   [[2, 2, 2], 7],
   [[3, 2, 1, 5], 6],
