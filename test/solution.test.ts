@@ -1346,6 +1346,14 @@ test.each([
 });
 
 test.each([
+  [[3, 1, 5], [2, 7, 4], 4],
+  [[4, 1, 5, 9], [1, 3, 2, 6], 7],
+  [[2, 2, 6, 6], [1, 3, 2, 6], 4]
+])("minMovesToSeat(%p, %p)", (seats: number[], students: number[], expected: number) => {
+  expect(solution.minMovesToSeat(seats, students)).toEqual(expected);
+});
+
+test.each([
   [[3, 1], 2],
   [[2, 2, 2], 7],
   [[3, 2, 1, 5], 6],

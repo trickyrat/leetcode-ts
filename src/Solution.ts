@@ -3979,6 +3979,21 @@ export class Solution {
     }
 
     /**
+     * 2037. Minimum Number of Moves to Seat Everyone
+     * @param seats 
+     * @param students 
+     */
+    minMovesToSeat(seats: number[], students: number[]): number {
+        seats = seats.sort();
+        students = students.sort();
+        let res = 0;
+        for (let i = 0; i < seats.length; i++) {
+            res += Math.abs(seats[i] - students[i]);
+        }
+        return res;
+    }
+
+    /**
      * 2044.Count Number of Maximum Bitwise-OR Subsets
      * @param nums 
      */
