@@ -1369,6 +1369,15 @@ test.each([
 });
 
 test.each([
+  ["abccbaacz", "c"],
+  ["abcdd", "d"],
+  ["aa", "a"],
+  ["zz", "z"],
+])("repeatedCharacter(%s)", (s: string, expected: string) => {
+  expect(solution.repeatedCharacter(s)).toEqual(expected);
+});
+
+test.each([
   ["ilovecodingonleetcode", "code", 2],
   ["abcba", "abc", 1],
   ["abbaccaddaeea", "aaaaa", 1],
