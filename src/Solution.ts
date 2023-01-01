@@ -4056,6 +4056,22 @@ export class Solution {
     }
 
     /**
+     * 2351. First Letter to Appear Twice
+     * @param s 
+     */
+    repeatedCharacter(s: string): string {
+        let seen = 0;
+        for (let i = 0; i < s.length; i++) {
+            const index = s[i].charCodeAt(0) - 'a'.charCodeAt(0);
+            if ((seen & (1 << index)) > 0) {
+                return s[i];
+            }
+            seen |= (1 << index);
+        }
+        return " ";
+    }
+
+    /**
      * 6078.Rearrange Characters to Make Target String
      * @param s 
      * @param target 
