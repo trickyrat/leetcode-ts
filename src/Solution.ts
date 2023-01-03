@@ -3994,6 +3994,30 @@ export class Solution {
     }
 
     /**
+     * 2042. Check if Numbers Are Ascending in a Sentence
+     * @param s 
+     */
+    areNumberAscending(s: string): boolean {
+        let prev = 0, pos = 0, n = s.length;
+        while (pos < n) {
+            if (this.utils.isDigit(s[pos])) {
+                let curr = 0;
+                while (pos < n && this.utils.isDigit(s[pos])) {
+                    curr = curr * 10 + s[pos].charCodeAt(0) - '0'.charCodeAt(0);
+                    pos++;
+                }
+                if (curr <= prev) {
+                    return false;
+                }
+                prev = curr;
+            } else {
+                pos++;
+            }
+        }
+        return true;
+    }
+
+    /**
      * 2044.Count Number of Maximum Bitwise-OR Subsets
      * @param nums 
      */

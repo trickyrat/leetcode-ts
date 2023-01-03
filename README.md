@@ -1,8 +1,8 @@
-# Welcome to Leetcodets
+# Welcome to LeetCodets
 
 ## Introduction
 
-The solutions of Leetcode problems with Typescript.  
+The solutions of LeetCode problems with Typescript.  
 
 ## Getting Started
 
