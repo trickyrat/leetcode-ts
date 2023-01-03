@@ -1354,6 +1354,14 @@ test.each([
 });
 
 test.each([
+  ["1 box has 3 blue 4 red 6 green and 12 yellow marbles", true],
+  ["hello world 5 x 5", false],
+  ["sunset is at 7 51 pm overnight lows will be in the low 50 and 60 s", false],
+])("areNumberAscending(%s)", (s: string, expected: boolean) => {
+  expect(solution.areNumberAscending(s)).toEqual(expected);
+});
+
+test.each([
   [[3, 1], 2],
   [[2, 2, 2], 7],
   [[3, 2, 1, 5], 6],
