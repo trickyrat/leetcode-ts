@@ -3850,6 +3850,33 @@ export class Solution {
     }
 
     /**
+     * 1802. Maximum Value at a Given Index in a Bounded Array
+     * @param n 
+     * @param index 
+     * @param maxSum 
+     */
+    maxValue(n: number, index: number, maxSum: number): number {
+        let left = index, right = n - index - 1;
+        if (left > right) {
+            [left, right] = [right, left];
+        }
+
+        let upper = ((left + 1) * (left + 1) - 3 * (left + 1)) / 2 + left + 1 + (left + 1) + ((left + 1) * (left + 1) - 3 * (left + 1)) / 2 + right + 1;
+        if (upper >= maxSum) {
+            let a = 1, b = -2, c = left + right + 2 - maxSum;
+            return Math.floor((-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a));
+        }
+        upper = (2 * (right + 1) - left - 1) * left / 2 + (right + 1) + ((right + 1) * (right + 1) - 3 * (right + 1)) / 2 + right + 1;
+        if (upper >= maxSum) {
+            let a = 1.0 / 2, b = left + 1 - 3.0 / 2, c = right + 1 + (-left - 1) * left / 2 - maxSum;
+            return Math.floor((-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a));
+        } else {
+            let a = left + right + 1, b = (-left * left - left - right * right - right) / 2 - maxSum;
+            return Math.floor(-b / a);
+        }
+    }
+
+    /**
      * 1822.Sign of the Product of an Array
      * @param nums 
      */

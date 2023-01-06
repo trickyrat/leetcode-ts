@@ -1281,6 +1281,13 @@ test.each([
 })
 
 test.each([
+  [4, 2, 6, 2],
+  [6, 1, 10, 3]
+])("maxValue(%i, %i, %i)", (n: number, index: number, maxSum: number, expected: number) => {
+  expect(solution.maxValue(n, index, maxSum)).toEqual(expected);
+});
+
+test.each([
   [[-1, -2, -3, -4, 3, 2, 1], 1],
   [[1, 5, 0, 2, -3], 0],
   [[-1, 1, -1, 1, -1], -1],
