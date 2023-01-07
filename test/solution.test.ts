@@ -1384,6 +1384,13 @@ test.each([
 });
 
 test.each([
+  [4, 2],
+  [30, 14]
+])("countEven(%i)", (num: number, expected: number) => {
+  expect(solution.countEven(num)).toEqual(expected);
+});
+
+test.each([
   ["abccbaacz", "c"],
   ["abcdd", "d"],
   ["aa", "a"],
