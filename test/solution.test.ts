@@ -1098,6 +1098,14 @@ test.each([
 });
 
 test.each([
+  [[1, 1, 4, 2, 3], 5, 2],
+  [[5, 6, 7, 8, 9], 4, -1],
+  [[3, 2, 20, 1, 1, 3], 10, 5]
+])("minOperations2(%p, %i)", (nums: number[], x: number, expected: number) => {
+  expect(solution.minOperations2(nums, x)).toEqual(expected);
+});
+
+test.each([
   [["ab", "c"], ["a", "bc"], true],
   [["a", "cb"], ["ab", "c"], false],
   [["abc", "d", "defg"], ["abcddefg"], true],
