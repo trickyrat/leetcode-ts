@@ -3475,6 +3475,39 @@ export class Solution {
     }
 
     /**
+     * 1658. Minimum Operations to Reduce X to Zero
+     * @param nums 
+     * @param x 
+     */
+    minOperations2(nums: number[], x: number): number {
+        const n = nums.length;
+        const sum = nums.reduce((prev, curr) => prev + curr, 0);
+
+        if (sum < x) {
+            return -1;
+        }
+
+        let right = 0;
+        let leftSum = 0, rightSum = sum;
+        let res = n + 1;
+
+        for (let left = -1; left < n; ++left) {
+            if (left != -1) {
+                leftSum += nums[left];
+            }
+            while (right < n && leftSum + rightSum > x) {
+                rightSum -= nums[right];
+                ++right;
+            }
+            if (leftSum + rightSum === x) {
+                res = Math.min(res, (left + 1) + (n - right));
+            }
+        }
+
+        return res > n ? -1 : res;
+    }
+
+    /**
      * 1662. Check If Two String Arrays are Equivalent
      * @param word1 
      * @param word2 
