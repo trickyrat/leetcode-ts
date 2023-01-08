@@ -4159,6 +4159,15 @@ export class Solution {
     }
 
     /**
+     * 2185. Counting Words With a Given Prefix
+     * @param words 
+     * @param pref 
+     */
+    prefixCount(words: string[], pref: string): number {
+        return words.filter(word => word.startsWith(pref)).length;
+    }
+
+    /**
      * 2351. First Letter to Appear Twice
      * @param s 
      */
