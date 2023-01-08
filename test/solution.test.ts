@@ -1399,6 +1399,13 @@ test.each([
 });
 
 test.each([
+  [["pay", "attention", "practice", "attend"], "at", 2],
+  [["leetcode", "win", "loops", "success"], "code", 0]
+])("prefixCount(%p, %s)", (words: string[], pref: string, expected: number) => {
+  expect(solution.prefixCount(words, pref)).toEqual(expected);
+});
+
+test.each([
   ["abccbaacz", "c"],
   ["abcdd", "d"],
   ["aa", "a"],
