@@ -122,6 +122,30 @@ export class Solution {
     }
 
     /**
+     * 19. Remove Nth Node From End of List
+     * @param head 
+     * @param n 
+     */
+    removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+        let dummyHead = new ListNode(-1, head);
+        let fast = head;
+        let slow = dummyHead;
+
+        for (let i = 0; i < n; i++) {
+            if (fast) {
+                fast = fast.next;
+            }
+
+        }
+        while (fast) {
+            fast = fast.next;
+            slow = slow.next!;
+        }
+        slow.next = slow.next!.next;
+        return dummyHead.next;
+    }
+
+    /**
      * 20.Valid Parentheses
      * @param s 
      */
@@ -168,7 +192,7 @@ export class Solution {
             }
             dummyHead = dummyHead.next;
         }
-        dummyHead.next = list1 === null ? list2 : list1;
+        dummyHead.next = list1 ?? list2;
         return head.next;
     }
 

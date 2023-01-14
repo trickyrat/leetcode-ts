@@ -52,6 +52,16 @@ test.each([
   expect(solution.reverseIntNumber(x)).toEqual(expected);
 });
 
+test.each(
+  [
+    [utils.createListNode([1, 2, 3, 4, 5]), 2, utils.createListNode([1, 2, 3, 5])],
+    [utils.createListNode([1]), 1, null],
+    [utils.createListNode([1, 2]), 1, utils.createListNode([1])],
+  ]
+)("removeNthFromEnd(%p, %i)", (head: ListNode | null, n: number, expected: ListNode | null) => {
+  expect(solution.removeNthFromEnd(head, n)).toEqual(expected);
+});
+
 test.each([
   ["()", true],
   ["())", false],
