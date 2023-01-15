@@ -2,7 +2,7 @@ import { ListNode } from "./DataStructures/ListNode";
 import { TreeNode } from "./DataStructures/TreeNode";
 import { Node } from "./DataStructures/Node";
 import { Trie } from "./DataStructures/Trie";
-import { MaxPriorityQueue } from "@datastructures-js/priority-queue";
+import { MaxPriorityQueue, MinPriorityQueue, PriorityQueue } from "@datastructures-js/priority-queue";
 import { Utilities } from "./Utilities";
 
 export class Solution {
@@ -194,6 +194,33 @@ export class Solution {
         }
         dummyHead.next = list1 ?? list2;
         return head.next;
+    }
+
+    /**
+     * 23. Merge k Sorted Lists
+     * @param lists 
+     */
+    mergeKLists(lists: (ListNode | null)[]): ListNode | null {
+        let pq = new MinPriorityQueue<ListNode>();
+        // let compare = (lhs: ListNode, rhs: ListNode): number => {
+        //     return lhs.val < rhs.val ? -1 : 1;
+        // };
+        // let pq = new PriorityQueue<ListNode>(compare);
+        let dummy = new ListNode(-1), p = dummy;
+        for (const node of lists) {
+            if (node) {
+                pq.push(node);
+            }
+        }
+        while (!pq.isEmpty()) {
+            let curr = pq.pop();
+            p.next = curr;
+            if (curr.next != null) {
+                pq.push(curr.next);
+            }
+            p = p.next;
+        }
+        return dummy.next;
     }
 
     /**

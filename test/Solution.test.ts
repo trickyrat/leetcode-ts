@@ -80,6 +80,12 @@ test.each([
 });
 
 test.each([
+  [[utils.createListNode([1, 4, 5]), utils.createListNode([1, 3, 4]), utils.createListNode([2, 6])], utils.createListNode([1, 1, 2, 3, 4, 4, 5, 6])]
+])("mergeKLists(%p)", (lists: (ListNode | null)[], expected: ListNode | null) => {
+  expect(solution.mergeKLists(lists)).toEqual(expected);
+});
+
+test.each([
   [[3, 2, 2, 3], 3, 2],
   [[0, 1, 2, 2, 3, 0, 4, 2], 2, 5]
 ])("removeElement(%p, %i)", (nums: number[], val: number, expected: number) => {
