@@ -1,4 +1,5 @@
 import { NumArray } from "../src/NumArray";
+import { expect, test } from 'vitest'
 
 const numArray = new NumArray([-2, 0, 3, -5, 2, -1]);
 

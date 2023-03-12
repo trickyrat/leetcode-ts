@@ -1,5 +1,5 @@
 import { RandomizedSet } from "../src/RandomizedSet";
-
+import { expect, test } from 'vitest'
 
 
 test("RandomizedSetTest", () => {

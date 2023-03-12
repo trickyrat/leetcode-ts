@@ -3,6 +3,7 @@ import { Node } from "../src/DataStructures/Node";
 import { Utilities } from "../src/Utilities";
 import { ListNode } from "../src/DataStructures/ListNode";
 import { TreeNode } from "../src/DataStructures/TreeNode";
+import { expect, test } from 'vitest'
 
 const solution = new Solution();
 const utils = new Utilities();
@@ -12,7 +13,7 @@ test.each([
   [[3, 2, 4], 6, [1, 2]],
   [[3, 3], 6, [0, 1]],
   [[1, 3], 6, []]
-])("twoSum(%p, %i)", (nums: number[], target: number, expected: number[]) => {
+])("twoSum(%o, %i) -> %o", (nums: number[], target: number, expected: number[]) => {
   expect(solution.twoSum(nums, target)).toEqual(expected);
 });
 
@@ -20,7 +21,7 @@ test.each([
   [utils.createListNode([2, 4, 3]), utils.createListNode([5, 6, 4]), [7, 0, 8]],
   [utils.createListNode([0]), utils.createListNode([0]), [0]],
   [utils.createListNode([9, 9, 9, 9, 9, 9, 9]), utils.createListNode([9, 9, 9, 9]), [8, 9, 9, 9, 0, 0, 0, 1]]
-])("addTwoNumbers(%o, %o)", (l1: ListNode | null, l2: ListNode | null, expected: number[]) => {
+])("addTwoNumbers(%o, %o) -> %o", (l1: ListNode | null, l2: ListNode | null, expected: number[]) => {
   expect(utils.convertListNodeToArray(solution.addTwoNumbers(l1, l2))).toEqual(expected);
 });
 
@@ -28,7 +29,7 @@ test.each([
   ["abcabcbb", 3],
   ["bbbbb", 1],
   ["pwwkew", 3],
-])("lengthOfLongestSubstring(%s)", (s: string, expected: number) => {
+])("lengthOfLongestSubstring(%s) -> %i", (s: string, expected: number) => {
   expect(solution.longestSubstringWithoutRepeating(s)).toEqual(expected);
 });
 
@@ -36,7 +37,7 @@ test.each([
   ["PAYPALISHIRING", 3, "PAHNAPLSIIGYIR"],
   ["PAYPALISHIRING", 4, "PINALSIGYAHRPI"],
   ["A", 1, "A"]
-])("zConvert(%s, %i)", (s: string, numRows: number, expected: string) => {
+])("zConvert(%s, %i) -> %s", (s: string, numRows: number, expected: string) => {
   expect(solution.zconvert(s, numRows)).toEqual(expected);
 });
 
@@ -48,7 +49,7 @@ test.each([
   [0, 0],
   [-2147483649, 0],
   [-2147483648, 0],
-])("reverseIntNumber(%i)", (x: number, expected: number) => {
+])("reverseIntNumber(%i) -> %i", (x: number, expected: number) => {
   expect(solution.reverseIntNumber(x)).toEqual(expected);
 });
 
@@ -58,7 +59,7 @@ test.each(
     [utils.createListNode([1]), 1, null],
     [utils.createListNode([1, 2]), 1, utils.createListNode([1])],
   ]
-)("removeNthFromEnd(%p, %i)", (head: ListNode | null, n: number, expected: ListNode | null) => {
+)("removeNthFromEnd(%o, %i) -> %o", (head: ListNode | null, n: number, expected: ListNode | null) => {
   expect(solution.removeNthFromEnd(head, n)).toEqual(expected);
 });
 
@@ -67,7 +68,7 @@ test.each([
   ["())", false],
   ["()[]{}", true],
   ["(]", false],
-])("isValidParentheses()", (s: string, expected: boolean) => {
+])("isValidParentheses(%s) -> %s", (s: string, expected: boolean) => {
   expect(solution.isValidParentheses(s)).toEqual(expected);
 });
 
@@ -75,20 +76,20 @@ test.each([
   [utils.createListNode([1, 2, 4]), utils.createListNode([1, 3, 4]), utils.createListNode([1, 1, 2, 3, 4, 4])],
   [utils.createListNode([]), utils.createListNode([]), utils.createListNode([])],
   [utils.createListNode([]), utils.createListNode([0]), utils.createListNode([0])]
-])("mergeTwoLists(%o, %o)", (list1: ListNode | null, list2: ListNode | null, expected: ListNode | null) => {
+])("mergeTwoLists(%o, %o) -> %o", (list1: ListNode | null, list2: ListNode | null, expected: ListNode | null) => {
   expect(solution.mergeTwoLists(list1, list2)).toEqual(expected);
 });
 
 test.each([
   [[utils.createListNode([1, 4, 5]), utils.createListNode([1, 3, 4]), utils.createListNode([2, 6])], utils.createListNode([1, 1, 2, 3, 4, 4, 5, 6])]
-])("mergeKLists(%p)", (lists: (ListNode | null)[], expected: ListNode | null) => {
+])("mergeKLists(%o) -> %o", (lists: (ListNode | null)[], expected: ListNode | null) => {
   expect(solution.mergeKLists(lists)).toEqual(expected);
 });
 
 test.each([
   [[3, 2, 2, 3], 3, 2],
   [[0, 1, 2, 2, 3, 0, 4, 2], 2, 5]
-])("removeElement(%p, %i)", (nums: number[], val: number, expected: number) => {
+])("removeElement(%o, %i) -> %i", (nums: number[], val: number, expected: number) => {
   expect(solution.removeElement(nums, val)).toEqual(expected);
 });
 
@@ -96,21 +97,21 @@ test.each([
   [[1, 2, 3], [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]],
   [[0, 1], [[0, 1], [1, 0]]],
   [[1], [[1]]]
-])("permute(%p)", (nums: number[], expected: number[][]) => {
+])("permute(%o) -> %o", (nums: number[], expected: number[][]) => {
   expect(solution.permute(nums)).toEqual(expected);
 });
 
 test.each([
   [[1, 1, 2], [[1, 1, 2], [1, 2, 1], [2, 1, 1]]],
   [[1, 2, 3], [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]]
-])("permuteUnique(%p)", (nums: number[], expected: number[][]) => {
+])("permuteUnique(%o) -> %o", (nums: number[], expected: number[][]) => {
   expect(solution.permuteUnique(nums)).toEqual(expected);
 });
 
 test.each([
   [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [[7, 4, 1], [8, 5, 2], [9, 6, 3]]],
   [[[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]], [[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]]]
-])("rotateImageUnit(%p)", (matrix: number[][], expected: number[][]) => {
+])("rotateImageUnit(%o)", (matrix: number[][], expected: number[][]) => {
   solution.rotate(matrix);
   expect(matrix).toEqual(expected);
 });
@@ -119,14 +120,14 @@ test.each([
   [[-2, 1, -3, 4, -1, 2, 1, -5, 4], 6],
   [[1], 1],
   [[5, 4, -1, 7, 8], 23]
-])("maxSubArray(%p)", (nums: number[], expected: number) => {
+])("maxSubArray(%o)", (nums: number[], expected: number) => {
   expect(solution.maxSubArray(nums)).toEqual(expected);
 });
 
 test.each([
   [[[1, 1, 1], [1, 0, 1], [1, 1, 1]], [[1, 0, 1], [0, 0, 0], [1, 0, 1]]],
   [[[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]], [[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]]]
-])("setZeroes(%p)", (matrix: number[][], expected: number[][]) => {
+])("setZeroes(%o)", (matrix: number[][], expected: number[][]) => {
   solution.setZeroes(matrix)
   expect(matrix).toEqual(expected);
 });
@@ -150,7 +151,7 @@ test.each([
   [[1, 2, 3, 0, 0, 0], 3, [2, 5, 6], 3, [1, 2, 2, 3, 5, 6]],
   [[1], 1, [], 0, [1]],
   [[0], 0, [1], 1, [1]]
-])("merge(%p, %i, %p, %i)", (nums1: number[], m: number, nums2: number[], n: number, expected: number[]) => {
+])("merge(%o, %i, %o, %i)", (nums1: number[], m: number, nums2: number[], n: number, expected: number[]) => {
   solution.merge(nums1, m, nums2, n);
   expect(nums1).toEqual(expected)
 });
@@ -195,7 +196,7 @@ test.each([
 test.each([
   [[7, 1, 5, 3, 6, 4], 5],
   [[7, 6, 4, 3, 1], 0]
-])("maxProfit(%p)", (prices: number[], expected: number) => {
+])("maxProfit(%o)", (prices: number[], expected: number) => {
   expect(solution.maxProfit(prices)).toEqual(expected);
 });
 
@@ -276,7 +277,7 @@ test.each([
   [[1, 2, 3, 1], true],
   [[1, 2, 3, 4], false],
   [[1, 1, 1, 3, 3, 4, 3, 2, 4, 2], true]
-])("containsDuplicate(%p)", (nums: number[], expected: boolean) => {
+])("containsDuplicate(%o)", (nums: number[], expected: boolean) => {
   expect(solution.containsDuplicate(nums)).toEqual(expected);
 })
 
@@ -296,7 +297,7 @@ test.each([
 test.each([
   [[1, 2, 2, 1], [2, 2], [2, 2]],
   [[4, 9, 5], [9, 4, 9, 8, 4], [9, 4]]
-])("intersect(%p, %p)", (nums1: number[], nums2: number[], expected: number[]) => {
+])("intersect(%o, %o)", (nums1: number[], nums2: number[], expected: number[]) => {
   expect(solution.intersect(nums1, nums2)).toEqual(expected);
 });
 
@@ -353,14 +354,14 @@ test.each([
 
 test.each([
   [[1, 1, 2, 2, 2], true], [[3, 3, 3, 3, 4], false], [[3, 3, 2, 2], false]
-])("makeSquare(%p)", (matchsticks: number[], expected: boolean) => {
+])("makeSquare(%o)", (matchsticks: number[], expected: boolean) => {
   expect(solution.makeSquare(matchsticks)).toEqual(expected);
 });
 
 test.each([
   [[4, 1, 2], [1, 3, 4, 2], [-1, 3, -1]],
   [[2, 4], [1, 2, 3, 4], [3, -1]]
-])("nextGreaterElement(%p, %p)", (nums1: number[], nums2: number[], expected: number[]) => {
+])("nextGreaterElement(%o, %o)", (nums1: number[], nums2: number[], expected: number[]) => {
   expect(solution.nextGreaterElement(nums1, nums2)).toEqual(expected);
 });
 
@@ -374,7 +375,7 @@ test.each([
   [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], [1, 2, 4, 7, 5, 3, 6, 8, 9]],
   [[[1, 2], [3, 4]], [1, 2, 3, 4]],
   [[], []]
-])("findDiagonalOrder(%p)", (matrix: number[][], expected: number[]) => {
+])("findDiagonalOrder(%o)", (matrix: number[][], expected: number[]) => {
   expect(solution.findDiagonalOrder(matrix)).toEqual(expected);
 });
 
@@ -395,7 +396,7 @@ test.each([
 test.each([
   [[1, 1, 2, 3, 3, 4, 4, 8, 8], 2],
   [[3, 3, 7, 7, 10, 11, 11], 10],
-])("singleNonDuplicate(%p)", (nums: number[], expected: number) => {
+])("singleNonDuplicate(%o)", (nums: number[], expected: number) => {
   expect(solution.singleNonDuplicate(nums)).toEqual(expected);
 });
 
@@ -403,14 +404,14 @@ test.each([
   [[1000, 100, 10, 2], "1000/(100/10/2)"],
   [[1000], "1000"],
   [[1000, 100], "1000/100"],
-])("optimalDivision(%p)", (nums: number[], expected: string) => {
+])("optimalDivision(%o)", (nums: number[], expected: string) => {
   expect(solution.optimalDivision(nums)).toEqual(expected);
 });
 
 test.each([
   [[[1, 2], [3, 4]], 1, 4, [[1, 2, 3, 4]]],
   [[[1, 2], [3, 4]], 2, 4, [[1, 2], [3, 4]]]
-])("matrixReshape(%p, %i, %i)", (mat: number[][], r: number, c: number, expected: number[][]) => {
+])("matrixReshape(%o, %i, %i)", (mat: number[][], r: number, c: number, expected: number[][]) => {
   expect(solution.matrixReshape(mat, r, c)).toEqual(expected);
 });
 
@@ -453,13 +454,13 @@ test.each([
   [2, ["0:start:0", "0:start:2", "0:end:5", "1:start:6", "1:end:6", "0:end:7"], [7, 1]],
   [2, ["0:start:0", "0:start:2", "0:end:5", "1:start:7", "1:end:7", "0:end:8"], [8, 1]],
   [1, ["0:start:0", "0:end:0"], [1]]
-])("exclusiveTime(%i, %p)", (n: number, logs: string[], expected: number[]) => {
+])("exclusiveTime(%i, %o)", (n: number, logs: string[], expected: number[]) => {
   expect(solution.exclusiveTime(n, logs)).toEqual(expected);
 });
 
 test.each([
   [[[1, 2], [2, 3], [3, 4]], 2], [[[1, 2], [7, 8], [4, 5]], 3]
-])("findLongestChain(%p)", (pairs: number[][], expected: number) => {
+])("findLongestChain(%o)", (pairs: number[][], expected: number) => {
   expect(solution.findLongestChain(pairs)).toEqual(expected);
 });
 
@@ -479,7 +480,7 @@ test.each([
 
 test.each([
   [[1, 2, 3, 4, 5], 4, 3, [1, 2, 3, 4]], [[1, 2, 3, 4, 5], 4, -1, [1, 2, 3, 4]]
-])("findClosestElements(%p, %i, %i)", (arr: number[], k: number, x: number, expected: number[]) => {
+])("findClosestElements(%o, %i, %i)", (arr: number[], k: number, x: number, expected: number[]) => {
   expect(solution.findClosestElements(arr, k, x)).toEqual(expected)
 });
 
@@ -522,7 +523,7 @@ test.each([
   [["5", "2", "C", "D", "+"], 30],
   [["5", "-2", "4", "C", "D", "9", "+", "+"], 27],
   [["1"], 1]
-])("calPoints(%p)", (ops: string[], expected: number) => {
+])("calPoints(%o)", (ops: string[], expected: number) => {
   expect(solution.calPoints(ops)).toEqual(expected);
 });
 
@@ -544,7 +545,7 @@ test.each([
 test.each([
   [["w", "wo", "wor", "worl", "world"], "world"],
   [["a", "banana", "app", "appl", "ap", "apply", "apple"], "apple"]
-])("longestWord(%p)", (words: string[], expected: string) => {
+])("longestWord(%o)", (words: string[], expected: string) => {
   expect(solution.longestWord(words)).toEqual(expected);
 });
 
@@ -553,7 +554,7 @@ test.each([
   [["c", "f", "j"], "c", "f"],
   [["c", "f", "j"], "d", "f"],
   [["d"], "z", "d"]
-])("nextGreatestLetter(%p, %s)", (letters: string[], target: string, expected: string) => {
+])("nextGreatestLetter(%o, %s)", (letters: string[], target: string, expected: string) => {
   expect(solution.nextGreatestLetter(letters, target)).toEqual(expected);
 });
 
@@ -566,14 +567,14 @@ test.each([
 
 test.each([
   [[2, 3, -1, 8, 4], 3], [[1, -1, 4], 2], [[2, 5], -1]
-])("pivotIndex(%p)", (nums: number[], expected: number) => {
+])("pivotIndex(%o)", (nums: number[], expected: number) => {
   expect(solution.pivotIndex(nums)).toEqual(expected);
 });
 
 test.each([
   [1, 22, [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]],
   [47, 85, [48, 55, 66, 77]]
-])("selfDividingNumbers(%i, %i, %p)", (left: number, right: number, expected: number[]) => {
+])("selfDividingNumbers(%i, %i, %o)", (left: number, right: number, expected: number[]) => {
   expect(solution.selfDividingNumbers(left, right)).toEqual(expected);
 });
 
@@ -586,21 +587,21 @@ test.each([
 test.each([
   [5, [[4, 2]], 2],
   [1, [[0, 0]], 0]
-])("orderOfLargestPlusSign(%i, %p)", (n: number, mines: number[][], expected: number) => {
+])("orderOfLargestPlusSign(%i, %o)", (n: number, mines: number[][], expected: number) => {
   expect(solution.orderOfLongestPlusSign(n, mines)).toEqual(expected);
 });
 
 test.each([
   [[4, 3, 2, 1, 0], 1],
   [[1, 0, 2, 3, 4], 4]
-])("maxChunksToSorted(%p)", (arr: number[], expected: number) => {
+])("maxChunksToSorted(%o)", (arr: number[], expected: number) => {
   expect(solution.maxChunksToSorted(arr)).toEqual(expected);
 });
 
 test.each([
   [[1, 0, 2], true],
   [[1, 2, 0], false],
-])("isIdealPermutation(%p)", (nums: number[], expected: boolean) => {
+])("isIdealPermutation(%o)", (nums: number[], expected: boolean) => {
   expect(solution.isIdealPermutation(nums)).toEqual(expected);
 });
 
@@ -646,7 +647,7 @@ test.each([
 test.each([
   ["abcde", ["a", "bb", "acd", "ace"], 3],
   ["dsahjpjauf", ["ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"], 2],
-])("numMatchingSubseq(%s, %p)", (s: string, words: string[], expected: number) => {
+])("numMatchingSubseq(%s, %o)", (s: string, words: string[], expected: number) => {
   expect(solution.numMatchingSubseq(s, words)).toEqual(expected);
 });
 
@@ -659,7 +660,7 @@ test.each([
 test.each([
   [[2, 1, 4, 3], 2, 3, 3],
   [[2, 9, 2, 5, 6], 2, 8, 7],
-])("numSubarrayBoundedMax(%p, %i, %i)", (nums: number[], left: number, right: number, expected: number) => {
+])("numSubarrayBoundedMax(%o, %i, %i)", (nums: number[], left: number, right: number, expected: number) => {
   expect(solution.numSubarrayBoundedMax(nums, left, right)).toEqual(expected);
 });
 
@@ -674,42 +675,42 @@ test.each([
 test.each([
   [[1, 3, 5, 4], [1, 2, 3, 7], 1],
   [[0, 3, 5, 8, 9], [2, 1, 4, 6, 9], 1],
-])("minSwap(%p, %p)", (nums1: number[], nums2: number[], expected: number) => {
+])("minSwap(%o, %o)", (nums1: number[], nums2: number[], expected: number) => {
   expect(solution.minSwap(nums1, nums2)).toEqual(expected);
 });
 
 test.each([
   [["gin", "zen", "gig", "msg"], 2],
   [["a"], 1],
-])("uniqueMorseRepresentations(%p)", (words: string[], expected: number) => {
+])("uniqueMorseRepresentations(%o)", (words: string[], expected: number) => {
   expect(solution.uniqueMorseRepresentations(words)).toEqual(expected);
 });
 
 test.each([
   [[1, 2, 3, 4, 5, 6, 7, 8], true],
   [[3, 1], false],
-])("splitArraySameAverage(%p)", (nums: number[], expected: boolean) => {
+])("splitArraySameAverage(%o)", (nums: number[], expected: boolean) => {
   expect(solution.splitArraySameAverage(nums)).toEqual(expected);
 });
 
 test.each([
   [[10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "abcdefghijklmnopqrstuvwxyz", [3, 60]],
   [[4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10], "bbbcccdddaaa", [2, 4]],
-])("numberOfLines(%p, %s)", (widths: number[], s: string, expected: number[]) => {
+])("numberOfLines(%o, %s)", (widths: number[], s: string, expected: number[]) => {
   expect(solution.numberOfLines(widths, s)).toEqual(expected);
 });
 
 test.each([
   ["heeellooo", ["hello", "hi", "helo"], 1],
   ["zzzzzyyyyy", ["zzyy", "zy", "zyy"], 3]
-])("expressiveWords(%s, %p)", (s: string, words: string[], expected: number) => {
+])("expressiveWords(%s, %o)", (s: string, words: string[], expected: number) => {
   expect(solution.expressiveWords(s, words)).toEqual(expected);
 });
 
 test.each([
   [["9001 discuss.leetcode.com"], ["9001 discuss.leetcode.com", "9001 leetcode.com", "9001 com"]],
   [["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"], ["900 google.mail.com", "901 mail.com", "951 com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org", "5 org"]]
-])("subdomainVisits(%p)", (cpdomains: string[], expected: string[]) => {
+])("subdomainVisits(%o)", (cpdomains: string[], expected: string[]) => {
   let actual = solution.subdomainVisits(cpdomains);
   actual.sort();
   expected.sort();
@@ -728,13 +729,13 @@ test.each([
 test.each([
   [utils.createListNode([0, 1, 2, 3]), [0, 1, 3], 2],
   [utils.createListNode([0, 1, 2, 3, 4]), [0, 3, 1, 4], 2],
-])("numComponents(%o, %p)", (head: ListNode | null, nums: number[], expected: number) => {
+])("numComponents(%o, %o)", (head: ListNode | null, nums: number[], expected: number) => {
   expect(solution.numComponents(head, nums)).toEqual(expected);
 });
 
 test.each([
   ["Bob hit a ball, the hit BALL flew far after it was hit.", ["hit"], "ball"]
-])("mostCommonWord(%s, %p)", (paragraph: string, banned: string[], expected: string) => {
+])("mostCommonWord(%s, %o)", (paragraph: string, banned: string[], expected: string) => {
   expect(solution.mostCommonWord(paragraph, banned)).toEqual(expected);
 });
 
@@ -765,28 +766,28 @@ test.each([
   [[3, 1, 2, 4], [4, 2, 1, 3]],
   [[2, 4, 1, 3], [2, 4, 1, 3]],
   [[0], [0]]
-])("sortArrayByParity(%p)", (nums: number[], expected: number[]) => {
+])("sortArrayByParity(%o)", (nums: number[], expected: number[]) => {
   expect(solution.sortArrayByParity(nums)).toEqual(expected);
 });
 
 test.each([
   [[3, 1, 2, 4], 17],
   [[11, 81, 94, 43, 3], 444]
-])("sumSubarrayMins(%p, %i)", (arr: number[], expected: number) => {
+])("sumSubarrayMins(%o, %i)", (arr: number[], expected: number) => {
   expect(solution.sumSubarrayMins(arr)).toEqual(expected);
 });
 
 test.each([
   [[5, 0, 3, 8, 6], 3],
   [[1, 1, 1, 0, 6, 12], 4],
-])("partitionDisjoint(%p)", (nums: number[], expected: number) => {
+])("partitionDisjoint(%o)", (nums: number[], expected: number) => {
   expect(solution.partitionDisjoint(nums)).toEqual(expected);
 });
 
 test.each([
   ["())", 1],
   ["(((", 3]
-])("minAddToMakeValid(%p)", (s: string, expected: number) => {
+])("minAddToMakeValid(%o)", (s: string, expected: number) => {
   expect(solution.minAddToMakeValid(s)).toEqual(expected);
 });
 
@@ -794,13 +795,13 @@ test.each([
   [[1, 0, 1, 0, 1], [0, 3]],
   [[1, 1, 0, 1, 1], [-1, -1]],
   [[1, 1, 0, 0, 1], [0, 2]],
-])("threeEqualParts(%p)", (arr: number[], expected: number[]) => {
+])("threeEqualParts(%o)", (arr: number[], expected: number[]) => {
   expect(solution.threeEqualParts(arr)).toEqual(expected);
 });
 
 test.each([
   [[[0, 1], [1, 0]], 1], [[[0, 1, 0], [0, 0, 0], [0, 0, 1]], 2], [[[1, 1, 1, 1, 1], [1, 0, 0, 0, 1], [1, 0, 1, 0, 1], [1, 0, 0, 0, 1], [1, 1, 1, 1, 1]], 1]
-])("shortestBridge(%p)", (grid: number[][], expected: number) => {
+])("shortestBridge(%o)", (grid: number[][], expected: number) => {
   expect(solution.shortestBridge(grid)).toEqual(expected);
 });
 
@@ -822,13 +823,13 @@ test.each([
 
 test.each([
   [["cba", "daf", "ghi"], 1], [["a", "b"], 0], [["zyx", "wvu", "tsr"], 3]
-])("minDeletionSize(%p)", (strs: string[], expected: number) => {
+])("minDeletionSize(%o)", (strs: string[], expected: number) => {
   expect(solution.minDeletionSize(strs)).toEqual(expected);
 });
 
 test.each([
   [[1, 2, 3, 4, 5], [4, 5, 3, 2, 1], true], [[1, 2, 3, 4, 5], [4, 3, 5, 1, 2], false]
-])("validateStackSequences(%p, %p)", (pushed: number[], popped: number[], expected: boolean) => {
+])("validateStackSequences(%o, %o)", (pushed: number[], popped: number[], expected: boolean) => {
   expect(solution.validateStackSequences(pushed, popped)).toEqual(expected);
 });
 
@@ -836,7 +837,7 @@ test.each([
   [["hello", "leetcode"], "hlabcdefgijkmnopqrstuvwxyz", true],
   [["word", "world", "row"], "worldabcefghijkmnpqstuvxyz", false],
   [["apple", "app"], "abcdefghijklmnopqrstuvwxyz", false]
-])("isAlienSorted(%p, %s)", (wrods: string[], order: string, expected: boolean) => {
+])("isAlienSorted(%o, %s)", (wrods: string[], order: string, expected: boolean) => {
   expect(solution.isAlienSorted(wrods, order)).toEqual(expected);
 });
 
@@ -845,14 +846,14 @@ test.each([
   [[2, 1, 2, 5, 3, 2], 2],
   [[5, 1, 5, 2, 5, 3, 5, 4], 5],
   [[1, 2, 3, 4], -1],
-])("repeatedNTimes(%p)", (nums: number[], expected: number) => {
+])("repeatedNTimes(%o)", (nums: number[], expected: number) => {
   expect(solution.repeatedNTimes(nums)).toEqual(expected);
 });
 
 test.each([
   [[2, 1, 2], 5],
   [[1, 2, 1], 0]
-])("largestPerimeter(%p)", (nums: number[], expected: number) => {
+])("largestPerimeter(%o)", (nums: number[], expected: number) => {
   expect(solution.largestPerimeter(nums)).toEqual(expected);
 });
 
@@ -891,7 +892,7 @@ test.each([
 test.each([
   [[[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]], true],
   [[[1, 1], [2, 2], [3, 4], [4, 5], [5, 6], [7, 7]], false]
-])("checkStraightLine(%p)", (coordinates: number[][], expected: boolean) => {
+])("checkStraightLine(%o)", (coordinates: number[][], expected: boolean) => {
   expect(solution.checkStraightLine(coordinates)).toEqual(expected);
 });
 
@@ -899,7 +900,7 @@ test.each([
   [[1, 2, 3, 3], [3, 4, 5, 6], [50, 10, 40, 70], 120],
   [[1, 2, 3, 4, 6], [3, 5, 10, 6, 9], [20, 20, 100, 70, 60], 150],
   [[1, 1, 1], [2, 3, 4], [5, 6, 4], 6]
-])("jobScheduling(%p, %p, %p)", (startTime: number[], endTime: number[], profit: number[], expected: number) => {
+])("jobScheduling(%o, %o, %o)", (startTime: number[], endTime: number[], profit: number[], expected: number) => {
   expect(solution.jobScheduling(startTime, endTime, profit)).toEqual(expected);
 });
 
@@ -927,7 +928,7 @@ test.each([
 test.each([
   [[0, 1, 2, 3, 4, 5, 6, 7, 8], [0, 1, 2, 4, 8, 3, 5, 6, 7]],
   [[1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1], [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024]]
-])("sortByBits(%p)", (arr: number[], expected: number[]) => {
+])("sortByBits(%o)", (arr: number[], expected: number[]) => {
   expect(solution.sortByBits(arr)).toEqual(expected);
 });
 
@@ -935,7 +936,7 @@ test.each([
   [[4, 3, 10, 9, 8], [10, 9]],
   [[4, 4, 7, 6, 7], [7, 7, 6]],
   [[6], [6]]
-])("minSubsequence(%p)", (nums: number[], expected: number[]) => {
+])("minSubsequence(%o)", (nums: number[], expected: number[]) => {
   expect(solution.minSubsequence(nums)).toEqual(expected);
 });
 
@@ -943,7 +944,7 @@ test.each([
   [["mass", "as", "hero", "superhero"], ["as", "hero"]],
   [["leetcode", "et", "code"], ["et", "code"]],
   [["blue", "green", "bu"], []]
-])("stringMatching(%p)", (words: string[], expected: string[]) => {
+])("stringMatching(%o)", (words: string[], expected: string[]) => {
   expect(solution.stringMatching(words)).toEqual(expected);
 });
 
@@ -959,14 +960,14 @@ test.each([
   [[1, 3], 3, ["Push", "Push", "Pop", "Push"]],
   [[1, 2, 3], 3, ["Push", "Push", "Push"]],
   [[1, 2], 4, ["Push", "Push"]]
-])("buildArray(%p, %i)", (target: number[], n: number, expected: string[]) => {
+])("buildArray(%o, %i)", (target: number[], n: number, expected: string[]) => {
   expect(solution.buildArray(target, n)).toEqual(expected);
 });
 
 test.each([
   [[1, 2, 3], [3, 2, 7], 4, 1],
   [[4], [4], 4, 1]
-])("busyStudent(%p, %p, %i)", (startTime: number[], endTime: number[], queryTime: number, expected: number) => {
+])("busyStudent(%o, %o, %i)", (startTime: number[], endTime: number[], queryTime: number, expected: number) => {
   expect(solution.busyStudent(startTime, endTime, queryTime)).toEqual(expected);
 });
 
@@ -983,7 +984,7 @@ test.each([
   [[7], [7], true],
   [[3, 7, 9], [3, 7, 11], false],
   [[3, 7, 11, 1], [3, 7, 11], false]
-])("canBeEqual(%p, %p)", (target: number[], arr: number[], expected: boolean) => {
+])("canBeEqual(%o, %o)", (target: number[], arr: number[], expected: boolean) => {
   expect(solution.canBeEqual(target, arr)).toEqual(expected);
 });
 
@@ -991,7 +992,7 @@ test.each([
   [[3, 4, 5, 2], 12],
   [[1, 5, 4, 5], 16],
   [[3, 7], 12]
-])("maxProduct(%p)", (nums: number[], expected: number) => {
+])("maxProduct(%o)", (nums: number[], expected: number) => {
   expect(solution.maxProduct(nums)).toEqual(expected);
 });
 
@@ -999,7 +1000,7 @@ test.each([
   [[2, 5, 1, 3, 4, 7], 3, [2, 3, 5, 4, 1, 7]],
   [[1, 2, 3, 4, 4, 3, 2, 1], 4, [1, 4, 2, 3, 3, 2, 4, 1]],
   [[1, 1, 2, 2], 2, [1, 2, 1, 2]]
-])("shuffle(%p, %i)", (nums: number[], n: number, expected: number[]) => {
+])("shuffle(%o, %i)", (nums: number[], n: number, expected: number[]) => {
   expect(solution.shuffle(nums, n)).toEqual(expected);
 });
 
@@ -1008,20 +1009,20 @@ test.each([
   [[8, 4, 6, 2, 3], [4, 2, 4, 2, 3]],
   [[1, 2, 3, 4, 5], [1, 2, 3, 4, 5]],
   [[10, 1, 1, 6], [9, 0, 1, 6]]
-])("finalPrices(%p)", (prices: number[], expected: number[]) => {
+])("finalPrices(%o)", (prices: number[], expected: number[]) => {
   expect(solution.finalPrices(prices)).toEqual(expected);
 });
 
 test.each([
   [[4000, 3000, 1000, 2000], 2500.00000],
   [[1000, 2000, 3000], 2000.00000]
-])("average(%p)", (salary: number[], expected: number) => {
+])("average(%o)", (salary: number[], expected: number) => {
   expect(solution.average(salary)).toEqual(expected);
 });
 
 test.each([
   [[3, 5, 1], true], [[1, 2, 4], false]
-])("canMakeArithmeticProgression(%p)", (arr: number[], expected: boolean) => {
+])("canMakeArithmeticProgression(%o)", (arr: number[], expected: boolean) => {
   expect(solution.canMakeArithmeticProgression(arr)).toEqual(expected);
 });
 
@@ -1035,20 +1036,20 @@ test.each([
   [[[1, 2, 3], [4, 5, 6], [7, 8, 9]], 25],
   [[[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]], 8],
   [[[5]], 5]
-])("diagonalSum(%p)", (mat: number[][], expected: number) => {
+])("diagonalSum(%o)", (mat: number[][], expected: number) => {
   expect(solution.diagonalSum(mat)).toEqual(expected);
 });
 
 test.each([
   [[[1, 0, 0], [0, 0, 1], [1, 0, 0]], 1],
   [[[1, 0, 0], [0, 1, 0], [0, 0, 1]], 3]
-])("numSpecial(%p)", (mat: number[][], expected: number) => {
+])("numSpecial(%o)", (mat: number[][], expected: number) => {
   expect(solution.numSpecial(mat)).toEqual(expected);
 });
 
 test.each([
   [[1, 4, 2, 5, 3], 58], [[1, 2], 3], [[10, 11, 12], 66]
-])("sumOddLengthSubarrays(%p)", (arr: number[], expected: number) => {
+])("sumOddLengthSubarrays(%o)", (arr: number[], expected: number) => {
   expect(solution.sumOddLengthSubarrays(arr)).toEqual(expected);
 });
 
@@ -1063,7 +1064,7 @@ test.each([
   [["d1/", "d2/", "../", "d21/", "./"], 2],
   [["d1/", "d2/", "./", "d3/", "../", "d31/"], 3],
   [["d1/", "../", "../", "../"], 0],
-])("minOperations(%p)", (logs: string[], expected: number) => {
+])("minOperations(%o)", (logs: string[], expected: number) => {
   expect(solution.minOperations(logs)).toEqual(expected);
 });
 
@@ -1071,7 +1072,7 @@ test.each([
   [[3, 5], 2],
   [[0, 0], -1],
   [[0, 4, 3, 0, 4], 3]
-])("specialArray(%p)", (nums: number[], expected: number) => {
+])("specialArray(%o)", (nums: number[], expected: number) => {
   expect(solution.specialArray(nums)).toEqual(expected);
 });
 
@@ -1079,7 +1080,7 @@ test.each([
   [[1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3], 2.0000],
   [[6, 2, 7, 5, 1, 2, 0, 3, 10, 2, 5, 0, 5, 5, 0, 8, 7, 6, 8, 0], 4.0000],
   [[6, 0, 7, 0, 7, 5, 7, 8, 3, 4, 0, 7, 8, 1, 6, 8, 1, 1, 2, 4, 8, 1, 9, 5, 4, 3, 8, 5, 10, 8, 6, 6, 1, 0, 6, 10, 8, 2, 3, 4], 4.77777]
-])("trimMean(%p)", (arr: number[], expected: number) => {
+])("trimMean(%o)", (arr: number[], expected: number) => {
   expect(solution.trimMean(arr)).toBeCloseTo(expected);
 });
 
@@ -1087,7 +1088,7 @@ test.each([
   [[[1, 2, 5], [2, 1, 7], [3, 1, 9]], 2, [2, 1]],
   [[[23, 11, 21]], 9, [23, 11]],
   [[[1, 2, 13], [2, 1, 7], [0, 1, 9]], 2, [1, 2]],
-])("BestCoordinate(%p, %p)", (towers: number[][], radius: number, expected: number[]) => {
+])("BestCoordinate(%o, %o)", (towers: number[][], radius: number, expected: number[]) => {
   expect(solution.bestCoordinate(towers, radius)).toEqual(expected);
 });
 
@@ -1103,13 +1104,13 @@ test.each([
   [[1, 1, 2, 2, 2, 3], [3, 1, 1, 2, 2, 2]],
   [[2, 3, 1, 3, 2], [1, 3, 3, 2, 2]],
   [[-1, 1, -6, 4, 5, -6, 1, 4, 1], [5, -1, 4, 4, -6, -6, 1, 1, 1]]
-])("frequencySort(%p)", (nums: number[], expected: number[]) => {
+])("frequencySort(%o)", (nums: number[], expected: number[]) => {
   expect(solution.frequencySort(nums)).toEqual(expected);
 });
 
 test.each([
   [[5, 7, 1, 4], 3, [12, 10, 16, 13]], [[1, 2, 3, 4], 0, [0, 0, 0, 0]], [[2, 4, 9, 3], -2, [12, 5, 6, 13]]
-])("decrypt(%p, %i)", (code: number[], k: number, expected: number[]) => {
+])("decrypt(%o, %i)", (code: number[], k: number, expected: number[]) => {
   expect(solution.decrypt(code, k)).toEqual(expected);
 });
 
@@ -1117,7 +1118,7 @@ test.each([
   [[1, 1, 4, 2, 3], 5, 2],
   [[5, 6, 7, 8, 9], 4, -1],
   [[3, 2, 20, 1, 1, 3], 10, 5]
-])("minOperations2(%p, %i)", (nums: number[], x: number, expected: number) => {
+])("minOperations2(%o, %i)", (nums: number[], x: number, expected: number) => {
   expect(solution.minOperations2(nums, x)).toEqual(expected);
 });
 
@@ -1125,7 +1126,7 @@ test.each([
   [["ab", "c"], ["a", "bc"], true],
   [["a", "cb"], ["ab", "c"], false],
   [["abc", "d", "defg"], ["abcddefg"], true],
-])("ArrayStringAreEqual(%p, %p)", (word1: string[], word2: string[], expected: boolean) => {
+])("ArrayStringAreEqual(%o, %o)", (word1: string[], word2: string[], expected: boolean) => {
   expect(solution.arrayStringAreEqual(word1, word2)).toEqual(expected);
 });
 
@@ -1141,14 +1142,14 @@ test.each([
   [[[1, 2, 3], [3, 2, 1]], 6],
   [[[1, 5], [7, 3], [3, 5]], 10],
   [[[2, 8, 7], [7, 1, 3], [1, 9, 5]], 17],
-])("maximumWealth(%p)", (accounts: number[][], expected: number) => {
+])("maximumWealth(%o)", (accounts: number[][], expected: number) => {
   expect(solution.maximumWealth(accounts)).toEqual(expected);
 });
 
 test.each([
   [[10, 20, 5], [70, 50, 30], 2, 105.00000],
   [[3, 1, 10, 10, 1], [4, 8, 2, 2, 7], 3, 30.66666]
-])("minCostToHireWorkers(%p, %p, %i)", (quality: number[], wage: number[], k: number, expected: number) => {
+])("minCostToHireWorkers(%o, %o, %i)", (quality: number[], wage: number[], k: number, expected: number) => {
   expect(solution.minCostToHireWorkers(quality, wage, k)).toBeCloseTo(expected);
 });
 
@@ -1156,14 +1157,14 @@ test.each([
   [[1], 1, 1],
   [[1, 2], 4, -1],
   [[2, -1, 2], 3, 3],
-])("shortestSubarray(%p, %i)", (nums: number[], k: number, expected: number) => {
+])("shortestSubarray(%o, %i)", (nums: number[], k: number, expected: number) => {
   expect(solution.shortestSubarray(nums, k)).toEqual(expected);
 });
 
 test.each([
   [[2, 7, 11, 15], [1, 10, 4, 11], [2, 11, 7, 15]],
   [[12, 24, 8, 32], [13, 25, 32, 11], [24, 32, 8, 12]]
-])("advantageCount(%p, %p)", (nums1: number[], nums2: number[], expected: number[]) => {
+])("advantageCount(%o, %o)", (nums1: number[], nums2: number[], expected: number[]) => {
   expect(solution.advantageCount(nums1, nums2)).toEqual(expected);
 });
 
@@ -1176,7 +1177,7 @@ test.each([
 
 test.each([
   [[[1, 2], [3, 4]], 17], [[[2]], 5], [[[1, 0], [0, 2]], 8]
-])("projectionArea(%p)", (grid: number[][], expected: number) => {
+])("projectionArea(%o)", (grid: number[][], expected: number) => {
   expect(solution.projectionArea(grid)).toEqual(expected);
 });
 
@@ -1184,13 +1185,13 @@ test.each([
   [4, [[1, 2], [1, 3], [2, 4]], true],
   [3, [[1, 2], [1, 3], [2, 3]], false],
   [5, [[1, 2], [2, 3], [3, 4], [4, 5], [1, 5]], false]
-])("possibleBipartition(%i, %p)", (n: number, dislikes: number[][], expected: boolean) => {
+])("possibleBipartition(%i, %o)", (n: number, dislikes: number[][], expected: boolean) => {
   expect(solution.possibleBipartition(n, dislikes)).toEqual(expected);
 });
 
 test.each([
   [[1, 2, 1], 3], [[0, 1, 2, 2], 3], [[1, 2, 3, 2, 2], 4]
-])("totalFruit(%p)", (fruits: number[], expected: number) => {
+])("totalFruit(%o)", (fruits: number[], expected: number) => {
   expect(solution.totalFruit(fruits)).toEqual(expected);
 });
 
@@ -1204,7 +1205,7 @@ test.each([
   ["ab", ["ad", "bd", "aaab", "baa", "badab"], 2],
   ["abc", ["a", "b", "c", "ab", "ac", "bc", "abc"], 7],
   ["cad", ["cc", "acd", "b", "ba", "bac", "bad", "ac", "d"], 4],
-])("countConsistentStrings(%s, %p)", (allowed: string, words: string[], expected: number) => {
+])("countConsistentStrings(%s, %o)", (allowed: string, words: string[], expected: number) => {
   expect(solution.countConsistentStrings(allowed, words)).toEqual(expected);
 });
 
@@ -1217,7 +1218,7 @@ test.each([
 test.each([
   [[1, 1, 0, 0], [0, 1, 0, 1], 0],
   [[1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 1, 1], 3]
-])("countStudent(%p, %P)", (students: number[], sandwiches: number[], expected: number) => {
+])("countStudent(%o, %P)", (students: number[], sandwiches: number[], expected: number) => {
   expect(solution.countStudents(students, sandwiches)).toEqual(expected);
 })
 
@@ -1231,14 +1232,14 @@ test.each([
 test.each([
   [[[1, 3], [2, 2], [3, 1]], 4, 8],
   [[[5, 10], [2, 5], [4, 7], [3, 9]], 10, 91],
-])("maximumUnits(%p, %i)", (boxTypes: number[][], truckSize: number, expected: number) => {
+])("maximumUnits(%o, %i)", (boxTypes: number[][], truckSize: number, expected: number) => {
   expect(solution.maximumUnits(boxTypes, truckSize)).toEqual(expected);
 });
 
 test.each([
   [[-5, 1, 5, 0, -7], 1],
   [[-4, -3, -2, -1, 4, 3, 2], 0],
-])("largestAltitude(%p)", (gain: number[], expected: number) => {
+])("largestAltitude(%o)", (gain: number[], expected: number) => {
   expect(solution.largestAltitude(gain)).toEqual(expected);
 });
 
@@ -1269,7 +1270,7 @@ test.each([
 test.each([
   [[["phone", "blue", "pixel"], ["computer", "silver", "lenovo"], ["phone", "gold", "iphone"]], "color", "silver", 1],
   [[["phone", "blue", "pixel"], ["computer", "silver", "phone"], ["phone", "gold", "iphone"]], "type", "phone", 2]
-])("countMatches(%p, %s, %s)", (items: string[][], ruleKey: string, ruleValue: string, expected: number) => {
+])("countMatches(%o, %s, %s)", (items: string[][], ruleKey: string, ruleValue: string, expected: number) => {
   expect(solution.countMatches(items, ruleKey, ruleValue)).toEqual(expected);
 })
 
@@ -1277,7 +1278,7 @@ test.each([
   [3, 4, [[1, 2], [3, 1], [2, 4], [2, 3], [4, 4]], 2],
   [3, 4, [[3, 4]], 0],
   [3, 4, [[2, 3]], -1]
-])("nearestValidPoint(%i, %i, %p)", (x: number, y: number, points: number[][], expected: number) => {
+])("nearestValidPoint(%i, %i, %o)", (x: number, y: number, points: number[][], expected: number) => {
   expect(solution.nearestValidPoint(x, y, points)).toEqual(expected);
 })
 
@@ -1300,7 +1301,7 @@ test.each([
   [[10, 20, 30, 5, 10, 50], 65],
   [[10, 20, 30, 40, 50], 150],
   [[12, 17, 15, 13, 10, 11, 12], 33]
-])("maxAscendingSum(%p)", (nums: number[], expected: number) => {
+])("maxAscendingSum(%o)", (nums: number[], expected: number) => {
   expect(solution.maxAscendingSum(nums)).toEqual(expected);
 })
 
@@ -1315,7 +1316,7 @@ test.each([
   [[-1, -2, -3, -4, 3, 2, 1], 1],
   [[1, 5, 0, 2, -3], 0],
   [[-1, 1, -1, 1, -1], -1],
-])("arraySign(%p)", (nums: number[], expected: number) => {
+])("arraySign(%o)", (nums: number[], expected: number) => {
   expect(solution.arraySign(nums)).toEqual(expected);
 })
 
@@ -1329,7 +1330,7 @@ test.each([
 test.each([
   [[1, 7, 3, 6, 5, 6], 3],
   [[1, 2, 3], -1],
-])("findMiddleIndex(%p)", (nums: number[], expected: number) => {
+])("findMiddleIndex(%o)", (nums: number[], expected: number) => {
   expect(solution.findMiddleIndex(nums)).toEqual(expected);
 });
 
@@ -1337,7 +1338,7 @@ test.each([
   [[1, 2, 2, 1], 1, 4],
   [[1, 3], 3, 0],
   [[3, 2, 1, 5, 4], 2, 3],
-])("countKDifference(%p, %i)", (nums: number[], k: number, expected: number) => {
+])("countKDifference(%o, %i)", (nums: number[], k: number, expected: number) => {
   expect(solution.countKDifference(nums, k)).toEqual(expected);
 });
 
@@ -1345,7 +1346,7 @@ test.each([
   [["--X", "X++", "X++"], 1],
   [["++X", "++X", "X++"], 3],
   [["X++", "++X", "--X", "X--"], 0],
-])("finalValueAfterOperations(%p)", (operations: string[], expected: number) => {
+])("finalValueAfterOperations(%o)", (operations: string[], expected: number) => {
   expect(solution.finalValueAfterOperations(operations)).toEqual(expected);
 });
 
@@ -1353,7 +1354,7 @@ test.each([
   [[7, 1, 5, 4], 4],
   [[9, 4, 3, 2], -1],
   [[1, 5, 2, 10], 9],
-])("maximumDifference(%p)", (nums: number[], expected: number) => {
+])("maximumDifference(%o)", (nums: number[], expected: number) => {
   expect(solution.maximumDifference(nums)).toEqual(expected);
 });
 
@@ -1369,7 +1370,7 @@ test.each([
   [[1, 1, 3, 2], [2, 3], [3], [3, 2]],
   [[3, 1], [2, 3], [1, 2], [2, 3, 1]],
   [[1, 2, 2], [4, 3, 3], [5], []],
-])("twoOutOfThree(%p, %p, %p)", (nums1: number[], nums2: number[], nums3: number[], expected: number[]) => {
+])("twoOutOfThree(%o, %o, %o)", (nums1: number[], nums2: number[], nums3: number[], expected: number[]) => {
   expected = expected.sort((a, b) => a - b);
   let actual = solution.twoOutOfThree(nums1, nums2, nums3);
   actual = actual.sort((a, b) => a - b);
@@ -1380,7 +1381,7 @@ test.each([
   [[3, 1, 5], [2, 7, 4], 4],
   [[4, 1, 5, 9], [1, 3, 2, 6], 7],
   [[2, 2, 6, 6], [1, 3, 2, 6], 4]
-])("minMovesToSeat(%p, %p)", (seats: number[], students: number[], expected: number) => {
+])("minMovesToSeat(%o, %o)", (seats: number[], students: number[], expected: number) => {
   expect(solution.minMovesToSeat(seats, students)).toEqual(expected);
 });
 
@@ -1396,14 +1397,14 @@ test.each([
   [[3, 1], 2],
   [[2, 2, 2], 7],
   [[3, 2, 1, 5], 6],
-])("countMaxOrSubsets(%p)", (nums: number[], expected: number) => {
+])("countMaxOrSubsets(%o)", (nums: number[], expected: number) => {
   expect(solution.countMaxOrSubsets(nums)).toEqual(expected);
 });
 
 test.each([
   ["**|**|***|", [[2, 5], [5, 9]], [2, 3]],
   ["***|**|*****|**||**|*", [[1, 17], [4, 5], [14, 17], [5, 11], [15, 16]], [9, 0, 0, 0, 0]]
-])("platesBetweenCandles(%s, %p)", (s: string, queries: number[][], expected: number[]) => {
+])("platesBetweenCandles(%s, %o)", (s: string, queries: number[][], expected: number[]) => {
   expect(solution.platesBetweenCandles(s, queries)).toEqual(expected);
 });
 
@@ -1417,7 +1418,7 @@ test.each([
 test.each([
   [["pay", "attention", "practice", "attend"], "at", 2],
   [["leetcode", "win", "loops", "success"], "code", 0]
-])("prefixCount(%p, %s)", (words: string[], pref: string, expected: number) => {
+])("prefixCount(%o, %s)", (words: string[], pref: string, expected: number) => {
   expect(solution.prefixCount(words, pref)).toEqual(expected);
 });
 

@@ -1,4 +1,5 @@
 import { RecentCounter } from "../src/RecentCounter"
+import { expect, test } from 'vitest'
 
 const recentCounter = new RecentCounter();
 

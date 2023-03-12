@@ -1,4 +1,5 @@
 import { MyQueue } from "../src/MyQueue";
+import { expect, test } from 'vitest'
 
 let myQueue: MyQueue = new MyQueue();
 myQueue.push(1);

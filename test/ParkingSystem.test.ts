@@ -1,4 +1,5 @@
 import { ParkingSystem } from "../src/ParkingSystem";
+import { expect, test } from 'vitest'
 
 const parkingSystem = new ParkingSystem(1, 1, 1);
 

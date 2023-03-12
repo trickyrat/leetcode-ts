@@ -1,4 +1,5 @@
 import { StockSpanner } from "../src/StockSpanner";
+import { expect, test } from 'vitest'
 
 const stockSpanner = new StockSpanner();
 
