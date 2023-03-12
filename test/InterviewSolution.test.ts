@@ -1,4 +1,5 @@
 import { InterviewSolution } from "../src/InterviewSolution";
+import { expect, test } from 'vitest'
 
 let solution = new InterviewSolution;
 
