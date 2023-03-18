@@ -87,6 +87,13 @@ test.each([
 });
 
 test.each([
+  [[1, 1, 2], 2],
+  [[0, 0, 1, 1, 1, 2, 2, 3, 3, 4], 5]
+])("removeDuplicates(%o) -> %i", (nums: number[], expected: number) => {
+  expect(solution.removeDuplicates(nums)).toEqual(expected);
+});
+
+test.each([
   [[3, 2, 2, 3], 3, 2],
   [[0, 1, 2, 2, 3, 0, 4, 2], 2, 5]
 ])("removeElement(%o, %i) -> %i", (nums: number[], val: number, expected: number) => {
@@ -1427,7 +1434,7 @@ test.each([
   ["abcdd", "d"],
   ["aa", "a"],
   ["zz", "z"],
-])("repeatedCharacter(%s)", (s: string, expected: string) => {
+])("repeatedCharacter(%s) -> %s", (s: string, expected: string) => {
   expect(solution.repeatedCharacter(s)).toEqual(expected);
 });
 
@@ -1435,6 +1442,6 @@ test.each([
   ["ilovecodingonleetcode", "code", 2],
   ["abcba", "abc", 1],
   ["abbaccaddaeea", "aaaaa", 1],
-])("rearrangeCharacters(%s, %s)", (s: string, target: string, expected: number) => {
+])("rearrangeCharacters(%s, %s) -> %i", (s: string, target: string, expected: number) => {
   expect(solution.rearrangeCharacters(s, target)).toEqual(expected);
 });
