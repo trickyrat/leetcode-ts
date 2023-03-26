@@ -260,6 +260,26 @@ export class Solution {
     }
 
     /**
+     * 35. Search Insert Position
+     * @param nums 
+     * @param target 
+     */
+    searchInsert(nums: number[], target: number): number {
+        const n = nums.length;
+        let left = 0, right = n - 1, res = n;
+        while (left <= right) {
+            const mid = left + ((right - left) >> 1);
+            if (nums[mid] >= target) {
+                res = mid;
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return res;
+    }
+
+    /**
     * 46.Permutations
     * @param nums 
     */

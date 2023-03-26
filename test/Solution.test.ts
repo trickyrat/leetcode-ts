@@ -101,6 +101,14 @@ test.each([
 });
 
 test.each([
+  [[1, 3, 5, 6], 5, 2],
+  [[1, 3, 5, 6], 2, 1],
+  [[1, 3, 5, 6], 7, 4],
+])("searchInsert(%o, %i) -> %i", (nums: number[], target: number, expected: number) => {
+  expect(solution.searchInsert(nums, target)).toEqual(expected);
+});
+
+test.each([
   [[1, 2, 3], [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]],
   [[0, 1], [[0, 1], [1, 0]]],
   [[1], [[1]]]
