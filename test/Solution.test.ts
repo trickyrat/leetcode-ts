@@ -4,6 +4,7 @@ import { Utilities } from "../src/Utilities";
 import { ListNode } from "../src/DataStructures/ListNode";
 import { TreeNode } from "../src/DataStructures/TreeNode";
 import { expect, test } from 'vitest'
+import exp from "constants";
 
 const solution = new Solution();
 const utils = new Utilities();
@@ -361,6 +362,13 @@ test.each([
   [utils.createTreeNode([3, 9, 20, null, null, 15, 7]), 24], [utils.createTreeNode([1]), 0]
 ])("sumOfLeftLeaves(%o)", (root: TreeNode | null, expected: number) => {
   expect(solution.sumOfLeftLeaves(root)).toEqual(expected);
+});
+
+test.each([
+  [[1, 2, 3], 3],
+  [[1, 1, 1], 0]
+])("minMoves(%o) -> %i", (nums: number[], expected: number) => {
+  expect(solution.minMoves(nums)).toEqual(expected);
 });
 
 test.each([
