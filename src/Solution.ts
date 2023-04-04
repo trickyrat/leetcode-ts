@@ -988,6 +988,19 @@ export class Solution {
     }
 
     /**
+     * 453. Minimum Moves to Equal Array Elements
+     * @param nums 
+     */
+    minMoves(nums: number[]): number {
+        const minNum = Math.min(...nums);
+        let res = 0;
+        for (const num of nums) {
+            res += num - minNum;
+        }
+        return res;
+    }
+
+    /**
      * 467.Unique Substrings in Wraparound String
      * @param p 
      */
