@@ -524,6 +524,13 @@ test.each([
 });
 
 test.each([
+  [[4, 2, 3], true],
+  [[4, 2, 1], false]
+])("checkPossibility(%o) -> %b", (nums: number[], expected: boolean) => {
+  expect(solution.checkPossibility(nums)).toEqual(expected);
+});
+
+test.each([
   [3, 1, [1, 2, 3]], [3, 2, [1, 3, 2]]
 ])("constructArray(%i, %i)", (n: number, k: number, expected: number[]) => {
   expect(solution.constructArray(n, k)).toEqual(expected);
