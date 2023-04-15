@@ -270,6 +270,14 @@ test.each([
 });
 
 test.each([
+  [[1, 2, 3, 4, 5, 6, 7], 3, [5, 6, 7, 1, 2, 3, 4]],
+  [[-1, 100, 3, 99], 2, [3, 99, -1, 100]]
+])("rotateArray(%o, %i) -> %o", (nums: number[], k: number, expected: number[]) => {
+  solution.rotateArray(nums, k);
+  expect(nums).toEqual(expected);
+});
+
+test.each([
   [11, 3], [128, 1], [4294967293, 31]
 ])("hammingWeight(%i)", (n: number, expected: number) => {
   expect(solution.hammingWeight(n)).toEqual(expected);

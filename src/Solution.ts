@@ -687,6 +687,26 @@ export class Solution {
     }
 
     /**
+     * 189. Rotate Array
+     * @param nums 
+     * @param k 
+     */
+    rotateArray(nums: number[], k: number) {
+        const reverse = (arr: number[], start: number, end: number) => {
+            while (start < end) {
+                [arr[start], arr[end]] = [arr[end], arr[start]];
+                start++;
+                end--;
+            }
+        }
+        const n = nums.length;
+        k %= n;
+        reverse(nums, 0, n - 1);
+        reverse(nums, 0, k - 1);
+        reverse(nums, k, n - 1);
+    }
+
+    /**
      * 191.Number of 1 Bits
      * @param n 
      */
