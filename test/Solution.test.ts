@@ -361,6 +361,13 @@ test.each([
 });
 
 test.each([
+  [[4, 3, 2, 6], 26],
+  [[100], 0]
+])("maxRotateFunction(%o) -> %i", (nums: number[], expected: number) => {
+  expect(solution.maxRotateFunction(nums)).toEqual(expected);
+});
+
+test.each([
   ["abcd", "abcde", "e"], ["", "y", "y"]
 ])("findTheDifference(%s, %s)", (s: string, t: string, expected: string) => {
   expect(solution.findTheDifference(s, t)).toEqual(expected);
