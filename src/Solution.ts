@@ -966,6 +966,23 @@ export class Solution {
     }
 
     /**
+     * 396. Rotate Function
+     * @param nums 
+     */
+    maxRotateFunction(nums: number[]): number {
+        let f = 0, n = nums.length, numsSum = nums.reduce((prev, curr) => prev + curr);
+        for (let i = 0; i < n; ++i) {
+            f += i * nums[i];
+        }
+        let res = f;
+        for (let i = n - 1; i > 0; --i) {
+            f += numsSum - n * nums[i];
+            res = Math.max(res, f);
+        }
+        return res;
+    }
+
+    /**
      * 389.Find the Difference
      * @param s 
      * @param t 
