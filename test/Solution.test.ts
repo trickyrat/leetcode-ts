@@ -935,6 +935,14 @@ test.each([
 });
 
 test.each([
+  [[[0, 1], [1, 0]], 2],
+  [[[0, 0, 0], [1, 1, 0], [1, 1, 0]], 4],
+  [[[1, 0, 0], [1, 1, 0], [1, 1, 0]], -1]
+])("shortestPathBinaryMatrix(%o) => %i", (grid: number[][], expected: number) => {
+  expect(solution.shortestPathBinaryMatrix(grid)).toEqual(expected);
+});
+
+test.each([
   ["&(|(f))", false],
   ["|(f,f,f,t)", true],
   ["!(&(f,t))", true],
