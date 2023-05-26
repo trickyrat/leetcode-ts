@@ -2971,6 +2971,39 @@ export class Solution {
     }
 
     /**
+     * 1091. Shortest Path in Binary Matrix
+     * @param grid 
+     */
+    shortestPathBinaryMatrix(grid: number[][]): number {
+        if (grid[0][0] === 1) {
+            return -1;
+        }
+        const n = grid.length;
+        const dist = new Array(n).fill(undefined).map(() => new Array<number>(n).fill(Infinity));
+        dist[0][0] = 1;
+        const queue = [[0, 0]];
+        while (queue.length > 0) {
+            const [x, y] = queue.shift()!;
+            if (x == n - 1 && y == n - 1) {
+                return dist[x][y];
+            }
+            for (let dx = -1; dx <= 1; dx++) {
+                for (let dy = -1; dy <= 1; dy++) {
+                    if (x + dx < 0 || x + dx >= n || y + dy < 0 || y + dy >= n) {
+                        continue;
+                    }
+                    if (grid[x + dx][y + dy] > 0 || dist[x + dx][y + dy] <= dist[x][y] + 1) {
+                        continue;
+                    }
+                    dist[x + dx][y + dy] = dist[x][y] + 1;
+                    queue.push([x + dx, y + dy]);
+                }
+            }
+        }
+        return -1;
+    }
+
+    /**
      * 1106. Parsing A Boolean Expression
      * @param expression 
      */
