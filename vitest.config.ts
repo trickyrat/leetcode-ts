@@ -9,7 +9,7 @@ export default defineConfig({
         /* for example, use global to avoid globals imports (describe, test, expect): */
         // globals: true,
         coverage: {
-            provider: 'c8',
+            provider: 'v8',
             reporter: ['html-spa']
         }
     },
