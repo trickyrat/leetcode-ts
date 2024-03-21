@@ -1,7 +1,7 @@
 import { InterviewSolution } from "../src/InterviewSolution";
 import { expect, test } from 'vitest'
 
-let solution = new InterviewSolution;
+const solution = new InterviewSolution;
 
 test("SetZeroesTest", () => {
     let matrix1 = [
