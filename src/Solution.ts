@@ -2,14 +2,14 @@ import { ListNode } from "./DataStructures/ListNode";
 import { TreeNode } from "./DataStructures/TreeNode";
 import { Node } from "./DataStructures/Node";
 import { Trie } from "./DataStructures/Trie";
-import { MaxPriorityQueue, MinPriorityQueue, PriorityQueue } from "@datastructures-js/priority-queue";
-import { Utilities } from "./Utilities";
+import { IGetCompareValue, MaxPriorityQueue, MinPriorityQueue, PriorityQueue } from "@datastructures-js/priority-queue";
+import { Util } from "./Util";
 
 export class Solution {
-    utils: Utilities;
+    utils: Util;
 
     constructor() {
-        this.utils = new Utilities();
+        this.utils = new Util();
     }
 
     /**
@@ -201,23 +201,20 @@ export class Solution {
      * @param lists 
      */
     mergeKLists(lists: (ListNode | null)[]): ListNode | null {
-        let pq = new MinPriorityQueue<ListNode>();
-        // let compare = (lhs: ListNode, rhs: ListNode): number => {
-        //     return lhs.val < rhs.val ? -1 : 1;
-        // };
-        // let pq = new PriorityQueue<ListNode>(compare);
+        const getNodeValue: IGetCompareValue<ListNode> = (node) => node.val; 
+        let pq =  new MinPriorityQueue<ListNode>(getNodeValue);
         let dummy = new ListNode(-1), p = dummy;
         for (const node of lists) {
             if (node) {
-                pq.push(node);
+                pq.enqueue(node);
             }
         }
         while (!pq.isEmpty()) {
-            let curr = pq.pop();
-            p.next = curr;
-            if (curr.next != null) {
-                pq.push(curr.next);
+            let curr = pq.dequeue();
+            if (curr.next) {
+                pq.enqueue(curr.next);
             }
+            p.next = curr;
             p = p.next;
         }
         return dummy.next;

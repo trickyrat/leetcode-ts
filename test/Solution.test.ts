@@ -1,13 +1,12 @@
 import { Solution } from "../src/Solution";
 import { Node } from "../src/DataStructures/Node";
-import { Utilities } from "../src/Utilities";
+import { Util } from "../src/Util";
 import { ListNode } from "../src/DataStructures/ListNode";
 import { TreeNode } from "../src/DataStructures/TreeNode";
 import { expect, test } from 'vitest'
-import exp from "constants";
 
 const solution = new Solution();
-const utils = new Utilities();
+const util = new Util();
 
 test.each([
   [[2, 7, 11, 15], 9, [0, 1]],
@@ -19,11 +18,11 @@ test.each([
 });
 
 test.each([
-  [utils.createListNode([2, 4, 3]), utils.createListNode([5, 6, 4]), [7, 0, 8]],
-  [utils.createListNode([0]), utils.createListNode([0]), [0]],
-  [utils.createListNode([9, 9, 9, 9, 9, 9, 9]), utils.createListNode([9, 9, 9, 9]), [8, 9, 9, 9, 0, 0, 0, 1]]
+  [util.generateListNode([2, 4, 3]), util.generateListNode([5, 6, 4]), [7, 0, 8]],
+  [util.generateListNode([0]), util.generateListNode([0]), [0]],
+  [util.generateListNode([9, 9, 9, 9, 9, 9, 9]), util.generateListNode([9, 9, 9, 9]), [8, 9, 9, 9, 0, 0, 0, 1]]
 ])("addTwoNumbers(%o, %o) -> %o", (l1: ListNode | null, l2: ListNode | null, expected: number[]) => {
-  expect(utils.convertListNodeToArray(solution.addTwoNumbers(l1, l2))).toEqual(expected);
+  expect(util.convertListNodeToArray(solution.addTwoNumbers(l1, l2))).toEqual(expected);
 });
 
 test.each([
@@ -56,9 +55,9 @@ test.each([
 
 test.each(
   [
-    [utils.createListNode([1, 2, 3, 4, 5]), 2, utils.createListNode([1, 2, 3, 5])],
-    [utils.createListNode([1]), 1, null],
-    [utils.createListNode([1, 2]), 1, utils.createListNode([1])],
+    [util.generateListNode([1, 2, 3, 4, 5]), 2, util.generateListNode([1, 2, 3, 5])],
+    [util.generateListNode([1]), 1, null],
+    [util.generateListNode([1, 2]), 1, util.generateListNode([1])],
   ]
 )("removeNthFromEnd(%o, %i) -> %o", (head: ListNode | null, n: number, expected: ListNode | null) => {
   expect(solution.removeNthFromEnd(head, n)).toEqual(expected);
@@ -74,17 +73,18 @@ test.each([
 });
 
 test.each([
-  [utils.createListNode([1, 2, 4]), utils.createListNode([1, 3, 4]), utils.createListNode([1, 1, 2, 3, 4, 4])],
-  [utils.createListNode([]), utils.createListNode([]), utils.createListNode([])],
-  [utils.createListNode([]), utils.createListNode([0]), utils.createListNode([0])]
+  [util.generateListNode([1, 2, 4]), util.generateListNode([1, 3, 4]), util.generateListNode([1, 1, 2, 3, 4, 4])],
+  [util.generateListNode([]), util.generateListNode([]), util.generateListNode([])],
+  [util.generateListNode([]), util.generateListNode([0]), util.generateListNode([0])]
 ])("mergeTwoLists(%o, %o) -> %o", (list1: ListNode | null, list2: ListNode | null, expected: ListNode | null) => {
   expect(solution.mergeTwoLists(list1, list2)).toEqual(expected);
 });
 
 test.each([
-  [[utils.createListNode([1, 4, 5]), utils.createListNode([1, 3, 4]), utils.createListNode([2, 6])], utils.createListNode([1, 1, 2, 3, 4, 4, 5, 6])]
-])("mergeKLists(%o) -> %o", (lists: (ListNode | null)[], expected: ListNode | null) => {
-  expect(solution.mergeKLists(lists)).toEqual(expected);
+  [[util.generateListNode([1, 4, 5]), util.generateListNode([1, 3, 4]), util.generateListNode([2, 6])], util.generateListNode([1, 1, 2, 3, 4, 4, 5, 6])]
+])("mergeKLists", (lists: (ListNode | null)[], expected: ListNode | null) => {
+  const actual = solution.mergeKLists(lists);
+  expect(actual).toEqual(expected);
 });
 
 test.each([
@@ -157,16 +157,16 @@ test.each([
 });
 
 test.each([
-  [utils.createListNode([1, 1, 2]), utils.createListNode([1, 2])],
-  [utils.createListNode([1, 1, 2, 3, 3]), utils.createListNode([1, 2, 3])],
+  [util.generateListNode([1, 1, 2]), util.generateListNode([1, 2])],
+  [util.generateListNode([1, 1, 2, 3, 3]), util.generateListNode([1, 2, 3])],
   [null, null]
 ])("deleteDuplicates(%o)", (head: ListNode | null, expected: ListNode | null) => {
   expect(solution.deleteDuplicates(head)).toEqual(expected);
 });
 
 test.each([
-  [utils.createTreeNode([3, 9, 20, null, null, 15, 7]), 3],
-  [utils.createTreeNode([1, null, 2]), 2]
+  [util.generateTreeNode([3, 9, 20, null, null, 15, 7]), 3],
+  [util.generateTreeNode([1, null, 2]), 2]
 ])("maxDepth(%o)", (root: TreeNode | null, expected: number) => {
   expect(solution.maxDepth(root)).toEqual(expected);
 });
@@ -181,31 +181,31 @@ test.each([
 });
 
 test.each([
-  [utils.createTreeNode([1, null, 2, 3]), [1, 3, 2]],
-  [utils.createTreeNode([]), []],
-  [utils.createTreeNode([1]), [1]]
+  [util.generateTreeNode([1, null, 2, 3]), [1, 3, 2]],
+  [util.generateTreeNode([]), []],
+  [util.generateTreeNode([1]), [1]]
 ])("inorderTraversal(%o)", (root: TreeNode | null, expected: number[]) => {
   expect(solution.inorderTraversal(root)).toEqual(expected);
 });
 
 test.each([
-  [utils.createTreeNode([1, 2, 2, 3, 4, 4, 3]), true],
-  [utils.createTreeNode([1, 2, 2, null, 3, null, 3]), false]
+  [util.generateTreeNode([1, 2, 2, 3, 4, 4, 3]), true],
+  [util.generateTreeNode([1, 2, 2, null, 3, null, 3]), false]
 ])("isSymmetric(%o)", (root: TreeNode | null, expected: boolean) => {
   expect(solution.isSymmetric(root)).toEqual(expected);
 });
 
 test.each([
-  [utils.createTreeNode([3, 9, 20, null, null, 15, 7]), [[3], [9, 20], [15, 7]]],
-  [utils.createTreeNode([1]), [[1]]],
-  [utils.createTreeNode([]), []]
+  [util.generateTreeNode([3, 9, 20, null, null, 15, 7]), [[3], [9, 20], [15, 7]]],
+  [util.generateTreeNode([1]), [[1]]],
+  [util.generateTreeNode([]), []]
 ])("levelOrder(%o)", (root: TreeNode | null, expected: number[][]) => {
   expect(solution.levelOrder(root)).toEqual(expected);
 });
 
 test.each([
-  [utils.createTreeNode([1, 2, 3]), 2, []],
-  [utils.createTreeNode([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]), 22, [[5, 4, 11, 2], [5, 8, 4, 5]]]
+  [util.generateTreeNode([1, 2, 3]), 2, []],
+  [util.generateTreeNode([5, 4, 8, 11, null, 13, 4, 7, 2, null, null, 5, 1]), 22, [[5, 4, 11, 2], [5, 8, 4, 5]]]
 ])("pathSum(%o, %i)", (root: TreeNode | null, targetSum: number, expected: number[][]) => {
   expect(solution.pathSum(root, targetSum)).toEqual(expected);
 });
@@ -225,28 +225,28 @@ test.each([
 });
 
 test("hasCycle()", () => {
-  expect(solution.hasCycle(utils.createListNode([1]))).toEqual(false);
+  expect(solution.hasCycle(util.generateListNode([1]))).toEqual(false);
   expect(solution.hasCycle(null)).toEqual(false);
-  let head2 = utils.createListNode([1, 2]);
+  let head2 = util.generateListNode([1, 2]);
   head2!.next!.next = head2;
   expect(solution.hasCycle(head2)).toEqual(true);
-  let head3 = utils.createListNode([3, 2, 0, 4]);
+  let head3 = util.generateListNode([3, 2, 0, 4]);
   head3!.next!.next!.next!.next = head3;
   expect(solution.hasCycle(head3)).toEqual(true);
 });
 
 test.each([
-  [utils.createTreeNode([1, null, 2, 3]), [1, 2, 3]],
-  [utils.createTreeNode([]), []],
-  [utils.createTreeNode([1]), [1]]
+  [util.generateTreeNode([1, null, 2, 3]), [1, 2, 3]],
+  [util.generateTreeNode([]), []],
+  [util.generateTreeNode([1]), [1]]
 ])("preorderTraversal(%o)", (root: TreeNode | null, expected: number[]) => {
   expect(solution.preorderTraversal(root)).toEqual(expected);
 });
 
 test.each([
-  [utils.createTreeNode([1, null, 2, 3]), [3, 2, 1]],
-  [utils.createTreeNode([]), []],
-  [utils.createTreeNode([1]), [1]]
+  [util.generateTreeNode([1, null, 2, 3]), [3, 2, 1]],
+  [util.generateTreeNode([]), []],
+  [util.generateTreeNode([1]), [1]]
 ])("postorderTraversal(%o)", (root: TreeNode | null, expected: number[]) => {
   expect(solution.postorderTraversal(root)).toEqual(expected);
 });
@@ -290,17 +290,17 @@ test.each([
 });
 
 test.each([
-  [utils.createListNode([1, 2, 6, 3, 4, 5, 6]), 6, utils.createListNode([1, 2, 3, 4, 5])],
-  [utils.createListNode([]), 1, utils.createListNode([])],
-  [utils.createListNode([7, 7, 7, 7]), 7, utils.createListNode([])]
+  [util.generateListNode([1, 2, 6, 3, 4, 5, 6]), 6, util.generateListNode([1, 2, 3, 4, 5])],
+  [util.generateListNode([]), 1, util.generateListNode([])],
+  [util.generateListNode([7, 7, 7, 7]), 7, util.generateListNode([])]
 ])("removeElements(%o, %i)", (head: ListNode | null, val: number, expected: ListNode | null) => {
   expect(solution.removeElements(head, val)).toEqual(expected);
 });
 
 test.each([
-  [utils.createListNode([1, 2, 3, 4, 5]), utils.createListNode([5, 4, 3, 2, 1])],
-  [utils.createListNode([1, 2]), utils.createListNode([2, 1])],
-  [utils.createListNode([]), utils.createListNode([])]
+  [util.generateListNode([1, 2, 3, 4, 5]), util.generateListNode([5, 4, 3, 2, 1])],
+  [util.generateListNode([1, 2]), util.generateListNode([2, 1])],
+  [util.generateListNode([]), util.generateListNode([])]
 ])("reverseList(%o)", (head: ListNode | null, expected: ListNode | null) => {
   expect(solution.reverseList(head)).toEqual(expected);
 });
@@ -374,7 +374,7 @@ test.each([
 });
 
 test.each([
-  [utils.createTreeNode([3, 9, 20, null, null, 15, 7]), 24], [utils.createTreeNode([1]), 0]
+  [util.generateTreeNode([3, 9, 20, null, null, 15, 7]), 24], [util.generateTreeNode([1]), 0]
 ])("sumOfLeftLeaves(%o)", (root: TreeNode | null, expected: number) => {
   expect(solution.sumOfLeftLeaves(root)).toEqual(expected);
 });
@@ -488,10 +488,10 @@ test("postorder()", () => {
 });
 
 test.each([
-  [utils.createTreeNode([4, 2, 6, 3, 1, 5]), 1, 2, utils.createTreeNode([4, 1, 1, 2, null, null, 6, 3, 1, 5])],
-  [utils.createTreeNode([4, 2, null, 3, 1]), 1, 3, utils.createTreeNode([4, 2, null, 1, 1, 3, null, null, 1])]
+  [util.generateTreeNode([4, 2, 6, 3, 1, 5]), 1, 2, util.generateTreeNode([4, 1, 1, 2, null, null, 6, 3, 1, 5])],
+  [util.generateTreeNode([4, 2, null, 3, 1]), 1, 3, util.generateTreeNode([4, 2, null, 1, 1, 3, null, null, 1])]
 ])("addOneRow(%o, %i, %i)", (root: TreeNode | null, val: number, depth: number, expected: TreeNode | null) => {
-  expect(utils.preorderTraversal(solution.addOneRow(root, val, depth))).toEqual(utils.preorderTraversal(expected));
+  expect(util.preorderTraversal(solution.addOneRow(root, val, depth))).toEqual(util.preorderTraversal(expected));
 });
 
 test.each([
@@ -511,14 +511,14 @@ test.each([
 });
 
 test.each([
-  [utils.createTreeNode([1, 2, 3, 4, null, 2, 4, null, null, 4]), [
-    utils.createTreeNode([4]),
-    utils.createTreeNode([2, 4]),
+  [util.generateTreeNode([1, 2, 3, 4, null, 2, 4, null, null, 4]), [
+    util.generateTreeNode([4]),
+    util.generateTreeNode([2, 4]),
   ]],
-  [utils.createTreeNode([2, 1, 1]), [utils.createTreeNode([1])]],
-  [utils.createTreeNode([2, 2, 2, 3, null, 3, null]), [
-    utils.createTreeNode([3]),
-    utils.createTreeNode([2, 3]),
+  [util.generateTreeNode([2, 1, 1]), [util.generateTreeNode([1])]],
+  [util.generateTreeNode([2, 2, 2, 3, null, 3, null]), [
+    util.generateTreeNode([3]),
+    util.generateTreeNode([2, 3]),
   ]]
 ])("findDuplicateSubtrees(%o)", (root: TreeNode | null, expected: (TreeNode | null)[]) => {
   expect(solution.findDuplicateSubtrees(root)).toEqual(expected);
@@ -531,9 +531,9 @@ test.each([
 });
 
 test.each([
-  [utils.createTreeNode([1, 3, 2, 5, 3, null, 9]), 4],
-  [utils.createTreeNode([1, 3, 2, 5, null, null, 9, 6, null, 7]), 7],
-  [utils.createTreeNode([1, 3, 2, 5]), 2]
+  [util.generateTreeNode([1, 3, 2, 5, 3, null, 9]), 4],
+  [util.generateTreeNode([1, 3, 2, 5, null, null, 9, 6, null, 7]), 7],
+  [util.generateTreeNode([1, 3, 2, 5]), 2]
 ])("widthOfBinaryTree(%o)", (root: TreeNode | null, expected: number) => {
   expect(solution.widthOfBinaryTree(root)).toEqual(expected);
 });
@@ -541,7 +541,7 @@ test.each([
 test.each([
   [[4, 2, 3], true],
   [[4, 2, 1], false]
-])("checkPossibility(%o) -> %b", (nums: number[], expected: boolean) => {
+])("checkPossibility", (nums: number[], expected: boolean) => {
   expect(solution.checkPossibility(nums)).toEqual(expected);
 });
 
@@ -552,8 +552,8 @@ test.each([
 });
 
 test.each([
-  [utils.createTreeNode([1, 0, 2]), 1, 2, utils.createTreeNode([1, null, 2])],
-  [utils.createTreeNode([3, 0, 4, null, 2, null, null, 1]), 1, 3, utils.createTreeNode([3, 2, null, 1])]
+  [util.generateTreeNode([1, 0, 2]), 1, 2, util.generateTreeNode([1, null, 2])],
+  [util.generateTreeNode([3, 0, 4, null, 2, null, null, 1]), 1, 3, util.generateTreeNode([3, 2, null, 1])]
 ])("trimBST(%o, %i, %i)", (root: TreeNode | null, low: number, high: number, expected: TreeNode | null) => {
   expect(solution.trimBST(root, low, high)).toEqual(expected);
 });
@@ -581,8 +581,8 @@ test.each([
 });
 
 test.each([
-  [utils.createTreeNode([5, 4, 5, 1, 1, null, 5]), 2],
-  [utils.createTreeNode([1, 4, 5, 4, 4, null, 5]), 2],
+  [util.generateTreeNode([5, 4, 5, 1, 1, null, 5]), 2],
+  [util.generateTreeNode([1, 4, 5, 4, 4, null, 5]), 2],
 ])("longestUnivaluePath(%o)", (root: TreeNode | null, expected: number) => {
   expect(solution.longestUnivaluePath(root)).toEqual(expected);
 });
@@ -780,8 +780,8 @@ test.each([
 });
 
 test.each([
-  [utils.createListNode([0, 1, 2, 3]), [0, 1, 3], 2],
-  [utils.createListNode([0, 1, 2, 3, 4]), [0, 3, 1, 4], 2],
+  [util.generateListNode([0, 1, 2, 3]), [0, 1, 3], 2],
+  [util.generateListNode([0, 1, 2, 3, 4]), [0, 3, 1, 4], 2],
 ])("numComponents(%o, %o)", (head: ListNode | null, nums: number[], expected: number) => {
   expect(solution.numComponents(head, nums)).toEqual(expected);
 });
@@ -911,9 +911,9 @@ test.each([
 });
 
 test.each([
-  [utils.createTreeNode([4, 1, 3, null, null, 2]), 5, utils.createTreeNode([5, 4, null, 1, 3, null, null, 2])],
-  [utils.createTreeNode([5, 2, 4, null, 1]), 3, utils.createTreeNode([5, 2, 4, null, 1, null, 3])],
-  [utils.createTreeNode([5, 2, 3, null, 1]), 4, utils.createTreeNode([5, 2, 4, null, 1, 3])]
+  [util.generateTreeNode([4, 1, 3, null, null, 2]), 5, util.generateTreeNode([5, 4, null, 1, 3, null, null, 2])],
+  [util.generateTreeNode([5, 2, 4, null, 1]), 3, util.generateTreeNode([5, 2, 4, null, 1, null, 3])],
+  [util.generateTreeNode([5, 2, 3, null, 1]), 4, util.generateTreeNode([5, 2, 4, null, 1, 3])]
 ])("insertIntoMaxTree(%o, %i)", (root: TreeNode | null, val: number, expected: TreeNode | null) => {
   expect(solution.insertIntoMaxTree(root, val)).toEqual(expected);
 });
@@ -927,8 +927,8 @@ test.each([
 });
 
 test.each([
-  [utils.createTreeNode([1, 0, 1, 0, 1, 0, 1]), 22],
-  [utils.createTreeNode([0]), 0],
+  [util.generateTreeNode([1, 0, 1, 0, 1, 0, 1]), 22],
+  [util.generateTreeNode([0]), 0],
   [null, 0]
 ])("sumRootToLeaf(%o)", (root: TreeNode | null, expected: number) => {
   expect(solution.sumRootToLeaf(root)).toEqual(expected);
@@ -973,8 +973,8 @@ test.each([
 });
 
 test.each([
-  [utils.createListNode([1, 0, 1]), 5],
-  [utils.createListNode([0]), 0]
+  [util.generateListNode([1, 0, 1]), 5],
+  [util.generateListNode([0]), 0]
 ])("getDecimalValue(%o)", (head: ListNode | null, expected: number) => {
   expect(solution.getDecimalValue(head)).toEqual(expected);
 });
@@ -1230,8 +1230,8 @@ test.each([
 });
 
 test.each([
-  [utils.createListNode([1, 2, 3, 4, 5]), utils.createListNode([3, 4, 5])],
-  [utils.createListNode([1, 2, 3, 4, 5, 6]), utils.createListNode([4, 5, 6])]
+  [util.generateListNode([1, 2, 3, 4, 5]), util.generateListNode([3, 4, 5])],
+  [util.generateListNode([1, 2, 3, 4, 5, 6]), util.generateListNode([4, 5, 6])]
 ])("middleNode(%o)", (head: ListNode | null, expected: ListNode | null) => {
   expect(solution.middleNode(head)).toEqual(expected);
 });
@@ -1279,7 +1279,7 @@ test.each([
 test.each([
   [[1, 1, 0, 0], [0, 1, 0, 1], 0],
   [[1, 1, 1, 0, 0, 1], [1, 0, 0, 0, 1, 1], 3]
-])("countStudent(%o, %P)", (students: number[], sandwiches: number[], expected: number) => {
+])("countStudent", (students: number[], sandwiches: number[], expected: number) => {
   expect(solution.countStudents(students, sandwiches)).toEqual(expected);
 })
 
