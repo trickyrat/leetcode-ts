@@ -2,7 +2,7 @@ import { ListNode } from "./DataStructures/ListNode";
 import { TreeNode } from "./DataStructures/TreeNode";
 import { Node } from "./DataStructures/Node";
 import { Trie } from "./DataStructures/Trie";
-import { IGetCompareValue, MaxPriorityQueue, MinPriorityQueue, PriorityQueue } from "@datastructures-js/priority-queue";
+import { IGetCompareValue, MaxPriorityQueue, MinPriorityQueue } from "@datastructures-js/priority-queue";
 import { Util } from "./Util";
 
 export class Solution {
