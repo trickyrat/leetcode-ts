@@ -2,7 +2,7 @@
 
 ## Introduction
 
-The solutions of LeetCode problems with Typescript.  
+The LeetCode solutions implemented in Typescript.  
 
 ## Getting Started
 
