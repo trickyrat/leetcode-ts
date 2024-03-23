@@ -4413,6 +4413,14 @@ export class Solution {
     }
 
     /**
+     * 2549. Count Distinct Numbers on Board
+     * @param n 
+     */
+    distinctIntegers(n: number): number {
+        return n === 1 ? 1 : n - 1;
+    }
+
+    /**
      * 6078.Rearrange Characters to Make Target String
      * @param s 
      * @param target 
