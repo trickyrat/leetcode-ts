@@ -1493,6 +1493,14 @@ test.each([
 });
 
 test.each([
+  [5, 4],
+  [3, 2],
+  [1, 1],
+])("distinctIntegers(%i) -> %i", (n: number, expected: number) => {
+  expect(solution.distinctIntegers(n)).toEqual(expected);
+});
+
+test.each([
   ["ilovecodingonleetcode", "code", 2],
   ["abcba", "abc", 1],
   ["abbaccaddaeea", "aaaaa", 1],
