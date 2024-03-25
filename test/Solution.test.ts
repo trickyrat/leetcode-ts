@@ -432,6 +432,12 @@ test.each([
 });
 
 test.each([
+  [5, [1, 2, 5], 4], [3, [2], 0], [10, [10], 1]
+])("change(%i, %o, %i)", (amount: number, coins: number[], expected: number) => {
+  expect(solution.change(amount, coins)).toEqual(expected);
+});
+
+test.each([
   ["aba", "cdc", 3],
   ["aaa", "bbb", 3],
   ["aaa", "aaa", -1],
