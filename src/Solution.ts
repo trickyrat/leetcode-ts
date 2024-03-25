@@ -1188,6 +1188,22 @@ export class Solution {
     }
 
     /**
+     * 518.Coin Change II
+     * @param amount 
+     * @param coins 
+     */
+    change(amount: number, coins: number[]): number {
+        const dp = new Array(amount + 1).fill(0);
+        dp[0] = 1;
+        for (const coin of coins) {
+            for (let i = coin; i <= amount; i++) {
+                dp[i] += dp[i - coin];
+            }
+        }
+        return dp[amount];
+    }
+
+    /**
      * 521.Longest Uncommon Subsequence I
      * @param a 
      * @param b 
