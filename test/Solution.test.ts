@@ -1507,6 +1507,13 @@ test.each([
 });
 
 test.each([
+  [[[6,10],[5,15]], 2],
+  [[[1,3],[10,20],[2,5],[4,8]], 4],
+])("countWays(%o) -> %i", (ranges: number[][], expected: number) => {
+  expect(solution.countWays(ranges)).toEqual(expected);
+});
+
+test.each([
   ["ilovecodingonleetcode", "code", 2],
   ["abcba", "abc", 1],
   ["abbaccaddaeea", "aaaaa", 1],
