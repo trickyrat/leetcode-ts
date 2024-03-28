@@ -1402,6 +1402,15 @@ test.each([
 });
 
 test.each([
+  [[0, 0], 2],
+  [[0, 0, 2], 6],
+  [[0, 1, 2, 0], 6]
+])("firstDayBeenInAllRooms(%o)", (nums: number[], expected: number) => {
+  expect(solution.firstDayBeenInAllRooms(nums)).toEqual(expected);
+});
+
+
+test.each([
   [[1, 2, 2, 1], 1, 4],
   [[1, 3], 3, 0],
   [[3, 2, 1, 5, 4], 2, 3],
