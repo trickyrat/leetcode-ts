@@ -4200,6 +4200,27 @@ export class Solution {
     }
 
     /**
+     * 1997. First Day Where You Have Been in All the Rooms
+     * @param nextVisit 
+     */
+    firstDayBeenInAllRooms(nextVisit: number[]): number {
+        const mod = 1e9 + 7;
+        const len = nextVisit.length;
+        const dp = new Array(len).fill(0);
+
+        dp[0] = 2;
+        for (let i = 1; i < len; i++) {
+            const to = nextVisit[i];
+            dp[i] = 2 + dp[i - 1];
+            if (to) {
+                dp[i] = (dp[i] - dp[to - 1] + mod) % mod;
+            }
+            dp[i] = (dp[i] + dp[i - 1]) % mod;
+        }
+        return dp[len - 2];
+    }
+
+    /**
      * 2006.Count Number of Pairs With Absolute Difference K
      * @param nums
      * @param k
