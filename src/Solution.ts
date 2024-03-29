@@ -1425,7 +1425,7 @@ export class Solution {
             let low = 0, high = nums.length - 1;
             while (low < high) {
                 const mid = low + Math.floor((high - low) / 2);
-                if (nums[mid] >= x) {
+                if (nums[mid] >= target) {
                     high = mid;
                 } else {
                     low = mid + 1;
@@ -4478,6 +4478,28 @@ export class Solution {
             i = j;
         }
         return res;
+    }
+
+    /**
+     * 2908. Minimum Sum of Mountain Triplets I
+     * @param nums 
+     */
+    minimumSum(nums: number[]): number {
+        const n = nums.length;
+        let res = 1000, mini = 1000;
+        const left = [0];
+        let right = nums[n - 1];
+        for (let i = 1; i < n; i++) {
+            mini = Math.min(nums[i - 1], mini)
+            left[i] = mini;
+        }
+        for (let i = n - 2; i > 0; i--) {
+            if (left[i] < nums[i] && nums[i] > right) {
+                res = Math.min(res, left[i] + nums[i] + right);
+            }
+            right = Math.min(right, nums[i]);
+        }
+        return res < 1000 ? res : -1;
     }
 
     /**
