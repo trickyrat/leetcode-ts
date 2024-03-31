@@ -327,6 +327,12 @@ test.each([
 });
 
 test.each([
+  ["9,3,4,#,#,1,#,#,2,#,6,#,#", true], ["1,#", false], ["9,#,#,1", false]
+])("isValidSerialization(%s)", (preorder: string, expected: boolean) => {
+  expect(solution.isValidSerialization(preorder)).toEqual(expected);
+});
+
+test.each([
   [[1, 2, 2, 1], [2, 2], [2, 2]],
   [[4, 9, 5], [9, 4, 9, 8, 4], [9, 4]]
 ])("intersect(%o, %o)", (nums1: number[], nums2: number[], expected: number[]) => {
