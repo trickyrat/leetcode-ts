@@ -836,6 +836,35 @@ export class Solution {
     }
 
     /**
+     * 331. Verify Preorder Serialization of a Binary Tree
+     * @param preorder 
+     * @returns 
+     */
+    isValidSerialization(preorder: string): boolean {
+        let n = preorder.length;
+        let i = 0;
+        let slots = 1;
+        while (i < n) {
+            if (slots === 0) {
+                return false;
+            }
+            
+            if (preorder[i] === ',') {
+                i++;
+            } else if (preorder[i] === '#') {
+                slots--;
+                i++;
+            } else {
+                while (i < n && preorder[i] !== ',') {
+                    i++;
+                }
+                slots++;
+            }
+        }
+        return slots === 0;
+    }
+
+    /**
      * 350.Intersection of Two Arrays II
      * @param nums1 
      * @param nums2 
