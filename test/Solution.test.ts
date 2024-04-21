@@ -118,6 +118,17 @@ test.each([
 });
 
 test.each([
+  [[2, 3, 6, 7], 7, [[2, 2, 3], [7]]],
+  [[2, 3, 5], 8, [[2, 2, 2, 2], [2, 3, 3], [3, 5]]],
+  [[2], 1, []],
+])("combinationSum(%o, %i) -> %i", (candidates: number[], target: number, expected: number[][]) => {
+  let actual = solution.combinationSum(candidates, target);
+  actual.sort();
+  expected.sort();
+  expect(actual).toEqual(expected);
+});
+
+test.each([
   [[1, 2, 3], [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]],
   [[0, 1], [[0, 1], [1, 0]]],
   [[1], [[1]]]

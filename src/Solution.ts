@@ -313,6 +313,37 @@ export class Solution {
     }
 
     /**
+     * 39. Combination Sum
+     * @param candidates 
+     * @param target 
+     * @returns 
+     */
+    combinationSum(candidates: number[], target: number): number[][] {
+        const dfs = (_candidates: number[], _target: number, _ans: number[][], _combine: number[], startIndex: number) => {
+            if (startIndex == _candidates.length) {
+                return;
+            }
+            if (_target === 0) {
+                _ans.push(_combine.slice());
+                return;
+            }
+            dfs(_candidates, _target, _ans, _combine, startIndex+1);
+            if (_target - _candidates[startIndex] >= 0) {
+                _combine.push(_candidates[startIndex]);
+                dfs(_candidates, _target - _candidates[startIndex], _ans, _combine, startIndex);
+                _combine.pop();
+            }
+        };
+        let res: number[][] = [];
+        let combine: number[] = [];
+        dfs(candidates, target, res, combine, 0);
+        return res;
+    }
+
+    /**
+    * 48.Rotate Image
+
+    /**
     * 46.Permutations
     * @param nums 
     */
