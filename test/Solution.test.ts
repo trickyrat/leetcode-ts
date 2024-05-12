@@ -1525,6 +1525,13 @@ test.each([
 });
 
 test.each([
+  [["G", "P", "GP", "GG"], [2, 4, 3], 21],
+  [["MMM", "PGM", "GP"], [3, 10], 37],
+])("garbageCollection(%o, %o) -> %i", (garbage: string[], travel: number[], expected: number) => {
+  expect(solution.garbageCollection(garbage, travel)).toEqual(expected);
+});
+
+test.each([
   [5, 4],
   [3, 2],
   [1, 1],

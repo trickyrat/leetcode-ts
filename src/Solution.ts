@@ -4510,6 +4510,29 @@ export class Solution {
     }
 
     /**
+     * 2391. Minimum Amount of Time to Collect Garbage
+     * @param garbage 
+     * @param travel 
+     */
+    garbageCollection(garbage: string[], travel: number[]): number {
+        let distance = new Map<string, number>();
+        let res = 0, currentDistance = 0;
+        for (let i = 0; i < garbage.length; i++) {
+            res += garbage[i].length;
+            if (i > 0) {
+                currentDistance += travel[i - 1];
+            }
+            for (const c of garbage[i]) {
+                distance.set(c, currentDistance);
+            }
+        }
+        for (const [key, value] of distance) {
+            res += value;
+        }
+        return res;
+    }
+
+    /**
      * 2549. Count Distinct Numbers on Board
      * @param n 
      */
