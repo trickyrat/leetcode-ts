@@ -2115,33 +2115,13 @@ export class Solution {
                 if (zeta(mid) < x) {
                     left = mid + 1;
                 } else {
-                    count++;
+                    right = mid - 1;
                 }
-                dp[i][j] = Math.min(dp[i][j], count);
             }
-        }
-        for (let i = 0; i < n; i++) {
-            let count = 0;
-            for (let j = 0; j < n; j++) {
-                if (banned.has(j * n + i)) {
-                    count = 0;
-                } else {
-                    count++;
-                }
-                dp[j][i] = Math.min(dp[j][i], count);
-            }
-            count = 0;
-            for (let j = n - 1; j >= 0; j--) {
-                if (banned.has(j * n + i)) {
-                    count = 0;
-                } else {
-                    count++;
-                }
-                dp[j][i] = Math.min(dp[j][i], count);
-                res = Math.max(res, dp[j][i])
-            }
-        }
-        return res;
+            return right + 1;
+        };
+
+        return nx(k + 1) - nx(k);
     }
 
     /**
@@ -3826,7 +3806,29 @@ export class Solution {
     minOperations2(nums: number[], x: number): number {
         const n = nums.length;
         const sum = nums.reduce((prev, curr) => prev + curr, 0);
-        return pre(high) - pre(low - 1);
+
+        if (sum < x) {
+            return -1;
+        }
+
+        let right = 0;
+        let leftSum = 0, rightSum = sum;
+        let res = n + 1;
+
+        for (let left = -1; left < n; ++left) {
+            if (left != -1) {
+                leftSum += nums[left];
+            }
+            while (right < n && leftSum + rightSum > x) {
+                rightSum -= nums[right];
+                ++right;
+            }
+            if (leftSum + rightSum === x) {
+                res = Math.min(res, (left + 1) + (n - right));
+            }
+        }
+
+        return res > n ? -1 : res;
     }
 
     /**
