@@ -313,6 +313,34 @@ export class Solution {
     }
 
     /**
+     * 39. Combination Sum
+     * @param candidates 
+     * @param target 
+     * @returns 
+     */
+    combinationSum(candidates: number[], target: number): number[][] {
+        const dfs = (_candidates: number[], _target: number, _ans: number[][], _combine: number[], startIndex: number) => {
+            if (startIndex == _candidates.length) {
+                return;
+            }
+            if (_target === 0) {
+                _ans.push(_combine.slice());
+                return;
+            }
+            dfs(_candidates, _target, _ans, _combine, startIndex+1);
+            if (_target - _candidates[startIndex] >= 0) {
+                _combine.push(_candidates[startIndex]);
+                dfs(_candidates, _target - _candidates[startIndex], _ans, _combine, startIndex);
+                _combine.pop();
+            }
+        };
+        let res: number[][] = [];
+        let combine: number[] = [];
+        dfs(candidates, target, res, combine, 0);
+        return res;
+    }
+
+    /**
     * 46.Permutations
     * @param nums 
     */
@@ -833,6 +861,35 @@ export class Solution {
      */
     addDigits(num: number): number {
         return (num - 1) % 9 + 1;
+    }
+
+    /**
+     * 331. Verify Preorder Serialization of a Binary Tree
+     * @param preorder 
+     * @returns 
+     */
+    isValidSerialization(preorder: string): boolean {
+        let n = preorder.length;
+        let i = 0;
+        let slots = 1;
+        while (i < n) {
+            if (slots === 0) {
+                return false;
+            }
+            
+            if (preorder[i] === ',') {
+                i++;
+            } else if (preorder[i] === '#') {
+                slots--;
+                i++;
+            } else {
+                while (i < n && preorder[i] !== ',') {
+                    i++;
+                }
+                slots++;
+            }
+        }
+        return slots === 0;
     }
 
     /**
@@ -1425,7 +1482,7 @@ export class Solution {
             let low = 0, high = nums.length - 1;
             while (low < high) {
                 const mid = low + Math.floor((high - low) / 2);
-                if (nums[mid] >= x) {
+                if (nums[mid] >= target) {
                     high = mid;
                 } else {
                     low = mid + 1;
@@ -2058,13 +2115,33 @@ export class Solution {
                 if (zeta(mid) < x) {
                     left = mid + 1;
                 } else {
-                    right = mid - 1;
+                    count++;
                 }
+                dp[i][j] = Math.min(dp[i][j], count);
             }
-            return right + 1;
-        };
-
-        return nx(k + 1) - nx(k);
+        }
+        for (let i = 0; i < n; i++) {
+            let count = 0;
+            for (let j = 0; j < n; j++) {
+                if (banned.has(j * n + i)) {
+                    count = 0;
+                } else {
+                    count++;
+                }
+                dp[j][i] = Math.min(dp[j][i], count);
+            }
+            count = 0;
+            for (let j = n - 1; j >= 0; j--) {
+                if (banned.has(j * n + i)) {
+                    count = 0;
+                } else {
+                    count++;
+                }
+                dp[j][i] = Math.min(dp[j][i], count);
+                res = Math.max(res, dp[j][i])
+            }
+        }
+        return res;
     }
 
     /**
@@ -2539,6 +2616,28 @@ export class Solution {
             fast = fast.next.next;
         }
         return slow;
+    }
+
+    /**
+     * 881.Boats to Save People
+     * @param people 
+     * @param limit 
+     * @returns 
+     */
+    numRescueBoats(people: number[], limit: number): number {
+        people.sort((a, b) => a - b);
+        let left = 0, right = people.length - 1;
+        let res = 0;
+        while (left <= right) {
+            if (people[left] + people[right] <= limit) {
+                left++;
+                right--;
+            } else {
+                right--;
+           }
+           res++;
+        }
+        return res;
     }
 
     /**
@@ -3727,29 +3826,7 @@ export class Solution {
     minOperations2(nums: number[], x: number): number {
         const n = nums.length;
         const sum = nums.reduce((prev, curr) => prev + curr, 0);
-
-        if (sum < x) {
-            return -1;
-        }
-
-        let right = 0;
-        let leftSum = 0, rightSum = sum;
-        let res = n + 1;
-
-        for (let left = -1; left < n; ++left) {
-            if (left != -1) {
-                leftSum += nums[left];
-            }
-            while (right < n && leftSum + rightSum > x) {
-                rightSum -= nums[right];
-                ++right;
-            }
-            if (leftSum + rightSum === x) {
-                res = Math.min(res, (left + 1) + (n - right));
-            }
-        }
-
-        return res > n ? -1 : res;
+        return pre(high) - pre(low - 1);
     }
 
     /**
@@ -3982,7 +4059,7 @@ export class Solution {
     }
 
     /**
-     * add 1742. Maximum Number of Balls in a Box
+     * 1742. Maximum Number of Balls in a Box
      * @param lowLimit 
      * @param highLimit 
      */
@@ -4450,6 +4527,29 @@ export class Solution {
     }
 
     /**
+     * 2391. Minimum Amount of Time to Collect Garbage
+     * @param garbage 
+     * @param travel 
+     */
+    garbageCollection(garbage: string[], travel: number[]): number {
+        let distance = new Map<string, number>();
+        let res = 0, currentDistance = 0;
+        for (let i = 0; i < garbage.length; i++) {
+            res += garbage[i].length;
+            if (i > 0) {
+                currentDistance += travel[i - 1];
+            }
+            for (const c of garbage[i]) {
+                distance.set(c, currentDistance);
+            }
+        }
+        for (const [key, value] of distance) {
+            res += value;
+        }
+        return res;
+    }
+
+    /**
      * 2549. Count Distinct Numbers on Board
      * @param n 
      */
@@ -4478,6 +4578,28 @@ export class Solution {
             i = j;
         }
         return res;
+    }
+
+    /**
+     * 2908. Minimum Sum of Mountain Triplets I
+     * @param nums 
+     */
+    minimumSum(nums: number[]): number {
+        const n = nums.length;
+        let res = 1000, mini = 1000;
+        const left = [0];
+        let right = nums[n - 1];
+        for (let i = 1; i < n; i++) {
+            mini = Math.min(nums[i - 1], mini)
+            left[i] = mini;
+        }
+        for (let i = n - 2; i > 0; i--) {
+            if (left[i] < nums[i] && nums[i] > right) {
+                res = Math.min(res, left[i] + nums[i] + right);
+            }
+            right = Math.min(right, nums[i]);
+        }
+        return res < 1000 ? res : -1;
     }
 
     /**

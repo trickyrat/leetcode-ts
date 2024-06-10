@@ -118,6 +118,17 @@ test.each([
 });
 
 test.each([
+  [[2, 3, 6, 7], 7, [[2, 2, 3], [7]]],
+  [[2, 3, 5], 8, [[2, 2, 2, 2], [2, 3, 3], [3, 5]]],
+  [[2], 1, []],
+])("combinationSum(%o, %i) -> %i", (candidates: number[], target: number, expected: number[][]) => {
+  let actual = solution.combinationSum(candidates, target);
+  actual.sort();
+  expected.sort();
+  expect(actual).toEqual(expected);
+});
+
+test.each([
   [[1, 2, 3], [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]],
   [[0, 1], [[0, 1], [1, 0]]],
   [[1], [[1]]]
@@ -324,6 +335,12 @@ test.each([
   [38, 2], [0, 0]
 ])("addDigit(%i)", (num: number, expected: number) => {
   expect(solution.addDigits(num)).toEqual(expected);
+});
+
+test.each([
+  ["9,3,4,#,#,1,#,#,2,#,6,#,#", true], ["1,#", false], ["9,#,#,1", false]
+])("isValidSerialization(%s)", (preorder: string, expected: boolean) => {
+  expect(solution.isValidSerialization(preorder)).toEqual(expected);
 });
 
 test.each([
@@ -1243,6 +1260,14 @@ test.each([
 });
 
 test.each([
+  [[1, 2], 3, 1],
+  [[3, 2, 2, 1], 3, 3],
+  [[3, 5, 3, 4], 5, 4]
+])("numRescueBoats(%o, %i)", (people: number[], limit: number, expected: number) => {
+  expect(solution.numRescueBoats(people, limit)).toEqual(expected);
+});
+
+test.each([
   [[[1, 2], [3, 4]], 17], [[[2]], 5], [[[1, 0], [0, 2]], 8]
 ])("projectionArea(%o)", (grid: number[][], expected: number) => {
   expect(solution.projectionArea(grid)).toEqual(expected);
@@ -1508,6 +1533,13 @@ test.each([
 });
 
 test.each([
+  [["G", "P", "GP", "GG"], [2, 4, 3], 21],
+  [["MMM", "PGM", "GP"], [3, 10], 37],
+])("garbageCollection(%o, %o) -> %i", (garbage: string[], travel: number[], expected: number) => {
+  expect(solution.garbageCollection(garbage, travel)).toEqual(expected);
+});
+
+test.each([
   [5, 4],
   [3, 2],
   [1, 1],
@@ -1516,10 +1548,18 @@ test.each([
 });
 
 test.each([
-  [[[6,10],[5,15]], 2],
-  [[[1,3],[10,20],[2,5],[4,8]], 4],
+  [[[6, 10], [5, 15]], 2],
+  [[[1, 3], [10, 20], [2, 5], [4, 8]], 4],
 ])("countWays(%o) -> %i", (ranges: number[][], expected: number) => {
   expect(solution.countWays(ranges)).toEqual(expected);
+});
+
+test.each([
+  [[8, 6, 1, 5, 3], 9],
+  [[5, 4, 8, 7, 10, 2], 13],
+  [[6, 5, 4, 3, 4, 5], -1],
+])("minimumSum(%o) -> %i", (nums: number[], expected: number) => {
+  expect(solution.minimumSum(nums)).toEqual(expected);
 });
 
 test.each([
