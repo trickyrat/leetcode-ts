@@ -2602,6 +2602,28 @@ export class Solution {
     }
 
     /**
+     * 881.Boats to Save People
+     * @param people 
+     * @param limit 
+     * @returns 
+     */
+    numRescueBoats(people: number[], limit: number): number {
+        people.sort((a, b) => a - b);
+        let left = 0, right = people.length - 1;
+        let res = 0;
+        while (left <= right) {
+            if (people[left] + people[right] <= limit) {
+                left++;
+                right--;
+            } else {
+                right--;
+           }
+           res++;
+        }
+        return res;
+    }
+
+    /**
      * 883.Projection Area of 3D Shapes
      * @param grid 
      */

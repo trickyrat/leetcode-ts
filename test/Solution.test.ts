@@ -1260,6 +1260,14 @@ test.each([
 });
 
 test.each([
+  [[1, 2], 3, 1],
+  [[3, 2, 2, 1], 3, 3],
+  [[3, 5, 3, 4], 5, 4]
+])("numRescueBoats(%o, %i)", (people: number[], limit: number, expected: number) => {
+  expect(solution.numRescueBoats(people, limit)).toEqual(expected);
+});
+
+test.each([
   [[[1, 2], [3, 4]], 17], [[[2]], 5], [[[1, 0], [0, 2]], 8]
 ])("projectionArea(%o)", (grid: number[][], expected: number) => {
   expect(solution.projectionArea(grid)).toEqual(expected);
@@ -1540,8 +1548,8 @@ test.each([
 });
 
 test.each([
-  [[[6,10],[5,15]], 2],
-  [[[1,3],[10,20],[2,5],[4,8]], 4],
+  [[[6, 10], [5, 15]], 2],
+  [[[1, 3], [10, 20], [2, 5], [4, 8]], 4],
 ])("countWays(%o) -> %i", (ranges: number[][], expected: number) => {
   expect(solution.countWays(ranges)).toEqual(expected);
 });
