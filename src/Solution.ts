@@ -2,7 +2,7 @@ import { ListNode } from "./DataStructures/ListNode";
 import { TreeNode } from "./DataStructures/TreeNode";
 import { Node } from "./DataStructures/Node";
 import { Trie } from "./DataStructures/Trie";
-import { IGetCompareValue, MaxPriorityQueue, MinPriorityQueue } from "@datastructures-js/priority-queue";
+import { ICompare, IGetCompareValue, MaxPriorityQueue, MinPriorityQueue, PriorityQueue } from "@datastructures-js/priority-queue";
 import { Util } from "./Util";
 
 export class Solution {
@@ -4602,6 +4602,41 @@ export class Solution {
             right = Math.min(right, nums[i]);
         }
         return res < 1000 ? res : -1;
+    }
+
+    /**
+     * 3264. Final Array State After K Multiplication Operations I
+     * @param nums 
+     * @param k 
+     * @param multiplier 
+     */
+    getFinalState(nums: number[], k: number, multiplier: number): number[] {
+        const comparePair: ICompare<{element: number, index: number}> = (a, b) => {
+            if (a.element < b.element) {
+                return -1;
+            }
+        
+            if (a.element > b.element) {
+                return 1;
+            }
+        
+            return a.index < b.index ? -1 : 1;
+        };
+        let pq = new PriorityQueue<{element: number, index: number}>(comparePair);
+        nums.map((value, index) => {
+            pq.enqueue({
+                element: value, 
+                index
+            });
+        });
+
+        while (k--) {
+            let top = pq.dequeue();
+            top.element *= multiplier;
+            pq.enqueue(top);
+        }
+
+        return pq.toArray().sort((a, b) => a.index - b.index).map(item => item.element);
     }
 
     /**

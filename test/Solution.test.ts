@@ -1563,6 +1563,13 @@ test.each([
 });
 
 test.each([
+  [[2,1,3,5,6], 5, 2, [8,4,6,5,6]],
+  [[1, 2], 3, 4, [16,8]],
+])("getFinalState(%o, %i, %i) -> %o", (nums: number[], k: number, multiplier: number, expected: number[]) => {
+  expect(solution.getFinalState(nums, k, multiplier)).toEqual(expected);
+});
+
+test.each([
   ["ilovecodingonleetcode", "code", 2],
   ["abcba", "abc", 1],
   ["abbaccaddaeea", "aaaaa", 1],
