@@ -161,4 +161,22 @@ export class Util {
       return this.isSameTree(lhs.left, rhs.left) && this.isSameTree(lhs.right, rhs.right);
     }
   }
+
+  levelTraverse(root: TreeNode | null): number[] {
+    const queue = [root];
+    const list: number[] = [];
+    while (queue.length) {
+      let node = queue.shift() as TreeNode;
+      if (node) {
+        list.push(node.val);
+        if (node.left) {
+          queue.push(node.left);
+        }
+        if (node.right) {
+          queue.push(node.right);
+        }
+      }
+    }
+    return list;
+  }
 }
