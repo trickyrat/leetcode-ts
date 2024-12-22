@@ -1017,6 +1017,13 @@ test.each([
 });
 
 test.each([
+  [12, 15, 2, 13],
+  [7, 11, 4, 7]
+])("getKth(%i, %i, %i, %i)", (lo: number, hi: number, k: number, expected: number) => {
+  expect(solution.getKth(lo, hi, k)).toEqual(expected);
+});
+
+test.each([
   [[4, 3, 10, 9, 8], [10, 9]],
   [[4, 4, 7, 6, 7], [7, 7, 6]],
   [[6], [6]]

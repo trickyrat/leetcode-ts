@@ -3295,6 +3295,45 @@ export class Solution {
     }
 
     /**
+     * 1387. Sort Integers by The Power Value
+     * @param lo 
+     * @param hi 
+     * @param k 
+     */
+    getKth(lo: number, hi: number, k: number): number {
+        const map = new Map<number, number>();
+        const getF = (n: number): number => {
+            if (map.has(n)) {
+                return map.get(n)!;
+            }
+
+            if (n === 1) {
+                return 0;
+            }
+
+            if (n & 1) {
+                return map.set(n, getF(3 * n + 1) + 1).get(n)!;
+            }
+
+            return map.set(n, getF(n / 2) + 1).get(n)!;
+        };
+        let res = [];
+        for (let i = lo; i <= hi; ++i) {
+            res.push(i);
+        }
+        res.sort((a, b) => {
+            let f1 = getF(a);
+            let f2 = getF(b);
+            if (f1 !== f2) {
+                return f1 - f2;
+            }
+            return a - b;
+        });
+
+        return res[k - 1];
+    }
+
+    /**
      * 1403.Minimum Subsequence in Non-Increasing Order
      * @param nums 
      */
