@@ -9,7 +9,7 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@types/node": "^22.10.2",
+    "@types/node": "^22.10.10",
     "@vitest/coverage-istanbul": "^3.0.4",
     "@vitest/coverage-v8": "^3.0.4",
     "@vitest/ui": "^3.0.4",
