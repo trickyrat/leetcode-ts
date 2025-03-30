@@ -64,32 +64,31 @@ export class Util {
     return res.join(separator);
   }
 
-  generateTreeNode(nums: (number | null)[]): TreeNode | null {
-    if (!nums || nums.length === 0 || nums[0] === null) {
-      return null;
+ generateTreeNode(values: (number | null)[]): TreeNode | null {
+    if (values.length === 0 || values[0] === null) return null;
+    
+    const root = new TreeNode(values[0]);
+    const queue: TreeNode[] = [root];
+    let index = 1;
+  
+    while (queue.length > 0 && index < values.length) {
+      const current = queue.shift()!;
+  
+      if (values[index] !== null) {
+        current.left = new TreeNode(values[index]!);
+        queue.push(current.left);
+      }
+      index++;
+
+      if (index >= values.length) break;
+  
+      if (values[index] !== null) {
+        current.right = new TreeNode(values[index]!);
+        queue.push(current.right);
+      }
+      index++;
     }
-    let root = new TreeNode(nums[0]);
-    let queue = [root];
-    let fillLeft = true;
-    for (let i = 1; i < nums.length; i++) {
-      let node = nums[i] !== null ? new TreeNode(nums[i]!) : null;
-      if (fillLeft) {
-        queue[0].left = node;
-        fillLeft = false;
-      } else {
-        queue[0].right = node;
-        fillLeft = true;
-      }
-
-      if (node) {
-        queue.push(node);
-      }
-
-      if (fillLeft) {
-        queue.shift();
-      }
-    }
-
+  
     return root;
   }
 

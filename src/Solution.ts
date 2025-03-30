@@ -210,7 +210,7 @@ export class Solution {
             }
         }
         while (!pq.isEmpty()) {
-            let curr = pq.dequeue();
+            let curr = pq.dequeue()!;
             if (curr.next) {
                 pq.enqueue(curr.next);
             }
@@ -2523,7 +2523,7 @@ export class Solution {
             queue.enqueue(quality[index]);
             let totalCost = (wage[index] / quality[index]) * totalQuality;
             res = Math.min(res, totalCost);
-            totalQuality -= queue.dequeue();
+            totalQuality -= queue.dequeue()!;
         }
         return res;
     }
@@ -4670,7 +4670,7 @@ export class Solution {
         });
 
         while (k--) {
-            let top = pq.dequeue();
+            let top = pq.dequeue()!;
             top.element *= multiplier;
             pq.enqueue(top);
         }

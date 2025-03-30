@@ -1,7 +1,7 @@
 import { TreeNode } from "../src/DataStructures/TreeNode";
 import { ListNode } from "../src/DataStructures/ListNode";
 import { Util } from "../src/Util";
-import { expect, test } from 'vitest'
+import { describe, expect, it, test } from 'vitest'
 import { Node } from "../src/DataStructures/Node";
 
 const util = new Util();
@@ -40,6 +40,62 @@ test("convert circular ListNode to string", () => {
   const actual = util.convertListNodeToString(head);
   expect(actual).toEqual("1->2->3->1");
 })
+
+describe('generateTreeNode', () => {
+  it('should return null for empty array', () => {
+    expect(util.generateTreeNode([])).toBeNull();
+  });
+
+  it('should return null for array with first element as null', () => {
+    expect(util.generateTreeNode([null])).toBeNull();
+  });
+
+  it('should create a single node tree', () => {
+    const root = util.generateTreeNode([1]);
+    expect(root).not.toBeNull();
+    expect(root!.val).toBe(1);
+    expect(root!.left).toBeNull();
+    expect(root!.right).toBeNull();
+  });
+
+  it('should create a complete binary tree', () => {
+    const root = util.generateTreeNode([1, 2, 3, 4, 5, 6, 7]);
+    expect(root).not.toBeNull();
+    expect(root!.val).toBe(1);
+    expect(root!.left!.val).toBe(2);
+    expect(root!.right!.val).toBe(3);
+    expect(root!.left!.left!.val).toBe(4);
+    expect(root!.left!.right!.val).toBe(5);
+    expect(root!.right!.left!.val).toBe(6);
+    expect(root!.right!.right!.val).toBe(7);
+  });
+
+  it('should create an incomplete binary tree', () => {
+    const root = util.generateTreeNode([1, 2, 3, null, 5, null, 7]);
+    expect(root).not.toBeNull();
+    expect(root!.val).toBe(1);
+    expect(root!.left!.val).toBe(2);
+    expect(root!.right!.val).toBe(3);
+    expect(root!.left!.left).toBeNull();
+    expect(root!.left!.right!.val).toBe(5);
+    expect(root!.right!.left).toBeNull();
+    expect(root!.right!.right!.val).toBe(7);
+  });
+
+  it('should handle mixed null and non-null values', () => {
+    const root = util.generateTreeNode([1, null, 3, 4, null, 6, null]);
+    expect(root).not.toBeNull();
+    expect(root!.val).toBe(1);
+    expect(root!.left).toBeNull();
+    expect(root!.right!.val).toBe(3);
+    expect(root!.right!.left!.val).toBe(4);
+    expect(root!.right!.right).toBeNull();
+    expect(root!.right!.left!.left!.val).toBe(6);
+    expect(root!.right!.left!.right).toBeNull();
+    expect(root!.right!.right).toBeNull();
+  });
+});
+
 
 
 test.each([
